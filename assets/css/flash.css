@@ -1,0 +1,16 @@
+@keyframes flash {
+	from {
+		opacity: 0.4;
+	}
+	
+	to {}
+}
+
+
+
+.flash{
+
+  background: white;
+  animation: flash 2s;
+
+}
