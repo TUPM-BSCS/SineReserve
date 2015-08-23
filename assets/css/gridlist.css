@@ -1,0 +1,45 @@
+ul.rig {
+	list-style: none;
+	font-size: 0px;
+	margin-left: 0.5%; /* should match li left margin */
+}
+ul.rig li {
+    width: 32.5%;
+    margin-right: 0.5%;
+    margin-bottom: 0.5%;
+	display: inline-block;
+    float: left;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+ul.rig .double-span {
+    width: 65.33333333%;
+}
+
+ul.rig .whole-span {
+    width: 100%;
+}
+
+@media only screen and (min-width : 601px) {
+    ul.rig li {
+        width: 24.5%;
+    }
+
+    ul.rig .double-span {
+        width: 49.33333333%;
+    }
+}
+
+@media only screen and (min-width : 993px) {
+    ul.rig li {
+        width: 16.166666667%; 
+    }
+
+    ul.rig .double-span {
+        width: 32.666666667%;
+    }
+}

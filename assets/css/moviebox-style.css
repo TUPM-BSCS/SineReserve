@@ -1,0 +1,56 @@
+.movie-box {
+}
+
+.crop {
+	height: 0px;
+	padding-bottom: 110%;
+	overflow-y: hidden;
+}
+
+.desc-container {
+	height: 12.29vw;
+	background-color: #a33624;
+	color: #faffff;
+}
+
+@media only screen and (min-width : 601px) {
+    .desc-container {
+        height: 6.29vw
+    }
+}
+
+@media only screen and (min-width : 993px) {
+    .desc-container {
+        height: 4.29vw 
+    }
+}
+
+.desc-padded {
+	padding-left: 7%;
+	padding-top: 4%;
+	padding-bottom: 30%;
+	text-overflow: ellipsis;
+	font-size: 0.9rem;
+	line-height: 1.3;
+}
+
+.ticket-icon {
+	float: right;
+	padding: 7%;
+	margin-top: 2%;
+}
+
+.movie-span {
+	display: block; 
+	overflow: hidden; 
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.movie-title {
+	margin-bottom: 2%;
+}
+
+.movie-sub {
+	font-size: 0.7rem;
+}
