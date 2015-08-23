@@ -5,5 +5,11 @@ class Homepage extends CI_Controller {
 		$data['title'] = 'SineReserve';
 		$this->load->view('index', $data);
 	}
+	public function movie(){
+		$this->load->helper('url');
+		$data['title'] = 'Movie Page';
+		$this->load->view('moviepage', $data);
+	}
+	
 }
 ?>
