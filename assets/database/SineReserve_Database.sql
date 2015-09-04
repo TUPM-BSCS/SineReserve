@@ -29,6 +29,19 @@ CREATE TABLE `branch` (
 
 /*Data for the table `branch` */
 
+/*Table structure for table `card` */
+
+DROP TABLE IF EXISTS `card`;
+
+CREATE TABLE `card` (
+  `card_no` varchar(10) NOT NULL DEFAULT '',
+  `card_pin` varchar(4) DEFAULT NULL,
+  `card_points` decimal(9,4) DEFAULT NULL,
+  PRIMARY KEY (`card_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `card` */
+
 /*Table structure for table `cinema` */
 
 DROP TABLE IF EXISTS `cinema`;
@@ -55,6 +68,7 @@ CREATE TABLE `movie` (
   `mov_name` varchar(20) DEFAULT NULL,
   `mov_desc` text,
   `mov_rating` varchar(4) DEFAULT NULL,
+  `mov_cost` decimal(9,4) DEFAULT NULL,
   PRIMARY KEY (`mov_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -135,7 +149,10 @@ CREATE TABLE `user` (
   `sex` varchar(6) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
   `address` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`username`)
+  `card_no` varchar(10) NOT NULL,
+  PRIMARY KEY (`username`),
+  KEY `card_no` (`card_no`),
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`card_no`) REFERENCES `card` (`card_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
