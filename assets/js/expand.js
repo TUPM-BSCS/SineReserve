@@ -12,6 +12,7 @@
     yVal = wHeight / bHeight + 0.03;
     expand = function () {
         var aBlock, num;
+        closeContent();
         $('#clicked-block').removeAttr('id');
         $(this).attr('id', 'clicked-block');
         num = $(this).index();
@@ -19,7 +20,6 @@
         $('#clicked-block').removeAttr('id');
         aBlock.attr('id', 'clicked-block');
         if (!aBlock.hasClass('active')) {
-            bname.css('opacity', '0');
             aBlock.css({
                 'transform': 'scale(' + xVal + ',' + yVal + ')',
                 '-webkit-transform': 'scale(' + xVal + ',' + yVal + ')'
@@ -38,7 +38,6 @@
         aContent.addClass('active');
     };
     closeContent = function () {
-        bname.css('opacity', '1');
         content.css({
             'transition': 'all 0.1s 0 ease-out',
             '-webkit-transition': 'all 0.1s 0 ease-out'
