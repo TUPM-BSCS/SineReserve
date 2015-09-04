@@ -24,27 +24,31 @@
 			</nav>
 		</div>
 
-		<div class="parallax-container">
-
 		<div class="container">
 			<h5>Kingsman: The Secret Service <span class="blue-text"> (2014)[R-13]</span></h5>
 			<hr />
-			<!-- <div class="divider"></div> -->
+			<div class="container hide-on-med-and-up">
+				<div class="section">
+					<img src="<?php echo base_url();?>assets/images/kingsman.jpg" class="responsive-img movie-page-poster" />
+				</div>
+			</div>
 			<div class="row">
-				<div class="col s3"><img src="<?php echo base_url();?>assets/images/kingsman.jpg" class="responsive-img movie-page-poster" /></div>
-				<div class="col s9">
+				<div class="col s3 hide-on-small-only"><img src="<?php echo base_url();?>assets/images/kingsman.jpg" class="responsive-img movie-page-poster" /></div>
+				<div class="col s12 m9">
 					<ul class="tabs movie-tabs white">
 			        <li class="tab col s3"><a href="#details">Details</a></li>
 			        <li class="tab col s3"><a href="#photos">Photos</a></li>
 			        <li class="tab col s3"><a href="#videos">Videos</a></li>
 			        <li class="tab col s3"><a href="#reviews">Reviews</a></li>
 			      </ul>
-			      <br />
-			      <div id="videos">
-			      	<div class="video-container">
-				       <iframe width="560" height="315" src="https://www.youtube.com/embed/xkX8jKeKUEA" frameborder="0" allowfullscreen></iframe>
+			      <div class="section">
+				      <div id="videos">
+				      	<div class="video-container">
+					       <iframe width="853" height="480" src="https://www.youtube.com/embed/xkX8jKeKUEA" frameborder="0" allowfullscreen></iframe>
+					       wiew
+					      </div>
 				      </div>
-			      </div>
+				   </div>
 				</div>
 			</div>
 		</div>
@@ -55,9 +59,9 @@
 	   </div>
 
 		<!-- Javascript  -->
-		<script type="<?php echo base_url();?>assets/text/javascript" src="js/jquery-2.1.4.min.js"></script>
-		<script type="<?php echo base_url();?>assets/text/javascript" src="js/materialize.min.js"></script>
-		<script type="<?php echo base_url();?>assets/text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/script.js"></script>
 	</body>
 
 </html>

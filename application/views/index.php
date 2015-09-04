@@ -31,7 +31,7 @@
 		<!-- Banner -->
 		<div class="banner-container">
 			<main>
-		      <h1>This is the Banner.</h1>
+		      <h1>This is the Main Banner</h1>
 		    </main>
 		    <!-- Component starts here-->
 		    <ul class="blocks-names">
@@ -52,23 +52,23 @@
 		      <li class="blocks-content__content">
 		        <div class="content__close"></div>
 		        <h2>Movies</h2>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae modi esse, totam sequi non quae, rerum facilis nesciunt iusto praesentium officiis assumenda dignissimos. Saepe, facere incidunt. Laudantium quisquam asperiores sint.</p><img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
+		        <img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
 		      </li>
 		      <li class="blocks-content__content">
 		        <h2>Promos</h2>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ducimus voluptate velit quae cumque neque minima harum libero eligendi alias laboriosam ad, consequuntur error atque incidunt assumenda sapiente! Architecto, excepturi?</p><img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
+		        <img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
 		      </li>
 		      <li class="blocks-content__content">
 		        <h2>Events</h2>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint eligendi quis accusantium recusandae iusto sed, magni iure magnam, architecto quisquam pariatur minus, rem alias. Eum voluptatem maiores quae reiciendis cupiditate.</p><img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
+		        <img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
 		      </li>
 		      <li class="blocks-content__content">
 		        <h2>Social</h2>
-		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus officiis voluptates et, atque animi quae hic dolorem neque magnam reprehenderit sint dolor omnis modi mollitia labore quidem aspernatur ab architecto.</p><img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
+		        <img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
 		      </li>
 		      <li class="blocks-content__content">
 		        <h2>Duck</h2>
-		        <p>Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck Duck </p><img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
+		        <img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
 		      </li>
 		    </ul>
 		</div>
