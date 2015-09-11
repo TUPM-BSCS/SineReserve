@@ -1,5 +1,5 @@
 <?php
-class Homepage extends CI_Controller {
+class Home extends CI_Controller {
 	public function home(){
 		$this->load->helper('url');
 		$data['title'] = 'SineReserve';
