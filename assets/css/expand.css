@@ -180,26 +180,13 @@
   font-size: 1.2rem;
 }
 
-@media only screen and (max-width : 992px) {
-
-  .blocks-names .blocks__name {
-    font-size: 1rem;
-  }
-}
-
-@media only screen and (max-width : 600px) {
-
-  .blocks-names .blocks__name {
-    font-size: 0.8rem;
-  }
-}
 /* Demo */
 main {
   position: relative;
   z-index: 1;
   padding: 3% 5%;
   height: 70vh;
-  min-height: 265px;
+  /*min-height: 265px;*/
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -214,6 +201,29 @@ main {
   background: rgba(237,201,130,0.85);
   /*background: rgba(158,158,158,0.85);*/
 }
+
+@media only screen and (max-width : 992px) {
+
+  .blocks-names .blocks__name {
+    font-size: 1rem;
+  }
+
+  main {
+    height: 60vh;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+
+  .blocks-names .blocks__name {
+    font-size: 0.8rem;
+  }
+
+  main {
+    height: 50vh;
+  }
+}
+
 
 #clicked-block {
   z-index: -1;
