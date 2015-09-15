@@ -59,12 +59,12 @@
         var aBlock;
         if (block.hasClass('active')) {
             aBlock = $('.blocks__block.active');
-            wHeight = $('.banner-container').outerheight();
+            wHeight = $('.banner-container').outerHeight();
             wWidth = $('.banner-container').width();
             bHeight = block.height();
             bWidth = block.width();
             xVal = Math.round(wWidth / bWidth) + 0.03;
-            yVal = Math.round(wHeight / bHeight) + 0.04;
+            yVal = wHeight / bHeight + 0.03;
             aBlock.css({
                 'transform': 'scale(' + xVal + ',' + yVal + ')',
                 '-webkit-transform': 'scale(' + xVal + ',' + yVal + ')'

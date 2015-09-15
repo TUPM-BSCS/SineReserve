@@ -33,23 +33,23 @@
 .blocks__block:nth-child(2) {
   background: #db5b4a;
   /*background: #FF5252;*/
-  -webkit-transform-origin: 25% 100%;
-      -ms-transform-origin: 25% 100%;
-          transform-origin: 25% 100%;
+  -webkit-transform-origin: 33% 100%;
+      -ms-transform-origin: 33% 100%;
+          transform-origin: 33% 100%;
 }
 .blocks__block:nth-child(3) {
   background: #e2bb7f;
   /*background: #CDDC39;*/
-  -webkit-transform-origin: 50% 100%;
-      -ms-transform-origin: 50% 100%;
-          transform-origin: 50% 100%;
+  -webkit-transform-origin: 67% 100%;
+      -ms-transform-origin: 67% 100%;
+          transform-origin: 67% 100%;
 }
 .blocks__block:nth-child(4) {
   background: #f67b7d;
   /*background: #FF4081;*/
-  -webkit-transform-origin: 75% 100%;
-      -ms-transform-origin: 75% 100%;
-          transform-origin: 75% 100%;
+  -webkit-transform-origin: 100% 100%;
+      -ms-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
 }
 .blocks__block:nth-child(5) {
   background: #a1775a;

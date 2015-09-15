@@ -12,7 +12,6 @@
   		<link href="<?php echo base_url();?>assets/css/new-moviebox-style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   		<link href="<?php echo base_url();?>assets/css/gridlist.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   		<link href="<?php echo base_url();?>assets/css/expand.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  		<!-- <link href="css/modal.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
   		<link href="<?php echo base_url();?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   		
   		<link href="<?php echo base_url();?>assets/css/lol.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -39,14 +38,14 @@
 		      <li class="blocks__name">Promos</li>
 		      <li class="blocks__name">Events</li>
 		      <li class="blocks__name">Social</li>
-		      <li class="blocks__name">Duck</li>
+		      <!-- <li class="blocks__name">Duck</li> -->
 		    </ul>
 		    <ul class="blocks">
 		      <li id="1" class="blocks__block"></li>
 		      <li id="2" class="blocks__block"></li>
 		      <li id="3" class="blocks__block"></li>
 		      <li id="4" class="blocks__block"></li>
-		      <li id="5" class="blocks__block"></li>
+		      <!-- <li id="5" class="blocks__block"></li> -->
 		    </ul>
 		    <ul class="blocks-content">
 		      <li class="blocks-content__content">
@@ -64,10 +63,6 @@
 		      </li>
 		      <li class="blocks-content__content">
 		        <h2>Social</h2>
-		        <img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
-		      </li>
-		      <li class="blocks-content__content">
-		        <h2>Duck</h2>
 		        <img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
 		      </li>
 		    </ul>
@@ -194,7 +189,6 @@
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/expand.js"></script>
-		<!--<script type="text/javascript" src="js/modal.js"></script>-->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/script.js"></script>
 	</body>
 </html>
