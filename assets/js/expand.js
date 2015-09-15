@@ -4,14 +4,14 @@
     bname = $('.blocks__name');
     content = $('.blocks-content__content');
     closeBtn = $('.blocks__content-close');
-    wHeight = $('.banner-container').outerHeight();
-    wWidth = $('.banner-container').outerWidth();
-    bHeight = block.outerHeight();
-    bWidth = block.outerWidth();
-    xVal = Math.round(wWidth / bWidth) + 0.03;
-    yVal = wHeight / bHeight + 0.03;
     expand = function () {
         var aBlock, num;
+        var wHeight = $('.banner-container').outerHeight();
+        var wWidth = $('.banner-container').outerWidth();
+        var bHeight = block.outerHeight();
+        var bWidth = block.outerWidth();
+        var xVal = Math.round(wWidth / bWidth) + 0.03;
+        var yVal = wHeight / bHeight + 0.03;
         closeContent();
         $('#clicked-block').removeAttr('id');
         $(this).attr('id', 'clicked-block');
