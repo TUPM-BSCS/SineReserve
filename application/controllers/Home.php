@@ -26,7 +26,7 @@ class Home extends CI_Controller {
 			}
 		}
 
-		//get all mov_name from movie_table that has a mov_id taken from previous array
+		//get all mov_name and mov_poster from movie_table that has a mov_id taken from previous array
 		if(count($mov_ids) > 0) {
 			$this->load->model('movies_model');
 			$query = $this->movies_model->get_movies_by_id($mov_ids, array('mov_name', 'mov_poster'));
@@ -35,11 +35,7 @@ class Home extends CI_Controller {
 			}
 		}
 
-		//get all mov_posters from movie_table that has a mov_id taken from previous array
-
-		//
-
-		echo var_dump($data);
+		// echo var_dump($data);
 
 
 		$this->load->view('index', $data);

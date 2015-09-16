@@ -89,8 +89,29 @@
 
 		<!-- Tab-Contents -->
 		<div class="container">
-	      	<div id="now-showing">
-	      		<ul class="rig">
+	      <div id="now-showing">
+	      	<ul class="rig">
+	      		<?php
+
+	      			foreach ($movie_list['now_showing'] as $movie) {
+	      				echo
+	      					'<li>
+	      						<div class="movie-box">
+	      							<div class="image-container">
+	      								<img src="' . base_url() . $movie['poster'] . '">
+	      							</div>
+	      							<div class="desc-container">
+	      								<div class="absolute-desc">
+	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
+	      									<span class="movie-title">' . $movie['name'] . '</span>
+	      									<span class="movie-stat">Action</span>
+	      								</div>
+	      							</div>
+	      						</div>
+	      					</li>';
+	      			}
+
+	      		?>
 			    	<li>
 			    		<div class="movie-box">
 							<div class="image-container"><img src="<?php echo base_url();?>assets/images/kingsman.jpg"></div>
