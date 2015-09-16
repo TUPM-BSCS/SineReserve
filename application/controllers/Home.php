@@ -29,13 +29,17 @@ class Home extends CI_Controller {
 		//get all mov_name from movie_table that has a mov_id taken from previous array
 		if(count($mov_ids) > 0) {
 			$this->load->model('movies_model');
-			$query = $this->movies_model->get_movies_by_id($mov_ids, array('mov_name'));
+			$query = $this->movies_model->get_movies_by_id($mov_ids, array('mov_name', 'mov_poster'));
 			foreach($query->result() as $row) {
-				array_push($data['movie_list']['now_showing'], $row->mov_name);
+				array_push($data['movie_list']['now_showing'], array('name'=>$row->mov_name, 'poster'=>$row->mov_poster));
 			}
 		}
 
-		var_dump($data);
+		//get all mov_posters from movie_table that has a mov_id taken from previous array
+
+		//
+
+		echo var_dump($data);
 
 
 		$this->load->view('index', $data);
