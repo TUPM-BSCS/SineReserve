@@ -10,7 +10,7 @@
   		<!-- CSS  -->
   		<link href="<?php echo base_url();?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   		<link href="<?php echo base_url();?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  		
+  		<link href="<?php echo base_url();?>assets/css/moviepage.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   		<link href="<?php echo base_url();?>assets/css/lol.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	</head>
 	
@@ -34,7 +34,7 @@
 			</div>
 			<div class="row">
 				<div class="col s9">
-							<p>*insert tab here* A movie about Lorem who fell in love with Ipsum but dolor sit Amet was not in favor of this love affair. The story revolves around adisciping elit and Nunc nec magna orci lobortis cursus always.</p>
+							<p class="indent justify">A movie about Lorem who fell in love with Ipsum but dolor sit Amet was not in favor of this love affair. The story revolves around adisciping elit and Nunc nec magna orci lobortis cursus always.</p>
 							<h6>Genre:</h6>
 								<a class="waves-effect waves-light btn">Love Story</a>
 								<a class="waves-effect waves-light btn">Comedy</a>
@@ -68,27 +68,32 @@
 						</div>
 
 						<div id="reviews">
-							<?php
+						<?php
+							for($i = 0; $i < sizeof($movie_reviews); $i++) {
+						?>
+								<div class="review-card">
+								<h6 class="bold"><?php echo $movie_reviews[$i]['title'] ?></h6>
+								<h6>
 
-								for($j=0;$j<3;$j++){
-									echo'<div class="review-card" style="padding: 2em;">
-										<h6 class="" style="font-weight: bold;">
-											Review Title Lorem Ipsum
-										</h6>
-										<h6>';
-											
+								<?php
+									for($j = 0; $j < $movie_reviews[$i]['user_rating']; $j++) {
+								?>
+										<i class='tiny mdi-action-stars'></i>
+								<?php
+									}
+								?>
 
-												for($i=0;$i<5;$i++){echo "<i class='tiny mdi-action-stars'></i>";}
-												echo " (5 out of 5) 100%<br />";
-									echo'		
-											Sept 9, 2015 10:30 PM
-										</h6>
-										<p class="" style="margin: 2em 0px; font-style: italic;">"This movie is so Lorem Ipsum dolor sit amet, the cast was portrayed consectetur adipiscing elit very much. The story was Nunc nec magna non orci lobortis cursus."</p>
-										<h6 class="right-align">by renzoralph07</h6>
-									</div>
-									';
-								}
-							?>
+								<?php echo '('.$movie_reviews[$i]['user_rating'].' out of 5)' ?>
+								<br />
+								<!-- <?php echo $movie_reviews[$i]['date'] ?> -->
+
+								</h6>
+								<p class="review italic justify"> "<?php echo $movie_reviews[$i]['review'] ?>" </p>
+								<h6 class="right-align"> <?php echo $movie_reviews[$i]['username'] ?> </h6>
+								</div>
+						<?php
+							}
+						?>
 						</div>
 
 				   </div>
