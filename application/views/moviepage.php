@@ -33,28 +33,29 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col s3 hide-on-small-only"><img src="<?php echo base_url();?>assets/images/kingsman.jpg" class="responsive-img movie-page-poster materialboxed" /></div>
-				<div class="col s12 m9">
+				<div class="col s9">
+							<p>*insert tab here* A movie about Lorem who fell in love with Ipsum but dolor sit Amet was not in favor of this love affair. The story revolves around adisciping elit and Nunc nec magna orci lobortis cursus always.</p>
+							<h6>Genre:</h6>
+								<a class="waves-effect waves-light btn">Love Story</a>
+								<a class="waves-effect waves-light btn">Comedy</a>
+								<a class="waves-effect waves-light btn">Sci-fi</a>
+							
+							<p>  </p>
+							<h6>Cast:</h6>
+							<ul>
+								<li>Anna Kendrick as Lorem</li>
+								<li>Johnny Depp as Ipsum</li>
+							</ul>
+						</div>
+				<div class="col s3 hide-on-small-only"><img src="<?php echo base_url();?>assets/images/kingsman.jpg" class="responsive-img movie-page-poster materialboxed" /><a class="waves-effect waves-teal btn-flat center-align" style="width: 100%;">Reserve</a></div>
+			</div>
+				<div class="col s12 m12">
 					<ul class="tabs movie-tabs white">
-			        <li class="tab col s3"><a href="#details">Details</a></li>
 			        <li class="tab col s3"><a href="#photos">Photos</a></li>
 			        <li class="tab col s3"><a href="#videos">Videos</a></li>
 			        <li class="tab col s3"><a href="#reviews">Reviews</a></li>
 			      </ul>
 			      <div class="section">
-
-						<div id="details">
-							<p>*insert tab here* A movie about Lorem who fell in love with Ipsum but dolor sit Amet was not in favor of this love affair. The story revolves around adisciping elit and Nunc nec magna orci lobortis cursus always.</p>
-							<h6>Genre:</h6>
-							<ul style="li{list-style-type:none; float:left display; block}">
-								<li><a href="#">Love Story</a></li>
-								<li><a href="#">Comedy</a></li>
-								<li><a href="#">Science Fiction</a></li>
-							</ul>
-							<p>  </p>
-							<h6>Cast:</h6>
-							
-						</div>
 
 						<div id="photos">
 							Photos:
@@ -67,26 +68,31 @@
 						</div>
 
 						<div id="reviews">
-							<div class="review-card" style="padding: 2em;">
-								<h6 class="" style="font-weight: bold;">
-									Review Title Lorem Ipsum
-								</h6>
-								<h6>
-									<?php
+							<?php
 
-										for($i=0;$i<5;$i++){echo "<i class='tiny mdi-action-stars'></i>";}
-										echo " (5 out of 5) 100%<br />";
-									?>
-									Sept 9, 2015 10:30 PM
-								</h6>
-								<p class="" style="margin: 2em 0px; font-style: italic;">"This movie is so Lorem Ipsum dolor sit amet, the cast was portrayed consectetur adipiscing elit very much. The story was Nunc nec magna non orci lobortis cursus."</p>
-								<h6 class="right-align">by renzoralph07</h6>
-							</div>
+								for($j=0;$j<3;$j++){
+									echo'<div class="review-card" style="padding: 2em;">
+										<h6 class="" style="font-weight: bold;">
+											Review Title Lorem Ipsum
+										</h6>
+										<h6>';
+											
+
+												for($i=0;$i<5;$i++){echo "<i class='tiny mdi-action-stars'></i>";}
+												echo " (5 out of 5) 100%<br />";
+									echo'		
+											Sept 9, 2015 10:30 PM
+										</h6>
+										<p class="" style="margin: 2em 0px; font-style: italic;">"This movie is so Lorem Ipsum dolor sit amet, the cast was portrayed consectetur adipiscing elit very much. The story was Nunc nec magna non orci lobortis cursus."</p>
+										<h6 class="right-align">by renzoralph07</h6>
+									</div>
+									';
+								}
+							?>
 						</div>
 
 				   </div>
 				</div>
-			</div>
 		</div>
 
 		<!-- Tab-Contents -->
