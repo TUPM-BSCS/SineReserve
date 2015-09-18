@@ -1,4 +1,5 @@
-<!HTML DOCUMENT>
+<!DOCTYPE HTML>
+<html>
 <head>
 	<!-- META TAGS -->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -61,7 +62,10 @@
 				overflow: hidden;
 				padding-left: 0;
 			}
-		}
+			
+			.responsive-table {
+				width: 100%;
+			}
 	</style>
 </head>
 <body>	
@@ -79,66 +83,228 @@
 	</header>
 	<div class="side_nav">
 		<ul id="slide-out" class="side-nav fixed">
-			<li><a href="#">Tab 1</a></li>
-			<li><a href="#">Tab 2</a></li>
-			<li><a href="#">Tab 3</a></li>
-			<li><a href="#">Tab 4</a></li>
+			<li><a href="#">Branches</a></li>
+			<li><a href="#">Cinemas</a></li>
+			<li><a href="#">Movies</a></li>
+			<li><a href="#">Shows</a></li>
 		</ul>
 		<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu hide-on-large-only"></i></a>
 	</div>
-	<main>
-		<div class="row">
-			<div class="col s12">
-			  <ul class="tabs">
-				<li class="tab col s3"><a href="#test1">Test 1</a></li>
-				<li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-				<li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
-				<li class="tab col s3"><a href="#test4">Test 4</a></li>
-			  </ul>
-			</div>
-			<div id="test1" class="col s12">Test 1</div>
-			<div id="test2" class="col s12">Test 2</div>
-			<div id="test3" class="col s12">Test 3</div>
-			<div id="test4" class="col s12">Test 4</div>
-		</div>     
-		<div id="tab-content">				
+	<main class='row'>
+		<div id="tab-content" class="col s12 container">				
 			<div id="tab1">
-				<p>This is a very simple jQuery tabbed navigation.</p>
+				<h1> Branches Page</h1>
+				<a class="modal-trigger waves-effect waves-light btn green" href='#new_branch'>New</a>
+				<a class="waves-effect waves-light btn blue">Update</a>
+				<a class="waves-effect waves-light btn red">Delete</a>
+				<table class='responsive-table bordered striped'>
+					<thead>
+					  <tr>
+						  <th data-field="id">Name</th>
+						  <th data-field="name">Item Name</th>
+						  <th data-field="price">Item Price</th>
+					  </tr>
+					</thead>
+
+					<tbody>
+					  <tr>
+						<td>Alvin</td>
+						<td>Eclair</td>
+						<td>$0.87</td>
+					  </tr>
+					  <tr>
+						<td>Alan</td>
+						<td>Jellybean</td>
+						<td>$3.76</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					</tbody>
+				 </table>
 			</div>
 			
 			<div id="tab2">
-				<p>This can contain anything.</p>
+				<h1> Cinemas Page</h1>
+				<a class="waves-effect waves-light btn green">New</a>
+				<a class="waves-effect waves-light btn blue">Update</a>
+				<a class="waves-effect waves-light btn red">Delete</a>
+				<table class='responsive-table bordered striped'>
+					<thead>
+					  <tr>
+						  <th data-field="id">Name</th>
+						  <th data-field="name">Item Name</th>
+						  <th data-field="price">Item Price</th>
+					  </tr>
+					</thead>
+
+					<tbody>
+					  <tr>
+						<td>Alvin</td>
+						<td>Eclair</td>
+						<td>$0.87</td>
+					  </tr>
+					  <tr>
+						<td>Alan</td>
+						<td>Jellybean</td>
+						<td>$3.76</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					</tbody>
+				 </table>
 			</div>
 			
 			<div id="tab3">
-				<p>Like photos:</p><br />
-				<img src="http://www.catname.org/images/cat04.jpg" alt=""/>
+				<h1> Movies Page</h1>
+				<a class="waves-effect waves-light btn green">New</a>
+				<a class="waves-effect waves-light btn blue">Update</a>
+				<a class="waves-effect waves-light btn red">Delete</a>
+				<table class='responsive-table bordered striped'>
+					<thead>
+					  <tr>
+						  <th data-field="id">Name</th>
+						  <th data-field="name">Item Name</th>
+						  <th data-field="price">Item Price</th>
+					  </tr>
+					</thead>
+
+					<tbody>
+					  <tr>
+						<td>Alvin</td>
+						<td>Eclair</td>
+						<td>$0.87</td>
+					  </tr>
+					  <tr>
+						<td>Alan</td>
+						<td>Jellybean</td>
+						<td>$3.76</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					</tbody>
+				 </table>
 			</div>
 			
 			<div id="tab4">
-				<p>Or videos:</p><br />
+				<h1> Shows Page</h1>
+				<a class="waves-effect waves-light btn green">New</a>
+				<a class="waves-effect waves-light btn blue">Update</a>
+				<a class="waves-effect waves-light btn red">Delete</a>
+				<table class='responsive-table bordered striped'>
+					<thead>
+					  <tr>
+						  <th data-field="id">Name</th>
+						  <th data-field="name">Item Name</th>
+						  <th data-field="price">Item Price</th>
+					  </tr>
+					</thead>
+
+					<tbody>
+					  <tr>
+						<td>Alvin</td>
+						<td>Eclair</td>
+						<td>$0.87</td>
+					  </tr>
+					  <tr>
+						<td>Alan</td>
+						<td>Jellybean</td>
+						<td>$3.76</td>
+					  </tr>
+					  <tr>
+						<td>Jonathan</td>
+						<td>Lollipop</td>
+						<td>$7.00</td>
+					  </tr>
+					</tbody>
+				 </table>
+			</div>	
+		</div>	
+		<!-- MODALS -->
+		<div id="new_branch" class="modal modal-fixed-footer">
+			<div class="modal-content">
+			  <h4>Modal Header</h4>
+			  <p>A bunch of text</p>
 			</div>
-			
-		</div>		
+			<div class="modal-footer">
+			  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+			</div>
+		</div>
 	</main>
 	
 	<!-- JS TAGS -->
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.js"></script>
 	<script>
-		$(".button-collapse").sideNav();
-		
-		$('#tab-content div').hide();
-		$('#tab-content div:first').show();
-
-		$('.side-nav li').click(function() {
-			$('.side-nav li').removeClass("active");
-			$(this).addClass("active");
+		$(document).ready(function(){
+			$(".button-collapse").sideNav();
+			
 			$('#tab-content div').hide();
+			$('#tab-content div:first').show();
 
-			var indexer = $(this).index(); //gets the current index of (this) which is #nav li
-			$('#tab-content div:eq(' + indexer + ')').fadeIn(); //uses whatever index the link has to open the corresponding box 
-			$(".button-collapse").sideNav('hide');
+			$('.side-nav li').click(function() {
+				$('.side-nav li').removeClass("active");
+				$(this).addClass("active");
+				$('#tab-content div').hide();
+
+				var indexer = $(this).index(); //gets the current index of (this) which is #nav li
+				$('#tab-content div:eq(' + indexer + ')').fadeIn(); //uses whatever index the link has to open the corresponding box 
+				$(".button-collapse").sideNav('hide');
+			});
+			
+			$('table tbody tr').click(function(){
+				alert($(this).children().text());
+			});
+			$('.modal-trigger').leanModal();
 		});
 	</script>
 </body>
+</html>
