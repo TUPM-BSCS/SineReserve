@@ -25,49 +25,60 @@
 		</div>
 
 		<div class="container">
-			<h5>Kingsman: The Secret Service <span class="blue-text"> (2014)[R-13]</span></h5>
+			<h5>
+				<?php echo $movie_name; ?>
+				<span class="blue-text"> (2014) <?php echo '[' . $movie_rating . ']' ?></span>
+			</h5>
+
 			<hr />
+
 			<div class="container hide-on-med-and-up">
 				<div class="section">
 					<img src="<?php echo base_url();?>assets/images/kingsman.jpg" class="responsive-img movie-page-poster materialboxed" />
 				</div>
 			</div>
+
 			<div class="row">
 				<div class="col s9">
-							<p class="indent justify">A movie about Lorem who fell in love with Ipsum but dolor sit Amet was not in favor of this love affair. The story revolves around adisciping elit and Nunc nec magna orci lobortis cursus always.</p>
-							<h6>Genre:</h6>
-								<a class="waves-effect waves-light btn">Love Story</a>
-								<a class="waves-effect waves-light btn">Comedy</a>
-								<a class="waves-effect waves-light btn">Sci-fi</a>
-							
-							<p>  </p>
-							<h6>Cast:</h6>
-							<ul>
-								<li>Anna Kendrick as Lorem</li>
-								<li>Johnny Depp as Ipsum</li>
-							</ul>
-						</div>
-				<div class="col s3 hide-on-small-only"><img src="<?php echo base_url();?>assets/images/kingsman.jpg" class="responsive-img movie-page-poster materialboxed" /><a class="waves-effect waves-teal btn-flat center-align" style="width: 100%;">Reserve</a></div>
+					<p> <?php echo $movie_desc ?> </p>
+					
+					<h6>Genre:</h6>
+						<a class="waves-effect waves-light btn">Love Story</a>
+						<a class="waves-effect waves-light btn">Comedy</a>
+						<a class="waves-effect waves-light btn">Sci-fi</a>
+					
+					<p>  </p>
+					<h6>Cast:</h6>
+					<ul>
+						<li>Anna Kendrick as Lorem</li>
+						<li>Johnny Depp as Ipsum</li>
+					</ul>
+				</div>
+
+				<div class="col s3 hide-on-small-only"><img src="<?php echo base_url();?>assets/images/kingsman.jpg" class="responsive-img movie-page-poster materialboxed" />
+					<a class="waves-effect waves-teal btn-flat center-align" style="width: 100%;">Reserve</a>
+				</div>
 			</div>
-				<div class="col s12 m12">
-					<ul class="tabs movie-tabs white">
-			        <li class="tab col s3"><a href="#photos">Photos</a></li>
-			        <li class="tab col s3"><a href="#videos">Videos</a></li>
-			        <li class="tab col s3"><a href="#reviews">Reviews</a></li>
-			      </ul>
-			      <div class="section">
 
-						<div id="photos">
-							Photos:
+			<div class="col s12 m12">
+				<ul class="tabs movie-tabs white">
+					<li class="tab col s3"><a href="#photos">Photos</a></li>
+					<li class="tab col s3"><a href="#videos">Videos</a></li>
+					<li class="tab col s3"><a href="#reviews">Reviews</a></li>
+				</ul>
+
+				<div class="section">
+					<div id="photos">
+						Photos:
+					</div>
+
+					<div id="videos">
+						<div class="video-container">
+							<iframe width="853" height="480" src="https://www.youtube.com/embed/xkX8jKeKUEA" frameborder="0" allowfullscreen></iframe>
 						</div>
+					</div>
 
-						<div id="videos">
-							<div class="video-container">
-								<iframe width="853" height="480" src="https://www.youtube.com/embed/xkX8jKeKUEA" frameborder="0" allowfullscreen></iframe>
-							</div>
-						</div>
-
-						<div id="reviews">
+					<div id="reviews">
 						<?php
 							for($i = 0; $i < sizeof($movie_reviews); $i++) {
 						?>
@@ -94,10 +105,9 @@
 						<?php
 							}
 						?>
-						</div>
-
-				   </div>
+					</div>
 				</div>
+			</div>
 		</div>
 
 		<!-- Tab-Contents -->
