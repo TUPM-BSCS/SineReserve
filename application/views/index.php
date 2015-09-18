@@ -22,57 +22,37 @@
 		<div class ="navbar-fixed">
 			<nav class="grey lighten-4 main-nav ripple" id="meet-1" role="navigation">
 				<div class="nav-wrapper container"> 
-					<a id="logo-container" href="#" class="brand-logo black-text">SineReserve</a>
+					<a id="logo-container" href="#" class="brand-logo black-text">Put a Header/Navi Here | Wanted: Logo Maker</a>
 				</div>
 			</nav>
 		</div>
 		
 		<!-- Banner -->
-		<div class="banner-container">
-			<main>
-		      <h1>This is the Main Banner</h1>
-		    </main>
-		    <!-- Component starts here-->
-		    <ul class="blocks-names">
-		      <li class="blocks__name">Movies</li>
-		      <li class="blocks__name">Promos</li>
-		      <li class="blocks__name">Events</li>
-		      <li class="blocks__name">Social</li>
-		      <!-- <li class="blocks__name">Duck</li> -->
-		    </ul>
-		    <ul class="blocks">
-		      <li id="1" class="blocks__block"></li>
-		      <li id="2" class="blocks__block"></li>
-		      <li id="3" class="blocks__block"></li>
-		      <li id="4" class="blocks__block"></li>
-		      <!-- <li id="5" class="blocks__block"></li> -->
-		    </ul>
-		    <ul class="blocks-content">
-		      <li class="blocks-content__content">
-		        <div class="content__close"></div>
-		        <h2>Movies</h2>
-		        <img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
-		      </li>
-		      <li class="blocks-content__content">
-		        <h2>Promos</h2>
-		        <img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
-		      </li>
-		      <li class="blocks-content__content">
-		        <h2>Events</h2>
-		        <img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
-		      </li>
-		      <li class="blocks-content__content">
-		        <h2>Social</h2>
-		        <img class="blocks__content-close fa fa-close" src="<?php echo base_url();?>assets/images/close-white.png" />
-		      </li>
-		    </ul>
+		<div class="row banner-with-bg"
+		style="background: url('<?php echo base_url();?>assets/images/cinema_house_edited.jpg') no-repeat center center;
+				 background-size: 100%;
+				 -webkit-background-size: cover;
+				 -moz-background-size: cover;
+				 -o-background-size: cover;
+				 background-size: cover;">
+			<div class="container">
+				<div class="col s12">
+					<h2 class="center-align white-text">SineReserve</h2>
+					<h5 class="center-align white-text">Online Reservation Made Easy</h5>
+					<div class="row section">
+					<img class="responsive-img col s6 m4" src="<?php echo base_url();?>assets/images/select_a_movie.png" />
+					<img class="responsive-img col s6 m4" src="<?php echo base_url();?>assets/images/fill_up.png" />
+					<img class="responsive-img col s6 m4 offset-s3" src="<?php echo base_url();?>assets/images/three.png" />
+					</div>
+				</div>
+			</div>
 		</div>
 
 	    <!-- Intermission -->
 	    <div class="section">
 	    	<div class="row container">
 	    		<h2 class="header">Movie Selection</h2>
-	    		<p>The fresh, the latest, the grandest films hand-picked by the most epic critics all over the world.</p>
+	    		<p>The fresh, the latest, the grandest films hand-picked by the most epic critics all over the world</p>
 	    	</div>
 	    </div>
 		

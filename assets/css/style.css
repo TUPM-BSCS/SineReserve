@@ -7,8 +7,12 @@ a {
 	padding: 0 0%;
 }
 
-.row .col:first-child {
+/*.row .col:first-child {
 	margin-left: 0;
+}*/
+
+.row .col {
+	margin-bottom: 10px;
 }
 
 .tab-container {
