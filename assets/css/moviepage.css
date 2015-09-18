@@ -1,0 +1,22 @@
+.review-card{
+	padding: 2em;
+}
+p .review{
+	margin: 2em 0px;
+}
+
+/*Text-Formats*/
+
+.italic{
+	font-style: italic;
+}
+.bold{
+	font-weight: bold;
+}
+.indent{
+	text-indent: 2em;
+}
+.justify{
+	text-align: justify;
+	text-justify: inter-word;
+}
