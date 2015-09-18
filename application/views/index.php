@@ -37,12 +37,12 @@
 				 background-size: cover;">
 			<div class="container">
 				<div class="col s12">
-					<h2 class="center-align white-text">SineReserve</h2>
+					<h2 class="center-align white-text" style="font-weight: 100;">SineReserve</h2>
 					<h5 class="center-align white-text">Online Reservation Made Easy</h5>
 					<div class="row section">
-					<img class="responsive-img col s6 m4" src="<?php echo base_url();?>assets/images/select_a_movie.png" />
-					<img class="responsive-img col s6 m4" src="<?php echo base_url();?>assets/images/fill_up.png" />
-					<img class="responsive-img col s6 m4 offset-s3" src="<?php echo base_url();?>assets/images/three.png" />
+					<img class="responsive-img col s6 m4 l2 offset-l3" src="<?php echo base_url();?>assets/images/select_a_movie.png" />
+					<img class="responsive-img col s6 m4 l2" src="<?php echo base_url();?>assets/images/fill_up.png" />
+					<img class="responsive-img col s6 m4 l2 offset-s3" src="<?php echo base_url();?>assets/images/three.png" />
 					</div>
 				</div>
 			</div>
