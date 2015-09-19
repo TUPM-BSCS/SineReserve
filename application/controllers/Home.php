@@ -46,7 +46,7 @@ class Home extends CI_Controller {
 
 		$data['title'] = 'Movie Page';
 		$data['movie_name'] = $this->movies->get_movie_name(3);
-		$data['movie_desc'] = $this->movies->get_movie_desc(3);
+		$data['movie_desc'] = $this->movies->get_movie_plot(3);
 		$data['movie_rating'] = $this->movies->get_movie_rating(3);
 
 		$data['movie_reviews'] = $this->movies->get_movie_reviews(3);
