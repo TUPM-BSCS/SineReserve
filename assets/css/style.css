@@ -55,23 +55,23 @@ a {
 }
 	
 .movie-tabs .tab a {
-	color: #727272;
+	color: #ffffff;
 }
 
 .movie-tabs .tab a:hover {
 	/*color: #F5F5F5; */
-	color: #727272;
-	background-color: #e0e0e0;
+	color: #ffffff;
+	background-color: #7e57c2;
 }
 
 .movie-tabs .tab .active {
 	/*color: #F5F5F5;*/
-	color: #727272;
-	background-color: #e0e0e0;
+	color: #ffffff;
+	background-color: #673ab7;
 }
 
 .movie-tabs .indicator {
-	background-color: #212121;
+	background-color: #ffffff;
 }
 
 .new-line {
@@ -80,4 +80,8 @@ a {
 
 .movie-page-poster {
 	width: 100%;
+}
+
+.promos-events .col {
+	border: 1px solid #18191b;
 }
