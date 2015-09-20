@@ -18,8 +18,10 @@
 			$result = $this->admin_model->get_branch();
 			foreach($result as $row){
 				array_push($branch_name,$row->bran_name);
-				array_push($branch_address,$row->bran_add);
+				array_push($branch_address,$row->bran_address);
 			}
+			$data['branch_name'] = $branch_name;
+			$data['branch_address'] = $branch_address; 
 			$this->load->view('admin_page', $data);
 		}
 	}

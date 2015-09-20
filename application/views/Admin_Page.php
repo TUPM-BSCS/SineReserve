@@ -69,7 +69,7 @@
 	</style>
 </head>
 <body>	
-	<?php echo vardump($branch_name);?>
+	<?php var_dump($branch_name);?>
 	<header>
 		<div class="navbar-fixed">
 			<nav class="grey lighten-4 main-nav ripple" id="meet-1" role="navigation">

@@ -9,7 +9,7 @@
 			$this->db->select();
 			$this->db->from('branch');
 			$query = $this->db->get();
-			if($query->num_rows > 0)
+			if($query->num_rows() > 0)
 				return $query->result();
 		}
 	}
