@@ -13,27 +13,65 @@ class Home extends CI_Controller {
 		//create now showing array inside root array
 		$data['movie_list']['now_showing'] = array();		
 
+		//create next attraction array inside root array
+		$data['movie_list']['next_attraction'] = array();
+
 		//create coming soon array inside root array
 		$data['movie_list']['coming_soon'] = array();
 
 		//get all mov_id on shows table that has a date today
 		$this->load->model('shows_model');
-		$query = $this->shows_model->get_mov_id_by_date('2015-09-20');
-		$mov_ids = array();
+		$this->load->model('movies_model');
+		$now_showing = array();
+		$next_attraction = array();
+		$coming_soon = array();
+
+		$query = $this->shows_model->get_mov_ids_by_date('2015-09-20');
 		if($query->num_rows() > 0) {
 			foreach($query->result() as $row) {
-				array_push($mov_ids, $row->mov_id);
+				array_push($now_showing, $row->mov_id);
 			}
 		}
 
-		//get all mov_name and mov_poster from movie_table that has a mov_id taken from previous array
-		if(count($mov_ids) > 0) {
-			$this->load->model('movies_model');
-			$query = $this->movies_model->get_movies_by_id($mov_ids, array('mov_name', 'mov_poster_img'));
+		$query2 = $this->shows_model->get_other_mov_ids($now_showing, '2015-09-20');
+		if($query2->num_rows() > 0) {
+			foreach($query2->result() as $row) {
+				array_push($next_attraction, $row->mov_id);
+			}
+		}
+
+		$query3 = $this->movies_model->get_other_mov_ids(array_merge($now_showing, $next_attraction), '2015-09-20');
+		if($query3->num_rows() > 0) {
+			foreach ($query3->result() as $row) {
+				array_push($coming_soon, $row->mov_id);
+			}
+		}
+
+		//get all mov_name and mov_poster from movie_table that has entry in now showing array
+		if(count($now_showing) > 0) {
+			$query = $this->movies_model->get_movies_by_id($now_showing, array('mov_name', 'mov_poster_img'));
 			foreach($query->result() as $row) {
 				array_push($data['movie_list']['now_showing'], array('name'=>$row->mov_name, 'poster'=>$row->mov_poster_img));
 			}
 		}
+
+		//get all mov_name and mov_poster from movie_table that has entry in next attraction array
+		if(count($next_attraction) > 0) {
+			$query = $this->movies_model->get_movies_by_id($next_attraction, array('mov_name', 'mov_poster_img'));
+			foreach($query->result() as $row) {
+				array_push($data['movie_list']['next_attraction'], array('name'=>$row->mov_name, 'poster'=>$row->mov_poster_img));
+			}
+		}
+
+
+		//get all mov_name and mov_poster from movie_table that has entry in coming soon array
+		if(count($coming_soon) > 0) {
+			$query = $this->movies_model->get_movies_by_id($coming_soon, array('mov_name', 'mov_poster_img'));
+			foreach($query->result() as $row) {
+				array_push($data['movie_list']['coming_soon'], array('name'=>$row->mov_name, 'poster'=>$row->mov_poster_img));
+			}
+		}
+
 
 		// echo var_dump($data);
 
