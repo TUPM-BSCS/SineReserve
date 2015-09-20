@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2015 at 08:20 AM
+-- Generation Time: Sep 20, 2015 at 08:36 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `sinereserve`
 --
+CREATE DATABASE IF NOT EXISTS `sinereserve` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `sinereserve`;
 
 -- --------------------------------------------------------
 
@@ -514,7 +516,7 @@ ALTER TABLE `reserved_by`
 --
 ALTER TABLE `review`
   ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`),
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`),
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`);
 
 --
 -- Constraints for table `screenshots`
