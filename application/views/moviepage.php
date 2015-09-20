@@ -47,34 +47,38 @@
 					<?php 
 						for($i = 0; $i < sizeof($movie_genre); $i++) {
 					?>
-						<a class="waves-effect waves-light btn"> <?php echo $movie_genre[$i]['genre_name']; ?> </a>
+						<div class="chip"> <?php echo $movie_genre[$i]['genre_name']; ?> </div>
 					<?php 
 						}
 					?>
 
 					<h6>Cast:</h6>
-					<div>
+					<div class="row">
 					<?php
 						for($i = 0; $i < sizeof($movie_cast); $i++) {
 					?>
-							<div class="row">
-								<div class="col s12 m7">
+<!-- 							<div class="row">
+								<div class="col s12 m7"> -->
+<!--
+
 									<div class="card">
 										<div class="card-image">
 											<img class="responsive-img" src="<?php echo base_url().$movie_cast[$i]['actor_photo']; ?>">
-											<!-- <span class="card-title">Card Title</span> -->
+											<span class="card-title">Card Title</span>
 										</div>
 
 										<div class="card-content">
 											<p><?php echo $movie_cast[$i]['actor_fname'].' '.$movie_cast[$i]['actor_lname']; ?> as <?php echo $movie_cast[$i]['cast_role']; ?></p>
 										</div>
 									</div>
-								</div>
-							</div>
-						<!-- <div class="chip">
-							<img class="circle responsive-img" src="<?php echo base_url().$movie_cast[$i]['actor_photo']; ?>" alt="Actor Photo">
+-->
+
+<!-- 								</div>
+							</div> -->
+						 <div class="chip">
+							<img class="circle" src="<?php echo base_url().$movie_cast[$i]['actor_photo']; ?>" alt="Actor Photo">
 							<?php echo $movie_cast[$i]['actor_fname'].' '.$movie_cast[$i]['actor_lname']; ?> as <?php echo $movie_cast[$i]['cast_role']; ?>
-						</div> -->
+						</div> 
 					<?php
 						}
 					?>
@@ -100,8 +104,7 @@
 							if($movie_screenshots != null) {
 								for($i = 0; $i < sizeof($movie_screenshots); $i++) {
 						?>
-									<img class="responsive-img" src="<?php echo base_url().$movie_screenshots[$i]['sc_url']; ?>" alt="Movie Screenshot">
-
+									<img class="responsive-img materialboxed" src="<?php echo base_url().$movie_screenshots[$i]['sc_url']; ?>" alt="Movie Screenshot">
 						<?php
 								}
 							}
@@ -144,7 +147,7 @@
 							}
 
 							else {
-								echo 'no review yet';
+								echo 'no reviews yet';
 						?>
 								<!-- INSERT "NO REVIEWS YET CODE HERE" -->
 						<?php
