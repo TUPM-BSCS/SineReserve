@@ -19,6 +19,18 @@ class movies extends CI_Model {
 		return false;
 	}
 
+	public function get_movie_poster($mov_id) {
+		$this->db->select('mov_poster');
+		$this->db->where('mov_id', $mov_id);
+		$this->db->from('movie');
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return $query->row()->mov_poster;
+		}
+		return false;
+	}
+
 	public function get_movie_plot($mov_id) {
 		$this->db->select('mov_plot');
 		$this->db->where('mov_id', $mov_id);
@@ -67,18 +79,6 @@ class movies extends CI_Model {
 		return false;
 	}
 
-	public function get_movie_poster($mov_id) {
-		$this->db->select('mov_poster');
-		$this->db->where('mov_id', $mov_id);
-		$this->db->from('movie');
-		$query = $this->db->get();
-
-		if($query->num_rows() > 0) {
-			return $query->row()->mov_poster;
-		}
-		return false;
-	}
-
 	public function get_movie_trailer($mov_id) {
 		$this->db->select('mov_trailer');
 		$this->db->where('mov_id', $mov_id);
@@ -92,6 +92,7 @@ class movies extends CI_Model {
 	}
 
 	public function get_movie_genre($mov_id) {
+		$this->db->select('genre_name');
 		$this->db->where('mov_id', $mov_id);
 		$this->db->from('genre_of_movie');
 		$this->db->join('genre', 'genre_of_movie.genre_id = genre.genre_id');
@@ -104,6 +105,7 @@ class movies extends CI_Model {
 	}
 
 	public function get_movie_cast($mov_id) {
+		$this->db->select('actor_fname, actor_lname, actor_photo, cast_role');
 		$this->db->where('mov_id', $mov_id);
 		$this->db->from('cast');
 		$this->db->join('actor', 'cast.actor_id = actor.actor_id');
@@ -116,6 +118,7 @@ class movies extends CI_Model {
 	}
 
 	public function get_movie_screenshots($mov_id) {
+		$this->db->select('sc_details, sc_url');
 		$this->db->where('mov_id', $mov_id);
 		$this->db->from('screenshots');
 		$query = $this->db->get();

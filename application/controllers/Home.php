@@ -44,12 +44,19 @@ class Home extends CI_Controller {
 	public function movie(){
 		$this->load->model('movies');
 
-		$data['title'] = 'Movie Page';
-		$data['movie_name'] = $this->movies->get_movie_name(3);
-		$data['movie_desc'] = $this->movies->get_movie_plot(3);
-		$data['movie_rating'] = $this->movies->get_movie_rating(3);
+		$movie = 3;
 
-		$data['movie_reviews'] = $this->movies->get_movie_reviews(3);
+		$data['title'] = 'Movie Page';
+		$data['movie_name'] = $this->movies->get_movie_name($movie);
+		$data['movie_rating'] = $this->movies->get_movie_rating($movie);
+		$data['movie_poster'] = $this->movies->get_movie_poster($movie);
+		$data['movie_plot'] = $this->movies->get_movie_plot($movie);
+		$data['movie_running_time'] = $this->movies->get_movie_running_time($movie);
+		$data['movie_genre'] = $this->movies->get_movie_genre($movie);
+		$data['movie_cast'] = $this->movies->get_movie_cast($movie);
+		$data['movie_screenshots'] = $this->movies->get_movie_screenshots($movie);
+		$data['movie_trailer'] = $this->movies->get_movie_trailer($movie);
+		$data['movie_reviews'] = $this->movies->get_movie_reviews($movie);
 		
 		// print_r($data);
 		// die();
