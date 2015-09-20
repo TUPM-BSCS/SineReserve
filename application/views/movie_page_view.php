@@ -34,7 +34,7 @@
 
 			<div class="container hide-on-med-and-up">
 				<div class="section">
-					<img src="<?php echo base_url().$movie_poster; ?>" class="responsive-img movie-page-poster materialboxed" />
+					<img src="<?php echo base_url().$movie_poster_img; ?>" class="responsive-img movie-page-poster materialboxed" />
 				</div>
 			</div>
 
@@ -63,7 +63,7 @@
 
 									<div class="card">
 										<div class="card-image">
-											<img class="responsive-img" src="<?php echo base_url().$movie_cast[$i]['actor_photo']; ?>">
+											<img class="responsive-img" src="<?php echo base_url().$movie_cast[$i]['actor_img']; ?>">
 											<span class="card-title">Card Title</span>
 										</div>
 
@@ -76,7 +76,7 @@
 <!-- 								</div>
 							</div> -->
 						 <div class="chip">
-							<img class="circle" src="<?php echo base_url().$movie_cast[$i]['actor_photo']; ?>" alt="Actor Photo">
+							<img class="circle" src="<?php echo base_url().$movie_cast[$i]['actor_img']; ?>" alt="Actor Photo">
 							<?php echo $movie_cast[$i]['actor_fname'].' '.$movie_cast[$i]['actor_lname']; ?> as <?php echo $movie_cast[$i]['cast_role']; ?>
 						</div> 
 					<?php
@@ -86,7 +86,7 @@
 					</div>
 				</div>
 
-				<div class="col s3 hide-on-small-only"><img src="<?php echo base_url().$movie_poster; ?>" class="responsive-img movie-page-poster materialboxed" />
+				<div class="col s3 hide-on-small-only"><img src="<?php echo base_url().$movie_poster_img; ?>" class="responsive-img movie-page-poster materialboxed" />
 					<a class="waves-effect waves-teal btn-flat center-align" style="width: 100%;">Reserve</a>
 				</div>
 			</div>
@@ -104,7 +104,7 @@
 							if($movie_screenshots != null) {
 								for($i = 0; $i < sizeof($movie_screenshots); $i++) {
 						?>
-									<img class="responsive-img materialboxed" src="<?php echo base_url().$movie_screenshots[$i]['sc_url']; ?>" alt="Movie Screenshot">
+									<img class="responsive-img materialboxed" src="<?php echo base_url().$movie_screenshots[$i]['sc_img']; ?>" alt="Movie Screenshot">
 						<?php
 								}
 							}
