@@ -6,7 +6,6 @@
 		}
 		
 		public function get_branch(){
-			$this->db->select();
 			$this->db->from('branch');
 			$query = $this->db->get();
 			if($query->num_rows() > 0)
