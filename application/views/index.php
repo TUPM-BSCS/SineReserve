@@ -116,17 +116,67 @@
 	     							<img class="responsive-img" src="' . base_url() . 'assets/images/closed.png" />
 	     						</div>';
       		?>
-	      	</div>
-	      	<div id="next-attraction">
-	      		<div class="center-align">
-	     				<img class="responsive-img" src="<?php echo base_url();?>assets/images/closed.png" />
-	     			</div>
-	      	</div>
-	      	<div id="coming-soon">
-	      		<div class="center-align">
-	     				<img class="responsive-img" src="<?php echo base_url();?>assets/images/closed.png" />
-	     			</div>
-	      	</div>
+      	</div>
+      	<div id="next-attraction">
+      		<?php
+      			// $movie_list['now_showing'] = array();
+      			if(count($movie_list['next_attraction']) > 0) {
+      				echo '<ul class="rig">';
+	      			foreach ($movie_list['next_attraction'] as $movie) {
+	      				echo
+	      					'<li>
+	      						<div class="movie-box">
+	      							<div class="image-container">
+	      								<img src="' . base_url() . $movie['poster'] . '">
+	      							</div>
+	      							<div class="desc-container">
+	      								<div class="absolute-desc">
+	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
+	      									<span class="movie-title">' . $movie['name'] . '</span>
+	      									<span class="movie-stat">Action</span>
+	      								</div>
+	      							</div>
+	      						</div>
+	      					</li>';
+	      			}
+	      			echo '</ul>';
+	      		}
+	      		else
+	     				echo '<div class="center-align">
+	     							<img class="responsive-img" src="' . base_url() . 'assets/images/closed.png" />
+	     						</div>';
+      		?>
+      	</div>
+      	<div id="coming-soon">
+      		<?php
+      			// $movie_list['now_showing'] = array();
+      			if(count($movie_list['coming_soon']) > 0) {
+      				echo '<ul class="rig">';
+	      			foreach ($movie_list['coming_soon'] as $movie) {
+	      				echo
+	      					'<li>
+	      						<div class="movie-box">
+	      							<div class="image-container">
+	      								<img src="' . base_url() . $movie['poster'] . '">
+	      							</div>
+	      							<div class="desc-container">
+	      								<div class="absolute-desc">
+	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
+	      									<span class="movie-title">' . $movie['name'] . '</span>
+	      									<span class="movie-stat">Action</span>
+	      								</div>
+	      							</div>
+	      						</div>
+	      					</li>';
+	      			}
+	      			echo '</ul>';
+	      		}
+	      		else
+	     				echo '<div class="center-align">
+	     							<img class="responsive-img" src="' . base_url() . 'assets/images/closed.png" />
+	     						</div>';
+      		?>
+      	</div>
 	    </div>
 
 	    <!-- Modals -->
