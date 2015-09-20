@@ -3,10 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2015 at 07:00 AM
+-- Generation Time: Sep 20, 2015 at 08:20 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -512,17 +513,8 @@ ALTER TABLE `reserved_by`
 -- Constraints for table `review`
 --
 ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_11` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`),
   ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`),
-  ADD CONSTRAINT `review_ibfk_10` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`),
   ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`),
-  ADD CONSTRAINT `review_ibfk_3` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`),
-  ADD CONSTRAINT `review_ibfk_4` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`),
-  ADD CONSTRAINT `review_ibfk_5` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`),
-  ADD CONSTRAINT `review_ibfk_6` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`),
-  ADD CONSTRAINT `review_ibfk_7` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`),
-  ADD CONSTRAINT `review_ibfk_8` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`),
-  ADD CONSTRAINT `review_ibfk_9` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`);
 
 --
 -- Constraints for table `screenshots`
@@ -548,6 +540,7 @@ ALTER TABLE `shows`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`card_no`) REFERENCES `card` (`card_no`);
+SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
