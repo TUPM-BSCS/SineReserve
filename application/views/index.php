@@ -28,7 +28,7 @@
 				<div class="nav-wrapper container"> 
 					<a id="logo-container" href="#" class="brand-logo white-text">SineReserve</a>
 					<ul id="nav-mobile" class="right hide-on-med-and-down">
-        				<li><a href="http://localhost/SineReserve/index.php/Home/movie">Movies</a></li>
+        				<li><a href="http://localhost/SineReserve/index.php/movie_page_controller/movie">Movies</a></li>
         				<li>
         					
         						<div class="input-field">
