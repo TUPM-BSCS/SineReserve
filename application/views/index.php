@@ -15,6 +15,7 @@
   		<link href="<?php echo base_url();?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   		
   		<link href="<?php echo base_url();?>assets/css/lol.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	
 	<body class="lighten-5" style="background-color: #18191b;">
@@ -24,6 +25,19 @@
 			<nav class="deep-purple main-nav ripple" id="meet-1" role="navigation">
 				<div class="nav-wrapper container"> 
 					<a id="logo-container" href="#" class="brand-logo white-text">SineReserve</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+        				<li><a href="http://localhost/SineReserve/index.php/Home/movie">Movies</a></li>
+        				<li>
+        					
+        						<div class="input-field">
+          							<input id="search" type="search" required>
+          							<label for="search"><i class="material-icons">search</i></label>
+          							<i class="material-icons">close</i>
+          							</input>
+        						</div>
+        					
+        				</li>
+      				</ul>
 				</div>
 			</nav>
 		</div>
