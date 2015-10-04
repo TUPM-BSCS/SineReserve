@@ -85,3 +85,28 @@ a {
 .promos-events .col {
 	border: 1px solid #18191b;
 }
+
+.slick-slide img {
+	height: 150px;
+}
+
+.slick-slide {
+	margin: 0px 5px;
+}
+
+@media only screen and (min-width : 601px) {
+	.slick-slide img {
+		height: 200px;
+	}
+}
+
+@media only screen and (min-width : 993px) {
+	.slick-slide img {
+		height: 250px;
+	}
+}
+
+.pande-message {
+	font-style: italic;
+	font-weight: 200;
+}

@@ -12,6 +12,8 @@
   		<link href="<?php echo base_url();?>assets/css/new-moviebox-style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   		<link href="<?php echo base_url();?>assets/css/gridlist.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   		<link href="<?php echo base_url();?>assets/css/expand.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  		<link href="<?php echo base_url();?>assets/css/slick.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  		<link href="<?php echo base_url();?>assets/css/slick-theme.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   		<link href="<?php echo base_url();?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   		
   		<link href="<?php echo base_url();?>assets/css/lol.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -64,21 +66,19 @@
 		</div>
 
 		<!-- Promos & Events -->
-		<div class="row container white-text promos-events">
-			<div class="col s6 deep-purple">
-				<h5>Promos</h5>
-				<div class="truncate">(Sep 20, 2015) bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</div>
-				<div class="truncate">(Sep 20, 2015) bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</div>
-				<div class="truncate">(Sep 20, 2015) bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</div>
-				<div class="truncate">(Sep 20, 2015) bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</div>
-				<div class="truncate">(Sep 20, 2015) bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</div>
-				<div class="truncate">(Sep 20, 2015) bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</div>
+		<div class="container">
+			<h4 class="white-text">Promos and Events</h4>
+			<div class="slickify">
+			  <div><img src="<?php echo base_url();?>assets/images/pande/hotel.jpg" /></div>
+			  <div><img src="<?php echo base_url();?>assets/images/pande/imax.jpg" /></div>
+			  <div><img src="<?php echo base_url();?>assets/images/pande/inside_out.jpg" /></div>
+			  <div><img src="<?php echo base_url();?>assets/images/pande/imax2.jpg" /></div>
+			  <div><img src="<?php echo base_url();?>assets/images/pande/inside_out.jpg" /></div>
+			  <div><img src="<?php echo base_url();?>assets/images/pande/pixels.jpg" /></div>
 			</div>
-			<div class="col s6 deep-purple">
-				<h5>Events</h5>
-			</div>
-			
+			<p class="white-text pande-message">Go to Promos and Events Page to read more and see all the Hot promos and events we are offering</p>
 		</div>
+
 
 	    <!-- Intermission -->
 	    <div class="section">
@@ -103,7 +103,7 @@
 		<div class="container">
 	      <div id="now-showing">
       		<?php
-      			$movie_list['now_showing'] = array();
+      			// $movie_list['now_showing'] = array();
       			if(count($movie_list['now_showing']) > 0) {
       				echo '<ul class="rig">';
 	      			foreach ($movie_list['now_showing'] as $movie) {
@@ -130,17 +130,67 @@
 	     							<img class="responsive-img" src="' . base_url() . 'assets/images/closed.png" />
 	     						</div>';
       		?>
-	      	</div>
-	      	<div id="next-attraction">
-	      		<div class="center-align">
-	     				<img class="responsive-img" src="<?php echo base_url();?>assets/images/closed.png" />
-	     			</div>
-	      	</div>
-	      	<div id="coming-soon">
-	      		<div class="center-align">
-	     				<img class="responsive-img" src="<?php echo base_url();?>assets/images/closed.png" />
-	     			</div>
-	      	</div>
+      	</div>
+      	<div id="next-attraction">
+      		<?php
+      			// $movie_list['now_showing'] = array();
+      			if(count($movie_list['next_attraction']) > 0) {
+      				echo '<ul class="rig">';
+	      			foreach ($movie_list['next_attraction'] as $movie) {
+	      				echo
+	      					'<li>
+	      						<div class="movie-box">
+	      							<div class="image-container">
+	      								<img src="' . base_url() . $movie['poster'] . '">
+	      							</div>
+	      							<div class="desc-container">
+	      								<div class="absolute-desc">
+	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
+	      									<span class="movie-title">' . $movie['name'] . '</span>
+	      									<span class="movie-stat">Action</span>
+	      								</div>
+	      							</div>
+	      						</div>
+	      					</li>';
+	      			}
+	      			echo '</ul>';
+	      		}
+	      		else
+	     				echo '<div class="center-align">
+	     							<img class="responsive-img" src="' . base_url() . 'assets/images/closed.png" />
+	     						</div>';
+      		?>
+      	</div>
+      	<div id="coming-soon">
+      		<?php
+      			// $movie_list['now_showing'] = array();
+      			if(count($movie_list['coming_soon']) > 0) {
+      				echo '<ul class="rig">';
+	      			foreach ($movie_list['coming_soon'] as $movie) {
+	      				echo
+	      					'<li>
+	      						<div class="movie-box">
+	      							<div class="image-container">
+	      								<img src="' . base_url() . $movie['poster'] . '">
+	      							</div>
+	      							<div class="desc-container">
+	      								<div class="absolute-desc">
+	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
+	      									<span class="movie-title">' . $movie['name'] . '</span>
+	      									<span class="movie-stat">Action</span>
+	      								</div>
+	      							</div>
+	      						</div>
+	      					</li>';
+	      			}
+	      			echo '</ul>';
+	      		}
+	      		else
+	     				echo '<div class="center-align">
+	     							<img class="responsive-img" src="' . base_url() . 'assets/images/closed.png" />
+	     						</div>';
+      		?>
+      	</div>
 	    </div>
 
 	    <!-- Modals -->
@@ -149,6 +199,7 @@
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/expand.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/slick.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/script.js"></script>
 	</body>
 </html>

@@ -1,7 +1,10 @@
 $(document).ready(function(){
 	$('.slickify').slick({
-		centerMode: true,
 		slidesToShow: 3,
-		arrows: true
+		variableWidth: true,
+		centerMode: true,
+		autoplay: true,
+		autoplaySpeed: 1500,
+		pauseOnHover: true
 	});
 });
