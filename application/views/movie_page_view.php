@@ -90,8 +90,12 @@
 				</div>
 					<div id="modal1" class="modal modal-fixed-footer">
 					<div class="modal-content">
-						<h4>Modal Header</h4>
-						<p>A bunch of text</p>
+						<h4>Reservation Form</h4>
+						<p>
+							Movie Title:	<!--Retrieve Title-->
+							Schedule:		<!--Date and Time-->
+							Branch:
+						</p>
 					</div>
 					<div class="modal-footer">
 						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
@@ -114,7 +118,7 @@
 							if($movie_screenshots != null) {
 								for($i = 0; $i < sizeof($movie_screenshots); $i++) {
 						?>
-									<li><img class="responsive-img materialboxed" src="<?php echo base_url().$movie_screenshots[$i]['sc_img']; ?>" alt="Movie Screenshot"></li>
+									<li><img src="<?php echo base_url().$movie_screenshots[$i]['sc_img']; ?>" alt="Movie Screenshot"></li>
 						<?php
 								}
 							}
