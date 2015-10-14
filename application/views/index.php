@@ -69,7 +69,7 @@
 		<div class="container">
 			<h4 class="white-text">Promos and Events</h4>
 			<div class="slickify">
-			  <div><img src="<?php echo base_url();?>assets/images/pande/hotel.jpg" /></div>
+			  <div><img class="materialboxed" src="<?php echo base_url();?>assets/images/pande/hotel.jpg" /></div>
 			  <div><img src="<?php echo base_url();?>assets/images/pande/imax.jpg" /></div>
 			  <div><img src="<?php echo base_url();?>assets/images/pande/inside_out.jpg" /></div>
 			  <div><img src="<?php echo base_url();?>assets/images/pande/imax2.jpg" /></div>
