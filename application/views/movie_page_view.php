@@ -9,8 +9,7 @@
 
   		<!-- CSS  -->
   		<link href="<?php echo base_url(); ?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  		<link href="<?php echo base_url(); ?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  		<link href="<?php echo base_url(); ?>assets/css/moviepage.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  		<link href="<?php echo base_url(); ?>assets/css/movie_page_style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   		<link href="<?php echo base_url(); ?>assets/css/lol.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	</head>
 	
@@ -92,7 +91,7 @@
 			</div>
 
 			<div class="col s12 m12">
-				<ul class="tabs movie-tabs white">
+				<ul class="tabs white">
 					<li class="tab col s3"><a href="#photos">Photos</a></li>
 					<li class="tab col s3"><a href="#videos">Videos</a></li>
 					<li class="tab col s3"><a href="#reviews">Reviews</a></li>
