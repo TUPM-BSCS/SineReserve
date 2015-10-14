@@ -1,0 +1,112 @@
+a {
+	outline: 0;
+}
+
+.col {
+	margin-left: 1.6%;
+	padding: 0 0%;
+}
+
+/*.row .col:first-child {
+	margin-left: 0;
+}*/
+
+.row .col {
+	margin-bottom: 10px;
+}
+
+.tab-container {
+	height: 48px;
+}
+
+.tab-container nav {
+	height: 48px;
+	top: 48px;
+	box-shadow: 0px 10px 10px -8px rgba(0, 0, 0, 0.16), 0px 10px 10px -7px rgba(0, 0, 0, 0.12);
+}
+
+.movie-tabs .tab {
+	line-height: 22px;
+}
+
+.movie-tabs .tab a {
+	padding: 0px 3px;
+}
+
+@media only screen and (min-width : 601px) {
+	.tab-container {
+    	height: 48px;
+    	line-height: 48px;
+	}
+	
+	.tab-container nav {
+		height: 48px;
+		top: 64px;
+	}
+	
+	.movie-tabs .tab {
+		line-height: 48px;
+	}
+	
+	.movie-tabs .tab a {
+		padding: 0px 15px;
+	}	
+	
+}
+	
+.movie-tabs .tab a {
+	color: #ffffff;
+}
+
+.movie-tabs .tab a:hover {
+	/*color: #F5F5F5; */
+	color: #ffffff;
+	background-color: #7e57c2;
+}
+
+.movie-tabs .tab .active {
+	/*color: #F5F5F5;*/
+	color: #ffffff;
+	background-color: #673ab7;
+}
+
+.movie-tabs .indicator {
+	background-color: #ffffff;
+}
+
+.new-line {
+	display: block;
+}
+
+.movie-page-poster {
+	width: 100%;
+}
+
+.promos-events .col {
+	border: 1px solid #18191b;
+}
+
+.slick-slide img {
+	height: 150px;
+}
+
+.slick-slide {
+	margin: 0px 5px;
+}
+
+@media only screen and (min-width : 601px) {
+	.slick-slide img {
+		height: 200px;
+	}
+}
+
+@media only screen and (min-width : 993px) {
+	.slick-slide img {
+		height: 250px;
+	}
+}
+
+.pande-message {
+	font-style: italic;
+	font-weight: 200;
+}
