@@ -24,23 +24,22 @@
 
 		<!-- Navigation Bar -->
 		<div class ="navbar-fixed">
-			<nav class="deep-purple main-nav ripple" id="meet-1" role="navigation">
+			<nav class="red darken-4 main-nav ripple" id="meet-1" role="navigation">
 				<div class="nav-wrapper container"> 
 					<a id="logo-container" href="#" class="brand-logo white-text">SineReserve</a>
-					<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>
+					<ul class="right hide-on-med-and-down">
         				<li><a href="http://localhost/SineReserve/index.php/movie_page_controller/movie">Movies</a></li>
+        				<li><a href="#"><i class="mdi-action-account-circle"></i></a></li>
         				<li>
-        					
-        						<div class="input-field">
-          							<input id="search" type="search" required>
-          							<label for="search"><i class="material-icons">search</i></label>
-          							<i class="material-icons">close</i>
-          							</input>
-        						</div>
-        					
+        					<div class="input-field">
+          						<input id="search" type="search" required></input>
+          						<label for="search"><i class="mdi-action-search"></i></label>
+          						<i class="mdi-navigation-close close"></i>
+        					</div>	
         				</li>
       				</ul>
-				</div>
+				</div>	
 			</nav>
 		</div>
 		
