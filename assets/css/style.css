@@ -61,13 +61,13 @@ a {
 .movie-tabs .tab a:hover {
 	/*color: #F5F5F5; */
 	color: #ffffff;
-	background-color: #7e57c2;
+	background-color: #c62828;
 }
 
 .movie-tabs .tab .active {
 	/*color: #F5F5F5;*/
 	color: #ffffff;
-	background-color: #673ab7;
+	background-color: #b71c1c;
 }
 
 .movie-tabs .indicator {
