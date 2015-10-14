@@ -49,26 +49,26 @@ class Home extends CI_Controller {
 
 		//get all mov_name and mov_poster from movie_table that has entry in now showing array
 		if(count($now_showing) > 0) {
-			$query = $this->movies_model->get_movies_by_id($now_showing, array('mov_name', 'mov_poster_img'));
+			$query = $this->movies_model->get_movies_by_id($now_showing, array('mov_name', 'mov_poster_img', 'mov_color'));
 			foreach($query->result() as $row) {
-				array_push($data['movie_list']['now_showing'], array('name'=>$row->mov_name, 'poster'=>$row->mov_poster_img));
+				array_push($data['movie_list']['now_showing'], array('name'=>$row->mov_name, 'poster'=>$row->mov_poster_img, 'color'=>$row->mov_color));
 			}
 		}
 
 		//get all mov_name and mov_poster from movie_table that has entry in next attraction array
 		if(count($next_attraction) > 0) {
-			$query = $this->movies_model->get_movies_by_id($next_attraction, array('mov_name', 'mov_poster_img'));
+			$query = $this->movies_model->get_movies_by_id($next_attraction, array('mov_name', 'mov_poster_img', 'mov_color'));
 			foreach($query->result() as $row) {
-				array_push($data['movie_list']['next_attraction'], array('name'=>$row->mov_name, 'poster'=>$row->mov_poster_img));
+				array_push($data['movie_list']['next_attraction'], array('name'=>$row->mov_name, 'poster'=>$row->mov_poster_img, 'color'=>$row->mov_color));
 			}
 		}
 
 
 		//get all mov_name and mov_poster from movie_table that has entry in coming soon array
 		if(count($coming_soon) > 0) {
-			$query = $this->movies_model->get_movies_by_id($coming_soon, array('mov_name', 'mov_poster_img'));
+			$query = $this->movies_model->get_movies_by_id($coming_soon, array('mov_name', 'mov_poster_img', 'mov_color'));
 			foreach($query->result() as $row) {
-				array_push($data['movie_list']['coming_soon'], array('name'=>$row->mov_name, 'poster'=>$row->mov_poster_img));
+				array_push($data['movie_list']['coming_soon'], array('name'=>$row->mov_name, 'poster'=>$row->mov_poster_img, 'color'=>$row->mov_color));
 			}
 		}
 

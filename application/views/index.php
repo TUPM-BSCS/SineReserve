@@ -112,7 +112,7 @@
 	      							<div class="image-container">
 	      								<img src="' . base_url() . $movie['poster'] . '">
 	      							</div>
-	      							<div class="desc-container">
+	      							<div class="desc-container" style="background-color: #'. $movie['color'] .';">
 	      								<div class="absolute-desc">
 	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
 	      									<span class="movie-title">' . $movie['name'] . '</span>
@@ -142,7 +142,7 @@
 	      							<div class="image-container">
 	      								<img src="' . base_url() . $movie['poster'] . '">
 	      							</div>
-	      							<div class="desc-container">
+	      							<div class="desc-container" style="background-color: #'. $movie['color'] .';">
 	      								<div class="absolute-desc">
 	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
 	      									<span class="movie-title">' . $movie['name'] . '</span>
@@ -172,7 +172,7 @@
 	      							<div class="image-container">
 	      								<img src="' . base_url() . $movie['poster'] . '">
 	      							</div>
-	      							<div class="desc-container">
+	      							<div class="desc-container" style="background-color: #'. $movie['color'] .';">
 	      								<div class="absolute-desc">
 	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
 	      									<span class="movie-title">' . $movie['name'] . '</span>
