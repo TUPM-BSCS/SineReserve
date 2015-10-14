@@ -90,7 +90,7 @@
 		
 		<!-- Tabs -->
 		<div class="container">
-			<ul class="tabs movie-tabs deep-purple">
+			<ul class="tabs movie-tabs red darken-4">
 				<li class="tab"><a href="#now-showing">Now<span class="new-line hide-on-med-and-up">Showing</span><span class="hide-on-small-only"> Showing</span></a></li>
 				<li class="tab"><a href="#next-attraction">Next<span class="new-line hide-on-med-and-up">Attraction</span><span class="hide-on-small-only"> Attraction</span></a></li>
 				<li class="tab"><a href="#coming-soon">Coming<span class="new-line hide-on-med-and-up">Soon</span><span class="hide-on-small-only"> Soon</span></a></li>
