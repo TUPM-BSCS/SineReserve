@@ -86,7 +86,16 @@
 				</div>
 
 				<div class="col s3 hide-on-small-only"><img src="<?php echo base_url().$movie_poster_img; ?>" class="responsive-img movie-page-poster materialboxed" />
-					<a class="waves-effect waves-teal btn-flat center-align" style="width: 100%;">Reserve</a>
+					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#modal1">Reserve</a>
+				</div>
+					<div id="modal1" class="modal modal-fixed-footer">
+					<div class="modal-content">
+						<h4>Modal Header</h4>
+						<p>A bunch of text</p>
+					</div>
+					<div class="modal-footer">
+						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+					</div>
 				</div>
 			</div>
 
@@ -99,15 +108,19 @@
 
 				<div class="section">
 					<div id="photos">
+						<div class="slider">
+							<ul class="slides">
 						<?php
 							if($movie_screenshots != null) {
 								for($i = 0; $i < sizeof($movie_screenshots); $i++) {
 						?>
-									<img class="responsive-img materialboxed" src="<?php echo base_url().$movie_screenshots[$i]['sc_img']; ?>" alt="Movie Screenshot">
+									<li><img class="responsive-img materialboxed" src="<?php echo base_url().$movie_screenshots[$i]['sc_img']; ?>" alt="Movie Screenshot"></li>
 						<?php
 								}
 							}
 						?>
+							</ul>
+						</div>
 					</div>
 
 					<div id="videos">
@@ -165,6 +178,7 @@
 		<!-- Javascript  -->
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/materialize.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/movie_page_script.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
 	</body>
 
