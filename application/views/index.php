@@ -111,12 +111,18 @@
 	      					'<li>
 	      						<div class="movie-box">
 	      							<div class="image-container">
-	      								<img src="' . base_url() . $movie['poster'] . '">
+	      								<a href="#">
+	      									<img src="' . base_url() . $movie['poster'] . '">
+	      								</a>
 	      							</div>
 	      							<div class="desc-container" style="background-color: #'. $movie['color'] .';">
 	      								<div class="absolute-desc">
-	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
-	      									<span class="movie-title">' . $movie['name'] . '</span>
+	      									<a href="#">
+	      										<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
+	      									</a>
+	      									<a href="#">
+	      										<span class="movie-title white-text">' . $movie['name'] . '</span>
+	      									</a>
 	      									<span class="movie-stat">Action</span>
 	      								</div>
 	      							</div>
@@ -141,12 +147,18 @@
 	      					'<li>
 	      						<div class="movie-box">
 	      							<div class="image-container">
-	      								<img src="' . base_url() . $movie['poster'] . '">
+	      								<a href="#">
+	      									<img src="' . base_url() . $movie['poster'] . '">
+	      								</a>
 	      							</div>
 	      							<div class="desc-container" style="background-color: #'. $movie['color'] .';">
 	      								<div class="absolute-desc">
-	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
-	      									<span class="movie-title">' . $movie['name'] . '</span>
+	      									<a href="#">
+	      										<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
+	      									</a>
+	      									<a href="#">
+	      										<span class="movie-title white-text">' . $movie['name'] . '</span>
+	      									</a>
 	      									<span class="movie-stat">Action</span>
 	      								</div>
 	      							</div>
@@ -171,12 +183,18 @@
 	      					'<li>
 	      						<div class="movie-box">
 	      							<div class="image-container">
-	      								<img src="' . base_url() . $movie['poster'] . '">
+	      								<a href="#">
+	      									<img src="' . base_url() . $movie['poster'] . '">
+	      								</a>
 	      							</div>
 	      							<div class="desc-container" style="background-color: #'. $movie['color'] .';">
 	      								<div class="absolute-desc">
-	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
-	      									<span class="movie-title">' . $movie['name'] . '</span>
+	      									<a href="#">
+	      										<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
+	      									</a>
+	      									<a href="#">
+	      										<span class="movie-title white-text">' . $movie['name'] . '</span>
+	      									</a>
 	      									<span class="movie-stat">Action</span>
 	      								</div>
 	      							</div>
