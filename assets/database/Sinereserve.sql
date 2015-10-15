@@ -21,21 +21,15 @@ USE `SineReserve`;
 DROP TABLE IF EXISTS `actor`;
 
 CREATE TABLE `actor` (
-  `actor_id` int(11) NOT NULL AUTO_INCREMENT,
-  `actor_lname` varchar(20) DEFAULT NULL,
-  `actor_fname` varchar(20) DEFAULT NULL,
-  `actor_minit` varchar(5) DEFAULT NULL,
-  `actor_sex` varchar(2) DEFAULT NULL,
-  `actor_birthdate` date DEFAULT NULL,
-  `actor_img` text,
-  PRIMARY KEY (`actor_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `actor_id` int(11) NOT NULL DEFAULT '0',
+  `actor_name` varchar(30) DEFAULT NULL,
+  `mov_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`actor_id`),
+  KEY `mov_id` (`mov_id`),
+  CONSTRAINT `actor_ibfk_1` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `actor` */
-
-insert  into `actor`(`actor_id`,`actor_lname`,`actor_fname`,`actor_minit`,`actor_sex`,`actor_birthdate`,`actor_img`) values 
-(1,'Kendrick','Anna','C','F','1985-08-09','assets/images/actors/anna_kendrick.jpg'),
-(2,'Astin','Skylar',NULL,'M','1987-09-23','assets/images/actors/skylar_astin.jpg');
 
 /*Table structure for table `admin` */
 
@@ -93,28 +87,6 @@ insert  into `card`(`card_no`,`card_pin`,`card_points`) values
 ('8521468010','3823','690.0000'),
 ('9875840250','4830','1039.0000');
 
-/*Table structure for table `cast` */
-
-DROP TABLE IF EXISTS `cast`;
-
-CREATE TABLE `cast` (
-  `cast_id` int(11) NOT NULL AUTO_INCREMENT,
-  `cast_role` varchar(30) DEFAULT NULL,
-  `actor_id` int(11) DEFAULT NULL,
-  `mov_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`cast_id`),
-  KEY `actor_id` (`actor_id`),
-  KEY `mov_id` (`mov_id`),
-  CONSTRAINT `cast_ibfk_1` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`actor_id`),
-  CONSTRAINT `cast_ibfk_2` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
-/*Data for the table `cast` */
-
-insert  into `cast`(`cast_id`,`cast_role`,`actor_id`,`mov_id`) values 
-(1,'Beca',1,3),
-(2,'Jesse',2,3);
-
 /*Table structure for table `cinema` */
 
 DROP TABLE IF EXISTS `cinema`;
@@ -123,6 +95,7 @@ CREATE TABLE `cinema` (
   `cine_id` int(11) NOT NULL AUTO_INCREMENT,
   `cine_name` varchar(10) DEFAULT NULL,
   `bran_id` int(11) DEFAULT NULL,
+  `cine_slots` int(11) DEFAULT NULL,
   PRIMARY KEY (`cine_id`),
   KEY `bran_id` (`bran_id`),
   CONSTRAINT `cinema_ibfk_1` FOREIGN KEY (`bran_id`) REFERENCES `branch` (`bran_id`)
@@ -130,80 +103,49 @@ CREATE TABLE `cinema` (
 
 /*Data for the table `cinema` */
 
-insert  into `cinema`(`cine_id`,`cine_name`,`bran_id`) values 
-(1,'Cinema 1',1),
-(2,'Cinema 2',1),
-(3,'Cinema 3',1),
-(4,'Cinema 4',1),
-(5,'Cinema 5',1),
-(6,'Cinema 6',1),
-(7,'Cinema 7',1),
-(8,'Cinema 8',1),
-(9,'Cinema 9',1),
-(10,'Cinema 10',1),
-(11,'Cinema 1',2),
-(12,'Cinema 2',2),
-(13,'Cinema 3 ',2),
-(14,'Cinema 4',2),
-(15,'Cinema 5',2),
-(16,'Cinema 6',2),
-(17,'Cinema 7',2),
-(18,'Cinema 8',2),
-(19,'Cinema 9',2),
-(20,'Cinema 10',2),
-(21,'Cinema 11',2),
-(22,'Cinema 12',2),
-(23,'Cinema 1',3),
-(24,'Cinema 2',3),
-(25,'Cinema 3',3),
-(26,'Cinema 4',3),
-(27,'Cinema 5',3);
+insert  into `cinema`(`cine_id`,`cine_name`,`bran_id`,`cine_slots`) values 
+(1,'Cinema 1',1,NULL),
+(2,'Cinema 2',1,NULL),
+(3,'Cinema 3',1,NULL),
+(4,'Cinema 4',1,NULL),
+(5,'Cinema 5',1,NULL),
+(6,'Cinema 6',1,NULL),
+(7,'Cinema 7',1,NULL),
+(8,'Cinema 8',1,NULL),
+(9,'Cinema 9',1,NULL),
+(10,'Cinema 10',1,NULL),
+(11,'Cinema 1',2,NULL),
+(12,'Cinema 2',2,NULL),
+(13,'Cinema 3 ',2,NULL),
+(14,'Cinema 4',2,NULL),
+(15,'Cinema 5',2,NULL),
+(16,'Cinema 6',2,NULL),
+(17,'Cinema 7',2,NULL),
+(18,'Cinema 8',2,NULL),
+(19,'Cinema 9',2,NULL),
+(20,'Cinema 10',2,NULL),
+(21,'Cinema 11',2,NULL),
+(22,'Cinema 12',2,NULL),
+(23,'Cinema 1',3,NULL),
+(24,'Cinema 2',3,NULL),
+(25,'Cinema 3',3,NULL),
+(26,'Cinema 4',3,NULL),
+(27,'Cinema 5',3,NULL);
 
 /*Table structure for table `genre` */
 
 DROP TABLE IF EXISTS `genre`;
 
 CREATE TABLE `genre` (
-  `genre_id` int(11) NOT NULL AUTO_INCREMENT,
-  `genre_name` varchar(25) DEFAULT NULL,
-  PRIMARY KEY (`genre_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `genre_id` int(11) NOT NULL DEFAULT '0',
+  `genre_name` varchar(20) DEFAULT NULL,
+  `mov_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`genre_id`),
+  KEY `mov_id` (`mov_id`),
+  CONSTRAINT `genre_ibfk_1` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `genre` */
-
-insert  into `genre`(`genre_id`,`genre_name`) values 
-(1,'Action'),
-(2,'Adventure'),
-(3,'Comedy'),
-(4,'Crime and Gangster'),
-(5,'Drama'),
-(6,'Historical'),
-(7,'Horror'),
-(8,'Musical'),
-(9,'Romance'),
-(10,'Science Fiction');
-
-/*Table structure for table `genre_of_movie` */
-
-DROP TABLE IF EXISTS `genre_of_movie`;
-
-CREATE TABLE `genre_of_movie` (
-  `gm_id` int(11) NOT NULL AUTO_INCREMENT,
-  `genre_id` int(11) DEFAULT NULL,
-  `mov_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`gm_id`),
-  KEY `genre_id` (`genre_id`),
-  KEY `mov_id` (`mov_id`),
-  CONSTRAINT `genre_of_movie_ibfk_1` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`genre_id`),
-  CONSTRAINT `genre_of_movie_ibfk_2` FOREIGN KEY (`mov_id`) REFERENCES `movie` (`mov_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
-/*Data for the table `genre_of_movie` */
-
-insert  into `genre_of_movie`(`gm_id`,`genre_id`,`mov_id`) values 
-(1,3,3),
-(2,8,3),
-(3,9,3);
 
 /*Table structure for table `logs` */
 
@@ -269,6 +211,8 @@ CREATE TABLE `promo_and_event` (
   `prom_id` int(11) NOT NULL AUTO_INCREMENT,
   `prom_title` varchar(20) DEFAULT NULL,
   `prom_banner` text,
+  `prom_start_date` date DEFAULT NULL,
+  `prom_end_date` date DEFAULT NULL,
   PRIMARY KEY (`prom_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -300,14 +244,11 @@ CREATE TABLE `reserved_by` (
   `or_date` date DEFAULT NULL,
   `sched_id` int(11) DEFAULT NULL,
   `username` varchar(15) DEFAULT NULL,
-  `seat_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`or_no`),
   KEY `sched_id` (`sched_id`),
   KEY `username` (`username`),
-  KEY `seat_id` (`seat_id`),
   CONSTRAINT `reserved_by_ibfk_1` FOREIGN KEY (`sched_id`) REFERENCES `shows` (`sched_id`),
-  CONSTRAINT `reserved_by_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`),
-  CONSTRAINT `reserved_by_ibfk_3` FOREIGN KEY (`seat_id`) REFERENCES `seat` (`seat_id`)
+  CONSTRAINT `reserved_by_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `reserved_by` */
@@ -356,27 +297,6 @@ insert  into `screenshots`(`sc_id`,`sc_details`,`sc_img`,`mov_id`) values
 (1,'The bathroom scene.','assets/images/screenshots/pitch_perfect_1.jpg',3),
 (2,'Treblemakers in riff-off','assets/images/screenshots/pitch_perfect_2.jpg',3),
 (3,'Barden Bellas performance','assets/images/screenshots/pitch_perfect_3.jpg',3);
-
-/*Table structure for table `seat` */
-
-DROP TABLE IF EXISTS `seat`;
-
-CREATE TABLE `seat` (
-  `seat_id` int(11) NOT NULL AUTO_INCREMENT,
-  `seat_no` int(11) DEFAULT NULL,
-  `seat_type` varchar(2) DEFAULT NULL,
-  `cine_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`seat_id`),
-  KEY `cine_id` (`cine_id`),
-  CONSTRAINT `seat_ibfk_1` FOREIGN KEY (`cine_id`) REFERENCES `cinema` (`cine_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
-/*Data for the table `seat` */
-
-insert  into `seat`(`seat_id`,`seat_no`,`seat_type`,`cine_id`) values 
-(1,1,'UP',1),
-(2,2,'LB',1),
-(3,3,'LB',1);
 
 /*Table structure for table `shows` */
 
