@@ -27,7 +27,9 @@ class movie_page_controller extends CI_Controller {
 		// print_r($data);
 		// die();
 
+		$this->load->view('header');
 		$this->load->view('movie_page_view', $data);
+		$this->load->view('footer');
 	}
 	
 }
