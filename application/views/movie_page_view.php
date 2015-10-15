@@ -15,15 +15,6 @@
 	</head>
 	
 	<body class="grey lighten-5">
-		<!-- Navigation Bar -->
-		<div class ="navbar-fixed">
-			<nav class="grey lighten-4 main-nav ripple" id="meet-1" role="navigation">
-				<div class="nav-wrapper container"> 
-					<a id="logo-container" href="#" class="brand-logo black-text">SineReserve</a>
-				</div>
-			</nav>
-		</div>
-
 		<div class="container">
 			<h5>
 				<?php echo $movie_name; ?>
@@ -44,19 +35,10 @@
 					<p> <?php echo $movie_plot; ?> </p>
 					
 					<h6>Genre:</h6>
-					<?php 
-						for($i = 0; $i < sizeof($movie_genre); $i++) {
-					?>
-						<div class="chip"> <?php echo $movie_genre[$i]['genre_name']; ?> </div>
-					<?php 
-						}
-					?>
+					<div class="chip"> <?php echo $movie_genre; ?> </div>
 
 					<h6>Cast:</h6>
-					<div class="row">
-					<?php
-						for($i = 0; $i < sizeof($movie_cast); $i++) {
-					?>
+					<div class="chip">
 <!-- 							<div class="row">
 								<div class="col s12 m7"> -->
 <!--
@@ -75,14 +57,7 @@
 
 <!-- 								</div>
 							</div> -->
-						 <div class="chip">
-							<img class="circle" src="<?php echo base_url().$movie_cast[$i]['actor_img']; ?>" alt="Actor Photo">
-							<?php echo $movie_cast[$i]['actor_fname'].' '.$movie_cast[$i]['actor_lname']; ?> as <?php echo $movie_cast[$i]['cast_role']; ?>
-						</div> 
-					<?php
-						}
-					?>
-
+						<?php echo $movie_cast; ?>
 					</div>
 				</div>
 
