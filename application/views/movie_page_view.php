@@ -129,7 +129,7 @@
 
 					<div id="videos">
 						<div class="video-container">
-							<iframe width="853" height="480" src="<?php echo $movie_trailer; ?>" frameborder="0" allowfullscreen></iframe>
+							<iframe src="<?php echo $movie_trailer; ?>" frameborder="0" allowfullscreen></iframe>
 						</div>
 					</div>
 
