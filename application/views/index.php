@@ -98,7 +98,6 @@
 		</div>
 
 		<br />
-		<br />
 
 		<!-- Tab-Contents -->
 		<div class="container">
@@ -112,18 +111,12 @@
 	      					'<li>
 	      						<div class="movie-box">
 	      							<div class="image-container">
-	      								<a href="#">
-	      									<img src="' . base_url() . $movie['poster'] . '">
-	      								</a>
+	      								<img src="' . base_url() . $movie['poster'] . '">
 	      							</div>
 	      							<div class="desc-container" style="background-color: #'. $movie['color'] .';">
 	      								<div class="absolute-desc">
-	      									<a href="#">
-	      										<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
-	      									</a>
-	      									<a href="#">
-	      										<span class="movie-title white-text">' . $movie['name'] . '</span>
-	      									</a>
+	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
+	      									<span class="movie-title">' . $movie['name'] . '</span>
 	      									<span class="movie-stat">Action</span>
 	      								</div>
 	      							</div>
@@ -148,18 +141,12 @@
 	      					'<li>
 	      						<div class="movie-box">
 	      							<div class="image-container">
-	      								<a href="#">
-	      									<img src="' . base_url() . $movie['poster'] . '">
-	      								</a>
+	      								<img src="' . base_url() . $movie['poster'] . '">
 	      							</div>
 	      							<div class="desc-container" style="background-color: #'. $movie['color'] .';">
 	      								<div class="absolute-desc">
-	      									<a href="#">
-	      										<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
-	      									</a>
-	      									<a href="#">
-	      										<span class="movie-title white-text">' . $movie['name'] . '</span>
-	      									</a>
+	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
+	      									<span class="movie-title">' . $movie['name'] . '</span>
 	      									<span class="movie-stat">Action</span>
 	      								</div>
 	      							</div>
@@ -184,18 +171,12 @@
 	      					'<li>
 	      						<div class="movie-box">
 	      							<div class="image-container">
-	      								<a href="#">
-	      									<img src="' . base_url() . $movie['poster'] . '">
-	      								</a>
+	      								<img src="' . base_url() . $movie['poster'] . '">
 	      							</div>
 	      							<div class="desc-container" style="background-color: #'. $movie['color'] .';">
 	      								<div class="absolute-desc">
-	      									<a href="#">
-	      										<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
-	      									</a>
-	      									<a href="#">
-	      										<span class="movie-title white-text">' . $movie['name'] . '</span>
-	      									</a>
+	      									<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
+	      									<span class="movie-title">' . $movie['name'] . '</span>
 	      									<span class="movie-stat">Action</span>
 	      								</div>
 	      							</div>
@@ -211,31 +192,7 @@
       		?>
       	</div>
 	    </div>
-	<div>
-	<footer class="page-footer red darken-4">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">SineReserve</h5>
-		<p class="white-text">A website where you can view currently showing and coming soon movies and reserve tickets.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul class="list">
-                  <li><a class="white-text" href="http://localhost/SineReserve/index.php/Home/home">Home</a></li>
-                  <li><a class="white-text" href="http://localhost/SineReserve/index.php/movie_page_controller/movie">Movies</a></li>
-                  <li><a class="white-text" href="http://localhost/SineReserve/index.php/Admin_controller/index">Admin</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            <p class="white-text">© 2015 All Rights Reserved</p>
-            </div>
-          </div>
-        </footer>
-	</div>
+
 
 	    <!-- Modals -->
       
