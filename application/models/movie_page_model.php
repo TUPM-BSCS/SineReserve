@@ -94,8 +94,7 @@ class movie_page_model extends CI_Model {
 	public function get_movie_genre($mov_id) {
 		$this->db->select('genre_name');
 		$this->db->where('mov_id', $mov_id);
-		$this->db->from('genre_of_movie');
-		$this->db->join('genre', 'genre_of_movie.genre_id = genre.genre_id');
+		$this->db->from('genre');
 		$query = $this->db->get();
 
 		if($query->num_rows() > 0) {
@@ -105,10 +104,9 @@ class movie_page_model extends CI_Model {
 	}
 
 	public function get_movie_cast($mov_id) {
-		$this->db->select('actor_fname, actor_lname, actor_img, cast_role');
+		$this->db->select('actor_name');
 		$this->db->where('mov_id', $mov_id);
-		$this->db->from('cast');
-		$this->db->join('actor', 'cast.actor_id = actor.actor_id');
+		$this->db->from('actor');
 		$query = $this->db->get();
 
 		if($query->num_rows() > 0) {
