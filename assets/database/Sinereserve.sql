@@ -199,9 +199,9 @@ insert  into `movie`(`mov_id`,`mov_name`,`mov_plot`,`mov_rating`,`mov_running_ti
 (16,'Felix Manalo','Felix Manalo covers Manalo\'s life, particularly his religious journey that culminated in his establishing the Iglesia ni Cristo, which he registered with the Philippine government on 27 July 1914. The film will also depict the origins of the church during the American Occupation, its growth in the Philippines and the church\'s struggles before it reached its present stature.','',NULL,'2015-10-07','assets/images/posters/16.jpg',NULL,'9F8146'),
 (18,'Suicide Squad','A secret government agency recruits imprisoned supervillains to execute dangerous black ops missions in exchange for clemency.',NULL,NULL,'2016-08-05','assets/images/posters/18.jpg',NULL,'D19C94'),
 (19,'Captain America: Civil War','An incident leads to the Avengers developing a schism over how to deal with situations, which escalates into an open fight between allies Iron Man and Captain America.',NULL,NULL,'2016-05-06','assets/images/posters/19.jpg',NULL,'A45142'),
-(20,'Alice Through The Looking Glass','Plot is still unknown.',NULL,NULL,'2016-05-27','assets/images/posters/20.jpg',NULL,'2D83A1'),
-(21,'Finding Dory','The friendly-but-forgetful blue tang fish reunites with her loved ones, and everyone learns a few things about the true meaning of family along the way.',NULL,NULL,'2016-06-17','assets/images/posters/21.jpg',NULL,'DA6025'),
-(22,'Kung Fu Panda 3','Continuing his \"legendary adventures of awesomeness\", Po must face two hugely epic, but different threats: one supernatural and the other a little closer to his home.',NULL,NULL,'2016-01-29','assets/images/posters/22.jpg',NULL,NULL);
+(20,'Alice Through The Looking Glass','Plot is still unknown.',NULL,NULL,'2016-05-27','assets/images/posters/20.jpg',NULL,'C68866'),
+(21,'Finding Dory','The friendly-but-forgetful blue tang fish reunites with her loved ones, and everyone learns a few things about the true meaning of family along the way.',NULL,NULL,'2016-06-17','assets/images/posters/21.jpg',NULL,'2D83A1'),
+(22,'Kung Fu Panda 3','Continuing his \"legendary adventures of awesomeness\", Po must face two hugely epic, but different threats: one supernatural and the other a little closer to his home.',NULL,NULL,'2016-01-29','assets/images/posters/22.jpg',NULL,'DA6025');
 
 /*Table structure for table `promo_and_event` */
 
