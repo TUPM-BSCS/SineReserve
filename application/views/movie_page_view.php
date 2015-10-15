@@ -88,17 +88,50 @@
 				<div class="col s3 hide-on-small-only"><img src="<?php echo base_url().$movie_poster_img; ?>" class="responsive-img movie-page-poster materialboxed" />
 					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#modal1">Reserve</a>
 				</div>
-					<div id="modal1" class="modal modal-fixed-footer">
+					
+				<div id="modal1" class="modal modal-fixed-footer">
 					<div class="modal-content">
-						<h4>Reservation Form</h4>
-						<p>
-							Movie Title:	<!--Retrieve Title-->
-							Schedule:		<!--Date and Time-->
-							Branch:
-						</p>
+						<form class="col s12">
+							<div class="row">
+								<div class="input-field col s12">
+									<input disabled value="I am not editable" id="movie_title" type="text" class="validate">
+									<label for="movie_title" class="active">Movie Title</label>
+								</div>
+
+								<div class="input-field col s4">
+									<select>
+										<option value="" disabled selected>Choose your option</option>
+										<option value="1">Option 1</option>
+										<option value="2">Option 2</option>
+										<option value="3">Option 3</option>
+									</select>
+									<label>Date</label>
+								</div>
+								
+								<div class="input-field col s4">
+									<select>
+										<option value="" disabled selected>Choose your option</option>
+										<option value="1">Option 1</option>
+										<option value="2">Option 2</option>
+										<option value="3">Option 3</option>
+									</select>
+									<label>Time</label>
+								</div>
+
+								<div class="input-field col s4">
+									<select>
+										<option value="" disabled selected>Choose your option</option>
+										<option value="1">Option 1</option>
+										<option value="2">Option 2</option>
+										<option value="3">Option 3</option>
+									</select>
+									<label>Venue</label>
+								</div>
+							</div>
+						</form>
 					</div>
 					<div class="modal-footer">
-						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+						<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Confirm</a>
 					</div>
 				</div>
 			</div>
@@ -184,6 +217,6 @@
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/materialize.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/movie_page_script.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
-	</body>
+	</body
 
 </html>
