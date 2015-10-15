@@ -18,7 +18,7 @@
 		<div class="container">
 			<h5>
 				<?php echo $movie_name; ?>
-				<span class="blue-text"> (2014) <?php echo '[' . $movie_rating . ']'; ?></span>
+				<span class="blue-text"> <?php echo '[' . $movie_release_date . ']' ?> <?php echo '[' . $movie_rating . ']'; ?></span>
 			</h5>
 
 			<hr />
@@ -193,6 +193,6 @@
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/materialize.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/movie_page_script.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
-	</body
+	</body>
 
 </html>
