@@ -24,26 +24,7 @@
 	<body class="lighten-5" style="background-color: #18191b;">
 
 		<!-- Navigation Bar -->
-		<div class ="navbar-fixed">
-			<nav class="red darken-4 main-nav ripple" id="meet-1" role="navigation">
-				<div class="nav-wrapper container"> 
-					<a id="logo-container" href="#" class="brand-logo white-text">SineReserve</a>
-					<a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>
-					<ul class="right hide-on-med-and-down">
-        				<li><a href="http://localhost/SineReserve/index.php/movie_page_controller/movie">Movies</a></li>
-        				<li><a href="#"><i class="mdi-action-account-circle"></i></a></li>
-        				<li>
-        					<div class="input-field">
-          						<input id="search" type="search" required></input>
-          						<label for="search"><i class="mdi-action-search"></i></label>
-          						<i class="mdi-navigation-close close"></i>
-        					</div>	
-        				</li>
-      				</ul>
-				</div>	
-			</nav>
-		</div>
-		
+
 		<!-- Banner -->
 		<div class="row banner-with-bg"
 		style="background: url('<?php echo base_url();?>assets/images/cinema_house_edited.jpg') no-repeat center center;
@@ -192,9 +173,21 @@
       		?>
       	</div>
 	    </div>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
 	    <!-- Modals -->
+=======
+	
+    <!-- Modals -->
+	    
+>>>>>>> Stashed changes
+=======
+	
+    <!-- Modals -->
+	    
+>>>>>>> Stashed changes
       
 		<!-- Javascript  -->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>

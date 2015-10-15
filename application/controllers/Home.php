@@ -75,7 +75,7 @@ class Home extends CI_Controller {
 
 		// echo var_dump($data);
 
-
+		$this->load->view('header');
 		$this->load->view('index', $data);
 	}
 	
