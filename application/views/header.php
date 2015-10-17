@@ -27,8 +27,13 @@
     <div class ="navbar">
       <nav class="red darken-4 main-nav ripple" id="meet-1" role="navigation">
         <div class="nav-wrapper container"> 
-          <a id="logo-container" href="http://localhost/SineReserve/index.php/Home/home" class="brand-logo white-text">SineReserve</a>
-          <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>
+          <a id="logo-container" href="http://localhost/SineReserve/index.php/Home/home" class="brand-logo left white-text">SineReserve</a>
+          <!--<a id="logo-container" href="http://localhost/SineReserve/index.php/Home/home" class="brand-logo left white-text hide-on-med-and-up">SineReserve</a>-->
+<!--          <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>-->
+          <ul class="right hide-on-large-only">
+              <li><a href="http://localhost/SineReserve/index.php/Home/home#movies"><i class="mdi-maps-local-attraction"></i></a></li>
+              <li><a class="modal-trigger" data-target="modal1" href="#modal1"><i class="mdi-action-account-circle"></i></a></li>
+          </ul>
           <ul class="right hide-on-med-and-down">
                 <!--<li><a href="http://localhost/SineReserve/index.php/movie_page_controller/movie">Movies</a></li>-->
                 <li><a href="http://localhost/SineReserve/index.php/Home/home#movies">Movies</a></li>
@@ -57,7 +62,7 @@
                 <div class="collapsible-body">
                 <p>
                   <div class="row">
-                <form class="col s12">
+                <form class="col s12" target="" action="" method="post">
                   <div class="row">
                     <div class="input-field col s12">
                       <input id="username_field" type="text" class="validate" />
