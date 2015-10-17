@@ -15,15 +15,23 @@ $(document).ready(function(){
 		selectMonths: true, // Creates a dropdown to control month
 		selectYears: 15 // Creates a dropdown of 15 years to control year
 	});
-	$('#add_actor').click(function(){
-		if($('#actor_name').val() != '')
-			$('#actor_list').append('<div class="chip">'+ $('#actor_name').val() +'<i class="remove_actor material-icons">close</i></div>');
-		$('#actor_name').val('');
-		$('.remove_actor').click(function(){
+	$('#add_imdb_actor_btn').click(function(){
+		if($('#add_imdb_actor').val() != '')
+			$('#add_imdb_actor_list').append('<div class="chip">'+ $('#add_imdb_actor').val() +'<i class="remove material-icons">close</i></div>');
+		$('#add_imdb_actor').val('');
+		$('.remove').click(function(){
 			$(this).parent().remove();
 		});
 	});
-	$('.remove_actor').click(function(){
+	$('#add_imdb_genre_btn').click(function(){
+		if($('#add_imdb_genre').val() != '')
+			$('#add_imdb_genre_list').append('<div class="chip">'+ $('#add_imdb_genre').val() +'<i class="remove material-icons">close</i></div>');
+		$('#add_imdb_genre').val('');
+		$('.remove').click(function(){
+			$(this).parent().remove();
+		});
+	});
+	$('.remove').click(function(){
 		$(this).parent().remove();
 	});	
 	
@@ -51,7 +59,8 @@ $(document).ready(function(){
 						$('#add_imdb_date').removeAttr('disabled');
 						$('#add_imdb_screenshot_btn').removeAttr('disabled');
 						$('#add_imdb_screenshot').removeAttr('disabled');
-						$('#add_imdb_rate').attr( "disabled", "" );
+						$('#add_imdb_rate').removeAttr('disabled');
+						$('#add_imdb_rate').attr('enabled', true);
 						$('#add_imdb_genre_btn').removeAttr('disabled');
 						$('#add_imdb_genre').removeAttr('disabled');
 						$('#add_imdb_time').removeAttr('disabled');
@@ -59,18 +68,29 @@ $(document).ready(function(){
 						$('#add_imdb_title').val(data['Title']);
 						$('#add_imdb_year').val(data['Year']);
 						$('#add_imdb_plot').val(data['Plot']);
-						$('#add_imdb_actor_btn').val();
-						$('#add_imdb_actor').val();
-						$('#add_imdb_date').val();
-						$('#add_imdb_screenshot_btn').val();
-						$('#add_imdb_screenshot').val();
+						var Actors = data['Actors'].split(',');
+						for (x in Actors) {
+							$('#add_imdb_actor_list').append('<div class="chip">'+ Actors[x] +'<i class="remove material-icons">close</i></div>');
+							$('.remove').click(function(){
+								$(this).parent().remove();
+							});
+						}						
+						$('#add_imdb_date').val(data['Released']);
 						switch(data['Rated']){
-							case 'PG-13': $('#add_imdb_rate').prop("selectedIndex", 3); alert($('#add_imdb_rate').val()); break;
+							case 'G': $('#add_imdb_rate').val('1'); break;
+							case 'PG': $('#add_imdb_rate').val('2'); break;
+							case 'PG-13': $('#add_imdb_rate').val('3'); break;
+							case 'R': $('#add_imdb_rate').val('4'); break;
+							case 'NC-17': $('#add_imdb_rate').val('5'); break;
 						}
-						
-						$('#add_imdb_genre_btn').val();
-						$('#add_imdb_genre').val();
-						$('#add_imdb_time').val(data['Runtime']);
+						var Genre = data['Genre'].split(',');
+						for (x in Genre) {
+							$('#add_imdb_genre_list').append('<div class="chip">'+ Genre[x] +'<i class="remove material-icons">close</i></div>');
+							$('.remove').click(function(){
+								$(this).parent().remove();
+							});
+						}			
+						$('#add_imdb_time').val(data['Runtime'].replace(" min", ""));
 						
 					}
 						

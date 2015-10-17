@@ -33,7 +33,7 @@
 				padding-top: 30px;
 			}
 			
-			#plot_field{
+			#add_imdb_plot{
 				overflow-y: auto;
 				max-height: 10px;
 			}
