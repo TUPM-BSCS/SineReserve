@@ -6033,7 +6033,14 @@ a.waves-effect .waves-ripple {
     padding: 4px 6px;
     height: 56px;
     width: 100%; }
-    .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat {
+  .modal .modal-header {
+    border-radius: 0 0 2px 2px;
+    background-color: #fafafa;
+    padding: 4px 15px 4px 24px;
+    height: 56px;
+    width: 100%; }
+
+    .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-flat, .modal .modal-header .btn, .modal .modal-header .btn-large,  .modal .modal-header .btn-flat, .modal .modal-header .btn-floating {
       float: right;
       margin: 6px 0; }
 
@@ -6055,7 +6062,8 @@ a.waves-effect .waves-ripple {
   height: 70%; }
   .modal.modal-fixed-footer .modal-content {
     position: absolute;
-    height: calc(100% - 56px);
+    top: 56px;
+    height: calc(100% - 112px);
     max-height: 100%;
     width: 100%;
     overflow-y: auto; }
@@ -6063,7 +6071,10 @@ a.waves-effect .waves-ripple {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     position: absolute;
     bottom: 0; }
-
+  .modal.modal-fixed-footer .modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0; }
 .modal.bottom-sheet {
   top: auto;
   bottom: -100%;

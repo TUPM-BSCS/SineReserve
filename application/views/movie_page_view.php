@@ -19,7 +19,7 @@
 			<div class="row s12 hide-on-med-and-up center-align">
 				<h5 class="text-white">
 					<?php echo $movie_name; ?>
-					<span class="blue-text"> <?php echo '(' . $movie_release_date . ')'?> <?php echo '<br />[' . $movie_rating . ']'; ?></span>
+					<span class="blue-text"> <?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '<br />[' . $movie_rating . ']'; ?></span>
 				</h5>
 			</div>
 
@@ -27,14 +27,14 @@
 				<div class="col s12 m3">
 					<img src="<?php echo base_url().$movie_poster_img; ?>" class="responsive-img movie-page-poster materialboxed" />
 					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#reservemodal">Reserve</a>
-					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#modal1">Rate Me</a>
+					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#reviewmodal">Rate Me</a>
 					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#modal1">Hurt Me Plenty</a>
 				</div>
 
 				<div class="col s12 m9">
 					<h5 class="hide-on-small-only text-primary-color text-white">
 						<?php echo $movie_name; ?>
-						<span class="blue-text"> <?php echo '(' . $movie_release_date . ')'?> <?php echo '<br />[' . $movie_rating . ']'; ?></span>
+						<span class="blue-text"> <?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '<br />[' . $movie_rating . ']'; ?></span>
 						<div class="chip"> <?php echo $movie_genre; ?> </div>
 					</h5>
 					
@@ -79,7 +79,7 @@
 									for($i = 0; $i < sizeof($movie_reviews); $i++) {
 							?>
 							<div class="review-card">
-								<h6 class="bold"><?php echo $movie_reviews[$i]['title']; ?></h6>
+								<h6 class="bold text-white"><?php echo $movie_reviews[$i]['title']; ?></h6>
 								<h6>
 
 								<?php
@@ -94,8 +94,8 @@
 								<br />
 								<?php echo date('F d Y', strtotime($movie_reviews[$i]['review_date'])); ?>
 								</h6>
-								<p class="review italic justify"> "<?php echo $movie_reviews[$i]['review']; ?>" </p>
-								<h6 class="right-align"> written by: <?php echo $movie_reviews[$i]['username']; ?> </h6>
+								<p class="review italic justify text-white"> "<?php echo $movie_reviews[$i]['review']; ?>" </p>
+								<h6 class="right-align text-white"> written by: <?php echo $movie_reviews[$i]['username']; ?> </h6>
 							</div>
 							<?php
 									}
@@ -115,54 +115,83 @@
 		</div>
 
 		<div id="reservemodal" class="modal modal-fixed-footer">
-			<div class="modal-header">
+			<div class="modal-header red">
+				<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
 				<p>Reservation Form</p>
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
 			</div>
 
 			<div class="modal-content">
 				<form class="col s12">
 					<div class="row">
-						<div class="input-field col s12">
-							<input disabled value="I am not editable" id="movie_title" type="text" class="validate">
+						<div class="input-field col s12 m12">
+							<input disabled value="<?php echo $movie_name ?>" id="movie_title" type="text" class="validate">
 							<label for="movie_title" class="active">Movie Title</label>
 						</div>
 
-						<div class="input-field col s4">
+						<div class="input-field col s12 m6">
 							<select>
-								<option value="" disabled selected>Choose your option</option>
+								<option value="" disabled selected>Select the Date</option>
 								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
 							</select>
 							<label>Date</label>
 						</div>
 
-						<div class="input-field col s4">
+						<div class="input-field col s12 m6">
 							<select>
-								<option value="" disabled selected>Choose your option</option>
+								<option value="" disabled selected>Select the Time</option>
 								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
 							</select>
 							<label>Time</label>
 						</div>
 
-						<div class="input-field col s4">
+						<div class="input-field col s12 m6">
 							<select>
-								<option value="" disabled selected>Choose your option</option>
+								<option value="" disabled selected>Select the Location</option>
 								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
 							</select>
-							<label>Venue</label>
+							<label>Location</label>
+						</div>
+
+						<div class="input-field col s12 m6">
+							<select>
+								<option value="" disabled selected>Select the Cinema</option>
+								<option value="1">Option 1</option>
+							</select>
+							<label>Cinema</label>
 						</div>
 					</div>
 				</form>
 			</div>
 
 			<div class="modal-footer">
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Confirm</a>
+				<a href="<?php echo base_url();?> index.php/controller_name/method_name/optional_parameter" class="modal-action modal-close waves-effect waves-green btn-flat ">Confirm</a>
+			</div>
+		</div>
+
+		<div id="reviewmodal" class="modal modal-fixed-footer">
+			<div class="modal-header red row">
+				<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
+				<p>Review Form</p>
+			</div>
+
+			<div class="modal-content">
+				<form class="col s12">
+					<div class="row">
+						<div class="input-field col s12">
+							<input disabled value="MOVIE TITLE" id="movie_title" type="text" class="validate">
+							<label for="movie_title" class="active text-black">Movie Title</label>
+						</div>
+
+						<div class="input-field col s12">
+							<input id="review_title" type="text" class="materialize-textarea">
+							<label for="review_title" class="text-black">Review Title</label>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="modal-footer">
+				<a href="<?php echo base_url();?> index.php/controller_name/method_name/optional_parameter" class="modal-action modal-close waves-effect waves-green btn-flat ">Confirm</a>
 			</div>
 		</div>
 
