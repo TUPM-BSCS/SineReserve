@@ -186,6 +186,7 @@
 							<input id="review_title" type="text" class="materialize-textarea">
 							<label for="review_title" class="text-black">Review Title</label>
 						</div>
+						<label for="star-rating" class="col s12 text-black">Movie Rating</label>
 						<div class="col s12">
 							<span class="star-rating">
 							  <input type="radio" id="star1" name="rating" value="1"><i></i>
