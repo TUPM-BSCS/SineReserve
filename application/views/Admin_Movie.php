@@ -75,7 +75,7 @@
 							<label for="add_trailer">Trailer</label>
 						</div>
 						<div class="input-field col s2">
-							<input placeholder="" id="add_runing_time" type="text" class="validate">
+							<input placeholder="" id="add_runing_time" type="text" class="validate lolliclock">
 							<label for="add_running_time">Running Time</label>
 						</div>
 						<div class="file-field input-field col s6">
@@ -115,7 +115,9 @@
 		<!-- JS TAGS -->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/lolliclock.js"></script>
 		<script>
+			$('.lolliclock').lolliclock({autoclose:true});
 			$('.button-collapse').sideNav();
 			$('.modal-trigger').leanModal();
 			$('#addbtn_modal').click(function(){
