@@ -31,6 +31,7 @@
           <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>
           <ul class="right hide-on-med-and-down">
                 <!--<li><a href="http://localhost/SineReserve/index.php/movie_page_controller/movie">Movies</a></li>-->
+                <li><a href="#movies">Movies</a></li>
                 <li><a class="modal-trigger" data-target="modal1" href="#modal1"><i class="mdi-action-account-circle"></i></a></li>
                 <li>
                   <div class="input-field red darken-2">
@@ -104,7 +105,7 @@
           </p>
         </div>
         <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close btn-flat">Cancel</a>
+          <a href="#!" class=" modal-action modal-close btn-flat">Close</a>
         </div>
     </div>
   </body>

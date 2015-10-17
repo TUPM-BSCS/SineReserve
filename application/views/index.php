@@ -38,7 +38,7 @@
 	    <!-- Intermission -->
 	    <div class="section">
 	    	<div class="row container">
-	    		<h3 class="header white-text">Movie Selection</h3>
+	    		<h3 id="movies" class="header white-text">Movie Selection</h3>
 	    		<p class="white-text">The fresh, the latest, the grandest films hand-picked by the most epic critics all over the world</p>
 	    	</div>
 	    </div>
