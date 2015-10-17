@@ -77,6 +77,7 @@ class Home extends CI_Controller {
 
 		$this->load->view('header');
 		$this->load->view('index', $data);
+		$this->load->view('footer');
 	}
 	
 }
