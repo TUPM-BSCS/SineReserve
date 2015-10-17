@@ -10,13 +10,10 @@
 		<!-- CSS TAGS -->
 		<link href="<?php echo base_url();?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 		<link href="<?php echo base_url();?>assets/css/lolliclock.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-<<<<<<< HEAD
 
 		
-=======
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		 
->>>>>>> origin/master
 		<style>
 			main {
 				padding-left: 260px;
@@ -28,8 +25,8 @@
 			}
 			
 			.modal{
-				max-height: 90%;
-				top: 5% !important;
+				max-height: 95%;
+				top: 3% !important;
 			}
 			
 			.branch_dropdown {
