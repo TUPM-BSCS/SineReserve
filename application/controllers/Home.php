@@ -7,8 +7,12 @@ class Home extends CI_Controller {
     }   
 
 	public function home(){
+		$today = '2015-02-14';
 		//create root array for movie list
 		$data['movie_list'] = array();
+
+		//create root array for pande list
+		$data['pande'] = array();
 
 		//create now showing array inside root array
 		$data['movie_list']['now_showing'] = array();		
@@ -19,6 +23,15 @@ class Home extends CI_Controller {
 		//create coming soon array inside root array
 		$data['movie_list']['coming_soon'] = array();
 
+		//get all pande that is effective today
+		$this->load->model('promos_model');
+		$query = $this->promos_model->get_promos_by_date($today);
+		if($query->num_rows() > 0) {
+			foreach ($query->result() as $row) {
+				array_push($data['pande'], array('title'=>$row->prom_title, 'banner'=>$row->prom_banner));
+			}
+		}
+
 		//get all mov_id on shows table that has a date today
 		$this->load->model('shows_model');
 		$this->load->model('movies_model');
@@ -26,21 +39,21 @@ class Home extends CI_Controller {
 		$next_attraction = array();
 		$coming_soon = array();
 
-		$query = $this->shows_model->get_mov_ids_by_date('2015-02-14');
+		$query = $this->shows_model->get_mov_ids_by_date($today);
 		if($query->num_rows() > 0) {
 			foreach($query->result() as $row) {
 				array_push($now_showing, $row->mov_id);
 			}
 		}
 
-		$query2 = $this->shows_model->get_other_mov_ids($now_showing, '2015-02-14');
+		$query2 = $this->shows_model->get_other_mov_ids($now_showing, $today);
 		if($query2->num_rows() > 0) {
 			foreach($query2->result() as $row) {
 				array_push($next_attraction, $row->mov_id);
 			}
 		}
 
-		$query3 = $this->movies_model->get_other_mov_ids(array_merge($now_showing, $next_attraction), '2015-02-14');
+		$query3 = $this->movies_model->get_other_mov_ids(array_merge($now_showing, $next_attraction), $today);
 		if($query3->num_rows() > 0) {
 			foreach ($query3->result() as $row) {
 				array_push($coming_soon, $row->mov_id);

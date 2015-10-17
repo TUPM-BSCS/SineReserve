@@ -21,18 +21,43 @@
 		</div>
 
 		<!-- Promos & Events -->
+		<?php
+			if(count($pande) > 0) {
+				echo
+					'<div class="container">
+						<h4 class="white-text">Promos and Events</h4>
+						<div class="slickify">';
+				foreach ($pande as $panda) {
+					echo '<div><img src="' . base_url() . $panda['banner'] . '"></div>';
+				}
+				echo '<div><img src="' . base_url() . 'assets/images/pande/hotel.jpg" /></div>';
+				echo
+						'</div>
+					</div>';
+			}
+		?>
+<!-- 
+		// $movie_list['now_showing'] = array();
+      			if(count($movie_list['now_showing']) > 0) {
+      				echo '<ul class="rig">';
+	      			foreach ($movie_list['now_showing'] as $movie) {
+	      				echo
+	      					'<li>
+	      						<div class="movie-box">
+	      							<div class="image-container">
+	      								<a href="'. base_ur
+
 		<div class="container">
 			<h4 class="white-text">Promos and Events</h4>
 			<div class="slickify">
-			  <div><img class="materialboxed" src="<?php echo base_url();?>assets/images/pande/hotel.jpg" /></div>
+			  <div><img src="<?php echo base_url();?>assets/images/pande/hotel.jpg" /></div>
 			  <div><img src="<?php echo base_url();?>assets/images/pande/imax.jpg" /></div>
 			  <div><img src="<?php echo base_url();?>assets/images/pande/inside_out.jpg" /></div>
 			  <div><img src="<?php echo base_url();?>assets/images/pande/imax2.jpg" /></div>
 			  <div><img src="<?php echo base_url();?>assets/images/pande/inside_out.jpg" /></div>
 			  <div><img src="<?php echo base_url();?>assets/images/pande/pixels.jpg" /></div>
 			</div>
-			<p class="white-text pande-message">Go to Promos and Events Page to read more and see all the Hot promos and events we are offering</p>
-		</div>
+		</div> -->
 
 
 	    <!-- Intermission -->
