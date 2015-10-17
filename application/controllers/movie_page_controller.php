@@ -31,11 +31,13 @@ class movie_page_controller extends CI_Controller {
 	}
 	
 	public function reserve_movie() {
+		$this->load->model('movie_page_model');
 
 	}
 
 	public function review_movie() {
-		
+		$this->load->model('movie_page_model');
+		$this->movie_page_model->add_movie_review();
 	}
 
 }
