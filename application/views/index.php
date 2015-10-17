@@ -30,7 +30,6 @@
 				foreach ($pande as $panda) {
 					echo '<div><img src="' . base_url() . $panda['banner'] . '"></div>';
 				}
-				echo '<div><img src="' . base_url() . 'assets/images/pande/hotel.jpg" /></div>';
 				echo
 						'</div>
 					</div>';

@@ -210,14 +210,15 @@ CREATE TABLE `promo_and_event` (
   `prom_start_date` date DEFAULT NULL,
   `prom_end_date` date DEFAULT NULL,
   PRIMARY KEY (`prom_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `promo_and_event` */
 
 insert  into `promo_and_event`(`prom_id`,`prom_title`,`prom_banner`,`prom_start_date`,`prom_end_date`) values 
 (1,'A February Promo','assets/images/pande/febpromo.jpg','2015-02-01','2015-02-28'),
 (2,'Another February Pro','assets/images/pande/anotherfebpromo.jpg','2015-02-01','2015-02-28'),
-(3,'A February Event','assets/images/pande/febevent.jpg','2015-02-01','2015-02-28');
+(3,'A February Event','assets/images/pande/febevent.jpg','2015-02-01','2015-02-28'),
+(4,'Another February Eve','assets/images/pande/anotherfebevent.jpg','2015-02-01','2015-02-28');
 
 /*Table structure for table `promo_in_branch` */
 
