@@ -6,7 +6,10 @@ class Promos extends CI_CONTROLLER{
     	}
 	public function promos(){
 		
+		
+		$this->load->view('header');
 		$this->load->view('promos_page_view', $data);
+		$this->load->view('footer');
 	}
 }
 ?>
