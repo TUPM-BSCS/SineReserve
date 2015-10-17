@@ -1,10 +1,70 @@
 <?php
 
-class movie_page_model extends CI_Model {
+class header_model extends CI_Model {
 
 	function __construct() {
 		parent::__construct();
 		$this->load->database();
+	}
+
+	public function validate_user($username, $password) {
+		$this->db->select('username, PASSWORD');
+		$this->db->where('username, PASSWORD', $username, $password);
+		$this->db->from('user');
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return true;
+		}
+		return false;
+	}
+
+	public function add_new_user($username, $password, $email, $lastname, $firstname, $middleinitial, $sex, $birthdate, $aaddress, $card_no, $card_pin) {
+
+	}
+
+	public function set_user_username() {
+
+	}
+
+	public function set_user_password() {
+
+	}
+
+	public function set_user_email() {
+
+	}
+
+	public function set_user_lastname() {
+
+	}
+
+	public function set_user_firstname() {
+
+	}
+
+	public function set_user_middleinitial() {
+
+	}
+
+	public function set_user_sex() {
+
+	}
+
+	public function set_user_birthdate() {
+
+	}
+
+	public function set_user_address() {
+
+	}
+
+	public function set_user_card_no() {
+
+	}
+
+	public function set_user_card_pin() {
+
 	}
 
 	public function get_movie_name($mov_id) {
@@ -94,7 +154,8 @@ class movie_page_model extends CI_Model {
 	public function get_movie_genre($mov_id) {
 		$this->db->select('genre_name');
 		$this->db->where('mov_id', $mov_id);
-		$this->db->from('genre');
+		$this->db->from('genre_of_movie');
+		$this->db->join('genre', 'genre_of_movie.genre_id = genre.genre_id');
 		$query = $this->db->get();
 
 		if($query->num_rows() > 0) {
@@ -104,9 +165,10 @@ class movie_page_model extends CI_Model {
 	}
 
 	public function get_movie_cast($mov_id) {
-		$this->db->select('actor_name');
+		$this->db->select('actor_fname, actor_lname, actor_img, cast_role');
 		$this->db->where('mov_id', $mov_id);
-		$this->db->from('actor');
+		$this->db->from('cast');
+		$this->db->join('actor', 'cast.actor_id = actor.actor_id');
 		$query = $this->db->get();
 
 		if($query->num_rows() > 0) {

@@ -1,28 +1,82 @@
 <?php 
 	class Admin_controller extends CI_Controller{
-		
 		public function __construct(){
 			parent::__construct();
 			$this->load->helper('url'); 
+			$this->load->library('session'); 
 			$this->load->model('admin_model');
 		}   
 	
 		public function index(){
 			$this->load->helper('url');
 			$this->branch();
+			$this->session->set_userdata('branch', 1);
+		}
+		
+		public function dashboard(){
+			$data['title_page'] = 'Admin Dashboard';
+			$data['branch'] = array();
+			$this->load->view('Admin_Navigation', $data);
 		}
 		
 		public function branch(){
-			$data['title_page'] = 'Admin Page';
+			$data['title_page'] = 'Branch';
 			$branch_name = $branch_address = $result = array();
 			$result = $this->admin_model->get_branch();
-			foreach($result as $row){
-				array_push($branch_name,$row->bran_name);
-				array_push($branch_address,$row->bran_address);
+			$data['branch'] = $result; 
+			$this->load->view('Admin_Navigation', $data);
+			$this->load->view('Admin_Branch', $data);
+		}
+		
+		
+		public function add_branch(){
+			$data['title_page'] = 'Branch';
+			$name = $this->input->post('add_branch_name');
+			$address = $this->input->post('add_branch_address');
+			$this->admin_model->set_branch($name, $address);
+			redirect('Admin_Controller/branch');
+		}
+		
+		public function cinema(){
+			
+			if($this->input->post('for_branch') != null)
+				$this->session->set_userdata('branch', $this->input->post('for_branch'));
+			$data['title_page'] = 'Cinema';
+			$data['residing_branch'] = $this->session->userdata('branch');
+			$result = array();
+			$result = $this->admin_model->get_branch();
+			$data['branch'] = $result;
+			$result = $this->admin_model->get_cinema_in_branch($this->session->userdata('branch'));
+			if($result == null){
+				$data['cinema'] = array();
+				$data['last_cinema'] = 0;
 			}
-			$data['branch_name'] = $branch_name;
-			$data['branch_address'] = $branch_address; 
-			$this->load->view('admin_page', $data);
+			else{
+				$data['cinema'] = $result['result'];
+				$data['last_cinema'] = str_replace("Cinema", '', $result['last_row']->cine_name);
+				if ($result['last_row']->cine_name == null)
+					$data['last_cinema'] = 0;
+			}
+			$this->load->view('Admin_Navigation', $data);
+			$this->load->view('Admin_Cinema', $data);
+		}
+		
+		public function insert_cinema_seats(){
+			$seats = $this->input->post('no_of_seats');
+			$branch = $this->input->post('bran_id');
+			$cine = $this->input->post('cine_id');
+			$this->admin_model->insert_cinema_seat($cine, $branch, $seats);
+			$this->session->set_userdata('branch', $branch);
+			redirect('Admin_Controller/cinema');
+		}
+		
+		public function movie(){
+			$data['title_page'] = 'Movie';
+			$branch_name = $branch_address = $result = array();
+			$result = $this->admin_model->get_branch();
+			$data['branch'] = $result; 
+			$this->load->view('Admin_Navigation', $data);
+			$this->load->view('Admin_Movie', $data);
 		}
 	}
 ?>
