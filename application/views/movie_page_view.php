@@ -19,7 +19,7 @@
 			<div class="row s12 hide-on-med-and-up center-align">
 				<h5 class="text-white">
 					<?php echo $movie_name; ?>
-					<span class="blue-text"> <?php echo '(' . $movie_release_date . ')'?> <?php echo '<br />[' . $movie_rating . ']'; ?></span>
+					<span class="blue-text"> <?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '<br />[' . $movie_rating . ']'; ?></span>
 				</h5>
 			</div>
 
@@ -34,7 +34,7 @@
 				<div class="col s12 m9">
 					<h5 class="hide-on-small-only text-primary-color text-white">
 						<?php echo $movie_name; ?>
-						<span class="blue-text"> <?php echo '(' . $movie_release_date . ')'?> <?php echo '<br />[' . $movie_rating . ']'; ?></span>
+						<span class="blue-text"> <?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '<br />[' . $movie_rating . ']'; ?></span>
 						<div class="chip"> <?php echo $movie_genre; ?> </div>
 					</h5>
 					
@@ -79,7 +79,7 @@
 									for($i = 0; $i < sizeof($movie_reviews); $i++) {
 							?>
 							<div class="review-card">
-								<h6 class="bold"><?php echo $movie_reviews[$i]['title']; ?></h6>
+								<h6 class="bold text-white"><?php echo $movie_reviews[$i]['title']; ?></h6>
 								<h6>
 
 								<?php
@@ -94,8 +94,8 @@
 								<br />
 								<?php echo date('F d Y', strtotime($movie_reviews[$i]['review_date'])); ?>
 								</h6>
-								<p class="review italic justify"> "<?php echo $movie_reviews[$i]['review']; ?>" </p>
-								<h6 class="right-align"> written by: <?php echo $movie_reviews[$i]['username']; ?> </h6>
+								<p class="review italic justify text-white"> "<?php echo $movie_reviews[$i]['review']; ?>" </p>
+								<h6 class="right-align text-white"> written by: <?php echo $movie_reviews[$i]['username']; ?> </h6>
 							</div>
 							<?php
 									}
