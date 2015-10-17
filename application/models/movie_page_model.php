@@ -138,21 +138,34 @@ class movie_page_model extends CI_Model {
 		return false;
 	}
 
+	// ADD RESERVATION
+	// public function add_movie_reservation($title, $review, $user_rating, $review_date, $username, $mov_id) {
+	// 	if(($title != null) && ($review != null)) {
+	// 		$review = array(
+	// 			'title' => $title,
+	// 			'review' => $review,
+	// 			'user_rating' => $user_rating,
+	// 			'review_date' => $review_date,
+	// 			'username' => $username,
+	// 			'mov_id' => $mov_id
+	// 		);
+	// 		$this->db->insert('review', $review);
+	// 	}
+	// }
 
 	// ADD REVIEW
-
 	public function add_movie_review($title, $review, $user_rating, $review_date, $username, $mov_id) {
-		// if() {
-		// 	$review = array(
-		// 		'title' => $title,
-		// 		'review' => $review,
-		// 		'user_rating' => $user_rating,
-		// 		'review_date' => $review_date,
-		// 		'username' => $username,
-		// 		'mov_id' => $mov_id
-		// 	);
-		// 	$this->db->insert('review', $review);
-		// }
+		if(($title != null) && ($review != null)) {
+			$review = array(
+				'title' => $title,
+				'review' => $review,
+				'user_rating' => $user_rating,
+				'review_date' => $review_date,
+				'username' => $username,
+				'mov_id' => $mov_id
+			);
+			$this->db->insert('review', $review);
+		}
 	}
 
 }
