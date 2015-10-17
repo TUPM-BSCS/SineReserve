@@ -30,5 +30,13 @@ class movie_page_controller extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
+	public function reserve_movie() {
+
+	}
+
+	public function review_movie() {
+		
+	}
+
 }
 ?>
