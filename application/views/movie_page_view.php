@@ -115,11 +115,10 @@
 		</div>
 
 		<div id="reservemodal" class="modal modal-fixed-footer">
-			<div class="modal-header red row">
-				<p class="header-label col s11">Reservation Form</p>
-				<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">clear</i></a>
+			<div class="modal-header red">
+				<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
+				<p>Reservation Form</p>
 			</div>
-
 			<div class="modal-content">
 				<form class="col s12">
 					<div class="row">
