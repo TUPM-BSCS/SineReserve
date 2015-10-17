@@ -27,7 +27,7 @@
 				<div class="col s12 m3">
 					<img src="<?php echo base_url().$movie_poster_img; ?>" class="responsive-img movie-page-poster materialboxed" />
 					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#reservemodal">Reserve</a>
-					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#modal1">Rate Me</a>
+					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#reviewmodal">Rate Me</a>
 					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#modal1">Hurt Me Plenty</a>
 				</div>
 
@@ -117,7 +117,7 @@
 		<div id="reservemodal" class="modal modal-fixed-footer">
 			<div class="modal-header red row">
 				<p class="header-label col s11">Reservation Form</p>
-				<a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat valign col s1"><i class="mdi-navigation-close mdi-inverse"></i></a>
+				<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">clear</i></a>
 			</div>
 
 			<div class="modal-content">
@@ -150,6 +150,28 @@
 								<option value="1">Option 1</option>
 							</select>
 							<label>Venue</label>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Confirm</a>
+			</div>
+		</div>
+
+		<div id="reviewmodal" class="modal modal-fixed-footer">
+			<div class="modal-header red row">
+				<p class="header-label col s11">Review Form</p>
+				<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">clear</i></a>
+			</div>
+
+			<div class="modal-content">
+				<form class="col s12">
+					<div class="row">
+						<div class="input-field col s12">
+							<input disabled value="I am not editable" id="movie_title" type="text" class="validate">
+							<label for="movie_title" class="active">Movie Title</label>
 						</div>
 					</div>
 				</form>
