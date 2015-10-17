@@ -3,14 +3,14 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  		
-  		<title>Movie Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 
-  		<!-- CSS  -->
-  		<link href="<?php echo base_url(); ?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  		<link href="<?php echo base_url(); ?>assets/css/movie_page_style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  		<link href="<?php echo base_url(); ?>assets/css/movie_page_color_scheme.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<title>Movie Page</title>
+
+		<!-- CSS  -->
+		<link href="<?php echo base_url(); ?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="<?php echo base_url(); ?>assets/css/movie_page_style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="<?php echo base_url(); ?>assets/css/movie_page_color_scheme.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	</head>
 	
 	<body class="grey lighten-5">
@@ -183,17 +183,27 @@
 						</div>
 
 						<div class="input-field col s12">
-							<input id="review_title" type="text" class="materialize-textarea">
+							<input id="review_title" type="text" class="text" length="50">
 							<label for="review_title" class="text-black">Review Title</label>
 						</div>
+
 						<div class="col s12">
-							<span class="star-rating">
-							  <input type="radio" id="star1" name="rating" value="1"><i></i>
-							  <input type="radio" id="star2" name="rating" value="2"><i></i>
-							  <input type="radio" id="star3" name="rating" value="3"><i></i>
-							  <input type="radio" id="star4" name="rating" value="4"><i></i>
-							  <input type="radio" id="star5" name="rating" value="5"><i></i>
+							<label for="rating">Rating</label>
+							<span id="rating" class="star-rating">
+								<input type="radio" id="star1" name="rating" value="1"><i></i>
+								<input type="radio" id="star2" name="rating" value="2"><i></i>
+								<input type="radio" id="star3" name="rating" value="3"><i></i>
+								<input type="radio" id="star4" name="rating" value="4"><i></i>
+								<input type="radio" id="star5" name="rating" value="5"><i></i>
 							</span>
+							
+						</div>
+
+						<div class="row">
+							<div class="input-field col s12">
+								<textarea id="review" class="materialize-textarea"></textarea>
+								<label for="review">Review</label>
+							</div>
 						</div>
 					</div>
 				</form>
