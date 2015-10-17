@@ -26,21 +26,21 @@ class Home extends CI_Controller {
 		$next_attraction = array();
 		$coming_soon = array();
 
-		$query = $this->shows_model->get_mov_ids_by_date('2015-09-20');
+		$query = $this->shows_model->get_mov_ids_by_date('2015-02-14');
 		if($query->num_rows() > 0) {
 			foreach($query->result() as $row) {
 				array_push($now_showing, $row->mov_id);
 			}
 		}
 
-		$query2 = $this->shows_model->get_other_mov_ids($now_showing, '2015-09-20');
+		$query2 = $this->shows_model->get_other_mov_ids($now_showing, '2015-02-14');
 		if($query2->num_rows() > 0) {
 			foreach($query2->result() as $row) {
 				array_push($next_attraction, $row->mov_id);
 			}
 		}
 
-		$query3 = $this->movies_model->get_other_mov_ids(array_merge($now_showing, $next_attraction), '2015-09-20');
+		$query3 = $this->movies_model->get_other_mov_ids(array_merge($now_showing, $next_attraction), '2015-02-14');
 		if($query3->num_rows() > 0) {
 			foreach ($query3->result() as $row) {
 				array_push($coming_soon, $row->mov_id);

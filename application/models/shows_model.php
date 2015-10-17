@@ -11,7 +11,7 @@ class shows_model extends CI_Model {
 		if($date == null)
 			$date = date('Y-m-d');
 		$this->db->select('mov_id');
-		$this->db->where('date', $date);
+		$this->db->where('show_date', $date);
 		$this->db->from('shows');
 		return $this->db->get();
 	}
@@ -21,7 +21,7 @@ class shows_model extends CI_Model {
 			$date = date('Y-m-d');
 		if(count($mov_ids) > 0)
 			$this->db->where_not_in('mov_id', $mov_ids);
-		$this->db->where('date >', $date);
+		$this->db->where('show_date >', $date);
 		$this->db->select('mov_id');
 		$this->db->from('shows');
 		return $this->db->get();
