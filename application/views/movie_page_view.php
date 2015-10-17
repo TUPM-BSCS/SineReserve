@@ -19,7 +19,7 @@
 			<div class="row s12 hide-on-med-and-up center-align">
 				<h5 class="text-white">
 					<?php echo $movie_name; ?>
-					<span class="blue-text"> <?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '<br />[' . $movie_rating . ']'; ?></span>
+					<span class="blue-text"> <?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '[' . $movie_rating . ']'; ?></span>
 				</h5>
 			</div>
 
@@ -34,16 +34,14 @@
 				<div class="col s12 m9">
 					<h5 class="hide-on-small-only text-primary-color text-white">
 						<?php echo $movie_name; ?>
-						<span class="blue-text"> <?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '<br />[' . $movie_rating . ']'; ?></span>
-						<div class="chip"> <?php echo $movie_genre; ?> </div>
+						<span class="blue-text"><?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '[' . $movie_rating . ']'; ?></span>
+						<?php echo $movie_genre; ?>
 					</h5>
 					
 					<p class="text-white"> <?php echo $movie_plot; ?> </p>
 
 					<h6 class="text-white">Cast:</h6>
-						 <div class="chip">
-							<?php echo $movie_cast; ?>
-						</div> 
+						<?php echo $movie_cast; ?>
 					<ul class="tabs white">
 						<li class="tab col s3"><a href="#photos">Photos</a></li>
 						<li class="tab col s3"><a href="#videos">Videos</a></li>
