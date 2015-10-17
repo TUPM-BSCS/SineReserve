@@ -24,7 +24,7 @@
 			
 			.modal{
 				max-height: 90%;
-				top: 1% !important;
+				top: 5% !important;
 			}
 			
 			.branch_dropdown {

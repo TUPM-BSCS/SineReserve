@@ -87,7 +87,7 @@
 							</div>
 						</div>
 						
-						<div class="input-field col s6 m4">
+						<div class="input-field col s12 m4">
 							<input id="release_date_field" type="date" class="datepicker">
 							<label for="release_date_field" class="truncate">Release Date </label> 
 						</div>
@@ -107,7 +107,7 @@
 						  </div>
 						</div>
 						
-						<div class="input-field col s6 m4">
+						<div class="input-field col s12 m4">
 							<select>
 							  <option value="1" selected>G</option>
 							  <option value="2">PG</option>
@@ -128,7 +128,7 @@
 								<input placeholder='Add Genre Here' id="genre_name" type="text" class="validate col s8">
 							</div>
 						</div>
-						<div class="input-field col s6 m4">
+						<div class="input-field col s12 m4">
 							<input id="add_time" type="text" class="validate cock">
 							<label for="add_time">Run Time</label>
 						</div>
@@ -139,7 +139,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-				  <a href="#!" onclick="alert('fefefe'+ $('#poster').val())" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
+				   <button class="btn waves-effect waves-light signup-button" type="submit" name="action">Confirm</button>
 				</div>
 			</div>
 			<div id="add_by_title" class="modal">
