@@ -36,29 +36,6 @@
 					</div>';
 			}
 		?>
-<!-- 
-		// $movie_list['now_showing'] = array();
-      			if(count($movie_list['now_showing']) > 0) {
-      				echo '<ul class="rig">';
-	      			foreach ($movie_list['now_showing'] as $movie) {
-	      				echo
-	      					'<li>
-	      						<div class="movie-box">
-	      							<div class="image-container">
-	      								<a href="'. base_ur
-
-		<div class="container">
-			<h4 class="white-text">Promos and Events</h4>
-			<div class="slickify">
-			  <div><img src="<?php echo base_url();?>assets/images/pande/hotel.jpg" /></div>
-			  <div><img src="<?php echo base_url();?>assets/images/pande/imax.jpg" /></div>
-			  <div><img src="<?php echo base_url();?>assets/images/pande/inside_out.jpg" /></div>
-			  <div><img src="<?php echo base_url();?>assets/images/pande/imax2.jpg" /></div>
-			  <div><img src="<?php echo base_url();?>assets/images/pande/inside_out.jpg" /></div>
-			  <div><img src="<?php echo base_url();?>assets/images/pande/pixels.jpg" /></div>
-			</div>
-		</div> -->
-
 
 	    <!-- Intermission -->
 	    <div class="section">
