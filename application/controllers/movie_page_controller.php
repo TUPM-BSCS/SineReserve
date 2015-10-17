@@ -9,8 +9,6 @@ class movie_page_controller extends CI_Controller {
 	public function movie($movie){
 		$this->load->model('movie_page_model');
 
-		// $movie = 3;
-
 		$data['title'] = 'Movie Page';
 		$data['movie_name'] = $this->movie_page_model->get_movie_name($movie);
 		$data['movie_rating'] = $this->movie_page_model->get_movie_rating($movie);
