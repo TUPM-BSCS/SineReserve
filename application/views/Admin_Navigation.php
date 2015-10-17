@@ -9,7 +9,8 @@
 		
 		<!-- CSS TAGS -->
 		<link href="<?php echo base_url();?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-		
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		 
 		<style>
 			main {
 				padding-left: 260px;
@@ -21,7 +22,8 @@
 			}
 			
 			.modal{
-				max-height: 100%;
+				max-height: 90%;
+				top: 1% !important;
 			}
 			
 			.branch_dropdown {
