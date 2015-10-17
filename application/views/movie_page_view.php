@@ -119,6 +119,7 @@
 				<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
 				<p>Reservation Form</p>
 			</div>
+
 			<div class="modal-content">
 				<form class="col s12">
 					<div class="row">
@@ -155,14 +156,14 @@
 			</div>
 
 			<div class="modal-footer">
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Confirm</a>
+				<a href="<?php echo base_url();?> index.php/controller_name/method_name/optional_parameter" class="modal-action modal-close waves-effect waves-green btn-flat ">Confirm</a>
 			</div>
 		</div>
 
 		<div id="reviewmodal" class="modal modal-fixed-footer">
 			<div class="modal-header red row">
-				<p class="header-label col s11">Review Form</p>
-				<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">clear</i></a>
+				<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
+				<p>Review Form</p>
 			</div>
 
 			<div class="modal-content">
@@ -177,7 +178,7 @@
 			</div>
 
 			<div class="modal-footer">
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Confirm</a>
+				<a href="<?php echo base_url();?> index.php/controller_name/method_name/optional_parameter" class="modal-action modal-close waves-effect waves-green btn-flat ">Confirm</a>
 			</div>
 		</div>
 
