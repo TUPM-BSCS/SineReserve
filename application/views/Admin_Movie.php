@@ -129,7 +129,7 @@
 							</div>
 						</div>
 						<div class="input-field col s6 m4">
-							<input id="add_time" type="text" class="validate">
+							<input id="add_time" type="text" class="validate cock">
 							<label for="add_time">Run Time</label>
 						</div>
 						<div class="input-field col s12 m12">
@@ -164,8 +164,10 @@
 		<!-- JS TAGS -->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/lolliclock.js"></script>
 		<script>
 			$(document).ready(function(){
+				$('.cock').lolliclock({autoclose:true});
 				$('select').material_select();
 				$('.button-collapse').sideNav();
 				$('.modal-trigger').leanModal();
