@@ -117,7 +117,7 @@
 		<div id="reservemodal" class="modal modal-fixed-footer">
 			<div class="modal-header red">
 				<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
-				<p>Reservation Form</p>
+				<p class="text-white">Reservation Form</p>
 			</div>
 
 			<div class="modal-content">
@@ -171,7 +171,7 @@
 		<div id="reviewmodal" class="modal modal-fixed-footer">
 			<div class="modal-header red row">
 				<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
-				<p>Review Form</p>
+				<p class="text-white">Review Form</p>
 			</div>
 
 			<div class="modal-content">
