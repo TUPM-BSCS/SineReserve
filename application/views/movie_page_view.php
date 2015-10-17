@@ -186,9 +186,9 @@
 							<input id="review_title" type="text" class="text" length="50">
 							<label for="review_title" class="text-black">Review Title</label>
 						</div>
+						
 						<label for="star-rating" class="col s12 text-black">Movie Rating</label>
 						<div class="col s12">
-							<label for="rating">Rating</label>
 							<span id="rating" class="star-rating">
 								<input type="radio" id="star1" name="rating" value="1"><i></i>
 								<input type="radio" id="star2" name="rating" value="2"><i></i>
@@ -196,7 +196,6 @@
 								<input type="radio" id="star4" name="rating" value="4"><i></i>
 								<input type="radio" id="star5" name="rating" value="5"><i></i>
 							</span>
-							
 						</div>
 
 						<div class="row">
