@@ -7,4 +7,6 @@ $(document).ready(function(){
 		autoplaySpeed: 1500,
 		pauseOnHover: true
 	});
+
+	$('.modal-trigger').leanModal();
 });
