@@ -67,24 +67,6 @@
 						  <textarea id="plot_field" class="materialize-textarea"></textarea>
 						  <label for="plot_field">Plot</label>
 						</div>
-						<div class="input-field col s6 m4">
-							<input id="release_date_field" type="date" class="datepicker">
-							<label for="release_date_field" class="truncate">Release Date </label> 
-						</div>
-						<div class="input-field col s6 m4">
-							<input id="add_time" type="text" class="validate">
-							<label for="add_time">Run Time</label>
-						</div>
-						<div class="input-field col s6 m4">
-							<select>
-							  <option value="1" selected>G</option>
-							  <option value="2">PG</option>
-							  <option value="3">PG-13</option>
-							  <option value="4">R</option>
-							  <option value="5">NC-17</option>
-							</select>
-							<label>Rated:</label>
-						</div>
 						<div class="input-field col s6 m6">
 							<input id="add_trailer" type="text" class="validate">
 							<label for="add_trailer">Trailer</label>
@@ -98,25 +80,61 @@
 							<input class="file-path validate truncate" type="text" placeholder="Upload Poster Image Here">
 						  </div>
 						</div>
-						<div class="input-field col s12 m5">
+						<div class="input-field col s12 m6">
 							<div class='row'>
 								<div id='add_actor'class="btn col s4">Add Actor</div>							
 								<input placeholder='Add Actor Here' id="actor_name" type="text" class="validate col s8">
 							</div>
 						</div>
-						<div class="input-field col s12 m7">
+						
+						<div class="input-field col s6 m4">
+							<input id="release_date_field" type="date" class="datepicker">
+							<label for="release_date_field" class="truncate">Release Date </label> 
+						</div>
+						
+						<div class="input-field col s12 m12">
 							<div id='actor_list' class='row'>
-								<div class="chip">Tag<i class="remove_actor material-icons">close</i></div>
 							</div>
 						</div>
+						
 						<div class="file-field input-field col s12 m6">
 						  <div class="btn">
 							<span>Import</span>
 							<input id='poster' type="file" accept="image/png, image/jpeg">
 						  </div>
 						  <div class="file-path-wrapper">
-							<input class="file-path validate truncate" type="text" placeholder="Upload Poster Image Here">
+							<input class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here">
 						  </div>
+						</div>
+						
+						<div class="input-field col s6 m4">
+							<select>
+							  <option value="1" selected>G</option>
+							  <option value="2">PG</option>
+							  <option value="3">PG-13</option>
+							  <option value="4">R</option>
+							  <option value="5">NC-17</option>
+							</select>
+							<label>Rated:</label>
+						</div>
+						
+						<div class="input-field col s12 m12">
+							<div id='screenshot_list' class='row'>
+							</div>
+						</div>
+						<div class="input-field col s12 m6">
+							<div class='row'>
+								<div id='add_genre'class="btn col s4">Add Genre</div>							
+								<input placeholder='Add Genre Here' id="genre_name" type="text" class="validate col s8">
+							</div>
+						</div>
+						<div class="input-field col s6 m4">
+							<input id="add_time" type="text" class="validate">
+							<label for="add_time">Run Time</label>
+						</div>
+						<div class="input-field col s12 m12">
+							<div id='genre_list' class='row'>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -165,8 +183,11 @@
 				});
 				$('#add_actor').click(function(){
 					if($('#actor_name').val() != '')
-						$('#actor_list').append('<div class="chip">'+ $('#actor_name').val() +'<i class="material-icons">close</i></div>');
+						$('#actor_list').append('<div class="chip">'+ $('#actor_name').val() +'<i class="remove_actor material-icons">close</i></div>');
 					$('#actor_name').val('');
+					$('.remove_actor').click(function(){
+						$(this).parent().remove();
+					});
 				});
 				$('.remove_actor').click(function(){
 					$(this).parent().remove();
