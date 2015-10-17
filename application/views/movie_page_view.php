@@ -115,9 +115,9 @@
 		</div>
 
 		<div id="reservemodal" class="modal modal-fixed-footer">
-			<div class="modal-header">
-				<p>Reservation Form</p>
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+			<div class="modal-header red row">
+				<p class="header-label col s11">Reservation Form</p>
+				<a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat valign col s1"><i class="mdi-navigation-close mdi-inverse"></i></a>
 			</div>
 
 			<div class="modal-content">
