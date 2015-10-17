@@ -27,7 +27,7 @@
     <div class ="navbar">
       <nav class="red darken-4 main-nav ripple" id="meet-1" role="navigation">
         <div class="nav-wrapper container"> 
-          <a id="logo-container" href="#" class="brand-logo white-text">SineReserve</a>
+          <a id="logo-container" href="http://localhost/SineReserve/index.php/Home/home" class="brand-logo white-text">SineReserve</a>
           <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>
           <ul class="right hide-on-med-and-down">
                 <!--<li><a href="http://localhost/SineReserve/index.php/movie_page_controller/movie">Movies</a></li>-->
