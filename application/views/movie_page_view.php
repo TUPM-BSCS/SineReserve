@@ -123,33 +123,41 @@
 			<div class="modal-content">
 				<form class="col s12">
 					<div class="row">
-						<div class="input-field col s12">
-							<input disabled value="I am not editable" id="movie_title" type="text" class="validate">
+						<div class="input-field col s12 m12">
+							<input disabled value="<?php echo $movie_name ?>" id="movie_title" type="text" class="validate">
 							<label for="movie_title" class="active">Movie Title</label>
 						</div>
 
-						<div class="input-field col s4">
+						<div class="input-field col s12 m6">
 							<select>
-								<option value="" disabled selected>Choose your option</option>
+								<option value="" disabled selected>Select the Date</option>
 								<option value="1">Option 1</option>
 							</select>
 							<label>Date</label>
 						</div>
 
-						<div class="input-field col s4">
+						<div class="input-field col s12 m6">
 							<select>
-								<option value="" disabled selected>Choose your option</option>
+								<option value="" disabled selected>Select the Time</option>
 								<option value="1">Option 1</option>
 							</select>
 							<label>Time</label>
 						</div>
 
-						<div class="input-field col s4">
+						<div class="input-field col s12 m6">
 							<select>
-								<option value="" disabled selected>Choose your option</option>
+								<option value="" disabled selected>Select the Location</option>
 								<option value="1">Option 1</option>
 							</select>
-							<label>Venue</label>
+							<label>Location</label>
+						</div>
+
+						<div class="input-field col s12 m6">
+							<select>
+								<option value="" disabled selected>Select the Cinema</option>
+								<option value="1">Option 1</option>
+							</select>
+							<label>Cinema</label>
 						</div>
 					</div>
 				</form>
@@ -170,8 +178,13 @@
 				<form class="col s12">
 					<div class="row">
 						<div class="input-field col s12">
-							<input disabled value="I am not editable" id="movie_title" type="text" class="validate">
-							<label for="movie_title" class="active">Movie Title</label>
+							<input disabled value="MOVIE TITLE" id="movie_title" type="text" class="validate">
+							<label for="movie_title" class="active text-black">Movie Title</label>
+						</div>
+
+						<div class="input-field col s12">
+							<input id="review_title" type="text" class="materialize-textarea">
+							<label for="review_title" class="text-black">Review Title</label>
 						</div>
 					</div>
 				</form>
