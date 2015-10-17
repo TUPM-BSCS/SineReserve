@@ -1,7 +1,6 @@
 <main>
 			<h1> Branches </h1>
 			<a class="waves-effect waves-light btn modal-trigger" id='addbtn_modal' href="#add-branch">Add</a>
-			<a class="waves-effect waves-light btn modal-trigger" id='editbtn_modal' href="#edit-branch">Edit</a>
 			<table class="responsive">
 				<table class="responsive-table">
 				<thead>
