@@ -80,7 +80,7 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Poster Upload</span>
-								<input id='add_imdb_poster_btn' type="file" accept="image/png, image/jpeg" disabled>
+								<input id='add_imdb_poster_btn' name='add_imdb_poster_btn' type="file" accept="image/png, image/jpeg" disabled>
 							  </div>
 							  <div class="file-path-wrapper">
 								<input id='add_imdb_poster' class="file-path validate truncate" type="text" placeholder="Upload Poster Image Here" disabled>
@@ -95,7 +95,7 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 1 Upload</span>
-								<input id='add_imdb_image1_btn' type="file" accept="image/png, image/jpeg" disabled>
+								<input id='add_imdb_image1_btn' name='add_imdb_image1_btn' type="file" accept="image/png, image/jpeg" disabled>
 							  </div>
 							  <div class="file-path-wrapper">
 								<input id='add_imdb_image1' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled>
@@ -116,7 +116,7 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 2 Upload</span>
-								<input id='add_imdb_image2_btn' type="file" accept="image/png, image/jpeg" disabled>
+								<input id='add_imdb_image2_btn' name='add_imdb_image2_btn' type="file" accept="image/png, image/jpeg" disabled>
 							  </div>
 							  <div class="file-path-wrapper">
 								<input id='add_imdb_image2' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled>
@@ -132,7 +132,7 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 3 Upload</span>
-								<input id='add_imdb_image3_btn' type="file" accept="image/png, image/jpeg" disabled>
+								<input id='add_imdb_image3_btn' name='add_imdb_image3_btn' type="file" accept="image/png, image/jpeg" disabled>
 							  </div>
 							  <div class="file-path-wrapper">
 								<input id='add_imdb_image3' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled>

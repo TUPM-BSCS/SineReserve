@@ -90,26 +90,25 @@
 		}
 		
 		function upload_poster() {
-			$config['upload_path'] = './assets/images/posters';
+			$config['upload_path'] = 'C:\xampp\htdocs\Sinereserve\assets\images\posters';
 			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size']	= '100';
-			$config['max_width']  = '1024';
-			$config['max_height']  = '768';
-
-			$this->load->library('upload', $config);
+			$config['max_size']	= '9999999999999';
+			$config['max_width']  = '999999999999';
+			$config['max_height']  = '999999999999';
+			
+			$this->upload->initialize($config);
 			foreach ($_FILES as $key => $value) {
 				if (!empty($value['tmp_name']) && $value['size'] > 0) {
 
-					if (!$this->upload->upload_poster($key)) {
+					if (!$this->upload->do_upload($key)) {
 
 						$errors = $this->upload->display_errors();
 						echo ($errors);
 
 					} else {
-						redirect('Admin_Controller/movie');
+						print_r($_FILES);
 					}
 				}
-				echo 'sfjfhdjfh';
 			}
 		}
 	}
