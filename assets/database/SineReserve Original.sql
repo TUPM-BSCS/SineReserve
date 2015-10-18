@@ -151,7 +151,7 @@ insert  into `genre`(`genre_id`,`genre_name`,`mov_id`) values
 (4,'Action',2),
 (5,'Adventure',2),
 (6,'Comedy',2),
-(7,'Director',2),
+(7,'Slice of Life',3),
 (8,'Comedy',3),
 (9,'Music',3),
 (10,'Romance',3),
@@ -183,7 +183,7 @@ CREATE TABLE `movie` (
   `mov_name` varchar(50) DEFAULT NULL,
   `mov_plot` text,
   `mov_rating` varchar(5) DEFAULT NULL,
-  `mov_running_time` varchar(10) DEFAULT NULL,
+  `mov_running_time` int(10) DEFAULT NULL,
   `mov_release_date` date DEFAULT NULL,
   `mov_poster_img` text,
   `mov_trailer` text,
@@ -194,10 +194,10 @@ CREATE TABLE `movie` (
 /*Data for the table `movie` */
 
 insert  into `movie`(`mov_id`,`mov_name`,`mov_plot`,`mov_rating`,`mov_running_time`,`mov_release_date`,`mov_poster_img`,`mov_trailer`,`mov_color`) values 
-(1,'Pitch Perfect','Beca, a freshman at Barden University, is cajoled into joining The Bellas, her school\'s all-girls singing group. Injecting some much needed energy into their repertoire, The Bellas take on their male rivals in a campus competition.','7.2','112 min','2012-10-05','assets/images/posters/1.jpg','https://www.youtube.com/embed/8dItOM6eYXY?iv_load_policy=3','DCD514'),
-(2,'Kingsman: The Secret Service','A spy organization recruits an unrefined, but promising street kid into the agency\'s ultra-competitive training program, just as a global threat emerges from a twisted tech genius.','7.8','129 min','2015-02-13','assets/images/posters/2.jpg','https://www.youtube.com/embed/kl8F-8tR8to?iv_load_policy=3','A33624'),
-(3,'Pitch Perfect 2','After a humiliating command performance at Lincoln Center, the Barden Bellas enter an international competition that no American group has ever won in order to regain their status and right to perform.','6.6','115 min','2015-05-15','assets/images/posters/3.jpg','https://www.youtube.com/embed/KBwOYQd21TY?iv_load_policy=3','B8B659'),
-(4,'Heneral Luna','A Filipino general who believes he can turn the tide of battle in the Philippine-American war. But little does he know that he faces a greatest threat to the country\'s revolution against the invading Americans.','8.9','118 min','2015-09-09','assets/images/posters/4.jpg','https://www.youtube.com/embed/I_T1ykhy3Fg?iv_load_policy=3','825430');
+(1,'Pitch Perfect','Beca, a freshman at Barden University, is cajoled into joining The Bellas, her school\'s all-girls singing group. Injecting some much needed energy into their repertoire, The Bellas take on their male rivals in a campus competition.','7.2',112,'2012-10-05','assets/images/posters/1.jpg','https://www.youtube.com/embed/8dItOM6eYXY?iv_load_policy=3','DCD514'),
+(2,'Kingsman: The Secret Service','A spy organization recruits an unrefined, but promising street kid into the agency\'s ultra-competitive training program, just as a global threat emerges from a twisted tech genius.','7.8',129,'2015-02-13','assets/images/posters/2.jpg','https://www.youtube.com/embed/kl8F-8tR8to?iv_load_policy=3','A33624'),
+(3,'Pitch Perfect 2','After a humiliating command performance at Lincoln Center, the Barden Bellas enter an international competition that no American group has ever won in order to regain their status and right to perform.','6.6',115,'2015-05-15','assets/images/posters/3.jpg','https://www.youtube.com/embed/KBwOYQd21TY?iv_load_policy=3','B8B659'),
+(4,'Heneral Luna','A Filipino general who believes he can turn the tide of battle in the Philippine-American war. But little does he know that he faces a greatest threat to the country\'s revolution against the invading Americans.','8.9',118,'2015-09-09','assets/images/posters/4.jpg','https://www.youtube.com/embed/I_T1ykhy3Fg?iv_load_policy=3','825430');
 
 /*Table structure for table `promo_and_event` */
 
