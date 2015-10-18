@@ -86,7 +86,7 @@
 			$result = $this->admin_model->get_branch();
 			$data['branch'] = $result; 
 			$this->load->view('Admin_Navigation', $data);
-			$this->load->view('Admin_Movie', $data);
+			$this->load->view('Admin_Shows', $data);
 		}
 		
 		function upload_poster() {
