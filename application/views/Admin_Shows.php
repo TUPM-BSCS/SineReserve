@@ -3,16 +3,15 @@
 				<h1 class='col l8'> Shows </h1>
 				<form method='post' name='form_drop_branch' action="http://localhost/SineReserve/index.php/Admin_controller/cinema"
 				<div class='branch_dropdown'>
-					<label class='col s12 l4'>Branch</label>
-					<select id='branch_for_cinema' name='for_branch' class="browser-default col s12 l4" onchange="this.form.submit();">
-						<?php foreach($branch as $row):?>
-						<?php var_dump($residing_branch);
-							if($row->bran_id == $residing_branch)
-								echo "<option selected value='".$row->bran_id."'>".$row->bran_name."</option>";
-							else
-								echo "<option value='".$row->bran_id."'>".$row->bran_name."</option>";
-						?>
-						<?php endforeach ?>
+					<label class='col s12 l4'>View By:</label>
+					<select id='grouped_by' name='grouped_by' class="browser-default col s12 l4">
+						<option>By Branch</option>
+						<option>By by</option>
+					</select>
+					<select id="talala" name="talala" class="browser-default col s12 l4">
+						<option>Sine Manila</option>
+						<option>Sine Bulacan</option>
+						<option>Sine Cavite</option>
 					</select>
 				</div>
 				</form>
