@@ -20,6 +20,14 @@
 				<h5 class="text-white">
 					<?php echo $movie_name; ?>
 					<span class="blue-text"> <?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '[' . $movie_rating . ']'; ?></span>
+					<br />
+					<?php
+							foreach($movie_genre as $child) {
+								foreach ($child as $value) {
+									echo $value."| ";
+								}
+							}
+						?>
 				</h5>
 			</div>
 
@@ -28,20 +36,36 @@
 					<img src="<?php echo base_url().$movie_poster_img; ?>" class="responsive-img movie-page-poster materialboxed" />
 					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#reservemodal">Reserve</a>
 					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#reviewmodal">Rate Me</a>
-					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#modal1">Hurt Me Plenty</a>
+					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="">Hurt Me Plenty</a>
 				</div>
 
 				<div class="col s12 m9">
 					<h5 class="hide-on-small-only text-primary-color text-white">
 						<?php echo $movie_name; ?>
 						<span class="blue-text"><?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '[' . $movie_rating . ']'; ?></span>
-						<?php echo $movie_genre; ?>
+						<br />
+						<?php
+							foreach($movie_genre as $child) {
+								foreach ($child as $value) {
+									echo $value."| ";
+								}
+							}
+							// echo "<pre>";
+							// var_dump($movie_genre);
+							// echo "</pre>";
+						?>
 					</h5>
 					
 					<p class="text-white"> <?php echo $movie_plot; ?> </p>
 
 					<h6 class="text-white">Cast:</h6>
-						<?php echo $movie_cast; ?>
+						<?php
+							foreach($movie_cast as $child) {
+								foreach ($child as $value) {
+									echo $value."<br />";
+								}
+							}
+						?>
 					<ul class="tabs white">
 						<li class="tab col s3"><a href="#photos">Photos</a></li>
 						<li class="tab col s3"><a href="#videos">Videos</a></li>
