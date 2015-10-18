@@ -5,14 +5,28 @@
 				<div class='branch_dropdown'>
 					<label class='col s12 l4'>View By:</label>
 					<select id='grouped_by' name='grouped_by' class="browser-default col s12 l4">
+						<option>By Period of Time</option>
 						<option>By Branch</option>
-						<option>By by</option>
+						<option>By Movie</option>
 					</select>
-					<select id="talala" name="talala" class="browser-default col s12 l4">
+
+					<!-- By Period of Time -->
+					<label class="col s12 l2">From</label>
+					<label class="col l2 hide-on-med-and-down">To</label>
+					<input type="date" class="datepicker browser-default col s12 l2">
+					<label class="col s12 hide-on-large-only">To</label>
+					<input type="date" class="datepicker browser-default col s12 l2">
+
+					<!-- By Branch -->
+					<!-- <select id="talala" name="talala" class="browser-default col s12 l4">
 						<option>Sine Manila</option>
 						<option>Sine Bulacan</option>
 						<option>Sine Cavite</option>
-					</select>
+					</select> -->
+
+					<!-- By Movie -->
+					<!-- Waiting for Dan's search implementation -->
+
 				</div>
 				</form>
 			</div>
