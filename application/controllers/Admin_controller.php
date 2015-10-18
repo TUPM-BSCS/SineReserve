@@ -97,15 +97,19 @@
 			$config['max_height']  = '768';
 
 			$this->load->library('upload', $config);
+			foreach ($_FILES as $key => $value) {
+				if (!empty($value['tmp_name']) && $value['size'] > 0) {
 
-			if ( ! $this->upload->do_upload())
-			{
-				$error = array('error' => $this->upload->display_errors());
-			}
-			else
-			{
-				$data = array('upload_data' => $this->upload->data());
-				redirect('Admin_Controller/movie');
+					if (!$this->upload->upload_poster($key)) {
+
+						$errors = $this->upload->display_errors();
+						echo ($errors);
+
+					} else {
+						redirect('Admin_Controller/movie');
+					}
+				}
+				echo 'sfjfhdjfh';
 			}
 		}
 	}
