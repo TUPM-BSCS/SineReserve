@@ -57,8 +57,12 @@ $(document).ready(function(){
 						$('#add_imdb_actor_btn').removeAttr('disabled');
 						$('#add_imdb_actor').removeAttr('disabled');
 						$('#add_imdb_date').removeAttr('disabled');
-						$('#add_imdb_screenshot_btn').removeAttr('disabled');
-						$('#add_imdb_screenshot').removeAttr('disabled');
+						$('#add_imdb_image1_btn').removeAttr('disabled');
+						$('#add_imdb_image1').removeAttr('disabled');
+						$('#add_imdb_image2_btn').removeAttr('disabled');
+						$('#add_imdb_image2').removeAttr('disabled');
+						$('#add_imdb_image3_btn').removeAttr('disabled');
+						$('#add_imdb_image3').removeAttr('disabled');
 						$('#add_imdb_rate').removeAttr('disabled');
 						$('#add_imdb_rate').attr('enabled', true);
 						$('#add_imdb_genre_btn').removeAttr('disabled');
