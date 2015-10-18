@@ -59,13 +59,15 @@
 					<p class="text-white"> <?php echo $movie_plot; ?> </p>
 
 					<h6 class="text-white">Cast:</h6>
-						<?php
-							foreach($movie_cast as $child) {
-								foreach ($child as $value) {
-									echo $value."<br />";
+						<p class="text-white">
+							<?php
+								foreach($movie_cast as $child) {
+									foreach ($child as $value) {
+										echo $value."<br />";
+									}
 								}
-							}
-						?>
+							?>
+						</p>
 					<ul class="tabs white">
 						<li class="tab col s3"><a href="#photos">Photos</a></li>
 						<li class="tab col s3"><a href="#videos">Videos</a></li>
