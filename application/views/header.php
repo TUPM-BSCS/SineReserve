@@ -24,14 +24,14 @@
   <body class="lighten-5" style="background-color: #18191b;">
 
     <!-- Navigation Bar -->
-    <div class ="navbar">
+    <div class ="navbar-fixed">
       <nav class="red darken-4 main-nav ripple" id="meet-1" role="navigation">
         <div class="nav-wrapper container"> 
           <a id="logo-container" href="http://localhost/SineReserve/index.php/Home/home" class="brand-logo left white-text">SineReserve</a>
           <!--<a id="logo-container" href="http://localhost/SineReserve/index.php/Home/home" class="brand-logo left white-text hide-on-med-and-up">SineReserve</a>-->
 <!--          <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>-->
           <ul class="right hide-on-large-only">
-              <li><a href="http://localhost/SineReserve/index.php/Home/home#movies"><i class="mdi-maps-local-attraction"></i></a></li>
+              <li><a href="http://localhost/SineReserve/index.php/Home/home#movies"><i class="mdi-av-movie"></i></a></li>
               <li><a class="modal-trigger" data-target="modal1" href="#modal1"><i class="mdi-action-account-circle"></i></a></li>
           </ul>
           <ul class="right hide-on-med-and-down">
