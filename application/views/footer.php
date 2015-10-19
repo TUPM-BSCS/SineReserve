@@ -11,7 +11,7 @@
 					<h5 class="white-text">Links</h5>
 					<ul class="list">
 						<li><a class="white-text" href="http://localhost/SineReserve/index.php/Home/home">Home</a></li>
-						<li><a class="white-text" href="http://localhost/SineReserve/index.php/movie_page_controller/movie">Movies</a></li>
+						<li><a class="white-text" href="http://localhost/SineReserve/index.php/Home/home#movies">Movies</a></li>
 						<li><a class="white-text" href="http://localhost/SineReserve/index.php/Admin_controller/index">Admin</a></li>
 					</ul>
 				</div>
