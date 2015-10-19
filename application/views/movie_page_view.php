@@ -303,36 +303,37 @@
 		<div id="reviewmodal" class="modal modal-fixed-footer">
 			<div class="modal-header red row">
 				<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
-				<p class="text-white">Review Form</p>
+				<p class="text-white">Write a Review for "<?php echo $movie_name ?>"</p>
 			</div>
 
+<!-- action="<?php echo base_url();?>index.php/movie_page_controller/review_movie/".<?php echo $movie_id; ?>."/" . $_GET['review_title'] . "/" . $_GET['review_rating'] . "/" . $_GET['review_content'] . " -->
 			<div class="modal-content">
-				<form class="col s12">
+				<form class="col s12" action="<?php echo base_url();?>index.php/movie_page_controller/review_movie/">
 					<div class="row">
 						<div class="input-field col s12">
-							<input disabled value="MOVIE TITLE" id="movie_title" type="text" class="validate text-black">
+							<input disabled value="<?php echo $movie_name ?>" id="movie_title" type="text" class="validate text-black">
 							<label for="movie_title" class="active text-black">Movie Title</label>
 						</div>
 
 						<div class="input-field col s12">
-							<input id="review_title" type="text" class="text" length="50">
+							<input id="review_title" type="text" class="text" length="50" name="review_title">
 							<label for="review_title" class="text-black">Review Title</label>
 						</div>
 						
 						<label for="star-rating" class="col s12 text-black">Movie Rating</label>
 						<div class="col s12">
 							<span id="rating" class="star-rating">
-								<input type="radio" id="star1" name="rating" value="1"><i></i>
-								<input type="radio" id="star2" name="rating" value="2"><i></i>
-								<input type="radio" id="star3" name="rating" value="3"><i></i>
-								<input type="radio" id="star4" name="rating" value="4"><i></i>
-								<input type="radio" id="star5" name="rating" value="5"><i></i>
+								<input type="radio" id="star1" name="review_rating" value="1"><i></i>
+								<input type="radio" id="star2" name="review_rating" value="2"><i></i>
+								<input type="radio" id="star3" name="review_rating" value="3"><i></i>
+								<input type="radio" id="star4" name="review_rating" value="4"><i></i>
+								<input type="radio" id="star5" name="review_rating" value="5"><i></i>
 							</span>
 						</div>
 
 						<div class="row">
 							<div class="input-field col s12">
-								<textarea id="review" class="materialize-textarea"></textarea>
+								<textarea id="review" class="materialize-textarea" name="review_content"></textarea>
 								<label for="review">Review</label>
 							</div>
 						</div>
@@ -341,7 +342,7 @@
 			</div>
 
 			<div class="modal-footer">
-				<a href="<?php echo base_url();?> index.php/controller_name/method_name/optional_parameter" class="modal-action modal-close waves-effect waves-green btn-flat ">Confirm</a>
+				<button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Confirm</button>
 			</div>
 		</div>
 

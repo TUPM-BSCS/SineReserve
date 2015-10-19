@@ -6,23 +6,24 @@ class movie_page_controller extends CI_Controller {
       $this->load->helper('url');     
     }   
 
-	public function movie($movie){
+	public function movie($mov_id){
 		$this->load->model('movie_page_model');
 
 		$data['title'] = 'Movie Page';
-		$data['movie_name'] = $this->movie_page_model->get_movie_name($movie);
-		$data['movie_rating'] = $this->movie_page_model->get_movie_rating($movie);
-		$data['movie_poster_img'] = $this->movie_page_model->get_movie_poster_img($movie);
-		$data['movie_plot'] = $this->movie_page_model->get_movie_plot($movie);
-		$data['movie_running_time'] = $this->movie_page_model->get_movie_running_time($movie);
-		$data['movie_release_date'] = $this->movie_page_model->get_movie_release_date($movie);
-		$data['movie_genre'] = $this->movie_page_model->get_movie_genre($movie);
-		$data['movie_cast'] = $this->movie_page_model->get_movie_cast($movie);
-		$data['movie_screenshots'] = $this->movie_page_model->get_movie_screenshots($movie);
-		$data['movie_trailer'] = $this->movie_page_model->get_movie_trailer($movie);
-		$data['movie_reviews'] = $this->movie_page_model->get_movie_reviews($movie);
+		$data['movie_id'] = $mov_id;
+		$data['movie_name'] = $this->movie_page_model->get_movie_name($mov_id);
+		$data['movie_rating'] = $this->movie_page_model->get_movie_rating($mov_id);
+		$data['movie_poster_img'] = $this->movie_page_model->get_movie_poster_img($mov_id);
+		$data['movie_plot'] = $this->movie_page_model->get_movie_plot($mov_id);
+		$data['movie_running_time'] = $this->movie_page_model->get_movie_running_time($mov_id);
+		$data['movie_release_date'] = $this->movie_page_model->get_movie_release_date($mov_id);
+		$data['movie_genre'] = $this->movie_page_model->get_movie_genre($mov_id);
+		$data['movie_cast'] = $this->movie_page_model->get_movie_cast($mov_id);
+		$data['movie_screenshots'] = $this->movie_page_model->get_movie_screenshots($mov_id);
+		$data['movie_trailer'] = $this->movie_page_model->get_movie_trailer($mov_id);
+		$data['movie_reviews'] = $this->movie_page_model->get_movie_reviews($mov_id);
 
-		$data['reserve_branch'] = $this->movie_page_model->get_reserve_branch($movie);
+		$data['reserve_branch'] = $this->movie_page_model->get_reserve_branch($mov_id);
 		
 		// print_r($data);
 		// die();
@@ -47,7 +48,7 @@ class movie_page_controller extends CI_Controller {
 
 	}
 
-	public function review_movie() {
+	public function review_movie($mov_id, $review_title, $review_rating, $review_content) {
 		$this->load->model('movie_page_model');
 		$this->movie_page_model->add_movie_review();
 	}
