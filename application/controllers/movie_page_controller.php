@@ -48,9 +48,17 @@ class movie_page_controller extends CI_Controller {
 
 	}
 
-	public function review_movie($mov_id, $review_title, $review_rating, $review_content) {
+	public function review_movie($mov_id) {
 		$this->load->model('movie_page_model');
-		$this->movie_page_model->add_movie_review();
+
+		$movie_id = $mov_id;
+		$review_title = $this->input->post('review_title');
+		$review_rating = $this->input->post('review_rating');
+		$review_content = $this->input->post('review_content');
+		$review_date = date("Y-m-d");
+		$username = 'renzoralph07';
+
+		$this->movie_page_model->add_movie_review($review_title, $review_content, $review_rating, $review_date, $username, $movie_id);
 	}
 
 }
