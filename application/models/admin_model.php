@@ -47,6 +47,79 @@
 				$this->db->insert('cinema', $seat);
 			}
 			
-		}		
+		}	
+
+		public function insert_movie($mov_name, $mov_plot, $mov_rating, $mov_running_time, $mov_release_date, $mov_poster_img, $mov_trailer){
+			// if(($mov_name != null) && ($mov_plot != null) && ($mov_rating != null) && ($mov_running_time != null) && ($mov_release_date != null) && ($mov_poster_img != null ) && ($mov_trailer != null)){
+				$movie = array(
+					'mov_name' => $mov_name,
+					'mov_plot' => $mov_plot,
+					'mov_rating' => $mov_rating,
+					'mov_running_time' => $mov_running_time,
+					'mov_release_date' => $mov_release_date,
+					'mov_poster_img' => $mov_poster_img,
+					'mov_trailer' => $mov_trailer,
+				);
+				$this->db->insert('movie', $movie);
+			// }
+		}
+		
+		public function insert_actor($mov_id, $actor_name){
+			if(($mov_id != null) && ($actor_name != null)){
+				$actor = array(
+					'actor_name' => $actor_name,
+					'mov_id' => $mov_id,
+				);
+				$this->db->insert('actor', $actor);
+			}
+		}
+		
+		public function insert_genre($mov_id, $genre_name){
+			if(($mov_id != null) && ($genre_name != null)){
+				$genre = array(
+					'genre_name' => $genre_name,
+					'mov_id' => $mov_id,
+				);
+				$this->db->insert('genre', $genre);
+			}
+		}
+		
+		public function insert_screenshot($mov_id, $path){
+			if(($mov_id != null) && ($path != null)){
+				$sc = array(
+					'sc_img' => $path,
+					'mov_id' => $mov_id,
+				);
+				$this->db->insert('screenshots', $sc);
+			}
+		}
+		
+		
+		public function get_last_genre_index(){
+			$this->db->select('genre_id');
+			$this->db->from('genre');
+			$query = $this->db->get();
+				if ($query->num_rows() > 0){
+					return $query->last_row();
+				}
+		}
+		
+		public function get_last_actor_index(){
+			$this->db->select('actor_id');
+			$this->db->from('actor');
+			$query = $this->db->get();
+				if ($query->num_rows() > 0){
+					return $query->last_row();
+				}
+		}
+		
+		public function get_last_movie_index(){
+			$this->db->select('mov_id');
+			$this->db->from('movie');
+			$query = $this->db->get();
+				if ($query->num_rows() > 0){
+					return $query->last_row();
+				}
+		}
 	}
 ?>
