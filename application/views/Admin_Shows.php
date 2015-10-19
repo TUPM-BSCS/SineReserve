@@ -22,10 +22,12 @@
 
 					<!-- By Branch -->
 					<div class="view-by-branch <?php if($view != 'branch') echo "hide"; ?>">
-						<select id="talala" name="talala" class="browser-default col s12 l4">
-							<option>Sine Manila</option>
-							<option>Sine Bulacan</option>
-							<option>Sine Cavite</option>
+						<select id="branch" name="branch" class="browser-default col s12 l4"
+							onchange="window.location.href='<?php echo base_url(); ?>index.php/Adminn_controller/shows/branch/' + this.value">
+							<option <?php if($branch == 'all') echo 'selected'; ?> value="all">All Branches</option>
+							<?php foreach($branches as $row): ?>
+								<option <?php if($branch == $row->bran_id) echo 'selected' ?> value="<?php echo $row->bran_id; ?>"><?php echo $row->bran_name;?></option>
+							<?php endforeach ?>
 						</select>
 					</div>
 
@@ -129,8 +131,16 @@
     			min: <?php echo $limits['min'] ?>,
     			max: <?php echo $limits['max'] ?>,
     			clear: "",
-    			onSet: function(context) {
-    				window.location.href='<?php echo base_url(); ?>index.php/Adminn_controller/shows/time/' + $('#from').val() + '_' + $('#to').val();
+    			onClose: function(context) {
+    				if(new Date($('#from').val()) > new Date($('#to').val())) {
+    					var to = $('#from').val();
+    					var from = $('#to').val();
+    				}
+    				else {
+    					var to = $('#to').val();
+    					var from = $('#from').val();
+    				}
+    				window.location.href='<?php echo base_url(); ?>index.php/Adminn_controller/shows/time/' + from + '_' + to;
     			}
   			});
 		</script>

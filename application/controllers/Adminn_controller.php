@@ -112,7 +112,14 @@
 					break;
 				
 				case 'branch':
-					
+					$result = $this->admin_model->get_branch();
+					$data['branches'] = $result;
+					if($sub == null) {
+						$data['branch'] = 'all';
+					}
+					else {
+						$data['branch'] = $sub;
+					}
 					break;
 
 				case 'movie':
