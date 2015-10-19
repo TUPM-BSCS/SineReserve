@@ -81,24 +81,12 @@
 		}
 
 		public function shows($view = null, $sub = null) {
+			$today = '2015-02-14';
 			$this->load->model('shows_model');
 			if($view == null) {
 				$view = 'time';
 			}
 			$data['view'] = $view;
-			switch ($view) {
-				case 'time':
-					# code...
-					break;
-				
-				case 'branch':
-					# code...
-					break;
-
-				case 'movie':
-					# code...
-					break;
-			}
 
 			$query = $this->shows_model->get_min_max_show_date();
 			$row = $query->row();
@@ -108,6 +96,29 @@
 			$max = date_create($row->max);
 			date_sub($max, date_interval_create_from_date_string('1 month'));
 			$max = date_format($max, '[Y,m,d]');
+			
+			switch ($view) {
+				case 'time':
+					$data['time'] = array();
+					if($sub == null) {
+						$data['time']['from'] = $today;
+						$data['time']['to'] = $row->max;
+					}
+					else {
+						$dates = explode("_", $sub);
+						$data['time']['from'] = $dates[0];
+						$data['time']['to'] = $dates[1];
+					}
+					break;
+				
+				case 'branch':
+					
+					break;
+
+				case 'movie':
+					# code...
+					break;
+			}
 
 			$data['limits'] = array();
 			$data['limits']['min'] = $min; 

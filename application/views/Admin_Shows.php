@@ -15,9 +15,9 @@
 					<div class="view-by-time <?php if($view != 'time') echo "hide"; ?>">
 						<label class="col s12 l2">From</label>
 						<label class="col l2 hide-on-med-and-down">To</label>
-						<input type="date" class="datepicker col s12 l2" placeholder="Pick a Date">
+						<input <?php if($view == 'time') echo 'data-value="' . $time['from'] . '"'; ?> id="from" type="date" class="datepicker col s12 l2" placeholder="Pick a Date">
 						<label class="col s12 hide-on-large-only">To</label>
-						<input type="date" class="datepicker col s12 l2" placeholder="Pick a Date">
+						<input <?php if($view == 'time') echo 'data-value="' . $time['to'] . '"'; ?> id="to" type="date" class="datepicker col s12 l2" placeholder="Pick a Date">
 					</div>
 
 					<!-- By Branch -->
@@ -124,9 +124,14 @@
     			selectMonths: true,
     			selectYears: 15,
     			formatSubmit: 'yyyy-mm-dd',
+    			format: 'yyyy-mm-dd',
     			closeOnSelect: true,
     			min: <?php echo $limits['min'] ?>,
-    			max: <?php echo $limits['max'] ?>
+    			max: <?php echo $limits['max'] ?>,
+    			clear: "",
+    			onSet: function(context) {
+    				window.location.href='<?php echo base_url(); ?>index.php/Adminn_controller/shows/time/' + $('#from').val() + '_' + $('#to').val();
+    			}
   			});
 		</script>
 	</body>
