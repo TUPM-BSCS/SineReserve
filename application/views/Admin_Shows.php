@@ -4,28 +4,37 @@
 				<form method='post' name='form_drop_branch' action="http://localhost/SineReserve/index.php/Admin_controller/cinema"
 				<div class='branch_dropdown'>
 					<label class='col s12 l4'>View By:</label>
-					<select id='grouped_by' name='grouped_by' class="browser-default col s12 l4">
-						<option>By Period of Time</option>
-						<option>By Branch</option>
-						<option>By Movie</option>
+					<select id='grouped_by' name='grouped_by' class="browser-default col s12 l4"
+						onchange="window.location.href='<?php echo base_url(); ?>index.php/Adminn_controller/shows/' + this.value">
+						<option value="time" <?php if($view == 'time') echo "selected"; ?>>Period of Time</option>
+						<option value="branch" <?php if($view == 'branch') echo "selected"; ?>>Branch</option>
+						<option value="movie" <?php if($view == 'movie') echo "selected"; ?>>Movie</option>
 					</select>
 
 					<!-- By Period of Time -->
-					<label class="col s12 l2">From</label>
-					<label class="col l2 hide-on-med-and-down">To</label>
-					<input type="date" class="datepicker browser-default col s12 l2">
-					<label class="col s12 hide-on-large-only">To</label>
-					<input type="date" class="datepicker browser-default col s12 l2">
+					<div class="view-by-time <?php if($view != 'time') echo "hide"; ?>">
+						<label class="col s12 l2">From</label>
+						<label class="col l2 hide-on-med-and-down">To</label>
+						<input type="date" class="datepicker browser-default col s12 l2">
+						<label class="col s12 hide-on-large-only">To</label>
+						<input type="date" class="datepicker browser-default col s12 l2">
+					</div>
 
 					<!-- By Branch -->
-					<!-- <select id="talala" name="talala" class="browser-default col s12 l4">
-						<option>Sine Manila</option>
-						<option>Sine Bulacan</option>
-						<option>Sine Cavite</option>
-					</select> -->
+					<div class="view-by-branch <?php if($view != 'branch') echo "hide"; ?>">
+						<select id="talala" name="talala" class="browser-default col s12 l4">
+							<option>Sine Manila</option>
+							<option>Sine Bulacan</option>
+							<option>Sine Cavite</option>
+						</select>
+					</div>
 
 					<!-- By Movie -->
-					<!-- Waiting for Dan's search implementation -->
+					<div class="view-by-movie input-field col s12 l4 <?php if($view != 'movie') echo "hide"; ?>">
+						<i class="material-icons prefix">search</i>
+			         <input id="icon_prefix" type="text" class="validate">
+			         <label for="icon_prefix">Search a Movie</label>
+					</div>
 
 				</div>
 				</form>

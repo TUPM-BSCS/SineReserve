@@ -81,8 +81,11 @@
 		}
 
 		public function shows($view = null, $sub = null) {
+			if($view == null) {
+				$view = 'time';
+			}
+			$data['view'] = $view;
 			$data['title_page'] = 'Shows';
-			
 			$this->load->view('Admin_Navigation', $data);
 			$this->load->view('Admin_Shows', $data);
 		}
