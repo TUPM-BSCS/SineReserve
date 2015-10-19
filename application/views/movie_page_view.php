@@ -18,56 +18,137 @@
 		<div class="container">
 			<div class="row s12 hide-on-med-and-up center-align">
 				<h5 class="text-white">
-					<?php echo $movie_name; ?>
-					<span class="blue-text"> <?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '[' . $movie_rating . ']'; ?></span>
-					<br />
 					<?php
-							foreach($movie_genre as $child) {
-								foreach ($child as $value) {
-									echo $value."| ";
-								}
+							if($movie_name == null) {
+								echo 'N/A';
+							}
+
+							else {
+								echo $movie_name;
 							}
 						?>
+						<span class="blue-text">
+						<?php
+							if($movie_release_date == null || $movie_rating == null) {
+								echo 'N/A';
+							}
+
+							else {
+								echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '[' . $movie_rating . ']';
+							}
+						?>
+						</span>
+					<br />
 				</h5>
 			</div>
 
 			<div class="row">
 				<div class="col s12 m3">
 					<img src="<?php echo base_url().$movie_poster_img; ?>" class="responsive-img movie-page-poster materialboxed" />
-					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#reservemodal">Reserve</a>
-					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="#reviewmodal">Rate Me</a>
-					<a class="waves-effect waves-teal btn-flat center-align modal-trigger" style="width: 100%;" href="">Hurt Me Plenty</a>
+					<a class="waves-effect waves btn center-align modal-trigger" style="width: 100%; background-color: #D32F2F;" href="#reservemodal">Reserve</a>
+					<a class="waves-effect waves btn center-align modal-trigger" style="width: 100%; background-color: #D32F2F;" href="#reviewmodal">Rate Me</a>
+					<a class="waves-effect waves btn center-align modal-trigger" style="width: 100%; background-color: #D32F2F;" href="">Hurt Me Plenty</a>
 				</div>
 
 				<div class="col s12 m9">
 					<h5 class="hide-on-small-only text-primary-color text-white">
-						<?php echo $movie_name; ?>
-						<span class="blue-text"><?php echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '[' . $movie_rating . ']'; ?></span>
+						<?php
+							if($movie_name == null) {
+								echo 'N/A';
+							}
+
+							else {
+								echo $movie_name;
+							}
+						?>
+						<span class="blue-text">
+						<?php
+							if($movie_release_date == null || $movie_rating == null) {
+								echo 'N/A';
+							}
+
+							else {
+								echo '(' . date('Y', strtotime($movie_release_date)) . ')'?> <?php echo '[' . $movie_rating . ']';
+							}
+						?>
+						</span>
+						<br />
+					</h5>
+
+					<hr />
+					
+					<p class="text-white">
+						Plot:
 						<br />
 						<?php
-							foreach($movie_genre as $child) {
-								foreach ($child as $value) {
-									echo $value."| ";
-								}
+							if($movie_plot == null) {
+								echo 'N/A';
 							}
-							// echo "<pre>";
-							// var_dump($movie_genre);
-							// echo "</pre>";
-						?>
-					</h5>
-					
-					<p class="text-white"> <?php echo $movie_plot; ?> </p>
 
-					<h6 class="text-white">Cast:</h6>
-						<p class="text-white">
-							<?php
-								foreach($movie_cast as $child) {
-									foreach ($child as $value) {
-										echo $value."<br />";
+							else {
+								 echo $movie_plot; 
+							}
+						?>
+					</p>
+
+					<p class="text-white">
+						Running Time:
+						<br />
+						<?php
+							if($movie_running_time == null) {
+								echo 'N/A';
+							}
+
+							else {
+								 echo $movie_running_time . " min(s)";
+							}
+						?>
+					</p>
+
+					<p class="text-white">
+						Cast:
+						<br />
+						<?php
+							if($movie_cast == null) {
+								echo 'N/A';
+							}
+
+							else {
+								for($i = 0; $i < count($movie_cast); $i++) {
+									if($i == count($movie_cast) - 1) {
+										echo $movie_cast[$i]['actor_name'];
+									}
+
+									else {
+										echo $movie_cast[$i]['actor_name'] . ", ";
 									}
 								}
-							?>
-						</p>
+							}
+						?>
+					</p>
+
+					<p class="text-white">
+						Genre:
+						<br />
+						<?php
+							if($movie_genre == null) {
+								echo 'N/A';
+							}
+
+							else {
+								for($i = 0; $i < count($movie_genre); $i++) {
+									if($i == count($movie_genre) - 1) {
+										echo $movie_genre[$i]['genre_name'];
+									}
+
+									else {
+										echo $movie_genre[$i]['genre_name'] . ", ";
+									}
+								}
+							}
+						?>
+					</p>
+
 					<ul class="tabs white">
 						<li class="tab col s3"><a href="#photos">Photos</a></li>
 						<li class="tab col s3"><a href="#videos">Videos</a></li>
@@ -83,7 +164,7 @@
 											for($i = 0; $i < sizeof($movie_screenshots); $i++) {
 										?>
 											<li><img src="<?php echo base_url().$movie_screenshots[$i]['sc_img']; ?>" alt="Movie Screenshot"></li>
-										<?php
+									<?php
 											}
 										}
 									?>
@@ -99,7 +180,11 @@
 
 						<div id="reviews">
 							<?php
-								if($movie_reviews != null) {
+								if($movie_reviews == null) {
+									echo 'N/A';
+								}
+
+								else {
 									for($i = 0; $i < sizeof($movie_reviews); $i++) {
 							?>
 							<div class="review-card">
@@ -123,13 +208,6 @@
 							</div>
 							<?php
 									}
-								}
-
-								else {
-								echo 'no reviews yet';
-							?>
-							<!-- INSERT "NO REVIEWS YET CODE HERE" -->
-							<?php
 								}
 							?>
 						</div>
