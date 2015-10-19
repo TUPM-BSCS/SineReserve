@@ -76,6 +76,12 @@ a {
 	width: 100%;
 }
 
+.movie_page-btn {
+	width: 100%;
+	background-color: #D32F2F;
+	margin-top: 10px;
+}
+
 /*Rating*/
 
 .star-rating {

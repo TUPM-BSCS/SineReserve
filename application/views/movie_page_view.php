@@ -44,10 +44,21 @@
 
 			<div class="row">
 				<div class="col s12 m3">
-					<img src="<?php echo base_url().$movie_poster_img; ?>" class="responsive-img movie-page-poster materialboxed" />
-					<a class="waves-effect waves btn center-align modal-trigger" style="width: 100%; background-color: #D32F2F;" href="#reservemodal">Reserve</a>
-					<a class="waves-effect waves btn center-align modal-trigger" style="width: 100%; background-color: #D32F2F;" href="#reviewmodal">Rate Me</a>
-					<a class="waves-effect waves btn center-align modal-trigger" style="width: 100%; background-color: #D32F2F;" href="">Hurt Me Plenty</a>
+					<img src="
+						<?php
+							if($movie_name == null) {
+								echo base_url().'assets/images/posters/noposter.jpg';
+							}
+
+							else {
+								echo base_url().$movie_poster_img; 
+							}
+							
+						?>
+					" class="responsive-img movie-page-poster materialboxed" />
+					<a class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal">Reserve</a>
+					<a class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal">Rate Me</a>
+					<a class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="">Hurt Me Plenty</a>
 				</div>
 
 				<div class="col s12 m9">
@@ -181,7 +192,7 @@
 						<div id="reviews">
 							<?php
 								if($movie_reviews == null) {
-									echo 'N/A';
+									echo '<p class="center-align text-white">This movie does not have any reviews yet.</p>';
 								}
 
 								else {
@@ -227,7 +238,7 @@
 					<div class="row">
 						<div class="input-field col s12 m12">
 							<input disabled value="<?php echo $movie_name ?>" id="movie_title" type="text" class="validate">
-							<label for="movie_title" class="active">Movie Title</label>
+							<label for="movie_title" class="active text-black">Movie Title</label>
 						</div>
 
 						<div class="input-field col s12 m6">
@@ -280,7 +291,7 @@
 				<form class="col s12">
 					<div class="row">
 						<div class="input-field col s12">
-							<input disabled value="MOVIE TITLE" id="movie_title" type="text" class="validate">
+							<input disabled value="MOVIE TITLE" id="movie_title" type="text" class="validate text-black">
 							<label for="movie_title" class="active text-black">Movie Title</label>
 						</div>
 
