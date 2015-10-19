@@ -60,33 +60,32 @@
                   <h4>Login</h4>
                 </div>
                 <div class="collapsible-body">
-                <p>
-                  <div class="row">
-                <form class="col s12" target="" action="" method="post">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="username_field" type="text" class="validate" />
-                      <label for="username_field">Username</label>
+                  <p>
+                    <div class="row">
+                     <?php echo form_open('login_validator'); ?>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="username_field" type="text" class="validate" />
+                            <label for="username_field">Username</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="password_field" type="password" class="validate" />
+                            <label for="password_field">Password</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col s12">
+                          <button class="waves-effect btn" type="submit" name="btn_sign-in">Sign In</button>
+                        </div>
+                      </form>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="password_field" type="password" class="validate" />
-                      <label for="password_field">Password</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col s12">
-                      <button class="waves-effect btn" type="submit" name="btn_sign-in">Sign In</button>
-                    </div>
-                  </div>
-                </p>
-                </form>
-                </div>
+                  </p>
                 </div>
               </li>
               <li>
-                :<div id="signup-tab" class="collapsible-header">
+                <div id="signup-tab" class="collapsible-header">
                   <h4>Sign-up</h4>
                 </div>
                 <div class="collapsible-body">

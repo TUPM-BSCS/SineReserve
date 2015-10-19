@@ -9,7 +9,7 @@ class header_model extends CI_Model {
 
 	public function validate_user($username, $password) {
 		$this->db->select('username, PASSWORD');
-		$this->db->where('username, PASSWORD', $username, $password);
+		$this->db->where('username', 'PASSWORD', $username, $password);
 		$this->db->from('user');
 		$query = $this->db->get();
 
