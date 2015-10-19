@@ -27,6 +27,13 @@ class shows_model extends CI_Model {
 		return $this->db->get();
 	}
 
+	public function get_min_max_show_date() {
+		$this->db->select_max('show_date', 'max');
+		$this->db->select_min('show_date', 'min');
+		$this->db->from('shows');
+		return $this->db->get();
+	}
+
 }
 
 ?>

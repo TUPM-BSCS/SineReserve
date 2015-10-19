@@ -81,10 +81,37 @@
 		}
 
 		public function shows($view = null, $sub = null) {
+			$this->load->model('shows_model');
 			if($view == null) {
 				$view = 'time';
 			}
 			$data['view'] = $view;
+			switch ($view) {
+				case 'time':
+					# code...
+					break;
+				
+				case 'branch':
+					# code...
+					break;
+
+				case 'movie':
+					# code...
+					break;
+			}
+
+			$query = $this->shows_model->get_min_max_show_date();
+			$row = $query->row();
+			$min = date_create($row->min);
+			date_sub($min, date_interval_create_from_date_string('1 month'));
+			$min = date_format($min, '[Y,m,d]');
+			$max = date_create($row->max);
+			date_sub($max, date_interval_create_from_date_string('1 month'));
+			$max = date_format($max, '[Y,m,d]');
+
+			$data['limits'] = array();
+			$data['limits']['min'] = $min; 
+			$data['limits']['max'] = $max;
 			$data['title_page'] = 'Shows';
 			$this->load->view('Admin_Navigation', $data);
 			$this->load->view('Admin_Shows', $data);
