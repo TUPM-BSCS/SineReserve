@@ -34,6 +34,30 @@ class shows_model extends CI_Model {
 		return $this->db->get();
 	}
 
+	public function get_show_by_date_range($from = null, $to = null) {
+		if($from != null)
+			$this->db->where('show_date >=', $from);
+		if($to != null)
+			$this->db->where('show_date <=', $to);
+		$this->db->from('shows');
+		$this->db->select('movie.mov_name, show_date, branch.bran_name, sched_id');
+		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
+		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
+		$this->db->join('movie', 'movie.mov_id = shows.mov_id');
+		return $this->db->get();
+	}
+
+	public function get_show_by_branch($branch = 'all') {
+		if($branch != 'all')
+			$this->db->where('branch.bran_id', $branch);
+		$this->db->from('shows');
+		$this->db->select('movie.mov_name, show_date, branch.bran_name, sched_id');
+		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
+		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
+		$this->db->join('movie', 'movie.mov_id = shows.mov_id');
+		return $this->db->get();
+	}
+
 }
 
 ?>

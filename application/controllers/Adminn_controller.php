@@ -109,6 +109,8 @@
 						$data['time']['from'] = $dates[0];
 						$data['time']['to'] = $dates[1];
 					}
+					$query = $this->shows_model->get_show_by_date_range($data['time']['from'], $data['time']['to']);
+					$data['table'] = $query->result();
 					break;
 				
 				case 'branch':
@@ -120,6 +122,8 @@
 					else {
 						$data['branch'] = $sub;
 					}
+					$query = $this->shows_model->get_show_by_branch($data['branch']);
+					$data['table'] = $query->result();
 					break;
 
 				case 'movie':
