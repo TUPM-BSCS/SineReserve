@@ -80,11 +80,9 @@
 			$this->load->view('Admin_Shows', $data);
 		}
 
-		public function shows() {
+		public function shows($view = null, $sub = null) {
 			$data['title_page'] = 'Shows';
-			$branch_name = $branch_address = $result = array();
-			$result = $this->admin_model->get_branch();
-			$data['branch'] = $result; 
+			
 			$this->load->view('Admin_Navigation', $data);
 			$this->load->view('Admin_Shows', $data);
 		}

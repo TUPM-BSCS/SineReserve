@@ -36,20 +36,25 @@
 				<table class="responsive-table">
 				<thead>
 				  <tr>
-					  <th data-field="id">Name</th>
-					  <th data-field="name">Seats</th>
+					  <th data-field="movie_name">Movie Name</th>
+					  <th data-field="show_date">Date</th>
+					  <th data-field="branch">Branch</th>
+					  <th data-field="cinema">Cinema</th>
+					  <th data-field="cost">Cost</th>
+					  <th data-field="sold">Sold</th>
+					  <th data-field="details">Details</th>
 				  </tr>
 				</thead>
 				</table>
 				<div style="height:400px; overflow:auto;">
 				<table class="responsive-table">
 				<tbody>
-				<?php foreach ($cinema as $row): ?>
+				<!--<?php foreach ($cinema as $row): ?>
 				  <tr>
 					<td><?php echo $row->cine_name?></td>
 					<td><?php echo $row->cine_slots?></td>
 				  </tr>
-				<?php endforeach ?>
+				<?php endforeach ?>-->
 				</tbody>
 				</table>
 				</div>
