@@ -228,12 +228,13 @@
 		</div>
 
 		<div id="reservemodal" class="modal modal-fixed-footer">
+			<div class="modal-header red">
+				<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
+				<p class="text-white">Reservation Form</p>
+			</div>
 			<div class="modal-content">
-				<form class="col s12" method="POST" action="<?php echo base_url();?>index.php/movie_page_controller/review_movie/<?php echo $movie_id; ?>">
-					<div class="modal-header red">
-						<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
-						<p class="text-white">Reservation Form</p>
-					</div>
+				<form id="form_reserve" class="col s12" method="POST" action="<?php echo base_url();?>index.php/movie_page_controller/review_movie/<?php echo $movie_id; ?>">
+					
 
 					<div class="row">
 						<div class="input-field col s12 m12">
@@ -291,21 +292,21 @@
 						</div>
 					</div>
 
-					<div class="modal-footer">
-						<button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Confirm</button>
-					</div>
+					
 				</form>
+			</div>
+			<div class="modal-footer">
+				<button form="form_reserve" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Confirm</button>
 			</div>
 		</div>
 
-		<div id="reviewmodal" class="modal modal-fixed-footer">
+		<div id="reviewmodal" class="modal modal-fixed-footer">.
+			<div class="modal-header red row">
+				<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
+				<p class="text-white">Write a Review for "<?php echo $movie_name ?>"</p>
+			</div>
 			<div class="modal-content">
-				<form class="col s12" method="POST" action="<?php echo base_url();?>index.php/movie_page_controller/review_movie/<?php echo $movie_id; ?>">
-					<div class="modal-header red row">
-						<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
-						<p class="text-white">Write a Review for "<?php echo $movie_name ?>"</p>
-					</div>
-
+				<form id="form_review" class="col s12" method="POST" action="<?php echo base_url();?>index.php/movie_page_controller/review_movie/<?php echo $movie_id; ?>">
 					<div class="row">
 						<div class="input-field col s12">
 							<input disabled value="<?php echo $movie_name ?>" id="movie_title" type="text" class="validate text-black">
@@ -335,11 +336,10 @@
 							</div>
 						</div>
 					</div>
-
-					<div class="modal-footer">
-						<button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Confirm</button>
-					</div>
 				</form>
+			</div>
+			<div class="modal-footer">
+				<button form="form_review" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Confirm</button>
 			</div>
 		</div>
 
