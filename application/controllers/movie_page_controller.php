@@ -21,6 +21,8 @@ class movie_page_controller extends CI_Controller {
 		$data['movie_screenshots'] = $this->movie_page_model->get_movie_screenshots($movie);
 		$data['movie_trailer'] = $this->movie_page_model->get_movie_trailer($movie);
 		$data['movie_reviews'] = $this->movie_page_model->get_movie_reviews($movie);
+
+		$data['reserve_branch'] = $this->movie_page_model->get_reserve_branch($movie);
 		
 		// print_r($data);
 		// die();
@@ -30,6 +32,16 @@ class movie_page_controller extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
+	public function get_cinema($reserve_branch) {
+		$this->load->model('movie_page_model');
+
+		$data['reserve_cinema'] = $this->movie_page_model->get_reserve_cinema($reserve_branch);
+
+		// print_r($data);
+		// die();
+		$this->load->view('movie_page_view', $data);
+	}
+
 	public function reserve_movie() {
 		$this->load->model('movie_page_model');
 

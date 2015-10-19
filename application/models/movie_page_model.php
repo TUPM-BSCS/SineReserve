@@ -138,7 +138,7 @@ class movie_page_model extends CI_Model {
 		return false;
 	}
 
-	// ADD RESERVATION
+	// RESERVATION
 	// public function add_movie_reservation($title, $review, $user_rating, $review_date, $username, $mov_id) {
 	// 	if(($title != null) && ($review != null)) {
 	// 		$review = array(
@@ -152,6 +152,68 @@ class movie_page_model extends CI_Model {
 	// 		$this->db->insert('review', $review);
 	// 	}
 	// }
+
+	// public function getschedule() {
+	// 	$this->db->where('mov_id', $mov_id);
+	// 	$this->db->from('screenshots');
+	// 	$query = $this->db->get();
+
+	// 	if($query->num_rows() > 0) {
+	// 		return $query->result_array();
+	// 	}
+	// 	return false;
+	// }
+
+	public function get_reserve_branch($mov_id) {
+		$this->db->select('branch.bran_id, branch.bran_name');
+		$this->db->where('mov_id', $mov_id);
+		$this->db->from('shows');
+		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
+		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
+
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return $query->result_array();
+		}
+		return false;
+	}
+
+	public function get_reserve_cinema($bran_id) {
+		$this->db->select('cinema.cine_id, cinema.cine_name');
+		$this->db->where('bran_id', $bran_id);
+		$this->db->from('cinema');
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return $query->result_array();
+		}
+		return false;
+	}
+
+	public function get_reserve_date($cine_id) {
+		$this->db->select('show_date');
+		$this->db->where('cine_id', $cine_id);
+		$this->db->from('shows');
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return $query->result_array();
+		}
+		return false;
+	}
+
+	public function get_reserve_time($show_date) {
+		$this->db->select('start_time, end_time');
+		$this->db->where('show_date', $show_dateo);
+		$this->db->from('shows');
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return $query->result_array();
+		}
+		return false;
+	}
 
 	// ADD REVIEW
 	public function add_movie_review($title, $review, $user_rating, $review_date, $username, $mov_id) {

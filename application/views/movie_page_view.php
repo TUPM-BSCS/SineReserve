@@ -241,37 +241,56 @@
 							<label for="movie_title" class="active text-black">Movie Title</label>
 						</div>
 
-						<div class="input-field col s12 m6">
-							<select>
-								<option value="" disabled selected>Select the Date</option>
-								<option value="1">Option 1</option>
+						<div class="col s12 m8">
+							<label>Branch</label>
+							<select id="reserve_branch" class="browser-default">
+								<option value="" disabled selected>Select the Branch</option>
+								<?php
+									for($i = 0; $i < sizeof($reserve_branch); $i++) {
+										echo '<option id="reserve_branch_option" value="'. $reserve_branch[$i]['bran_id'] .'">' . $reserve_branch[$i]['bran_name'] . '</option>';
+									}
+								?>
 							</select>
-							<label>Date</label>
+							
 						</div>
 
-						<div class="input-field col s12 m6">
-							<select>
-								<option value="" disabled selected>Select the Time</option>
-								<option value="1">Option 1</option>
-							</select>
-							<label>Time</label>
-						</div>
-
-						<div class="input-field col s12 m6">
-							<select>
-								<option value="" disabled selected>Select the Location</option>
-								<option value="1">Option 1</option>
-							</select>
-							<label>Location</label>
-						</div>
-
-						<div class="input-field col s12 m6">
-							<select>
-								<option value="" disabled selected>Select the Cinema</option>
-								<option value="1">Option 1</option>
-							</select>
+						<div class="col s12 m8">
 							<label>Cinema</label>
+							<select id="reserve_cinema" class="browser-default">
+								<option value="" disabled selected>Select the Cinema</option>
+								<?php 
+									for($i = 0; $i < sizeof($reserve_cinema); $i++) {
+										echo '<option id="reserve_cinema_option" value="'. $reserve_cinema[$i]['cine_id'] .'" href="' . base_url() .'index.php/movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['cine_name'] . '</option>';
+									}
+								?>
+							</select>
 						</div>
+
+						<div class="col s12 m8">
+							<label>Date</label>
+							<select id="reserve_date" class="browser-default">
+								<option value="" disabled selected>Select the Date</option>
+								<?php 
+									for($i = 0; $i < sizeof($reserve_cinema); $i++) {
+										echo '<option id="reserve_date_option" value="'. $reserve_cinema[$i]['bran_id'] .'" href="' . base_url() .'index.php/movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['bran_name'] . '</option>';
+									}
+								?>
+							</select>
+						</div>
+
+						<div class="col s12 m8">
+							<label>Time</label>
+							<select id="reserve_time" class="browser-default">
+								<option value="" disabled selected>Select the Time</option>
+								<?php 
+									for($i = 0; $i < sizeof($reserve_cinema); $i++) {
+										echo '<option id="reserve_time_option" value="'. $reserve_cinema[$i]['bran_id'] .'" href="' . base_url() .'index.php/movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['bran_name'] . '</option>';
+									}
+								?>
+							</select>
+						</div>
+
+						
 					</div>
 				</form>
 			</div>

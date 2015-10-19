@@ -1,7 +1,5 @@
-$(document)
-	.ready(function(){
-		$('.slider').slider({});
-		$('select').material_select();
-		$('.modal-trigger').leanModal();
-	}
-);
+$(document).ready(function(){
+	$('.slider').slider({});
+	$('select').material_select();
+	$('.modal-trigger').leanModal();
+});
