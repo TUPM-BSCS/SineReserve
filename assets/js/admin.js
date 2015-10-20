@@ -1,3 +1,14 @@
+function filetype_checker(filename){
+	var pass = false;
+	var index = filename.lastIndexOf('.');
+	var type = filename.substr(index);
+	switch(type){
+		case '.jpg': pass = false; break;
+		case '.png': pass = false; break;
+		default: pass = true; break;
+	}
+	return pass;
+}
 $(document).ready(function(){
 	var actor_no = 0;
 	var genre_no = 0;
@@ -23,7 +34,16 @@ $(document).ready(function(){
 	}
 	
 	$('#imdb_confirm_btn').click(function(){
-		alert('success');
+		
+		if(filetype_checker($('#add_imdb_poster').val()))
+			$('#add_imdb_poster').val('');
+		if(filetype_checker($('#add_imdb_image1').val()))
+			$('#add_imdb_image1').val('');
+		if(filetype_checker($('#add_imdb_image2').val()))
+			$('#add_imdb_image1').val('');
+		if(filetype_checker($('#add_imdb_image3').val()))
+			$('#add_imdb_image1').val('');
+
 		var i;
 		var actor_list_str, genre_list_str;
 		var actor_list = [], genre_list = [];		
@@ -262,8 +282,63 @@ $(document).ready(function(){
 		}
 	});
 	
+	$('#custom_confirm_btn').click(function(){
+		
+		if(filetype_checker($('#add_custom_poster').val()))
+			$('#add_custom_poster').val('');
+		if(filetype_checker($('#add_custom_image1').val()))
+			$('#add_custom_image1').val('');
+		if(filetype_checker($('#add_custom_image2').val()))
+			$('#add_custom_image1').val('');
+		if(filetype_checker($('#add_custom_image3').val()))
+			$('#add_custom_image1').val('');
+		
+		var i;
+		var actor_list_str, genre_list_str;
+		var actor_list = [], genre_list = [];		
+		
+		
+		for(i=0; i<actor_no; i++){
+			actor_list[i] = $("#add_custom_actor_val_"+(i+1)).text();
+		}
+		console.log(actor_list);
+		for(i=0; i<genre_no; i++){
+			genre_list[i] = $("#add_custom_genre_val_"+(i+1)).text();
+		}
+		console.log(actor_list);
+		for(i=0; i<actor_no; i++){
+			if(actor_list[i] != ''){
+				if(i == 0)
+					actor_list_str = (actor_list[i]);
+				else
+					actor_list_str += (',' +actor_list[i]);
+			}
+		}
+		for(i=0; i<genre_no; i++){
+			if(genre_list[i] != ''){
+				if(i == 0)
+					genre_list_str = (genre_list[i]);
+				else
+					genre_list_str += (',' +genre_list[i]);
+			}
+		}
+		$('#add_by_custom_modal_content').append('<input type="hidden" id="custom_actor_bitch" name="add_custom_actor_hidden" value="'+ actor_list_str +'">');
+		$('#add_by_custom_modal_content').append('<input type="hidden" id="custom_genre_bitch" name="add_custom_genre_hidden" value="'+ genre_list_str +'">');
+		alert($('#custom_actor_bitch').val());
+		alert($('#custom_genre_bitch').val());
+	});
+	
 	$('#title_confirm_btn').click(function(){
-		alert('success');
+		
+		if(filetype_checker($('#add_title_poster').val()))
+			$('#add_title_poster').val('');
+		if(filetype_checker($('#add_title_image1').val()))
+			$('#add_title_image1').val('');
+		if(filetype_checker($('#add_title_image2').val()))
+			$('#add_title_image1').val('');
+		if(filetype_checker($('#add_title_image3').val()))
+			$('#add_title_image1').val('');
+		
 		var i;
 		var actor_list_str, genre_list_str;
 		var actor_list = [], genre_list = [];		

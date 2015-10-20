@@ -22,6 +22,10 @@
 				top: inherit;
 			}
 			
+			.on_view{
+				color: black;
+			}
+			
 			.modal{
 				max-height: 95%;
 				top: 3% !important;

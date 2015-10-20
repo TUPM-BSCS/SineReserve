@@ -31,11 +31,11 @@
 					<div class='row'>
 						<h4 class = 'col s12'>Add Branch</h4>
 						<div class="input-field col s12">
-							<input placeholder="Insert Name Here" id="add_branch_name" name='add_branch_name' type="text" class="validate">
+							<input placeholder="Insert Name Here" id="add_branch_name" name='add_branch_name' type="text" class="validate" required>
 							<label for="add_branch_name">Branch Name</label>
 						</div>
 						<div class="input-field col s12">
-							<input placeholder="Insert Address Here" id="add_branch_address" name='add_branch_address' type="text" class="validate">
+							<input placeholder="Insert Address Here" id="add_branch_address" name='add_branch_address' type="text" class="validate" required>
 							<label for="add_branch_address">Branch Address</label>
 						</div>
 					</div>

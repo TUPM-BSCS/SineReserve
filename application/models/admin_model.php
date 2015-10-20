@@ -62,17 +62,15 @@
 		public function get_total_sales($mov_id){
 			$movie = array('movie.mov_id' => $mov_id);
 			$x = 0;
-			$this->db->select('shows.cost');
+			$this->db->select('cost');
 			$this->db->from('movie');
 			$this->db->join('shows', 'movie.mov_id = shows.mov_id');
 			$this->db->join('reserved_by', 'shows.sched_id = reserved_by.sched_id');
 			$this->db->where($movie);
 			$query = $this->db->get();
-			var_dump($query->num_rows());
-			die();
 			if($query->num_rows() > 0){
 				foreach($query->result() as $row){
-					$x += $row->shows.cost; 
+					$x += $row->cost; 
 				}
 				return $x;
 			}

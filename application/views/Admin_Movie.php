@@ -7,9 +7,9 @@
 				<table class="responsive-table">
 				<thead>
 				  <tr>
-					  <th data-field="title" style='width: 40%'>Title</th>
-					  <th data-field="name" style='width: 25%'>Year</th>
-					  <th data-field="name" style='width: 25%'>Total Sales</th>
+					  <th data-field="title" style='width: 35%'>Title</th>
+					  <th data-field="name" style='width: 15%'>Year</th>
+					  <th data-field="name" style='width: 20%'>Total Sales</th>
 					  <th data-field="name" style='width: 30%'>Details</th>
 				  </tr>			  
 				</thead>
@@ -19,15 +19,18 @@
 				<tbody>
 				<?php foreach($movie as $row): ?>
 				  <tr>
-					<td><?php echo $row->mov_name?></td>
-					<td><?php echo $row->mov_year?></td>
+					<td class='id' style='display:none;'><?php echo $row->mov_id?></td>
+					<td style='width: 35%;'><?php echo $row->mov_name?></td>
+					<td style='width: 15%'><?php echo $row->mov_year?></td>
+					<td style='width: 20%'><?php echo $row->mov_sales?></td>
+					<td style='width: 30%'><a class="waves-effect waves-light btn modal-trigger open_details" id="movie_details" href="#view_details">View Details</a></td>
 				  </tr>
 				<?php endforeach ?>
 				</tbody>
 				</table>
 				</div>
 			</table>			
-			<!-- Modals -->			
+			<!-- Modals -->		
 			<div id="add_by_custom" class="modal">
 				<form method='post' action='<?php echo base_url();?>index.php/Admin_controller/insert_movie_by_custom' enctype="multipart/form-data">
 					<div id='add_by_custom_modal_content'class="modal-content">
@@ -73,10 +76,10 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 1 Upload</span>
-								<input id='add_custom_image1_btn' name='add_custom_image1_btn' type="file" accept="image/png, image/jpeg" >
+								<input id='add_custom_image1_btn' name='add_custom_image1_btn' type="file" accept="image/png, image/jpeg" required>
 							  </div>
 							  <div class="file-path-wrapper">
-								<input id='add_custom_image1' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" >
+								<input id='add_custom_image1' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" required>
 							  </div>
 							</div>				
 							
@@ -94,10 +97,10 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 2 Upload</span>
-								<input id='add_custom_image2_btn' name='add_custom_image2_btn' type="file" accept="image/png, image/jpeg" >
+								<input id='add_custom_image2_btn' name='add_custom_image2_btn' type="file" accept="image/png, image/jpeg" required>
 							  </div>
 							  <div class="file-path-wrapper">
-								<input id='add_custom_image2' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" >
+								<input id='add_custom_image2' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" required>
 							  </div>
 							</div>
 							
@@ -110,10 +113,10 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 3 Upload</span>
-								<input id='add_custom_image3_btn' name='add_custom_image3_btn' type="file" accept="image/png, image/jpeg" >
+								<input id='add_custom_image3_btn' name='add_custom_image3_btn' type="file" accept="image/png, image/jpeg" required>
 							  </div>
 							  <div class="file-path-wrapper">
-								<input id='add_custom_image3' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" >
+								<input id='add_custom_image3' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" required>
 							  </div>
 							</div>
 							
@@ -197,10 +200,10 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 1 Upload</span>
-								<input id='add_imdb_image1_btn' name='add_imdb_image1_btn' type="file" accept="image/png, image/jpeg" >
+								<input id='add_imdb_image1_btn' name='add_imdb_image1_btn' type="file" accept="image/png, image/jpeg" required>
 							  </div>
 							  <div class="file-path-wrapper">
-								<input id='add_imdb_image1' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" >
+								<input id='add_imdb_image1' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" required>
 							  </div>
 							</div>				
 							
@@ -218,10 +221,10 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 2 Upload</span>
-								<input id='add_imdb_image2_btn' name='add_imdb_image2_btn' type="file" accept="image/png, image/jpeg" disabled>
+								<input id='add_imdb_image2_btn' name='add_imdb_image2_btn' type="file" accept="image/png, image/jpeg" disabled required>
 							  </div>
 							  <div class="file-path-wrapper">
-								<input id='add_imdb_image2' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled>
+								<input id='add_imdb_image2' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled required>
 							  </div>
 							</div>
 							
@@ -234,10 +237,10 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 3 Upload</span>
-								<input id='add_imdb_image3_btn' name='add_imdb_image3_btn' type="file" accept="image/png, image/jpeg" disabled>
+								<input id='add_imdb_image3_btn' name='add_imdb_image3_btn' type="file" accept="image/png, image/jpeg" disabled required>
 							  </div>
 							  <div class="file-path-wrapper">
-								<input id='add_imdb_image3' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled>
+								<input id='add_imdb_image3' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled required>
 							  </div>
 							</div>
 							
@@ -318,10 +321,10 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 1 Upload</span>
-								<input id='add_title_image1_btn' name='add_title_image1_btn' type="file" accept="image/png, image/jpeg" disabled>
+								<input id='add_title_image1_btn' name='add_title_image1_btn' type="file" accept="image/png, image/jpeg" disabled required>
 							  </div>
 							  <div class="file-path-wrapper">
-								<input id='add_title_image1' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled>
+								<input id='add_title_image1' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled required>
 							  </div>
 							</div>				
 							
@@ -339,10 +342,10 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 2 Upload</span>
-								<input id='add_title_image2_btn' name='add_title_image2_btn' type="file" accept="image/png, image/jpeg" disabled>
+								<input id='add_title_image2_btn' name='add_title_image2_btn' type="file" accept="image/png, image/jpeg" disabled required>
 							  </div>
 							  <div class="file-path-wrapper">
-								<input id='add_title_image2' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled>
+								<input id='add_title_image2' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled required>
 							  </div>
 							</div>
 							
@@ -355,10 +358,10 @@
 							<div class="file-field input-field col s12 m6">
 							  <div class="btn">
 								<span>Image 3 Upload</span>
-								<input id='add_title_image3_btn' name='add_title_image3_btn' type="file" accept="image/png, image/jpeg" disabled>
+								<input id='add_title_image3_btn' name='add_title_image3_btn' type="file" accept="image/png, image/jpeg" disabled required>
 							  </div>
 							  <div class="file-path-wrapper">
-								<input id='add_title_image3' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled>
+								<input id='add_title_image3' class="file-path validate truncate" type="text" placeholder="Upload Screenshots Here" disabled required>
 							  </div>
 							</div>
 							
@@ -392,11 +395,82 @@
 					</div>
 				</form>
 			</div>
+			<div id="view_details" class="modal">
+				<form method='post' enctype="multipart/form-data">
+					<div id='view_details_modal_content'class="modal-content">
+						<div class='row'>
+							<h4 class = 'col s12 black-text'>Movie Details</h4>
+							
+							<div class="input-field col s6 m8">
+								<input class='blue-text' placeholder='Movie Title' id="view_details_title" name='view_details_title' type="text" class="validate" disabled required>
+								<label for="view_details_title">Movie Title</label>
+							</div>
+							
+							<div class="input-field col s6 m4">
+								<input class='blue-text' placeholder='Year' id="view_details_year" type="number" class="validate" disabled required>
+								<label  for="view_details_year">Year</label>
+							</div>
+							
+							<div id="textarea_plot"class="input-field col s12 m12">
+							  <textarea style=" resize:none; height:100px"class='blue-text' placeholder='Plot' id="view_details_plot" name="view_details_plot" class="materialize-textarea" disabled required></textarea>
+							  <label for="view_details_plot">Plot</label>
+							</div>
+							
+							<div class="input-field col s12 m6">
+								<input class='blue-text' placeholder='Trailer' id="view_details_trailer" name="view_details_trailer" type="text" class="validate" disabled required>
+								<label for="view_details_trailer">Trailer</label>
+							</div>
+							
+							<div class="input-field col s12 m6">
+								<input class='blue-text' placeholder='Release Date' id="view_details_date" name="view_details_date" type='text' disabled required>
+								<label for="view_details_date" class="truncate">Release Date </label>
+							
+							<div class="input-field col s12 m6">
+								<select class="blue-text browser-default" id='view_details_rate' name='view_details_rate' disabled required onchange=console.log($('#view_details_rate').val())>
+								  <option value="G" selected>G</option>
+								  <option value="PG">PG</option>
+								  <option value="PG-13">PG-13</option>
+								  <option value="R">R</option>
+								  <option value="NC-17">NC-17</option>
+								</select>
+							</div>
+							
+							<div class="input-field col s12 m6">
+								<input class='blue-text' placeholder='Run Time' id="view_details_time" name='view_details_time' type="number" class="validate" disabled required>
+								<label for="view_details_time">Run Time (min/s)</label>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+					   <button class="btn waves-effect waves-light signup-button" type="submit" name="custom_confirm_btn" id='custom_confirm_btn'>Ok</button>
+					</div>
+				</form>
+			</div>
 		</main>
 		<!-- JS TAGS -->
+		<script> var movie = <?php if ($movie == null) echo 'null'; else echo json_encode($movie);?></script>
 		<script> var poster_error = <?php if ($poster_error == null) echo 'null'; else echo "'The File type you are attempting to upload is not allowed.'";?>; </script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/admin.js"></script>
+		<script>
+			$('.open_details').click(function(){
+				var x, index;
+				var id = $(this).parent().parent().children(':first').text();
+				for (x in movie){
+					if(id == movie[x].mov_id){
+						index = x;
+						break;
+					}
+				}
+				$('#view_details_title').val(movie[index].mov_name);
+				$('#view_details_year').val(movie[index].mov_year);
+				$('#view_details_plot').val(movie[index].mov_plot);
+				$('#view_details_trailer').val(movie[index].mov_trailer);
+				$('#view_details_date').val(movie[index].mov_release_date);
+				$('#view_details_rate').val(movie[index].mov_rating);
+				$('#view_details_time').val(movie[index].mov_running_time);
+			});
+		</script>
 	</body>
 </html>

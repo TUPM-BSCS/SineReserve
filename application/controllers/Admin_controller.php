@@ -85,7 +85,7 @@
 				$row->mov_year = $date[0];
 				$row->mov_sales = $this->admin_model->get_total_sales($row->mov_id);
 			}
-			$data['movie'] = $movie;
+			$data['movie'] = array_reverse($movie);
 			$this->load->view('Admin_Navigation', $data);
 			$this->load->view('Admin_Movie', $data);
 		}

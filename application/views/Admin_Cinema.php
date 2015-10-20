@@ -3,7 +3,7 @@
 				<h1 class='col l8'> Cinema </h1>
 				<form method='post' name='form_drop_branch' action="http://localhost/SineReserve/index.php/Admin_controller/cinema"
 				<div class='branch_dropdown'>
-					<label class='col s12 l4'>Branch</label>
+					<label class='col s12 l4'>View by Branch:</label>
 					<select id='branch_for_cinema' name='for_branch' class="browser-default col s12 l4" onchange="this.form.submit();">
 						<?php foreach($branch as $row):?>
 						<?php var_dump($residing_branch);
@@ -51,7 +51,7 @@
 						<div class="input-field col s12">
 							<input type="hidden" name="bran_id" value="<?php echo $residing_branch?>">
 							<input type="hidden" name="cine_id" value="Cinema <?php echo $last_cinema+1;?>">
-							<input placeholder="Insert No. of Seats" id="no_of_seats" name='no_of_seats' type="text" class="validate">
+							<input placeholder="Insert No. of Seats" id="no_of_seats" name='no_of_seats' type="number" class="validate" required>
 							<label for="no_of_seats">Seats</label>
 						</div>	
 					</div>
