@@ -1,5 +1,6 @@
 .review-card{
-	padding: 2em;
+	padding: 10px 15px;
+
 }
 
 p .review{
@@ -74,6 +75,7 @@ a {
 
 .movie-page-poster {
 	width: 100%;
+	padding-top: 10px;
 }
 
 .movie_page-btn {
@@ -163,3 +165,8 @@ a {
 	left: 200px;
 	visibility: visible;
 }
+
+.row .col .section {
+	padding-top: 0px;
+}
+

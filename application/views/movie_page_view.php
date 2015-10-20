@@ -56,9 +56,30 @@
 							
 						?>
 					" class="responsive-img movie-page-poster materialboxed" />
-					<a class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal">Reserve</a>
-					<a class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal">Rate Me</a>
-					<a class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="">Hurt Me Plenty</a>
+					<?php
+						if($movie_type == 'ns') {
+							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal">Reserve</button>';
+							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal">Rate Me</button>';
+						}
+
+						else if($movie_type == 'na') {
+							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal">Reserve</button>';
+							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal" disabled>Rate Me</button>';
+						}
+
+						else if($movie_type == 'cs') {
+							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal" disabled>Reserve</button>';
+							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal" disabled>Rate Me</button>';
+						}
+
+						else {
+							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal" disabled>Reserve</button>';
+							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal">Rate Me</button>';
+						}
+					?>
+					
+					<!-- <a class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal">Rate Me</a>
+					<a class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="">Hurt Me Plenty</a> -->
 				</div>
 
 				<div class="col s12 m9">
@@ -197,25 +218,39 @@
 
 								else {
 									for($i = 0; $i < sizeof($movie_reviews); $i++) {
+										// if($i % 2 == 0) {
+											// echo '<div class="review-card light-grey text-white">';
+										// }
+
+										// else {
+											echo '<div class="review-card text-white">';
+										// }
 							?>
-							<div class="review-card">
-								<h6 class="bold text-white"><?php echo $movie_reviews[$i]['title']; ?></h6>
-								<h6>
+								<p class="bold"><?php echo $movie_reviews[$i]['title']; ?></p>
+								<p>
 
 								<?php
-									for($j = 0; $j < $movie_reviews[$i]['user_rating']; $j++) {
+									for($j = 0; $j < 5; $j++) {
+										if($j < $movie_reviews[$i]['user_rating']) {
 								?>
-								<i class='tiny mdi-action-stars'></i>
+											<i class='material-icons'>star</i>
 								<?php
+										}
+
+										else {
+								?>
+											<i class='material-icons'>star_border</i>
+								<?php
+										}
 									}
 								?>
 
 								<?php echo '('.$movie_reviews[$i]['user_rating'].' out of 5)'; ?>
 								<br />
 								<?php echo date('F d Y', strtotime($movie_reviews[$i]['review_date'])); ?>
-								</h6>
-								<p class="review italic justify text-white"> "<?php echo $movie_reviews[$i]['review']; ?>" </p>
-								<h6 class="right-align text-white"> written by: <?php echo $movie_reviews[$i]['username']; ?> </h6>
+								</p>
+								<p class="review italic justify"> "<?php echo $movie_reviews[$i]['review']; ?>" </p>
+								<p class="right-align"> written by: <?php echo $movie_reviews[$i]['username']; ?> </p>
 							</div>
 							<?php
 									}
