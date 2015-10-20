@@ -48,6 +48,35 @@
 			}
 			
 		}	
+		
+		public function get_movie(){
+			$movie_details = array();
+			$this->db->select('*');
+			$this->db->from('movie');
+			$query = $this->db->get();
+			if($query->num_rows() > 0){
+				return $query->result();
+			}
+		}
+		
+		public function get_total_sales($mov_id){
+			$movie = array('movie.mov_id' => $mov_id);
+			$x = 0;
+			$this->db->select('shows.cost');
+			$this->db->from('movie');
+			$this->db->join('shows', 'movie.mov_id = shows.mov_id');
+			$this->db->join('reserved_by', 'shows.sched_id = reserved_by.sched_id');
+			$this->db->where($movie);
+			$query = $this->db->get();
+			var_dump($query->num_rows());
+			die();
+			if($query->num_rows() > 0){
+				foreach($query->result() as $row){
+					$x += $row->shows.cost; 
+				}
+				return $x;
+			}
+		}
 
 		public function insert_movie($mov_name, $mov_plot, $mov_rating, $mov_running_time, $mov_release_date, $mov_poster_img, $mov_trailer){
 			// if(($mov_name != null) && ($mov_plot != null) && ($mov_rating != null) && ($mov_running_time != null) && ($mov_release_date != null) && ($mov_poster_img != null ) && ($mov_trailer != null)){

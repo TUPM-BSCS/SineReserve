@@ -72,12 +72,20 @@
 		}
 		
 		public function movie(){
+			$i = 0;
+			$movie = $date = array();
 			$data['title_page'] = 'Movie';
 			$branch_name = $branch_address = $result = array();
 			$result = $this->admin_model->get_branch();
 			$data['branch'] = $result; 
 			$data['poster_error'] = $this->session->flashdata('poster_error');
-			// $data['poster_error'] = 'hi';
+			$movie = $this->admin_model->get_movie();
+			foreach($movie as $row){
+				$date = explode('-',$row->mov_release_date);
+				$row->mov_year = $date[0];
+				$row->mov_sales = $this->admin_model->get_total_sales($row->mov_id);
+			}
+			$data['movie'] = $movie;
 			$this->load->view('Admin_Navigation', $data);
 			$this->load->view('Admin_Movie', $data);
 		}
@@ -89,6 +97,62 @@
 			$data['branch'] = $result; 
 			$this->load->view('Admin_Navigation', $data);
 			$this->load->view('Admin_Movie', $data);
+		}
+		
+		public function insert_movie_by_custom(){
+			// var_dump($_FILES);
+			if($this->admin_model->get_last_movie_index() == null)
+				$mov_id = 1;
+			else
+				$mov_id = $this->admin_model->get_last_movie_index()->mov_id + 1;
+			
+			$mov_name = $this->input->post("add_custom_title");
+			$mov_plot = $this->input->post("add_custom_plot");
+			$mov_trailer = $this->input->post("add_custom_trailer");
+			$mov_release_date = str_replace(',','', $this->input->post("add_custom_date"));
+			$date_parts = explode(" ", $mov_release_date);
+			$mov_release_date = date_create_from_format("Y-M-d",$date_parts[2].'-'.$date_parts[1].'-'.$date_parts[0]);
+			$mov_release_date = $mov_release_date->format("Y-m-d");
+			$mov_rating = $this->input->post("add_custom_rate");
+			$mov_running_time = $this->input->post("add_custom_time");
+			$actors = explode(',', $this->input->post("add_custom_actor_hidden"));
+			$genre = explode(',', $this->input->post("add_custom_genre_hidden"));
+			var_dump($actors);
+			var_dump($genre);
+			
+			//Insert Movie to DB and Upload Poster
+			$type = substr($_FILES['add_custom_poster_btn']['name'],-4,4);
+			$_FILES['add_custom_poster_btn']['name'] = $mov_id.$type;
+			$mov_poster_img = 'assets/images/poster/'.$_FILES['add_custom_poster_btn']['name'];
+			var_dump($mov_release_date);
+			$this->admin_model->insert_movie($mov_name, $mov_plot, $mov_rating, $mov_running_time, $mov_release_date, $mov_poster_img, $mov_trailer);
+			
+			// Insert Actor to DB
+			foreach ($actors as $x) {
+				$this->admin_model->insert_actor($mov_id, $x);
+			}
+			
+			// Insert Genre to DB
+			foreach ($genre as $x) {
+				$this->admin_model->insert_genre($mov_id, $x);
+			}
+			
+			// Insert screenshots to DB and Upload 
+			$type = substr($_FILES['add_custom_image1_btn']['name'],-4,4);
+			$_FILES['add_custom_image1_btn']['name'] = $mov_id.'_1'.$type;	
+			$this->admin_model->insert_screenshot($mov_id, 'assets/images/screenshots/'.$_FILES['add_custom_image1_btn']['name']);
+			
+			$type = substr($_FILES['add_custom_image2_btn']['name'],-4,4);
+			$_FILES['add_custom_image2_btn']['name'] = $mov_id.'_2'.$type;
+			$this->admin_model->insert_screenshot($mov_id, 'assets/images/screenshots/'.$_FILES['add_custom_image1_btn']['name']);
+			
+			$type = substr($_FILES['add_custom_image3_btn']['name'],-4,4);
+			$_FILES['add_custom_image3_btn']['name'] = $mov_id.'_3'.$type;
+			$this->admin_model->insert_screenshot($mov_id, 'assets/images/screenshots/'.$_FILES['add_custom_image1_btn']['name']);			
+			
+			// var_dump($_FILES);
+			$this->upload_poster($_FILES, 'custom');
+			$this->upload_screenshots($_FILES, 'custom');
 		}
 	
 		public function insert_movie_by_imdb(){
@@ -115,9 +179,9 @@
 			//Insert Movie to DB and Upload Poster
 			$type = substr($_FILES['add_imdb_poster_btn']['name'],-4,4);
 			$_FILES['add_imdb_poster_btn']['name'] = $mov_id.$type;
-			$mov_poster_img = 'assets/images/screenshots/'.$_FILES['add_imdb_poster_btn']['name'];
+			$mov_poster_img = 'assets/images/poster/'.$_FILES['add_imdb_poster_btn']['name'];
 			var_dump($mov_release_date);
-			// $this->admin_model->insert_movie($mov_name, $mov_plot, $mov_rating, $mov_running_time, $mov_release_date, $mov_poster_img, $mov_trailer);
+			$this->admin_model->insert_movie($mov_name, $mov_plot, $mov_rating, $mov_running_time, $mov_release_date, $mov_poster_img, $mov_trailer);
 			
 			// Insert Actor to DB
 			foreach ($actors as $x) {
@@ -163,7 +227,6 @@
 			$mov_release_date = $mov_release_date->format("Y-m-d");
 			$mov_rating = $this->input->post("add_title_rate");
 			$mov_running_time = $this->input->post("add_title_time");
-			die($this->input->post("add_title_actor_hidden"));
 			$actors = explode(',', $this->input->post("add_title_actor_hidden"));
 			$genre = explode(',', $this->input->post("add_title_genre_hidden"));
 			var_dump($actors);
@@ -172,7 +235,7 @@
 			//Insert Movie to DB and Upload Poster
 			$type = substr($_FILES['add_title_poster_btn']['name'],-4,4);
 			$_FILES['add_title_poster_btn']['name'] = $mov_id.$type;
-			$mov_poster_img = 'assets/images/screenshots/'.$_FILES['add_title_poster_btn']['name'];
+			$mov_poster_img = 'assets/images/poster/'.$_FILES['add_title_poster_btn']['name'];
 			// var_dump($mov_release_date);
 			$this->admin_model->insert_movie($mov_name, $mov_plot, $mov_rating, $mov_running_time, $mov_release_date, $mov_poster_img, $mov_trailer);
 			

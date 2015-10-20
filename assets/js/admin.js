@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	var actor_no = 0;
 	var genre_no = 0;
-	$('.cock').lolliclock({autoclose:true});
 	$('select').material_select();
 	$('.button-collapse').sideNav();
 	$('.modal-trigger').leanModal();
@@ -338,7 +337,30 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('#add_by_idbtn').click(function(){
+	$('#add_by_custom_btn').click(function(){
+		$('#add_custom_id').val('');
+		$('#add_custom_title').val('');
+		$('#add_custom_year').val('');
+		$('#add_custom_plot').val('');
+		$('#add_custom_trailer').val('');
+		$('#add_custom_poster').val('');
+		$('#add_custom_poster_btn').val('');
+		$('#add_custom_date').val('');
+		$('#add_custom_image1_btn').val('');
+		$('#add_custom_image1').val('');
+		$('#add_custom_image2_btn').val('');
+		$('#add_custom_image2').val('');
+		$('#add_custom_image3_btn').val('');
+		$('#add_custom_image3').val('');
+		$('#add_custom_rate').val('G');
+		$('#add_custom_time').val('');
+		$('#add_custom_actor').val('');
+		$('#add_custom_genere').val('');
+		$('#add_custom_actor_list').empty();
+		$('#add_custom_genre_list').empty();
+	});
+	
+	$('#add_by_id_btn').click(function(){
 		$('#add_imdb_id').val('');
 		$('#add_imdb_title').val('');
 		$('#add_imdb_year').val('');
@@ -379,5 +401,46 @@ $(document).ready(function(){
 		$('#add_imdb_genere').attr('disabled', true);
 		$('#add_imdb_actor_list').attr('disabled', true);
 		$('#add_imdb_genre_list').attr('disabled', true);
+	});
+	
+	$('#add_by_title_btn').click(function(){
+		$('#add_title_id').val('');
+		$('#add_title_title').val('');
+		$('#add_title_year').val('');
+		$('#add_title_plot').val('');
+		$('#add_title_trailer').val('');
+		$('#add_title_poster').val('');
+		$('#add_title_poster_btn').val('');
+		$('#add_title_date').val('');
+		$('#add_title_image1_btn').val('');
+		$('#add_title_image1').val('');
+		$('#add_title_image2_btn').val('');
+		$('#add_title_image2').val('');
+		$('#add_title_image3_btn').val('');
+		$('#add_title_image3').val('');
+		$('#add_title_rate').val('G');
+		$('#add_title_time').val('');
+		$('#add_title_actor').val('');
+		$('#add_title_genere').val('');
+		$('#add_title_actor_list').empty();
+		$('#add_title_genre_list').empty();
+		 
+		$('#add_title_plot').attr('disabled', true);
+		$('#add_title_trailer').attr('disabled', true);
+		$('#add_title_poster').attr('disabled', true);
+		$('#add_title_poster_btn').attr('disabled', true);
+		$('#add_title_date').attr('disabled', true);
+		$('#add_title_image1_btn').attr('disabled', true);
+		$('#add_title_image1').attr('disabled', true);
+		$('#add_title_image2_btn').attr('disabled', true);
+		$('#add_title_image2').attr('disabled', true);
+		$('#add_title_image3_btn').attr('disabled', true);
+		$('#add_title_image3').attr('disabled', true);
+		$('#add_title_rate').attr('disabled', true);
+		$('#add_title_time').attr('disabled', true);
+		$('#add_title_actor').attr('disabled', true);
+		$('#add_title_genere').attr('disabled', true);
+		$('#add_title_actor_list').attr('disabled', true);
+		$('#add_title_genre_list').attr('disabled', true);
 	});
 });
