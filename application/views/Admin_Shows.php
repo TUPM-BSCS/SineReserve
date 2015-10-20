@@ -139,6 +139,8 @@
   			});
 
 			$('#modal-branch').change(function() {
+				$('#modal-cinema').removeAttr('disabled');
+				$('#modal-cinema').attr('enabled', true);
 				$.ajax({
 
 				});
