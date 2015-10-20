@@ -170,3 +170,6 @@ a {
 	padding-top: 0px;
 }
 
+.container .hide-on-med-and-up {
+	padding-top: 20px;
+}
