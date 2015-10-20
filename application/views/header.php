@@ -32,12 +32,12 @@
 <!--          <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>-->
           <ul class="right hide-on-large-only">
               <li><a href="<?php echo base_url();?>/index.php/movie_index_controller/movie_index"><i class="mdi-av-movie"></i></a></li>
-              <li><a class="modal-trigger" data-target="modal1" href="#modal1"><i class="mdi-action-account-circle"></i></a></li>
+              <li><a class="modal-trigger" data-target="modal1" href="<?php echo $accounts_link; ?>"><i class="mdi-action-account-circle"></i></a></li>
           </ul>
           <ul class="right hide-on-med-and-down">
                 <!--<li><a href="http://localhost/SineReserve/index.php/movie_page_controller/movie">Movies</a></li>-->
                 <li><a href="<?php echo base_url();?>/index.php/movie_index_controller/movie_index"><i class="mdi-av-movie left"></i>Movies</a></li>
-                <li><a class="modal-trigger" data-target="modal1" href="#modal1"><i class="mdi-action-account-circle left"></i>Accounts</a></li>
+                <li><a class="modal-trigger" data-target="modal1" href="<?php echo $accounts_link; ?>"><i class="mdi-action-account-circle left"></i><?php echo $accounts_label; ?></a></li>
                 <li>
                   <div class="input-field red darken-2">
                       <input id="search" type="search" required></input>
@@ -62,22 +62,24 @@
                 <div class="collapsible-body">
                   <p>
                     <div class="row">
+                     <?php echo validation_errors(); ?>
                      <?php echo form_open('login_validator'); ?>
                         <div class="row">
                           <div class="input-field col s12">
-                            <input id="username_field" type="text" class="validate" />
+                            <input id="username_field" name="username" type="text" class="validate" />
                             <label for="username_field">Username</label>
                           </div>
                         </div>
                         <div class="row">
                           <div class="input-field col s12">
-                            <input id="password_field" type="password" class="validate" />
+                            <input id="password_field" name="password" type="password" class="validate" />
                             <label for="password_field">Password</label>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col s12">
-                          <button class="waves-effect btn" type="submit" name="btn_sign-in">Sign In</button>
+                            <button class="waves-effect btn" type="submit" name="btn_sign-in">Sign In</button>
+                          </div>
                         </div>
                       </form>
                     </div>

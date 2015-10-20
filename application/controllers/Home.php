@@ -1,10 +1,47 @@
 <?php
 class Home extends CI_Controller {
+
+
     
     public function __construct(){
       parent::__construct();
-      $this->load->helper(array('form','url'));     
-    }   
+      $this->load->helper(array('form','url'));    
+		
+	  $this->load->library(array('form_validation', 'session'));
+
+    } 
+
+	// function index(){
+	 
+	// 		$this->form_validation->set_rules('username', 'Username', array('username_callable', array('insert_username')));
+	// 		$this->form_validation->set_rules('password', 'Password', 'callback_insert_password');//'trim|required|matches[passconf]|md5');
+
+	// 		if ($this->form_validation->run() == FALSE)
+	// 		{
+	// 			$this->home();
+	// 		}
+	// 		else
+	// 		{
+	// 		//	$this->check_validity();
+	// 		}
+	// 	}
+
+	// public function insert_username($str){
+	// 		var_dump($str);
+	// 		//$this->username = $str;
+	// 	}
+
+	// 	public function insert_password($str){
+	// 		var_dump($str);
+	// 		$this->password = $str;
+	// 	}
+
+	// 	private function check_validity(){
+	// 		$this->load->model('header_model');
+	// 		//var_dump($this->username);
+	// 		$res = $this->header_model->validate_user($this->username, $this->password);
+	// 		var_dump($res);
+	// 	} 
 
 	public function home(){
 		$today = '2015-02-14';
@@ -85,10 +122,23 @@ class Home extends CI_Controller {
 			}
 		}
 
-
 		// echo var_dump($data);
 
-		$this->load->view('header');
+		// <the code that needs controller> 
+		if($this->session->userdata('hurt-me-plenty')){
+			$data['accounts_link'] = "#modal1";
+
+			$this->load->model('header_model');
+			$details = $this->header_model->get_user_fullname($this->session->userdata('hurt-me-plenty'));
+			$data['accounts_label'] = "Hello, " . $details['fname'] . " " . $details['lname'];
+
+		} else {
+			$data['accounts_link'] = "#modal1";
+			$data['accounts_label'] = "Accounts";	
+		}		
+		// </the code that needs controller>
+
+		$this->load->view('header', $data);
 		$this->load->view('index', $data);
 		$this->load->view('footer');
 	}

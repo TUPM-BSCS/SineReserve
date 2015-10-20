@@ -1,16 +1,16 @@
 <?php
 	class Login_Validator extends CI_Controller{
 
-		private $username = NULL;
-		private $password = NULL;
+		public $username;
+		public $password;
 
 		function index(){
 			$this->load->helper(array('form', 'url'));
 
 			$this->load->library('form_validation');
 
-			$this->form_validation->set_rules('username', 'Username', 'callback_insert_username');
-			$this->form_validation->set_rules('password', 'Password', 'callback_insert_password');//'trim|required|matches[passconf]|md5');
+			$this->form_validation->set_rules('username', 'Username', 'trim|callback_insert_username');
+			$this->form_validation->set_rules('password', 'Password', 'trim|callback_insert_password|md5');//'trim|required|matches[passconf]|md5');
 
 			if ($this->form_validation->run() == FALSE)
 			{
@@ -23,19 +23,22 @@
 		}
 
 		public function insert_username($str){
-			var_dump($str);
 			$this->username = $str;
 		}
 
-		public function insert_password($str){
-			$this->password = $str;
+		public function insert_password($string){
+			$this->password = $string;
 		}
 
 		private function check_validity(){
 			$this->load->model('header_model');
-			var_dump($this->username);
 			$res = $this->header_model->validate_user($this->username, $this->password);
-			var_dump($res);
+			if($res == TRUE){
+				$this->header_model->signin_user($this->username, $this->password);
+			} else {
+
+			}
+			redirect('home/home');
 		}
 	}
 ?>
