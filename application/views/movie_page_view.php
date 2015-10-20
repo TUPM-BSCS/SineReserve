@@ -385,8 +385,10 @@
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
 		<script type="text/javascript">
 			<?php
-				if($movie_reserve == 'reserve') {
-					echo "$('#reservemodal').openModal();";
+				if($movie_type == 'ns' || $movie_type == 'na') {
+					if($movie_reserve == 'reserve') {
+						echo "$('#reservemodal').openModal();";
+					}
 				}
 			?>
 		</script>
