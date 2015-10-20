@@ -6,12 +6,13 @@ class movie_page_controller extends CI_Controller {
       $this->load->helper(array('form','url'));     
     }   
 
-	public function movie($mov_id, $mov_type = null){
+	public function movie($mov_id, $mov_type = null, $mov_reserve = null){
 		$this->load->model('movie_page_model');
 
 		$data['title'] = 'Movie Page';
 		$data['movie_id'] = $mov_id;
 		$data['movie_type'] = $mov_type;
+		$data['movie_reserve'] = $mov_reserve;
 		$data['movie_name'] = $this->movie_page_model->get_movie_name($mov_id);
 		$data['movie_rating'] = $this->movie_page_model->get_movie_rating($mov_id);
 		$data['movie_poster_img'] = $this->movie_page_model->get_movie_poster_img($mov_id);
