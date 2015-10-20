@@ -388,9 +388,6 @@
 				if($movie_reserve == 'reserve') {
 					echo "$('#reservemodal').openModal();";
 				}
-				else {
-					echo 'alert("HEY");';
-				}
 			?>
 		</script>
 	</body>
