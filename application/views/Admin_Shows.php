@@ -41,8 +41,7 @@
 				</div>
 				</form>
 			</div>
-			<a class="waves-effect waves-light btn modal-trigger" id='addbtn_modal' href="#add-cinema">Add</a>
-			<a class="waves-effect waves-light btn modal-trigger" id='editbtn_modal' href="#edit-branch">Edit</a>
+			<a class="waves-effect waves-light btn modal-trigger" id='addbtn_modal' href="#add-show">Add</a>
 			<table class="responsive">
 				<table class="responsive-table">
 				<thead>
@@ -61,9 +60,9 @@
 				<?php foreach ($table as $row): ?>
 				 	<tr>
 						<td><?php echo $row->mov_name;?></td>
-						<td><?php echo $row->show_date;?></td>
-						<td><?php echo $row->bran_name;?></td>
-						<td><a class="waves-effect waves-light btn modal-trigger" id="show_<?php echo $row->sched_id; ?>" href="#view_show_<?php echo $row->sched_id; ?>">View Details</a></td>
+						<td style="width: 16%;"><?php echo $row->show_date;?></td>
+						<td style="width: 23%"><?php echo $row->bran_name;?></td>
+						<td style="width: 23%;"><a class="waves-effect waves-light btn modal-trigger" id="show_<?php echo $row->sched_id; ?>" href="#view_show_<?php echo $row->sched_id; ?>">View Details</a></td>
 				  	</tr>
 				<?php endforeach ?>
 				</tbody>
@@ -72,41 +71,36 @@
 			</table>				
 			<!-- Modals -->
 			
-			<div id="add-cinema" class="modal">
+			<div id="add-show" class="modal">				
 				<div class="modal-content">
-				<form method="post" action="<?php echo base_url();?>index.php/Admin_controller/insert_cinema_seats">
+				<form method="post" action="#">
 					<div class='row'>
-						<h4 class = 'col s12'>Cinema <?php echo $last_cinema+1;?></h4>
+						<h4 class = 'col s12'>Add Shows</h4>
 						<div class="input-field col s12">
-							<input type="hidden" name="bran_id" value="<?php echo $residing_branch?>">
-							<input type="hidden" name="cine_id" value="Cinema <?php echo $last_cinema+1;?>">
-							<input placeholder="Insert No. of Seats" id="no_of_seats" name='no_of_seats' type="text" class="validate">
-							<label for="no_of_seats">Seats</label>
+							<!-- Movie Input Field -->
+							<i class="material-icons prefix">search</i>
+				         <input id="icon_prefix" name="movie" type="text" class="validate">
+				         <label for="icon_prefix">Search a Movie</label>
+
+				         <!-- Branch Input Field -->
+				         <select id="modal-branch" name="branch" class="browser-default col s12 l6">
+				         	<option disabled selected>Select a branch</option>
+								<?php foreach($branches as $row): ?>
+									<option value="<?php echo $row->bran_id; ?>"><?php echo $row->bran_name;?></option>
+								<?php endforeach ?>
+							</select>
+
+							<!-- Cinema Input Field -->
+							<select disabled id="modal-cinema" name="branch" class="browser-default col s12 l6">
+								<option id="#cine-append-here" disabled selected>Select a cinema</option>
+							</select>
 						</div>	
 					</div>
 				</div>
 				<div class="modal-footer">
-				 <button class="btn waves-effect waves-light signup-button" type="submit" name="action">Confirm</button>
+					<button class="btn waves-effect waves-light signup-button" type="submit" name="action">Confirm</button>
 				</div>
 				</form>
-			</div>
-			<div id="edit-branch" class="modal">
-				<div class="modal-content">
-				<div class='row'>
-					<h4 class = 'col s12'>Edit Cinema</h4>
-					<div class="input-field col s12">
-						<input placeholder="Insert Name Here" id="edit_branch_name" type="text" class="validate">
-						<label for="edit_branch_name">Branch Name</label>
-					</div>
-					<div class="input-field col s12">
-						<input placeholder="Insert Address Here" id="edit_branch_address" type="text" class="validate">
-						<label for="edit_branch_address">Branch Address</label>
-					</div>
-				</div>
-				</div>
-				<div class="modal-footer">
-				  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-				</div>
 			</div>
 		</main>
 		<!-- JS TAGS -->
@@ -143,6 +137,12 @@
     				window.location.href='<?php echo base_url(); ?>index.php/Adminn_controller/shows/time/' + from + '_' + to;
     			}
   			});
+
+			$('#modal-branch').change(function() {
+				$.ajax({
+
+				});
+			});
 		</script>
 	</body>
 </html>

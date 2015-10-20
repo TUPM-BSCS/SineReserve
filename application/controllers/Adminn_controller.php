@@ -114,8 +114,6 @@
 					break;
 				
 				case 'branch':
-					$result = $this->admin_model->get_branch();
-					$data['branches'] = $result;
 					if($sub == null) {
 						$data['branch'] = 'all';
 					}
@@ -130,6 +128,8 @@
 					# code...
 					break;
 			}
+			$result = $this->admin_model->get_branch();
+			$data['branches'] = $result;
 
 			$data['limits'] = array();
 			$data['limits']['min'] = $min; 

@@ -67,7 +67,7 @@
 	      					'<li>
 	      						<div class="movie-box">
 	      							<div class="image-container">
-	      								<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'">
+	      								<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/ns">
 	      									<img src="' . base_url() . $movie['poster'] . '">
 	      								</a>
 	      							</div>
@@ -103,7 +103,7 @@
 	      					'<li>
 	      						<div class="movie-box">
 	      							<div class="image-container">
-	      								<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'">
+	      								<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/na">
 	      									<img src="' . base_url() . $movie['poster'] . '">
 	      								</a>
 	      							</div>
@@ -139,7 +139,7 @@
 	      					'<li>
 	      						<div class="movie-box">
 	      							<div class="image-container">
-	      								<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'">
+	      								<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/cs">
 	      									<img src="' . base_url() . $movie['poster'] . '">
 	      								</a>
 	      							</div>
