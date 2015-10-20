@@ -138,6 +138,13 @@
 			$this->load->view('Admin_Navigation', $data);
 			$this->load->view('Admin_Shows', $data);
 		}
+
+		public function ajax_get_cinemas_by_branch() {
+			$branch = $this->input->post('branch');
+			$this->load->model('admin_model');
+			$result = $this->admin_model->get_cinema_in_branch($branch);
+			echo json_encode($result['result']);
+		}
 		
 		function upload_poster() {
 			$config['upload_path'] = 'C:\xampp\htdocs\Sinereserve\assets\images\posters';

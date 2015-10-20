@@ -142,7 +142,16 @@
 				$('#modal-cinema').removeAttr('disabled');
 				$('#modal-cinema').attr('enabled', true);
 				$.ajax({
-
+					url: '<?php echo base_url(); ?>index.php/Adminn_controller/ajax_get_cinemas_by_branch',
+					type: post,
+					dataType: json,
+					data: {branch: $('#modal-branch').val()},
+					success: function(data) {
+						alert(JSON.stringify(data));
+					},
+					error: function(error) {
+						alert(error);
+					}
 				});
 			});
 		</script>

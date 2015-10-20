@@ -73,7 +73,7 @@
 	      							</div>
 	      							<div class="desc-container" style="background-color: #'. $movie['color'] .';">
 	      								<div class="absolute-desc">
-	      									<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/ns">
+	      									<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/ns/reserve">
 	      										<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
 	      									</a>
 	      									<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/ns">
@@ -145,9 +145,6 @@
 	      							</div>
 	      							<div class="desc-container" style="background-color: #'. $movie['color'] .';">
 	      								<div class="absolute-desc">
-	      									<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/cs/reserve">
-	      										<img class="responsive-img ticket-icon" src="' . base_url() . 'assets/images/ticket-white.png" />
-	      									</a>
 	      									<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/cs">
 	      										<span class="movie-title white-text">' . $movie['name'] . '</span>
 	      									</a>
