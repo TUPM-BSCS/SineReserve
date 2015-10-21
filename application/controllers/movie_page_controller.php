@@ -30,25 +30,35 @@ class movie_page_controller extends CI_Controller {
 		// print_r($data);
 		// die();
 
-		
 		// <the code that needs controller> 
+		$this->session->set_flashdata('last-page', current_url());
+
 		if($this->session->userdata('hurt-me-plenty')){
-			$data['accounts_link'] = "accounts_dropdown";
+			$headerdata["accounts_link"] = "accounts_dropdown";
 
 			$this->load->model('header_model');
 			$details = $this->header_model->get_user_fullname($this->session->userdata('hurt-me-plenty'));
-			$data['accounts_label'] = "Hello, " . $details['fname'] . " " . $details['lname'];
-			$data['accounts_entry'] = "";
-			$data['accounts_action'] = "dropdown-button";
+			$headerdata['accounts_label'] = "Hello, " . $details['fname'] . " " . $details['lname'];
+			$headerdata['accounts_entry'] = "";
+			$headerdata['accounts_action'] = "dropdown-button";
+			$headerdata['valid_errors'] = "";
+			$headerdata['automodal'] = "";
 		} else {
-			$data['accounts_link'] = "#modal1";
-			$data['accounts_label'] = "Accounts";	
-			$data['accounts_entry'] = "";
-			$data['accounts_action'] = "modal-trigger";
-		}		
+			$headerdata['accounts_link'] = "#modal1";
+			$headerdata['accounts_label'] = "Accounts";	
+			$headerdata['accounts_entry'] = "";
+			$headerdata['accounts_action'] = "modal-trigger";
+			$headerdata['valid_errors'] = $this->session->flashdata('validation-errors');
+			if(strlen($headerdata['valid_errors'])>0){
+				$headerdata['automodal'] = "$('#modal1').openModal()";	
+			} 
+			else{
+				$headerdata['automodal'] = "";	
+			}
+		}
 		// </the code that needs controller>
 
-		$this->load->view('header', $data);
+		$this->load->view('header', $headerdata);
 		$this->load->view('movie_page_view', $data);
 		$this->load->view('footer');
 	}

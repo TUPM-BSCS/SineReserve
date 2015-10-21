@@ -9,4 +9,12 @@ $(document).ready(function(){
 	});
 
 	$('.modal-trigger').leanModal();
+
+	$('.datepicker').pickadate({
+   		selectMonths: true, // Creates a dropdown to control month
+   		selectYears: 10 // Creates a dropdown of 15 years to control year
+	});	
+
+	$('#textarea1').val('New Text');
+  	$('#textarea1').trigger('autoresize');
 });

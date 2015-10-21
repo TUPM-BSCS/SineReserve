@@ -21,15 +21,13 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   
-  <body class="lighten-5" style="background-color: #18191b;">
-
+  <body class="lighten-5" style="background-color: #18191b;" onload="<?php echo $automodal ?>">
     <!-- Dropdown -->
     <ul id="accounts_dropdown" class="dropdown-content" >
       <!--<li class="hide-on-med-and-up"><?php echo $accounts_label; ?></li>-->
       <li><a href="<?php echo base_url();?>index.php/user_page_controller/user">See your profile</a></li>
       <li><a href="<?php echo base_url();?>index.php/User_Operations/sign_out">Signout</a></li>
     </ul>
-
 
     <!-- Navigation Bar -->
     <div class ="navbar-fixed">
@@ -58,20 +56,22 @@
       </nav>
     </div>
 
-    <div id="modal1" class="modal modal-fixed-footer accounts-overlay" style="width:30%">
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-header red darken-4 text-white">
+          <a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="mdi-content-clear"></i></a>
+          <p class="text-white">Sign In</p>
+        </div>
         <div class="modal-content">
-          <p>
             <div class="row">
-              <ul class="collapsible" data-collapsible="accordion">
+              <!-- <ul class="collapsible" data-collapsible="accordion">
               <li>
                 <div id="login-tab" class="collapsible-header active">
-                  <h4>Login</h4>
-                </div>
-                <div class="collapsible-body">
-                  <p>
-                    <div class="row">
-                     <?php echo validation_errors(); ?>
-                     <?php echo form_open('login_validator'); ?>
+                  Login
+                </div> -->
+                <!-- <div class="collapsible-body"> -->
+                    
+                      <?php echo $valid_errors; ?>
+                      <?php echo form_open('login_validator'); ?>
                         <div class="row">
                           <div class="input-field col s12">
                             <input id="username_field" name="username" type="text" class="validate" />
@@ -84,41 +84,84 @@
                             <label for="password_field">Password</label>
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col s12">
-                            <button class="waves-effect btn" type="submit" name="btn_sign-in">Sign In</button>
-                          </div>
-                        </div>
                       </form>
-                    </div>
-                  </p>
+                    
                 </div>
-              </li>
-              <li>
-                <div id="signup-tab" class="collapsible-header">
-                  <h4>Sign-up</h4>
-                </div>
-                <div class="collapsible-body">
-                  <div class="row">
-                    <div class="input field col s12">
-                      <input id="field_lname" type="text" class="validate" placeholder="Appleseed" />
-                      <label for="field_lname">Last Name</label>
-                    </div>
-                    <div class="input field col s12">
-                      <input id="field_fname" type="text" class="validate" placeholder="John" />
-                      <label for="field_fname">First Name</label>
-                    </div>
-                    <div class="input field col s12">
-                      <input id="field_mname" type="text" class="validate" placeholder="Marcos" />
-                      <label for="field_mname">Middle Name</label>
-                    </div>
-                </div> 
-              </li>
-              </ul>
-            </div>
-          </p>
+              <!-- </ul> -->
+            <!-- </div> -->
+            
         </div>
         <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close btn-flat">Close</a>
+          <div class="col s12 valign-wrapper">
+            <button class="waves-effect btn valign" type="submit" name="btn_sign-in">Sign In</button>
+            <a class="waves-effect waves-light btn modal-action modal-close modal-trigger right" href="#modal-signup">No account? Sign Up</a>
+          </div>
+      </div>  
+        
+      <div id="modal-signup" class="modal modal-fixed-footer">
+          <div class="modal-header red darken-4 text-white">
+             <a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="mdi-content-clear"></i></a>
+             <p class="text-white">Sign Up</p>
+          </div>
+          <div class="modal-content">
+            <div class="row">
+              <div class="input field col s12">
+                <input id="field_uname" name="username" type="text" class="validate" placeholder="JAppl" />
+                <label for="field_uname">Username</label>
+              </div>
+              <div class="input field col s12">
+                <input id="field_pass" name="password" type="password" class="validate" placeholder="Marcos" />
+                <label for="field_pass">Password</label>
+              </div>
+              <div class="input field col s12">
+                <input id="field_rpass" name="password" type="password" class="validate" placeholder="Marcos" />
+                <label for="field_rpass">Re-enter Password</label>
+              </div>
+              <div class="input field col s12">
+                <input id="field_email" name="email" type="email" class="validate" placeholder="johnappleseed@sinereserve.com" />
+                <label for="field_email">E-Mail</label>
+              </div>
+              <div class="input field col s12">
+                <input id="field_lname" type="text" class="validate" placeholder="Appleseed" />
+                <label for="field_lname">Last Name</label>
+              </div>
+              <div class="input field col s12">
+                <input id="field_fname" type="text" class="validate" placeholder="John" />
+                <label for="field_fname">First Name</label>
+              </div>
+              <div class="input field col s12">
+                <input id="field_mname" type="text" class="validate" placeholder="Marcos" />
+                <label for="field_mname">Middle Name</label>
+              </div>
+              <div class="col s12">
+                <p>Sex</p>
+                <p>
+                  <input name="rad_sex" type="radio" id="male" />
+                  <label for="male">Male</label>
+                </p>
+                <p>
+                  <input name="rad_sex" type="radio" id="female" />
+                  <label for="female">Female</label>
+                </p>
+              </div>
+              <div class="input field col s12">
+                <input id="field_bday" name="bday" type="date" class="datepicker" placeholder="2015/10/22" />
+                <label for="field_bday">Birthday</label>
+              </div>
+              <div class="input field col s12">
+                <textarea id="field_address" name="address" class="materialize-textarea"></textarea>
+                <label for="field_address">Address</label>
+              </div>
+              <div class="input field col s12 hide">
+                <input id="field_cardnum" name="cardnum" type="text" class="validate" placeholder="Marcos" />
+                <label for="field_cardnum">Card Number</label>
+              </div>
+            </div> 
+          </div>
+          <div class="modal-footer">
+              <div class="col s12 valign-wrapper">
+                <button class="waves-effect btn valign" type="submit" name="btn_sign-in">Sign Up</button>
+              </div>
+          </div>
         </div>
-    </div>
+      </div>

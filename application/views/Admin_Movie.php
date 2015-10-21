@@ -49,7 +49,7 @@
 							</div>
 							
 							<div class="input-field col s12 m6">
-								<input placeholder='Trailer' id="add_custom_trailer" name="add_custom_trailer" type="text" class="validate"  required>
+								<input placeholder='Trailer' id="add_custom_trailer" name="add_custom_trailer" type="text" class="validate">
 								<!--<label for="add_custom_trailer">Trailer</label>-->
 							</div>
 							
@@ -173,7 +173,7 @@
 							</div>
 							
 							<div class="input-field col s12 m6">
-								<input placeholder='Trailer' id="add_imdb_trailer" name="add_imdb_trailer" type="text" class="validate"  required>
+								<input placeholder='Trailer' id="add_imdb_trailer" name="add_imdb_trailer" type="text" class="validate">
 								<!--<label for="add_imdb_trailer">Trailer</label>-->
 							</div>
 							
@@ -294,7 +294,7 @@
 							</div>
 							
 							<div class="input-field col s12 m6">
-								<input placeholder='Trailer' id="add_title_trailer" name="add_title_trailer" type="text" class="validate" disabled required>
+								<input placeholder='Trailer' id="add_title_trailer" name="add_title_trailer" type="text" class="validate" disabled>
 								<!--<label for="add_title_trailer">Trailer</label>-->
 							</div>
 							
