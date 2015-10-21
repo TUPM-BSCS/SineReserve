@@ -14,6 +14,11 @@
 			$this->session->set_userdata('branch', 1);
 		}
 		
+		public function log_out(){
+			$this->session->unset_userdata('hurt-me-plenty-more');
+			redirect('home/home');
+		}
+		
 		public function dashboard(){
 			$data['title_page'] = 'Admin Dashboard';
 			$data['branch'] = array();

@@ -49,7 +49,7 @@
 	</head>
 	<body>
 		<div class="navbar-fixed">
-			<nav>
+			<nav class='red darken-4'>
 				<div class="nav-wrapper container">
 					<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 					<a href="#!" class="brand-logo">Sinereserve</a>

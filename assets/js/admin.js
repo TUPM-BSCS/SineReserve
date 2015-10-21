@@ -9,6 +9,7 @@ function filetype_checker(filename){
 	}
 	return pass;
 }
+
 $(document).ready(function(){
 	var actor_no = 0;
 	var genre_no = 0;
@@ -27,16 +28,7 @@ $(document).ready(function(){
 		selectMonths: true, // Creates a dropdown to control month
 		selectYears: 15 // Creates a dropdown of 15 years to control year
 	});
-	
-	$('#log_out').click(function(){
-		$this->session->unset_userdata('hurt-me-plenty-more');
-	});
 
-	if(poster_error != null){
-		$('#add_by_id').openModal();
-		$('#imdb_err').text(poster_error);
-	}
-	
 	$('#imdb_confirm_btn').click(function(){
 		alert($('#add_imdb_trailer').val().search('https://www.youtube.com/watch'));
 		if($('#add_imdb_trailer').val().search('https://www.youtube.com/watch') == 0){
