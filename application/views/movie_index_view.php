@@ -1,3 +1,5 @@
+<html>
+<body>
 	<div class="container">
 		<h4 class="white-text center-align">Movies</h4>
 	</div>
@@ -122,5 +124,11 @@
 	     						</div>';
       		?>
 	    </div>
+	    		<!-- Javascript  -->
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/materialize.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/movie_page_script.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
 </body>
+
 </html>
