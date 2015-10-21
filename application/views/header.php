@@ -40,7 +40,7 @@
                 <li><a class="modal-trigger" data-target="modal1" href="<?php echo $accounts_link; ?>"><i class="mdi-action-account-circle left"></i><?php echo $accounts_label; ?></a></li>
                 <li>
                   <div class="input-field red darken-2">
-                      <input id="search" type="search" required></input>
+                      <input class="search" type="search" required></input>
                       <label for="search"><i class="mdi-action-search"></i></label>
                       <i class="mdi-navigation-close close"></i>
                   </div>  
