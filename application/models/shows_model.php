@@ -58,6 +58,25 @@ class shows_model extends CI_Model {
 		return $this->db->get();
 	}
 
+	public function get_shows_by_id($id = null) {
+		if($id != null)
+			$this->db->where('sched_id', $id);
+		$this->db->from('shows');
+		return $this->db->get();
+	}
+
+	public function get_show_by_things($movie, $cinema, $date) {
+		$where = array(
+			'mov_id' => $movie,
+			'cine_id' => $cinema,
+			'show_date' => $date
+		);
+		$this->db->from('shows');
+		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
+		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
+		return $this->db->get();
+	}
+
 }
 
 ?>
