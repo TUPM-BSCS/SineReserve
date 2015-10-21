@@ -25,7 +25,7 @@
 	      									<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/ns">
 	      										<span class="movie-title white-text">' . $movie['name'] . '</span>
 	      									</a>
-	      									<span class="movie-stat">Action</span>
+	      									<span class="movie-stat">'.$movie['running_time'].' mins.</span>
 	      								</div>
 	      							</div>
 	      						</div>
@@ -58,7 +58,7 @@
 	      									<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/na">
 	      										<span class="movie-title white-text">' . $movie['name'] . '</span>
 	      									</a>
-	      									<span class="movie-stat">Action</span>
+	      									<span class="movie-stat">'.$movie['running_time'].' mins.</span>
 	      								</div>
 	      							</div>
 	      						</div>
@@ -84,7 +84,7 @@
 	      									<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/cs">
 	      										<span class="movie-title white-text">' . $movie['name'] . '</span>
 	      									</a>
-	      									<span class="movie-stat">Action</span>
+	      									<span class="movie-stat">'.$movie['running_time'].' mins.</span>
 	      								</div>
 	      							</div>
 	      						</div>
@@ -110,7 +110,7 @@
 	      									<a href="'. base_url() .'index.php/movie_page_controller/movie/'. $movie['id'] .'/">
 	      										<span class="movie-title white-text">' . $movie['name'] . '</span>
 	      									</a>
-	      									<span class="movie-stat">Action</span>
+	      									<span class="movie-stat">'.$movie['running_time'].' mins.</span>
 	      								</div>
 	      							</div>
 	      						</div>
