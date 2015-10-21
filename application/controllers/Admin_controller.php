@@ -279,6 +279,86 @@
 			$this->upload_screenshots($_FILES, 'title');
 			redirect('Admin_Controller/movie');
 		}
+
+		public function shows($view = null, $sub = null) {
+			$today = '2015-02-14';
+			$this->load->model('shows_model');
+			if($view == null) {
+				$view = 'time';
+			}
+			$data['view'] = $view;
+
+			$query = $this->shows_model->get_min_max_show_date();
+			$row = $query->row();
+			$min = date_create($row->min);
+			date_sub($min, date_interval_create_from_date_string('1 month'));
+			$min = date_format($min, '[Y,m,d]');
+			$max = date_create($row->max);
+			date_sub($max, date_interval_create_from_date_string('1 month'));
+			$max = date_format($max, '[Y,m,d]');
+			
+			switch ($view) {
+				case 'time':
+					$data['time'] = array();
+					if($sub == null) {
+						$data['time']['from'] = $today;
+						$data['time']['to'] = $row->max;
+					}
+					else {
+						$dates = explode("_", $sub);
+						$data['time']['from'] = $dates[0];
+						$data['time']['to'] = $dates[1];
+					}
+					$query = $this->shows_model->get_show_by_date_range($data['time']['from'], $data['time']['to']);
+					$data['table'] = $query->result();
+					break;
+				
+				case 'branch':
+					if($sub == null) {
+						$data['branch'] = 'all';
+					}
+					else {
+						$data['branch'] = $sub;
+					}
+					$query = $this->shows_model->get_show_by_branch($data['branch']);
+					$data['table'] = $query->result();
+					break;
+
+				case 'movie':
+					# code...
+					break;
+			}
+			$result = $this->admin_model->get_branch();
+			$data['branches'] = $result;
+
+			$today = date_create($today);
+			date_sub($today, date_interval_create_from_date_string('1 month'));
+			$today = date_format($today, '[Y,m,d]');
+			$data['today'] = $today;
+			$data['limits'] = array();
+			$data['limits']['min'] = $min; 
+			$data['limits']['max'] = $max;
+			$data['title_page'] = 'Shows';
+			$this->load->view('Admin_Navigation', $data);
+			$this->load->view('Admin_Shows', $data);
+		}
+
+		public function ajax_get_cinemas_by_branch() {
+			$branch = $this->input->post('branch');
+			$this->load->model('admin_model');
+			$result = $this->admin_model->get_cinema_in_branch($branch);
+			echo json_encode($result['result']);
+		}
+
+		public function ajax_get_shows_information() {
+			$id = $this->input->post('id');
+			$this->load->model('shows_model');
+			$query = $this->shows_model->get_shows_by_id($id);
+			$row = $query->row();
+			// echo json_encode($row);
+			$query = $this->shows_model->get_show_by_things($row->mov_id, $row->cine_id, $row->show_date);
+			echo json_encode($query->result());
+		}
 		
 		
 		public function upload_poster($files, $type){
