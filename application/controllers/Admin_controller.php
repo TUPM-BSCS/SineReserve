@@ -281,6 +281,8 @@
 		}
 
 		public function shows($view = null, $sub = null) {
+			if(!$this->session->userdata('hurt-me-plenty-more'))
+				redirect('Home/home');
 			$today = '2015-02-14';
 			$this->load->model('shows_model');
 			if($view == null) {
