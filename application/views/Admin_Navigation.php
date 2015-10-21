@@ -22,10 +22,6 @@
 				top: inherit;
 			}
 			
-			.on_view{
-				color: black;
-			}
-			
 			.modal{
 				max-height: 95%;
 				top: 3% !important;
@@ -58,7 +54,7 @@
 					<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 					<a href="#!" class="brand-logo">Sinereserve</a>
 					<ul class="right hide-on-med-and-down">
-						<li><a href="sass.html">Log Out</a></li>
+						<li><a href="<?php echo base_url();?>index.php/Home/home" id='log_out'>Log Out</a></li>
 					</ul>
 				</div>
 			</nav>

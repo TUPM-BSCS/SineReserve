@@ -43,11 +43,6 @@
 								<!--<label for="add_custom_title">Movie Title</label>-->
 							</div>
 							
-							<div class="input-field col s6 m4">
-								<input placeholder='Year' id="add_custom_year" type="number" class="validate"  required>
-								<!--<label for="add_custom_year">Year</label>-->
-							</div>
-							
 							<div id="textarea_plot"class="input-field col s12 m12">
 							  <textarea placeholder='Plot' id="add_custom_plot" name="add_custom_plot" class="materialize-textarea"  required></textarea>
 							  <!--<label for="add_custom_plot">Plot</label>-->

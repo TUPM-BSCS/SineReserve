@@ -18,7 +18,6 @@
 				</form>
 			</div>
 			<a class="waves-effect waves-light btn modal-trigger" id='addbtn_modal' href="#add-cinema">Add</a>
-			<a class="waves-effect waves-light btn modal-trigger" id='editbtn_modal' href="#edit-branch">Edit</a>
 			<table class="responsive">
 				<table class="responsive-table">
 				<thead>
@@ -83,6 +82,7 @@
 		<!-- JS TAGS -->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/admin.js"></script>
 		<script>
 			$('.button-collapse').sideNav();
 			$('.modal-trigger').leanModal();

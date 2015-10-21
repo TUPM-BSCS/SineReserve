@@ -41,32 +41,15 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-				 <button class="btn waves-effect waves-light signup-button" type="submit" name="action">Confirm</button>
+				 <button class="btn waves-effect waves-light signup-button" type="submit" id='branch_confirm' name="action">Confirm</button>
 				</div>
 				</form>
-			</div>
-			<div id="edit-branch" class="modal">
-				<div class="modal-content">
-				<div class='row'>
-					<h4 class = 'col s12'>Edit Branch</h4>
-					<div class="input-field col s12">
-						<input placeholder="Insert Name Here" id="edit_branch_name" type="text" class="validate">
-						<label for="edit_branch_name">Branch Name</label>
-					</div>
-					<div class="input-field col s12">
-						<input placeholder="Insert Address Here" id="edit_branch_address" type="text" class="validate">
-						<label for="edit_branch_address">Branch Address</label>
-					</div>
-				</div>
-				</div>
-				<div class="modal-footer">
-				  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-				</div>
 			</div>
 		</main>
 		<!-- JS TAGS -->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/admin.js"></script>
 		<script>
 			$('.button-collapse').sideNav();
 			$('.modal-trigger').leanModal();
@@ -77,6 +60,10 @@
 			$('#editbtn_modal').click(function(){
 				$('#edit_branch_name').val('');
 				$('#edit_branch_address').val('');
+			});
+			$('#branch_confirm').click(function(){
+				$('#add_branch_name').val($('#add_branch_name').val().trim());
+				$('#add_branch_address').val($('#add_branch_address').val().trim());
 			});
 		</script>
 	</body>

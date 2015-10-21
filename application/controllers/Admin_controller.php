@@ -21,6 +21,8 @@
 		}
 		
 		public function branch(){
+			if(!$this->session->userdata('hurt-me-plenty-more'))
+				redirect('Home/home');
 			$data['title_page'] = 'Branch';
 			$branch_name = $branch_address = $result = array();
 			$result = $this->admin_model->get_branch();
@@ -39,7 +41,8 @@
 		}
 		
 		public function cinema(){
-			
+			if(!$this->session->userdata('hurt-me-plenty-more'))
+				redirect('Home/home');
 			if($this->input->post('for_branch') != null)
 				$this->session->set_userdata('branch', $this->input->post('for_branch'));
 			$data['title_page'] = 'Cinema';
@@ -72,6 +75,8 @@
 		}
 		
 		public function movie(){
+			if(!$this->session->userdata('hurt-me-plenty-more'))
+				redirect('Home/home');
 			$i = 0;
 			$movie = $date = array();
 			$data['title_page'] = 'Movie';
@@ -106,8 +111,8 @@
 			else
 				$mov_id = $this->admin_model->get_last_movie_index()->mov_id + 1;
 			
-			$mov_name = $this->input->post("add_custom_title");
-			$mov_plot = $this->input->post("add_custom_plot");
+			$mov_name = trim($this->input->post("add_custom_title"));
+			$mov_plot = trim($this->input->post("add_custom_plot"));
 			$mov_trailer = $this->input->post("add_custom_trailer");
 			$mov_release_date = str_replace(',','', $this->input->post("add_custom_date"));
 			$date_parts = explode(" ", $mov_release_date);
@@ -153,6 +158,7 @@
 			// var_dump($_FILES);
 			$this->upload_poster($_FILES, 'custom');
 			$this->upload_screenshots($_FILES, 'custom');
+			redirect('Admin_Controller/movie');
 		}
 	
 		public function insert_movie_by_imdb(){
@@ -162,8 +168,8 @@
 			else
 				$mov_id = $this->admin_model->get_last_movie_index()->mov_id + 1;
 			
-			$mov_name = $this->input->post("add_imdb_title");
-			$mov_plot = $this->input->post("add_imdb_plot");
+			$mov_name = trim($this->input->post("add_imdb_title"));
+			$mov_plot = trim($this->input->post("add_imdb_plot"));
 			$mov_trailer = $this->input->post("add_imdb_trailer");
 			$mov_release_date = str_replace(',','', $this->input->post("add_imdb_date"));
 			$date_parts = explode(" ", $mov_release_date);
@@ -209,6 +215,7 @@
 			// var_dump($_FILES);
 			$this->upload_poster($_FILES, 'imdb');
 			$this->upload_screenshots($_FILES, 'imdb');
+			redirect('Admin_Controller/movie');
 		}
 		
 		public function insert_movie_by_title(){
@@ -218,8 +225,8 @@
 			else
 				$mov_id = $this->admin_model->get_last_movie_index()->mov_id + 1;
 			
-			$mov_name = $this->input->post("add_title_title");
-			$mov_plot = $this->input->post("add_title_plot");
+			$mov_name = trim($this->input->post("add_title_title"));
+			$mov_plot = trim($this->input->post("add_title_plot"));
 			$mov_trailer = $this->input->post("add_title_trailer");
 			$mov_release_date = str_replace(',','', $this->input->post("add_title_date"));
 			$date_parts = explode(" ", $mov_release_date);
@@ -265,6 +272,7 @@
 			// var_dump($_FILES);
 			$this->upload_poster($_FILES, 'title');
 			$this->upload_screenshots($_FILES, 'title');
+			redirect('Admin_Controller/movie');
 		}
 		
 		
