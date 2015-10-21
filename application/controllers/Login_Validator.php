@@ -16,10 +16,11 @@
 			{
 				$this->load->view('movie_index_view');
 			}
-			{
-			else
+			
+			else {
 				$this->check_validity();
 			}
+			
 		}
 
 		public function insert_username($str){

@@ -25,7 +25,7 @@
 
     <!-- Dropdown -->
     <ul id="accounts_dropdown" class="dropdown-content" >
-      <li class="hide-on-med-and-up"><?php echo $accounts_label; ?></li>
+      <!--<li class="hide-on-med-and-up"><?php echo $accounts_label; ?></li>-->
       <li><a href="<?php echo base_url();?>index.php/user_page_controller/user">See your profile</a></li>
       <li><a href="<?php echo base_url();?>index.php/User_Operations/sign_out">Signout</a></li>
     </ul>
@@ -47,13 +47,13 @@
                 <li><a href="<?php echo base_url();?>/index.php/movie_index_controller/movie_index"><i class="mdi-av-movie left"></i>Movies</a></li>
                 <li><a class="<?php echo $accounts_action; ?>" data-beloworigin="true" data-activates="<?php echo $accounts_link; ?>" data-target="modal1" href="<?php echo $accounts_link; ?>"><i class="mdi-action-account-circle left"></i><?php echo $accounts_label; ?></a></li>
                 <li>
-                  <div class="input-field red darken-2">
+                    <div class="input-field red darken-2">
                       <input class="search" type="search" required></input>
                       <label for="search"><i class="mdi-action-search"></i></label>
                       <i class="mdi-navigation-close close"></i>
-                  </div>  
+                    </div>  
                 </li>
-              </ul>
+            </ul>
         </div>  
       </nav>
     </div>
