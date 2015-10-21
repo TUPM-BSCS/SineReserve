@@ -82,6 +82,12 @@
                           <div class="input-field col s12">
                             <input id="password_field" name="password" type="password" class="validate" />
                             <label for="password_field">Password</label>
+                          </div>                      
+                        </div>
+                        <div class="row">
+                          <div class="col s12 valign-wrapper">
+                            <button class="waves-effect btn valign" type="submit" name="btn_sign-in">Sign In</button>
+                            <a class="waves-effect waves-light btn modal-action modal-close modal-trigger right" href="#modal-signup">No account? Sign Up</a>
                           </div>
                         </div>
                       </form>
@@ -92,12 +98,9 @@
             
         </div>
         <div class="modal-footer">
-          <div class="col s12 valign-wrapper">
-            <button class="waves-effect btn valign" type="submit" name="btn_sign-in">Sign In</button>
-            <a class="waves-effect waves-light btn modal-action modal-close modal-trigger right" href="#modal-signup">No account? Sign Up</a>
-          </div>
+          
+        </div>  
       </div>  
-        
       <div id="modal-signup" class="modal modal-fixed-footer">
           <div class="modal-header red darken-4 text-white">
              <a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="mdi-content-clear"></i></a>
@@ -156,12 +159,12 @@
                 <input id="field_cardnum" name="cardnum" type="text" class="validate" placeholder="Marcos" />
                 <label for="field_cardnum">Card Number</label>
               </div>
-            </div> 
-          </div>
-          <div class="modal-footer">
               <div class="col s12 valign-wrapper">
                 <button class="waves-effect btn valign" type="submit" name="btn_sign-in">Sign Up</button>
               </div>
+            </div> 
           </div>
+        <div class="modal-footer">
+        </div>
         </div>
       </div>
