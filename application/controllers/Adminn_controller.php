@@ -149,6 +149,16 @@
 			$result = $this->admin_model->get_cinema_in_branch($branch);
 			echo json_encode($result['result']);
 		}
+
+		public function ajax_get_shows_information() {
+			$id = $this->input->post('id');
+			$this->load->model('shows_model');
+			$query = $this->shows_model->get_shows_by_id($id);
+			$row = $query->row();
+			// echo json_encode($row);
+			$query = $this->shows_model->get_show_by_things($row->mov_id, $row->cine_id, $row->show_date);
+			echo json_encode($query->result());
+		}
 		
 		function upload_poster() {
 			$config['upload_path'] = 'C:\xampp\htdocs\Sinereserve\assets\images\posters';
