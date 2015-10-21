@@ -268,7 +268,7 @@
 				<p class="text-white">Reservation Form</p>
 			</div>
 			<div class="modal-content">
-				<form id="form_reserve" class="col s12" method="POST" action="<?php echo base_url();?>movie_page_controller/reserve_movie/<?php echo $movie_id; ?>">
+				<form id="form_reserve" class="col s12" method="POST" action="<?php echo base_url();?>movie_page_controller/reserve_movie/<?php echo $movie_id; ?>/<?php echo $movie_type; ?>">
 					
 					<div class="row">
 						<div class="input-field col s12 m12">
@@ -288,35 +288,6 @@
 							</select>
 							
 						</div>
-
-<!-- 						//$.ajax({
-  					url: '<?php echo base_url(); ?>index.php/Adminn_controller/ajax_get_shows_information',
-  					dataType: 'json',
-  					method: 'post',
-  					data: {id: the_id},
-  					success: function(data) {
-  						$('.view-title').text(mov_name);
-  						$('.view-date').text(show_date);
-  						$('.view-branch').text(bran_name);
-  						$('.cinema-list').html('');
-  						var row;
-  						var current;
-  						for(row in data) {
-  							if(current != data[row][cine_name]) {
-  								current = data[row][cine_id];
-  								$('.cinema-list').append('<li>'
-										+'<div class="collapsible-header">' + data[row][cine_name] + '</div>'
-										+'<div class="collapsible-body">'
-											+'<ul class="collection" id="cine_id_'+ data[row][cine_id] +'">'
-												+'<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>'
-											+'</ul>'
-										+'</div>'
-									+'</li>');
-  							}
-  							else {
-  								$('#cine_id_'+ cine_id).append('<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>');
-  							}
-  						} -->
 
 						<div class="col s12 m8">
 							<label>Cinema</label>
@@ -355,8 +326,10 @@
 						</div>
 
 						<div class="input-field col s12">
-							<input disabled value="<?php echo 'test' ?>" id="movie_title" type="text" class="validate text-black">
-							<label for="movie_title" class="active text-black">Movie Price</label>
+							<div id="movie_price">
+								<input disabled value="0.00" id="movie_cost" type="text" class="validate text-black">
+								<label for="movie_cost" class="active text-black">Movie Price</label>
+							</div>
 						</div>
 					</div>
 
@@ -417,7 +390,6 @@
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/movie_page_script.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
 		<script type="text/javascript">
-			var wawa;
 			<?php
 				if($movie_type == 'ns' || $movie_type == 'na') {
 					if($movie_reserve == 'reserve') {
@@ -426,52 +398,86 @@
 				}
 			?>
 
+			var mov_id = <?php echo $movie_id;?>;
+			var bran_id, cine_id, show_date, start_time, end_time;
+
 			$('#reserve_branch').change(function() {
-				$('#reserve_cinema').html('');
-				$('#reserve_date').html('');
-				$('#reserve_time').html('');
-				var mov_id = <?php echo $movie_id;?>;
-				var bran_id = <?php echo $reserve_branch[0]['bran_id'] ?>;
+				$('#reserve_cinema').html('').append('<option value="" disabled selected>Select the Cinema</option>');
+				$('#reserve_date').html('').append('<option value="" disabled selected>Select the Date</option>');
+				$('#reserve_time').html('').append('<option value="" disabled selected>Select the Time</option>');
+				
+				bran_id = <?php echo $reserve_branch[0]['bran_id'] ?>;
+
 				$.ajax({
-  					url: '<?php echo base_url(); ?>index.php/Admin_controller/ajax_get_pua_information',
+  					url: '<?php echo base_url(); ?>index.php/movie_page_controller/ajax_get_reserve_cinema',
   					dataType: 'json',
   					method: 'post',
   					data: {mov_id: mov_id, bran_id: bran_id},
   					success: function(data) {
-  						wawa = data;
   						console.log(JSON.stringify(data));
-  						var sample;
-  						for( sample in data) {  							
+  						for(var sample in data) {
 							$('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
 						}
-						
-
-  						// $('.view-title').text(mov_name);
-  						// $('.view-date').text(show_date);
-  						// $('.view-branch').text(bran_name);
-  						// $('.cinema-list').html('');
-  						// var row;
-  						// var current;
-  						// for(row in data) {
-  						// 	if(current != data[row][cine_name]) {
-  						// 		current = data[row][cine_id];
-  						// 		$('.cinema-list').append('<li>'
-								// 		+'<div class="collapsible-header">' + data[row][cine_name] + '</div>'
-								// 		+'<div class="collapsible-body">'
-								// 			+'<ul class="collection" id="cine_id_'+ data[row][cine_id] +'">'
-								// 				+'<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>'
-								// 			+'</ul>'
-								// 		+'</div>'
-								// 	+'</li>');
-  						// 	}
-  						// 	else {
-  						// 		$('#cine_id_'+ cine_id).append('<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>');
-  						// 	}
-  						// }
   					},
-  					error: function(err) {
-  						console.log(err);
-  					}
+  				});
+			});
+
+			$('#reserve_cinema').change(function() {
+				$('#reserve_date').html('').append('<option value="" disabled selected>Select the Date</option>');
+				$('#reserve_time').html('').append('<option value="" disabled selected>Select the Time</option>');
+				
+				cine_id = $('#reserve_cinema').val();
+
+				$.ajax({
+  					url: '<?php echo base_url(); ?>index.php/movie_page_controller/ajax_get_reserve_date',
+  					dataType: 'json',
+  					method: 'post',
+  					data: {mov_id: mov_id, bran_id: bran_id, cine_id: cine_id},
+  					success: function(data) {
+  						console.log(JSON.stringify(data));
+
+  						for(var sample in data) {
+							$('#reserve_date').append('<option id="reserve_date_option" value="' + data[sample]['show_date'] + '">' + data[sample]['show_date'] + '</option>');
+						}
+  					},
+  				});
+			});
+
+			$('#reserve_date').change(function() {
+				$('#reserve_time').html('').append('<option value="" disabled selected>Select the Time</option>');
+				
+				show_date = $('#reserve_date').val();
+
+				$.ajax({
+  					url: '<?php echo base_url(); ?>index.php/movie_page_controller/ajax_get_reserve_time',
+  					dataType: 'json',
+  					method: 'post',
+  					data: {mov_id: mov_id, show_date: show_date, bran_id: bran_id, cine_id: cine_id},
+  					success: function(data) {
+  						console.log(JSON.stringify(data));
+  						
+  						for(var sample in data) {
+							$('#reserve_time').append('<option id="reserve_time_option" value="' + data[sample]['start_time'] + " " + data[sample]['end_time'] + '">' + data[sample]['start_time'] + " - " + data[sample]['end_time'] + '</option>');
+						}
+  					},
+  				});
+			});
+
+			$('#reserve_time').change(function() {
+				start_time = $('#reserve_time :selected').val().substr(0, 8);
+				end_time = $('#reserve_time :selected').val().substr(9, 8);
+
+				$.ajax({
+  					url: '<?php echo base_url(); ?>index.php/movie_page_controller/ajax_get_reserve_cost',
+  					dataType: 'json',
+  					method: 'post',
+  					data: {mov_id: mov_id, start_time: start_time, end_time: end_time, show_date: show_date, bran_id: bran_id, cine_id: cine_id},
+  					success: function(data) {
+  						console.log(JSON.stringify(data));
+  						for(var sample in data) {
+  							$('#movie_price').html('').append('<input disabled value=<' + data[sample]['cost'] + '" id="movie_price" type="text" class="validate text-black"><label for="movie_price" class="active text-black">Movie Price</label>');
+  						}
+  					},
   				});
 			});
 		</script>

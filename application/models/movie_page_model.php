@@ -179,40 +179,90 @@ class movie_page_model extends CI_Model {
 		return false;
 	}
 
-	public function get_reserve_cinema($bran_id) {
+	public function get_reserve_cinema($mov_id, $bran_id) {
 		$this->db->select('cinema.cine_id, cinema.cine_name');
-		$this->db->where('bran_id', $bran_id);
-		$this->db->from('cinema');
-		$query = $this->db->get();
 
-		if($query->num_rows() > 0) {
-			return $query->result_array();
-		}
-		return false;
+		$where = array(
+			'mov_id' => $mov_id,
+			'branch.bran_id' => $bran_id
+		);
+		$this->db->where($where);
+		$this->db->from('shows');
+		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
+		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
+		
+		return $this->db->get();
 	}
 
-	public function get_reserve_date($cine_id) {
-		$this->db->select('show_date');
-		$this->db->where('cine_id', $cine_id);
-		$this->db->from('shows');
-		$query = $this->db->get();
+	public function get_reserve_date($mov_id, $cine_id, $bran_id) {
+		$this->db->select('shows.show_date');
 
-		if($query->num_rows() > 0) {
-			return $query->result_array();
-		}
-		return false;
+		$where = array(
+			'mov_id' => $mov_id,
+			'cinema.cine_id' => $cine_id,
+			'branch.bran_id' => $bran_id
+		);
+		$this->db->where($where);
+		$this->db->from('shows');
+		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
+		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
+
+		return $this->db->get();
 	}
 
-	public function get_reserve_time($show_date) {
-		$this->db->select('start_time, end_time');
-		$this->db->where('show_date', $show_dateo);
-		$this->db->from('shows');
-		$query = $this->db->get();
+	public function get_reserve_time($mov_id, $show_date, $cine_id, $bran_id) {
+		$this->db->select('shows.start_time, shows.end_time');
 
-		if($query->num_rows() > 0) {
-			return $query->result_array();
-		}
-		return false;
+		$where = array(
+			'mov_id' => $mov_id,
+			'show_date' => $show_date,
+			'cinema.cine_id' => $cine_id,
+			'branch.bran_id' => $bran_id
+		);
+		$this->db->where($where);
+		$this->db->from('shows');
+		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
+		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
+
+		return $this->db->get();
+	}
+
+	public function get_reserve_cost($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id) {
+		$this->db->select('shows.cost');
+
+		$where = array(
+			'mov_id' => $mov_id,
+			'start_time' => $start_time,
+			'end_time' => $end_time,
+			'show_date' => $show_date,
+			'cinema.cine_id' => $cine_id,
+			'branch.bran_id' => $bran_id
+		);
+		$this->db->where($where);
+		$this->db->from('shows');
+		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
+		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
+		
+		return $this->db->get();
+	}
+
+	public function get_schedule($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id) {
+		$this->db->select('shows.sched_id');
+
+		$where = array(
+			'mov_id' => $mov_id,
+			'start_time' => $start_time,
+			'end_time' => $end_time,
+			'show_date' => $show_date,
+			'cinema.cine_id' => $cine_id,
+			'branch.bran_id' => $bran_id
+		);
+		$this->db->where($where);
+		$this->db->from('shows');
+		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
+		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
+		
+		return $this->db->get();
 	}
 
 	// ADD REVIEW

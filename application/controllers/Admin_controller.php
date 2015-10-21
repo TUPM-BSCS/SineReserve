@@ -361,16 +361,6 @@
 			$query = $this->shows_model->get_show_by_things($row->mov_id, $row->cine_id, $row->show_date);
 			echo json_encode($query->result());
 		}
-
-		public function ajax_get_pua_information() {
-			$mov_id = $this->input->post('mov_id');
-			$bran_id = $this->input->post('bran_id');
-			$this->load->model('shows_model');
-			// echo json_encode($row);
-			$query = $this->shows_model->get_show_by_thangs($mov_id, $bran_id);
-			echo json_encode($query->result());
-		}
-		
 		
 		public function upload_poster($files, $type){
 			$config['upload_path'] = './assets/images/posters';

@@ -5,11 +5,10 @@ class movie_page_controller extends CI_Controller {
       parent::__construct();
       $this->load->helper(array('form','url'));     
       $this->load->library('session');
+      $this->load->model('movie_page_model');
     }   
 
 	public function movie($mov_id, $mov_type = null, $mov_reserve = null){
-		$this->load->model('movie_page_model');
-
 		$data['title'] = 'Movie Page';
 		$data['movie_id'] = $mov_id;
 		$data['movie_type'] = $mov_type;
@@ -54,19 +53,50 @@ class movie_page_controller extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
-	public function get_cinema($reserve_branch) {
-		$this->load->model('movie_page_model');
+	public function ajax_get_reserve_cinema() {
+		$mov_id = $this->input->post('mov_id');
+		$bran_id = $this->input->post('bran_id');
+		
+		// echo json_encode($row);
+		$query = $this->movie_page_model->get_reserve_cinema($mov_id, $bran_id);
+		echo json_encode($query->result());
+	}
 
-		$data['reserve_cinema'] = $this->movie_page_model->get_reserve_cinema($reserve_branch);
+	public function ajax_get_reserve_date() {
+		$mov_id = $this->input->post('mov_id');
+		$cine_id = $this->input->post('cine_id');
+		$bran_id = $this->input->post('bran_id');
+		
+		// echo json_encode($row);
+		$query = $this->movie_page_model->get_reserve_date($mov_id, $cine_id, $bran_id);
+		echo json_encode($query->result());
+	}
 
-		// print_r($data);
-		// die();
-		$this->load->view('movie_page_view', $data);
+	public function ajax_get_reserve_time() {
+		$mov_id = $this->input->post('mov_id');
+		$show_date = $this->input->post('show_date');
+		$cine_id = $this->input->post('cine_id');
+		$bran_id = $this->input->post('bran_id');
+		
+		// echo json_encode($row);
+		$query = $this->movie_page_model->get_reserve_time($mov_id, $show_date, $cine_id, $bran_id);
+		echo json_encode($query->result());
+	}
+
+	public function ajax_get_reserve_cost() {
+		$mov_id = $this->input->post('mov_id');
+		$start_time = $this->input->post('start_time');
+		$end_time = $this->input->post('end_time');
+		$show_date = $this->input->post('show_date');
+		$cine_id = $this->input->post('cine_id');
+		$bran_id = $this->input->post('bran_id');
+		
+		// echo json_encode($row);
+		$query = $this->movie_page_model->get_reserve_cost($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id);
+		echo json_encode($query->result());
 	}
 
 	public function reserve_movie($mov_id, $mov_type, $branch, $cinema, $date, $time, $price) {
-		$this->load->model('movie_page_model');
-
 		$movie_id = $mov_id;
 		$movie_type = $mov_type;
 		$username = $this->session->userdata('hurt-me-plenty');
@@ -74,16 +104,17 @@ class movie_page_controller extends CI_Controller {
 		$cinema = $this->input->post('reserve_cinema');
 		$date = $this->input->post('reserve_date');
 		$time = $this->input->post('reserve_time');
-		$price = $this->input->post('reserve_price');
+		$price = $this->input->post('reserve_cost');
 
-		$this->movie_page_model->add_movie_reservation();
+		$or_no = 'aa';
+		$or_date = date("Y-m-d");
+		$sched_id = $this->movie_page_model->get_schedule($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id);
+		$this->movie_page_model->add_movie_reservation($or_no, $or_date, $sched_id, $username);
 
 		redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);
 	}
 
 	public function review_movie($mov_id, $mov_type) {
-		$this->load->model('movie_page_model');
-
 		$movie_id = $mov_id;
 		$movie_type = $mov_type;
 		$review_title = $this->input->post('review_title');
