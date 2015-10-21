@@ -62,7 +62,7 @@
 						<td><?php echo $row->mov_name;?></td>
 						<td style="width: 16%;"><?php echo $row->show_date;?></td>
 						<td style="width: 23%"><?php echo $row->bran_name;?></td>
-						<td style="width: 23%;"><a class="waves-effect waves-light btn modal-trigger view-details" id="show_<?php echo $row->sched_id; ?>" href="#view-details">View Details</a></td>
+						<td style="width: 23%;"><a class="waves-effect waves-light btn modal-trigger view-details" data-mov-name="<?php echo $row->mov_name; ?>" data-show-date="<?php echo $row->show_date; ?>" data-bran-name="<?php echo $row->bran_name; ?>" id="show_<?php echo $row->sched_id; ?>" href="#view-details">View Details</a></td>
 				  	</tr>
 				<?php endforeach ?>
 				</tbody>
@@ -80,7 +80,7 @@
 						</div>
 						<br>
 						<div class="section">
-							<ul class="collapsible" data-collapsible="accordion">
+							<ul class="collapsible cinema-list" data-collapsible="accordion">
 								<li>
 									<div class="collapsible-header">Cinema 1</div>
 									<div class="collapsible-body">
@@ -222,13 +222,59 @@
   				var the_id; 
   				the_id = $(this).attr('id');
   				the_id = the_id.replace("show_", "");
+  				var mov_name = $(this).attr('data-mov-name');
+  				var show_date = $(this).attr('data-show-date');
+  				var bran_name = $(this).attr('data-bran-name');
   				$.ajax({
   					url: '<?php echo base_url(); ?>index.php/Adminn_controller/ajax_get_shows_information',
   					dataType: 'json',
   					method: 'post',
   					data: {id: the_id},
   					success: function(data) {
-  						alert(JSON.stringify(data));
+  						$('.view-title').text(mov_name);
+  						$('.view-date').text(show_date);
+  						$('.view-branch').text(bran_name);
+  						$('.cinema-list').html('');
+  						var row;
+  						var current;
+  						for(row in data) {
+  							if(current != data[row][cine_name]) {
+  								current = data[row][cine_id];
+  								$('.cinema-list').append('<li>'
+										+'<div class="collapsible-header">' + data[row][cine_name] + '</div>'
+										+'<div class="collapsible-body">'
+											+'<ul class="collection" id="cine_id_'+ data[row][cine_id] +'">'
+												+'<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>'
+											+'</ul>'
+										+'</div>'
+									+'</li>');
+  							}
+  							else {
+  								$('#cine_id_'+ cine_id).append('<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>');
+  							}
+  						}
+  						// 	$('.cinema-list').append('
+  						// 		<li>
+								// 	<div class="collapsible-header">Cinema 1</div>
+								// 	<div class="collapsible-body">
+								// 		<ul class="collection">
+  						// 	');
+  						// }
+
+  						// <ul class="collapsible cinema-list" data-collapsible="accordion">
+								// <li>
+								// 	<div class="collapsible-header">Cinema 1</div>
+								// 	<div class="collapsible-body">
+								// 		<ul class="collection">
+								// 			<li class="collection-item">12:30 - 2:30</li>
+								// 			<li class="collection-item">12:30 - 2:30</li>
+								// 			<li class="collection-item">12:30 - 2:30</li>
+								// 			<li class="collection-item">12:30 - 2:30</li>
+								// 			<li class="collection-item">12:30 - 2:30</li>
+								// 		</ul>
+								// 	</div>
+								// </li>
+
   					},
   					error: function(error, wawa, meme) {
   						console.log(error);
