@@ -1,0 +1,18 @@
+<?php
+	class User_Operations extends CI_Controller{
+
+		function __construct(){
+			parent::__construct();
+			$this->load->helper('url');
+			$this->load->library('session');
+		}
+
+		public function sign_in($username, $password){
+
+		}
+
+		public function sign_out(){
+
+		}
+	}
+?>

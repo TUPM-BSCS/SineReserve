@@ -23,6 +23,14 @@
   
   <body class="lighten-5" style="background-color: #18191b;">
 
+    <!-- Dropdown -->
+    <ul id="accounts_dropdown" class="dropdown-content" >
+      <li class="hide-on-med-and-up"><?php echo $accounts_label; ?></li>
+      <li><a href="">See your profile</a></li>
+      <li><a href="<?php echo base_url()?>index.php/User_Operations/sign_out">Signout</a></li>
+    </ul>
+
+
     <!-- Navigation Bar -->
     <div class ="navbar-fixed">
       <nav class="red darken-4 main-nav ripple" id="meet-1" role="navigation">
@@ -32,12 +40,12 @@
 <!--          <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>-->
           <ul class="right hide-on-large-only">
               <li><a href="<?php echo base_url();?>/index.php/movie_index_controller/movie_index"><i class="mdi-av-movie"></i></a></li>
-              <li><a class="modal-trigger" data-target="modal1" href="<?php echo $accounts_link; ?>"><i class="mdi-action-account-circle"></i></a></li>
+              <li><a class="<?php echo $accounts_action; ?>" data-activates="<?php echo $accounts_link; ?>" data-target="modal1" href="<?php echo $accounts_link; ?>"><i class="mdi-action-account-circle"></i></a></li>
           </ul>
           <ul class="right hide-on-med-and-down">
                 <!--<li><a href="http://localhost/SineReserve/index.php/movie_page_controller/movie">Movies</a></li>-->
                 <li><a href="<?php echo base_url();?>/index.php/movie_index_controller/movie_index"><i class="mdi-av-movie left"></i>Movies</a></li>
-                <li><a class="modal-trigger" data-target="modal1" href="<?php echo $accounts_link; ?>"><i class="mdi-action-account-circle left"></i><?php echo $accounts_label; ?></a></li>
+                <li><a class="<?php echo $accounts_action; ?>" data-beloworigin="true" data-activates="<?php echo $accounts_link; ?>" data-target="modal1" href="<?php echo $accounts_link; ?>"><i class="mdi-action-account-circle left"></i><?php echo $accounts_label; ?></a></li>
                 <li>
                   <div class="input-field red darken-2">
                       <input id="search" type="search" required></input>

@@ -36,7 +36,13 @@
 			if($res == TRUE){
 				$this->header_model->signin_user($this->username, $this->password);
 			} else {
+				$res = $this->header_model->validate_admin($this->username, $this->password);
+				if($res == TRUE){
+					$res = $this->header_model->signin_admin($this->username, $this->password);
+					redirect('Admin_controller/index');
+				} else {
 
+				}
 			}
 			redirect('home/home');
 		}

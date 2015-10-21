@@ -4,7 +4,7 @@ class movie_index_controller extends CI_Controller {
     public function __construct(){
       parent::__construct();
       $this->load->helper(array('form','url'));    
-      $this->load->library('session');
+      $this->load->library(array('form_validation','session'));
     }   
 
 	public function movie_index(){
@@ -110,15 +110,18 @@ class movie_index_controller extends CI_Controller {
 
 		// <the code that needs controller> 
 		if($this->session->userdata('hurt-me-plenty')){
-			$data['accounts_link'] = "#modal1";
+			$data['accounts_link'] = "accounts_dropdown";
 
 			$this->load->model('header_model');
 			$details = $this->header_model->get_user_fullname($this->session->userdata('hurt-me-plenty'));
 			$data['accounts_label'] = "Hello, " . $details['fname'] . " " . $details['lname'];
-
+			$data['accounts_entry'] = "";
+			$data['accounts_action'] = "dropdown-button";
 		} else {
 			$data['accounts_link'] = "#modal1";
 			$data['accounts_label'] = "Accounts";	
+			$data['accounts_entry'] = "";
+			$data['accounts_action'] = "modal-trigger";
 		}		
 		// </the code that needs controller>
 

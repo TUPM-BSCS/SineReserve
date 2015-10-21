@@ -22,12 +22,33 @@ class header_model extends CI_Model {
 		return false;
 	}
 
+	public function validate_admin($username, $password){
+		$this->db->select('admin_id');
+		$this->db->where('admin_id', $username);
+		$this->db->where('admin_password', $password);
+		$this->db->from('admin');
+		$query = $this->db->get();
+		
+		if($query->num_rows() > 0) {
+			return true;
+		}
+		return false;	
+	}
+
 	public function signin_user($username, $password){
 		$this->session->set_userdata('hurt-me-plenty', $username);
 	}
 
-	public function signout_user($username){
+	public function signin_admin($username, $password){
+		$this->session->set_userdata('hurt-me-plenty-more', $username);
+	}
+
+	public function signout_user(){
 		$this->session->unset_userdata('hurt-me-plenty');
+	}
+
+	public function signout_admin(){
+		$this->session->unset_userdata('hurt-me-plenty-more');
 	}
 
 	public function get_user_fullname($username){
