@@ -457,7 +457,7 @@
   						console.log(JSON.stringify(data));
   						
   						for(var sample in data) {
-							$('#reserve_time').append('<option id="reserve_time_option" value="' + data[sample]['start_time'] + " " + data[sample]['end_time'] + '">' + data[sample]['start_time'] + " - " + data[sample]['end_time'] + '</option>');
+							$('#reserve_time').append('<option id="reserve_time_option" value="' + data[sample]['start_time'] + " - " + data[sample]['end_time'] + '">' + data[sample]['start_time'] + " - " + data[sample]['end_time'] + '</option>');
 						}
   					},
   				});
@@ -465,7 +465,7 @@
 
 			$('#reserve_time').change(function() {
 				start_time = $('#reserve_time :selected').val().substr(0, 8);
-				end_time = $('#reserve_time :selected').val().substr(9, 8);
+				end_time = $('#reserve_time :selected').val().substr(11, 8);
 
 				$.ajax({
   					url: '<?php echo base_url(); ?>index.php/movie_page_controller/ajax_get_reserve_cost',

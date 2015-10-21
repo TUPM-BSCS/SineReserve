@@ -96,14 +96,19 @@ class movie_page_controller extends CI_Controller {
 		echo json_encode($query->result());
 	}
 
-	public function reserve_movie($mov_id, $mov_type, $branch, $cinema, $date, $time, $price) {
+	public function reserve_movie($mov_id, $mov_type) {
 		$movie_id = $mov_id;
 		$movie_type = $mov_type;
 		$username = $this->session->userdata('hurt-me-plenty');
-		$branch = $this->input->post('reserve_branch');
-		$cinema = $this->input->post('reserve_cinema');
+		$bran_id = $this->input->post('reserve_branch');
+		$cine_id = $this->input->post('reserve_cinema');
 		$date = $this->input->post('reserve_date');
 		$time = $this->input->post('reserve_time');
+
+		$start_time = $time.substr(0, 8);
+		$end_time = $time.substr(11, 8);
+
+
 		$price = $this->input->post('reserve_cost');
 
 		$or_no = 'aa';
