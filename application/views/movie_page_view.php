@@ -268,7 +268,7 @@
 				<p class="text-white">Reservation Form</p>
 			</div>
 			<div class="modal-content">
-				<form id="form_reserve" class="col s12" method="POST" action="<?php echo base_url();?>index.php/movie_page_controller/review_movie/<?php echo $movie_id; ?>">
+				<form id="form_reserve" class="col s12" method="POST" action="<?php echo base_url();?>movie_page_controller/review_movie/<?php echo $movie_id; ?>">
 					
 
 					<div class="row">
@@ -296,7 +296,7 @@
 								<option value="" disabled selected>Select the Cinema</option>
 								<?php 
 									for($i = 0; $i < sizeof($reserve_cinema); $i++) {
-										echo '<option id="reserve_cinema_option" value="'. $reserve_cinema[$i]['cine_id'] .'" href="' . base_url() .'index.php/movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['cine_name'] . '</option>';
+										echo '<option id="reserve_cinema_option" value="'. $reserve_cinema[$i]['cine_id'] .'" href="' . base_url() .'movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['cine_name'] . '</option>';
 									}
 								?>
 							</select>
@@ -308,7 +308,7 @@
 								<option value="" disabled selected>Select the Date</option>
 								<?php 
 									for($i = 0; $i < sizeof($reserve_cinema); $i++) {
-										echo '<option id="reserve_date_option" value="'. $reserve_cinema[$i]['bran_id'] .'" href="' . base_url() .'index.php/movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['bran_name'] . '</option>';
+										echo '<option id="reserve_date_option" value="'. $reserve_cinema[$i]['bran_id'] .'" href="' . base_url() .'movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['bran_name'] . '</option>';
 									}
 								?>
 							</select>
@@ -320,7 +320,7 @@
 								<option value="" disabled selected>Select the Time</option>
 								<?php 
 									for($i = 0; $i < sizeof($reserve_cinema); $i++) {
-										echo '<option id="reserve_time_option" value="'. $reserve_cinema[$i]['bran_id'] .'" href="' . base_url() .'index.php/movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['bran_name'] . '</option>';
+										echo '<option id="reserve_time_option" value="'. $reserve_cinema[$i]['bran_id'] .'" href="' . base_url() .'movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['bran_name'] . '</option>';
 									}
 								?>
 							</select>
@@ -341,7 +341,7 @@
 				<p class="text-white">Write a Review for "<?php echo $movie_name ?>"</p>
 			</div>
 			<div class="modal-content">
-				<form id="form_review" class="col s12" method="POST" action="<?php echo base_url();?>index.php/movie_page_controller/review_movie/<?php echo $movie_id; ?>">
+				<form id="form_review" class="col s12" method="POST" action="<?php echo base_url();?>movie_page_controller/review_movie/<?php echo $movie_id; ?>/<?php echo $movie_type; ?>">
 					<div class="row">
 						<div class="input-field col s12">
 							<input disabled value="<?php echo $movie_name ?>" id="movie_title" type="text" class="validate text-black">

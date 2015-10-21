@@ -66,10 +66,11 @@ class movie_page_controller extends CI_Controller {
 
 	}
 
-	public function review_movie($mov_id) {
+	public function review_movie($mov_id, $mov_type) {
 		$this->load->model('movie_page_model');
 
 		$movie_id = $mov_id;
+		$movie_type = $mov_type;
 		$review_title = $this->input->post('review_title');
 		$review_rating = $this->input->post('review_rating');
 		$review_content = $this->input->post('review_content');
@@ -77,6 +78,8 @@ class movie_page_controller extends CI_Controller {
 		$username = 'renzoralph07';
 
 		$this->movie_page_model->add_movie_review($review_title, $review_content, $review_rating, $review_date, $username, $movie_id);
+
+		redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);
 	}
 
 }
