@@ -235,24 +235,26 @@
   						$('.view-date').text(show_date);
   						$('.view-branch').text(bran_name);
   						$('.cinema-list').html('');
+  						console.log(JSON.stringify(data));
   						var row;
   						var current;
   						for(row in data) {
-  							if(current != data[row][cine_name]) {
-  								current = data[row][cine_id];
+  							if(current != data[row]['cine_id']) {
+  								current = data[row]['cine_id'];
   								$('.cinema-list').append('<li>'
-										+'<div class="collapsible-header">' + data[row][cine_name] + '</div>'
+										+'<div class="collapsible-header">' + data[row]['cine_name'] + '</div>'
 										+'<div class="collapsible-body">'
-											+'<ul class="collection" id="cine_id_'+ data[row][cine_id] +'">'
-												+'<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>'
+											+'<ul class="collection" id="cine_id_'+ data[row]['cine_id'] +'">'
+												+'<li class="collection-item">'+ data[row]['start_time'] +' - '+ data[row]['end_time'] +'</li>'
 											+'</ul>'
 										+'</div>'
 									+'</li>');
   							}
   							else {
-  								$('#cine_id_'+ cine_id).append('<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>');
+  								$('#cine_id_'+ cine_id).append('<li class="collection-item">'+ data[row]['start_time'] +' - '+ data[row]['end_time'] +'</li>');
   							}
   						}
+  						$('.cinema-list').collapsible();
   						// 	$('.cinema-list').append('
   						// 		<li>
 								// 	<div class="collapsible-header">Cinema 1</div>
