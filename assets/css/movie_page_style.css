@@ -178,3 +178,8 @@ a {
 .container .hide-on-med-and-up {
 	padding-top: 20px;
 }
+
+.section #videos .video-container {
+	padding: 0px;
+	width: 100%;
+}
