@@ -62,7 +62,7 @@
 						<td><?php echo $row->mov_name;?></td>
 						<td style="width: 16%;"><?php echo $row->show_date;?></td>
 						<td style="width: 23%"><?php echo $row->bran_name;?></td>
-						<td style="width: 23%;"><a class="waves-effect waves-light btn modal-trigger" id="show_<?php echo $row->sched_id; ?>" href="#view_show_<?php echo $row->sched_id; ?>">View Details</a></td>
+						<td style="width: 23%;"><a class="waves-effect waves-light btn modal-trigger" id="show_<?php echo $row->sched_id; ?>" href="#view-details">View Details</a></td>
 				  	</tr>
 				<?php endforeach ?>
 				</tbody>
@@ -70,35 +70,62 @@
 				</div>
 			</table>				
 			<!-- Modals -->
+			<div id="view-details" class="modal">
+				<div class="modal-content">
+					<div class="row">
+						<h4>Kingsman: The Secret Service</h4>
+						<h5 class="col s12 m6 blue-text">2015-02-14</h5>
+						<h5 class="col s12 m6 blue-text">Sine Manila</h5>
+					</div>
+				</div>
+			</div>
 			
 			<div id="add-show" class="modal">				
-				<div class="modal-content">
 				<form method="post" action="#">
+				<div class="modal-content">
 					<div class='row'>
 						<h4 class = 'col s12'>Add Shows</h4>
 						<div class="input-field col s12">
 							<!-- Movie Input Field -->
-							<i class="material-icons prefix">search</i>
-				         <input id="icon_prefix" name="movie" type="text" class="validate">
-				         <label for="icon_prefix">Search a Movie</label>
+							<div class="row">
+								<i class="material-icons prefix">search</i>
+					         <input id="icon_prefix" name="movie" type="text" class="validate" placeholder="Search a Movie" required>
+					      </div>
+
+				         <!-- Date Input Field -->
+				         <div class="row">
+							<i class="material-icons prefix">today</i>
+							<input <?php echo 'data-value="' . $today . '"'; ?> id="today" type="date" class="modal-datepicker" placeholder="Pick a Date" required>
+							</div>
 
 				         <!-- Branch Input Field -->
-				         <select id="modal-branch" name="branch" class="browser-default col s12 l6">
-				         	<option disabled selected>Select a branch</option>
+				         <select id="modal-branch" name="branch" class="browser-default col s12 l6" required>
+				         	<?php $wawa = 0; ?>
 								<?php foreach($branches as $row): ?>
-									<option value="<?php echo $row->bran_id; ?>"><?php echo $row->bran_name;?></option>
-								<?php endforeach ?>
+									<option <?php if($wawa == 0) echo 'selected'; ?> value="<?php echo $row->bran_id; ?>"><?php echo $row->bran_name;?></option>
+								<?php $wawa++; endforeach ?>
 							</select>
 
 							<!-- Cinema Input Field -->
-							<select disabled id="modal-cinema" name="branch" class="browser-default col s12 l6">
+							<select disabled id="modal-cinema" name="cinema" class="browser-default col s12 l6" required>
 								<option id="#cine-append-here" disabled selected>Select a cinema</option>
 							</select>
+							<div class="row">
+								
+							</div>
+							<div class="row"></div>
+							<div class="row"></div>
+							<div class="row"></div>
+							<div class="row"></div>
+							<div class="row"></div>
+							<div class="row"></div>
+							<div class="row"></div>
+							<div class="row"></div>
 						</div>	
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button class="btn waves-effect waves-light signup-button" type="submit" name="action">Confirm</button>
+					<button class="btn waves-effect waves-light signup-button" type="submit" name="action" id="add-submit">Confirm</button>
 				</div>
 				</form>
 			</div>
@@ -138,21 +165,51 @@
     			}
   			});
 
-			$('#modal-branch').change(function() {
-				$('#modal-cinema').removeAttr('disabled');
+  			$('.modal-datepicker').pickadate({
+    			selectMonths: true,
+    			selectYears: 15,
+    			formatSubmit: 'yyyy-mm-dd',
+    			format: 'yyyy-mm-dd',
+    			closeOnSelect: true,
+    			min: <?php echo $today ?>,
+    			clear: ""
+  			});
+
+  			function branch_changed() {
+  				$('#modal-cinema').removeAttr('disabled');
 				$('#modal-cinema').attr('enabled', true);
 				$.ajax({
 					url: '<?php echo base_url(); ?>index.php/Adminn_controller/ajax_get_cinemas_by_branch',
-					type: post,
-					dataType: json,
+					method: 'post',
+					dataType: 'json',
 					data: {branch: $('#modal-branch').val()},
 					success: function(data) {
-						alert(JSON.stringify(data));
+						console.log(JSON.stringify(data));
+						$('#modal-cinema').html('');
+						var row;
+						for(row in data) {
+							if(row == 0)
+								$('#modal-cinema').append(
+									'<option selected value="' + data[row]['cine_id'] + '">' + data[row]['cine_name'] + '</option>'
+								);
+							else
+								$('#modal-cinema').append(
+									'<option value="' + data[row]['cine_id'] + '">' + data[row]['cine_name'] + '</option>'
+								);
+						}
 					},
 					error: function(error) {
 						alert(error);
 					}
 				});
+  			}
+
+			$(document).ready(function() {
+				branch_changed();
+			});
+
+			$('modal-branch').change(function() {
+				branch_changed();
 			});
 		</script>
 	</body>

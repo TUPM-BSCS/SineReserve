@@ -131,6 +131,10 @@
 			$result = $this->admin_model->get_branch();
 			$data['branches'] = $result;
 
+			$today = date_create($today);
+			date_sub($today, date_interval_create_from_date_string('1 month'));
+			$today = date_format($today, '[Y,m,d]');
+			$data['today'] = $today;
 			$data['limits'] = array();
 			$data['limits']['min'] = $min; 
 			$data['limits']['max'] = $max;
