@@ -268,9 +268,8 @@
 				<p class="text-white">Reservation Form</p>
 			</div>
 			<div class="modal-content">
-				<form id="form_reserve" class="col s12" method="POST" action="<?php echo base_url();?>movie_page_controller/review_movie/<?php echo $movie_id; ?>">
+				<form id="form_reserve" class="col s12" method="POST" action="<?php echo base_url();?>movie_page_controller/reserve_movie/<?php echo $movie_id; ?>">
 					
-
 					<div class="row">
 						<div class="input-field col s12 m12">
 							<input disabled value="<?php echo $movie_name ?>" id="movie_title" type="text" class="validate">
@@ -289,6 +288,35 @@
 							</select>
 							
 						</div>
+
+<!-- 						//$.ajax({
+  					url: '<?php echo base_url(); ?>index.php/Adminn_controller/ajax_get_shows_information',
+  					dataType: 'json',
+  					method: 'post',
+  					data: {id: the_id},
+  					success: function(data) {
+  						$('.view-title').text(mov_name);
+  						$('.view-date').text(show_date);
+  						$('.view-branch').text(bran_name);
+  						$('.cinema-list').html('');
+  						var row;
+  						var current;
+  						for(row in data) {
+  							if(current != data[row][cine_name]) {
+  								current = data[row][cine_id];
+  								$('.cinema-list').append('<li>'
+										+'<div class="collapsible-header">' + data[row][cine_name] + '</div>'
+										+'<div class="collapsible-body">'
+											+'<ul class="collection" id="cine_id_'+ data[row][cine_id] +'">'
+												+'<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>'
+											+'</ul>'
+										+'</div>'
+									+'</li>');
+  							}
+  							else {
+  								$('#cine_id_'+ cine_id).append('<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>');
+  							}
+  						} -->
 
 						<div class="col s12 m8">
 							<label>Cinema</label>
@@ -324,6 +352,11 @@
 									}
 								?>
 							</select>
+						</div>
+
+						<div class="input-field col s12">
+							<input disabled value="<?php echo 'test' ?>" id="movie_title" type="text" class="validate text-black">
+							<label for="movie_title" class="active text-black">Movie Price</label>
 						</div>
 					</div>
 
@@ -384,6 +417,7 @@
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/movie_page_script.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
 		<script type="text/javascript">
+			var wawa;
 			<?php
 				if($movie_type == 'ns' || $movie_type == 'na') {
 					if($movie_reserve == 'reserve') {
@@ -391,6 +425,55 @@
 					}
 				}
 			?>
+
+			$('#reserve_branch').change(function() {
+				$('#reserve_cinema').html('');
+				$('#reserve_date').html('');
+				$('#reserve_time').html('');
+				var mov_id = <?php echo $movie_id;?>;
+				var bran_id = <?php echo $reserve_branch[0]['bran_id'] ?>;
+				$.ajax({
+  					url: '<?php echo base_url(); ?>index.php/Admin_controller/ajax_get_pua_information',
+  					dataType: 'json',
+  					method: 'post',
+  					data: {mov_id: mov_id, bran_id: bran_id},
+  					success: function(data) {
+  						wawa = data;
+  						console.log(JSON.stringify(data));
+  						var sample;
+  						for( sample in data) {  							
+							$('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
+						}
+						
+
+  						// $('.view-title').text(mov_name);
+  						// $('.view-date').text(show_date);
+  						// $('.view-branch').text(bran_name);
+  						// $('.cinema-list').html('');
+  						// var row;
+  						// var current;
+  						// for(row in data) {
+  						// 	if(current != data[row][cine_name]) {
+  						// 		current = data[row][cine_id];
+  						// 		$('.cinema-list').append('<li>'
+								// 		+'<div class="collapsible-header">' + data[row][cine_name] + '</div>'
+								// 		+'<div class="collapsible-body">'
+								// 			+'<ul class="collection" id="cine_id_'+ data[row][cine_id] +'">'
+								// 				+'<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>'
+								// 			+'</ul>'
+								// 		+'</div>'
+								// 	+'</li>');
+  						// 	}
+  						// 	else {
+  						// 		$('#cine_id_'+ cine_id).append('<li class="collection-item">'+ data[row][start_time] +' - '+ data[row][end_time] +'</li>');
+  						// 	}
+  						// }
+  					},
+  					error: function(err) {
+  						console.log(err);
+  					}
+  				});
+			});
 		</script>
 	</body>
 

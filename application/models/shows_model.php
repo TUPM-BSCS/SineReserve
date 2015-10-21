@@ -77,6 +77,17 @@ class shows_model extends CI_Model {
 		return $this->db->get();
 	}
 
+	public function get_show_by_thangs($movie, $branch) {
+		$where = array(
+			'mov_id' => $movie,
+			'branch.bran_id' => $branch
+		);
+		$this->db->from('shows');
+		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
+		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
+		return $this->db->get();
+	}
+
 }
 
 ?>

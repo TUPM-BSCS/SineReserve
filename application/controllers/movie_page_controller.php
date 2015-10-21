@@ -64,9 +64,21 @@ class movie_page_controller extends CI_Controller {
 		$this->load->view('movie_page_view', $data);
 	}
 
-	public function reserve_movie() {
+	public function reserve_movie($mov_id, $mov_type, $branch, $cinema, $date, $time, $price) {
 		$this->load->model('movie_page_model');
 
+		$movie_id = $mov_id;
+		$movie_type = $mov_type;
+		$username = $this->session->userdata('hurt-me-plenty');
+		$branch = $this->input->post('reserve_branch');
+		$cinema = $this->input->post('reserve_cinema');
+		$date = $this->input->post('reserve_date');
+		$time = $this->input->post('reserve_time');
+		$price = $this->input->post('reserve_price');
+
+		$this->movie_page_model->add_movie_reservation();
+
+		redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);
 	}
 
 	public function review_movie($mov_id, $mov_type) {
@@ -78,7 +90,7 @@ class movie_page_controller extends CI_Controller {
 		$review_rating = $this->input->post('review_rating');
 		$review_content = $this->input->post('review_content');
 		$review_date = date("Y-m-d");
-		$username = 'renzoralph07';
+		$username = $this->session->userdata('hurt-me-plenty');
 
 		$this->movie_page_model->add_movie_review($review_title, $review_content, $review_rating, $review_date, $username, $movie_id);
 

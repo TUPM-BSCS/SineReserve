@@ -139,19 +139,19 @@ class movie_page_model extends CI_Model {
 	}
 
 	// RESERVATION
-	// public function add_movie_reservation($title, $review, $user_rating, $review_date, $username, $mov_id) {
-	// 	if(($title != null) && ($review != null)) {
-	// 		$review = array(
-	// 			'title' => $title,
-	// 			'review' => $review,
-	// 			'user_rating' => $user_rating,
-	// 			'review_date' => $review_date,
-	// 			'username' => $username,
-	// 			'mov_id' => $mov_id
-	// 		);
-	// 		$this->db->insert('review', $review);
-	// 	}
-	// }
+	public function add_movie_reservation($mov_id, $cinema, $branch, $date, $time, $username) {
+		if(($title != null) && ($review != null)) {
+			$review = array(
+				'title' => $title,
+				'review' => $review,
+				'user_rating' => $user_rating,
+				'review_date' => $review_date,
+				'username' => $username,
+				'mov_id' => $mov_id
+			);
+			$this->db->insert('review', $review);
+		}
+	}
 
 	// public function getschedule() {
 	// 	$this->db->where('mov_id', $mov_id);
