@@ -62,7 +62,7 @@
 						<td><?php echo $row->mov_name;?></td>
 						<td style="width: 16%;"><?php echo $row->show_date;?></td>
 						<td style="width: 23%"><?php echo $row->bran_name;?></td>
-						<td style="width: 23%;"><a class="waves-effect waves-light btn modal-trigger" id="show_<?php echo $row->sched_id; ?>" href="#view-details">View Details</a></td>
+						<td style="width: 23%;"><a class="waves-effect waves-light btn modal-trigger view-details" id="show_<?php echo $row->sched_id; ?>" href="#view-details">View Details</a></td>
 				  	</tr>
 				<?php endforeach ?>
 				</tbody>
@@ -73,9 +73,52 @@
 			<div id="view-details" class="modal">
 				<div class="modal-content">
 					<div class="row">
-						<h4>Kingsman: The Secret Service</h4>
-						<h5 class="col s12 m6 blue-text">2015-02-14</h5>
-						<h5 class="col s12 m6 blue-text">Sine Manila</h5>
+						<div class="section">
+							<h4 class="view-title">Kingsman: The Secret Service</h4>
+							<h5 class="col s12 m6 blue-text view-date">2015-02-14</h5>
+							<h5 class="col s12 m6 blue-text view-branch">Sine Manila</h5>
+						</div>
+						<br>
+						<div class="section">
+							<ul class="collapsible" data-collapsible="accordion">
+								<li>
+									<div class="collapsible-header">Cinema 1</div>
+									<div class="collapsible-body">
+										<ul class="collection">
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="collapsible-header">Cinema 2</div>
+									<div class="collapsible-body">
+										<ul class="collection">
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="collapsible-header">Cinema 3</div>
+									<div class="collapsible-body">
+										<ul class="collection">
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+											<li class="collection-item">12:30 - 2:30</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -175,6 +218,24 @@
     			clear: ""
   			});
 
+  			$('.view-details').click(function() {
+  				var the_id; 
+  				the_id = $(this).attr('id');
+  				the_id = the_id.replace("show_", "");
+  				$.ajax({
+  					url: '<?php echo base_url(); ?>index.php/Adminn_controller/ajax_get_shows_information',
+  					dataType: 'json',
+  					method: 'post',
+  					data: {id: the_id},
+  					success: function(data) {
+  						alert(JSON.stringify(data));
+  					},
+  					error: function(error, wawa, meme) {
+  						console.log(error);
+  					}
+  				});
+  			});
+
   			function branch_changed() {
   				$('#modal-cinema').removeAttr('disabled');
 				$('#modal-cinema').attr('enabled', true);
@@ -184,7 +245,6 @@
 					dataType: 'json',
 					data: {branch: $('#modal-branch').val()},
 					success: function(data) {
-						console.log(JSON.stringify(data));
 						$('#modal-cinema').html('');
 						var row;
 						for(row in data) {

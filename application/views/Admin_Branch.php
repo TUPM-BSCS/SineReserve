@@ -5,8 +5,8 @@
 				<table class="responsive-table">
 				<thead>
 				  <tr>
-					  <th data-field="id">Name</th>
-					  <th data-field="name">Address</th>
+					  <th style="width:50%" data-field="id">Name</th>
+					  <th style="width:50%" data-field="name">Address</th>
 				  </tr>
 				</thead>
 				</table>
@@ -15,8 +15,8 @@
 				<tbody>
 				<?php foreach ($branch as $row): ?>
 				  <tr>
-					<td><?php echo $row->bran_name?></td>
-					<td><?php echo $row->bran_address?></td>
+					<td style="width:50%"><?php echo $row->bran_name?></td>
+					<td style="width:50%"><?php echo $row->bran_address?></td>
 				  </tr>
 				<?php endforeach ?>
 				</tbody>

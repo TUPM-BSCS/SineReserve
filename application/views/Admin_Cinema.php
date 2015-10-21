@@ -22,8 +22,8 @@
 				<table class="responsive-table">
 				<thead>
 				  <tr>
-					  <th data-field="id">Name</th>
-					  <th data-field="name">Seats</th>
+					  <th style="width:50%" data-field="id">Name</th>
+					  <th style="width:50%" data-field="name">Seats</th>
 				  </tr>
 				</thead>
 				</table>
@@ -32,8 +32,8 @@
 				<tbody>
 				<?php foreach ($cinema as $row): ?>
 				  <tr>
-					<td><?php echo $row->cine_name?></td>
-					<td><?php echo $row->cine_slots?></td>
+					<td style="width:50%"><?php echo $row->cine_name?></td>
+					<td style="width:50%"><?php echo $row->cine_slots?></td>
 				  </tr>
 				<?php endforeach ?>
 				</tbody>
