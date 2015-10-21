@@ -7,6 +7,10 @@ p .review{
 	margin: 2em 0px;
 }
 
+#reviews > p{
+	min-height: 400px;
+}
+
 /*Text-Formats*/
 
 .italic{
