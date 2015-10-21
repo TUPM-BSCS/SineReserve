@@ -475,7 +475,7 @@
   					success: function(data) {
   						console.log(JSON.stringify(data));
   						for(var sample in data) {
-  							$('#movie_price').html('').append('<input disabled value=<' + data[sample]['cost'] + '" id="movie_price" type="text" class="validate text-black"><label for="movie_price" class="active text-black">Movie Price</label>');
+  							$('#movie_price').html('').append('<input disabled value=' + data[sample]['cost'] + '" id="movie_price" type="text" class="validate text-black"><label for="movie_price" class="active text-black">Movie Price</label>');
   						}
   					},
   				});
