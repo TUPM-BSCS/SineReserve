@@ -50,18 +50,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'home/home';
-// $route['404_override'] = '';
-// $route['translate_uri_dashes'] = FALSE;
-
-// $route['movie/(:num)/(:any)/(:any)'] = 'movie/$1/$2';
-// $route['movie/(:num)/(:any)'] = 'movie/$1/$2';
-
-$default_controller = "home/home";
-$controller_exceptions = array("movie_page_controller, movie_index_controller"); // here pages is controller function name.here you can mention as many as controller function names.so that we can exclude controller name from the url
- 
-foreach($controller_exceptions as $v) {
-  $route[$v] = "$default_controller/".$v;
-  $route[$v."/(.*)"] = "$default_controller/".$v.'/$1';
-  $route[$v."/(.*)"] = "$default_controller/".$v.'/$1'.$v.'/$2';
-  $route[$v."/(.*)"] = "$default_controller/".$v.'/$1'.$v.'/$2'.$v.'/$3';
-}
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
