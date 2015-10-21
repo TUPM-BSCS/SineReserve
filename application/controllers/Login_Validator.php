@@ -16,8 +16,8 @@
 			{
 				$this->load->view('movie_index_view');
 			}
-			else
 			{
+			else
 				$this->check_validity();
 			}
 		}
@@ -42,9 +42,9 @@
 					$this->header_model->signin_admin($this->username, $this->password);
 					redirect('Admin_controller');
 				} else {
-
+					$res = $this->header_model->signin_admin($this->username, $this->password);
+					redirect('Admin_controller/index');
 				}
-
 			}
 			
 		}

@@ -22,8 +22,7 @@ class header_model extends CI_Model {
 		return false;
 	}
 
-	public function validate_admin($username, $password) {
-		//$where = "username = '" . $username . "' AND PASSWORD = '" . $password . "'";
+	public function validate_admin($username, $password){
 		$this->db->select('admin_id');
 		$this->db->where('admin_id', $username);
 		$this->db->where('admin_password', $password);
@@ -33,7 +32,6 @@ class header_model extends CI_Model {
 		if($query->num_rows() > 0) {
 			return true;
 		}
-		return false;
 	}
 
 	public function signin_user($username, $password){
@@ -49,7 +47,7 @@ class header_model extends CI_Model {
 	}
 
 	public function signout_admin(){
-		$this->session->unset_userdata('hurt-me-plenty-more');	
+		$this->session->unset_userdata('hurt-me-plenty-more');
 	}
 
 	public function get_user_fullname($username){
