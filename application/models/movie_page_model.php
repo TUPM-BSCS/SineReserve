@@ -147,18 +147,36 @@ class movie_page_model extends CI_Model {
 			'username' => $username,
 		);
 		$this->db->insert('reserved_by', $reserved_by);
+	}
 
-		$this->db->select('shows.slots_avail');
-		$this->db->where('sched_id', $sched_id);
-		$this->db->from('shows');
-
-		$query = $this->db->get();
-		$slots_available = $query->row()->slots_avail;
-
-		$slots_avail = array(
-			'shows.slots_avail' => $slots_available,
+	public function add_movie_reservation_slots($sched_id, $slots_avail) {
+		$update = array(
+			'shows.slots_avail' => $slots_avail,
 		);
-		$this->db->update('shows', $slots_avail);
+		$this->db->update('shows', $update);
+		$this->db->where('sched_id', $sched_id);
+	}
+
+	public function add_movie_reservation_points($username, $cost) {
+		$update = array(
+			'card.card_points' => $cost,
+		);
+		$this->db->update('card', $update);
+		$this->db->where('username', $username);
+		$this->db->join('user', 'card.card_no = user.card_no');
+	}
+
+	public function get_card_points($username) {
+		$this->db->select('card_points');
+		$this->db->where('user.username', $username);
+		$this->db->from('card');
+		$this->db->join('user', 'card.card_no = user.card_no');
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return $query->row()->card_points;
+		}
+		return false;
 	}
 
 	// public function getschedule() {

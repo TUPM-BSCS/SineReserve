@@ -119,22 +119,26 @@ class movie_page_controller extends CI_Controller {
 		$start_time = substr($time, 0, 8);
 		$end_time = substr($time, 11, 8);
 
-		$price = $this->input->post('reserve_cost');
-
 		$sched_id = $this->movie_page_model->get_schedule($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id);
 		$slots_avail = $this->movie_page_model->get_slots_available($sched_id);
+		$card_points = $this->movie_page_model->get_card_points($username);
 
-		if($slots_avail > 0) {
+		echo $card_points . ' - ' . $cost . ' = ' . ($card_points - $cost);
+		die();
+
+		if(($slots_avail > 0) && ($card_points > $cost)) {
 			$or_no = 'testOrNo';
 			$or_date = date("Y-m-d");
-			$this->movie_page_model->add_movie_reservation($or_no, $or_date, $sched_id, $username, $slots_avail - 1);
+			$this->movie_page_model->add_movie_reservation($or_no, $or_date, $sched_id, $username);
+			$this->movie_page_model->add_movie_reservation_slots($sched_id, $slots_avail - 1);
+			$this->movie_page_model->add_movie_reservation_points($username, ($card_points - $cost));
 
 			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);
 		}
 
 		else {
-			echo "NO SLUTS LEFT!";
-			die();
+			// NO SLOTS LEFT OR CARD POINTS IS INSUFFICIENT
+			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);	
 		}
 	}
 

@@ -279,7 +279,7 @@
 						<div class="col s12 m8">
 							<label>Branch</label>
 							<select id="reserve_branch" name="reserve_branch" class="browser-default">
-								<option value="" disabled selected>Select the Branch</option>
+								<option value="" disabled selected>Select a Branch</option>
 								<?php
 									for($i = 0; $i < sizeof($reserve_branch); $i++) {
 										echo '<option id="reserve_branch_option" value="'. $reserve_branch[$i]['bran_id'] .'">' . $reserve_branch[$i]['bran_name'] . '</option>';
@@ -292,33 +292,28 @@
 						<div class="col s12 m8">
 							<label>Cinema</label>
 							<select id="reserve_cinema" name="reserve_cinema" class="browser-default">
-								<option value="" disabled selected>Select the Cinema</option>
+								<option value="" disabled selected>Select a Branch</option>
 							</select>
 						</div>
 
 						<div class="col s12 m8">
 							<label>Date</label>
 							<select id="reserve_date" name="reserve_date" class="browser-default">
-								<option value="" disabled selected>Select the Date</option>
+								<option value="" disabled selected>Select a Branch</option>
 							</select>
 						</div>
 
 						<div class="col s12 m8">
 							<label>Time</label>
 							<select id="reserve_time" name="reserve_time" class="browser-default">
-								<option value="" disabled selected>Select the Time</option>
-								<?php 
-									for($i = 0; $i < sizeof($reserve_cinema); $i++) {
-										echo '<option id="reserve_time_option" value="'. $reserve_cinema[$i]['bran_id'] .'" href="' . base_url() .'movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['bran_name'] . '</option>';
-									}
-								?>
+								<option value="" disabled selected>Select a Branch</option>
 							</select>
 						</div>
 
 						<div class="input-field col s12">
 							<div id="movie_price">
-								<input disabled value="0.00" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black">
-								<label for="reserve_cost" class="active text-black">Movie Price</label>
+								<input disabled value="Select a Branch" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black">
+								<label for="reserve_cost" class="active text-black">Movie Cost</label>
 							</div>
 						</div>
 					</div>
@@ -391,9 +386,10 @@
 			var bran_id, cine_id, show_date, start_time, end_time;
 
 			$('#reserve_branch').change(function() {
-				$('#reserve_cinema').html('').append('<option value="" disabled selected>Select the Cinema</option>');
-				$('#reserve_date').html('').append('<option value="" disabled selected>Select the Date</option>');
-				$('#reserve_time').html('').append('<option value="" disabled selected>Select the Time</option>');
+				$('#reserve_cinema').html('').append('<option value="" disabled selected>Select a Cinema</option>');
+				$('#reserve_date').html('').append('<option value="" disabled selected>Select a Cinema</option>');
+				$('#reserve_time').html('').append('<option value="" disabled selected>Select a Cinema</option>');
+				$('#movie_price').html('').append('<input disabled value="Select a Cinema" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
 				
 				bran_id = <?php echo $reserve_branch[0]['bran_id'] ?>;
 
@@ -403,7 +399,7 @@
   					method: 'post',
   					data: {mov_id: mov_id, bran_id: bran_id},
   					success: function(data) {
-  						console.log(JSON.stringify(data));
+  						// console.log(JSON.stringify(data));
   						for(var sample in data) {
 							$('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
 						}
@@ -412,8 +408,9 @@
 			});
 
 			$('#reserve_cinema').change(function() {
-				$('#reserve_date').html('').append('<option value="" disabled selected>Select the Date</option>');
-				$('#reserve_time').html('').append('<option value="" disabled selected>Select the Time</option>');
+				$('#reserve_date').html('').append('<option value="" disabled selected>Select a Date</option>');
+				$('#reserve_time').html('').append('<option value="" disabled selected>Select a Date</option>');
+				$('#movie_price').html('').append('<input disabled value="Select a Date" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
 				
 				cine_id = $('#reserve_cinema').val();
 
@@ -423,8 +420,7 @@
   					method: 'post',
   					data: {mov_id: mov_id, bran_id: bran_id, cine_id: cine_id},
   					success: function(data) {
-  						console.log(JSON.stringify(data));
-
+  						// console.log(JSON.stringify(data));
   						for(var sample in data) {
 							$('#reserve_date').append('<option id="reserve_date_option" value="' + data[sample]['show_date'] + '">' + data[sample]['show_date'] + '</option>');
 						}
@@ -433,7 +429,8 @@
 			});
 
 			$('#reserve_date').change(function() {
-				$('#reserve_time').html('').append('<option value="" disabled selected>Select the Time</option>');
+				$('#reserve_time').html('').append('<option value="" disabled selected>Select a Time</option>');
+				$('#movie_price').html('').append('<input disabled value="Select a Time" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
 				
 				show_date = $('#reserve_date').val();
 
@@ -443,8 +440,7 @@
   					method: 'post',
   					data: {mov_id: mov_id, show_date: show_date, bran_id: bran_id, cine_id: cine_id},
   					success: function(data) {
-  						console.log(JSON.stringify(data));
-  						
+  						// console.log(JSON.stringify(data));
   						for(var sample in data) {
 							$('#reserve_time').append('<option id="reserve_time_option" value="' + data[sample]['start_time'] + " - " + data[sample]['end_time'] + '">' + data[sample]['start_time'] + " - " + data[sample]['end_time'] + '</option>');
 						}
@@ -462,9 +458,9 @@
   					method: 'post',
   					data: {mov_id: mov_id, start_time: start_time, end_time: end_time, show_date: show_date, bran_id: bran_id, cine_id: cine_id},
   					success: function(data) {
-  						console.log(JSON.stringify(data));
+  						// console.log(JSON.stringify(data));
   						for(var sample in data) {
-  							$('#movie_price').html('').append('<input disabled value=' + data[sample]['cost'] + '" id="movie_price" type="text" class="validate text-black"><label for="movie_price" class="active text-black">Movie Price</label>');
+  							$('#movie_price').html('').append('<input disabled value=' + data[sample]['cost'] + ' id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
   						}
   					},
   				});
