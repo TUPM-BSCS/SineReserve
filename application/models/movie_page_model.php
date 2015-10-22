@@ -284,6 +284,25 @@ class movie_page_model extends CI_Model {
 		return $this->db->get();
 	}
 
+	public function get_reserve_slots($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id) {
+		$this->db->select('shows.slots_avail');
+
+		$where = array(
+			'mov_id' => $mov_id,
+			'start_time' => $start_time,
+			'end_time' => $end_time,
+			'show_date' => $show_date,
+			'cinema.cine_id' => $cine_id,
+			'branch.bran_id' => $bran_id
+		);
+		$this->db->where($where);
+		$this->db->from('shows');
+		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
+		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
+		
+		return $this->db->get();
+	}
+
 	public function get_schedule($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id) {
 		$this->db->select('sched_id');
 

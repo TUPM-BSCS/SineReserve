@@ -57,24 +57,48 @@
 						?>
 					" class="responsive-img movie-page-poster materialboxed" />
 					<?php
-						if($movie_type == 'ns') {
-							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal">Reserve</button>';
-							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal">Rate Me</button>';
-						}
+						if($this->session->userdata('hurt-me-plenty') != null) {
+							if($movie_type == 'ns') {
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal">Reserve</button>';
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal">Rate Me</button>';
+							}
 
-						else if($movie_type == 'na') {
-							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal">Reserve</button>';
-							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal" disabled>Rate Me</button>';
-						}
+							else if($movie_type == 'na') {
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal">Reserve</button>';
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal" disabled>Rate Me</button>';
+							}
 
-						else if($movie_type == 'cs') {
-							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal" disabled>Reserve</button>';
-							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal" disabled>Rate Me</button>';
+							else if($movie_type == 'cs') {
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal" disabled>Reserve</button>';
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal" disabled>Rate Me</button>';
+							}
+
+							else {
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal" disabled>Reserve</button>';
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal">Rate Me</button>';
+							}
 						}
 
 						else {
-							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reservemodal" disabled>Reserve</button>';
-							echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#reviewmodal">Rate Me</button>';
+							if($movie_type == 'ns') {
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#modal1">Reserve</button>';
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#modal1">Rate Me</button>';
+							}
+
+							else if($movie_type == 'na') {
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#modal1">Reserve</button>';
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#modal1" disabled>Rate Me</button>';
+							}
+
+							else if($movie_type == 'cs') {
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#modal1" disabled>Reserve</button>';
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#modal1" disabled>Rate Me</button>';
+							}
+
+							else {
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#modal1" disabled>Reserve</button>';
+								echo '<button class="movie_page-btn waves-effect waves btn center-align modal-trigger" href="#modal1">Rate Me</button>';
+							}
 						}
 					?>
 					
@@ -310,7 +334,14 @@
 							</select>
 						</div>
 
-						<div class="input-field col s12">
+						<div class="input-field col s12 m6">
+							<div id="remaining_seats">
+								<input readonly value="Select a Branch" id="slots_avail" name="slots_avail" type="text" class="validate text-black">
+								<label for="slots_avail" class="active text-black">Slots Available</label>
+							</div>
+						</div>
+
+						<div class="input-field col s12 m6">
 							<div id="movie_price">
 								<input readonly value="Select a Branch" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black">
 								<label for="reserve_cost" class="active text-black">Movie Cost</label>
@@ -377,18 +408,25 @@
 			<?php
 				if($movie_type == 'ns' || $movie_type == 'na') {
 					if($movie_reserve == 'reserve') {
-						echo "$('#reservemodal').openModal();";
+						if($this->session->userdata('hurt-me-plenty') != null) {
+							echo "$('#reservemodal').openModal();";
+						}
+
+						else {
+							echo "$('#modal1').openModal();";
+						}
 					}
 				}
 			?>
 
 			var mov_id = <?php echo $movie_id;?>;
-			var bran_id, cine_id, show_date, start_time, end_time;
+			var bran_id, cine_id, show_date, start_time, end_time, slots_avail;
 
 			$('#reserve_branch').change(function() {
 				$('#reserve_cinema').html('').append('<option value="" disabled selected>Select a Cinema</option>');
 				$('#reserve_date').html('').append('<option value="" disabled selected>Select a Cinema</option>');
 				$('#reserve_time').html('').append('<option value="" disabled selected>Select a Cinema</option>');
+				$('#remaining_seats').html('').append('<input readonly value="Select a Cinema" id="slots_avail" name="slots_avail" type="text" class="validate text-black"><label for="slots_avail" class="active text-black">Slots Available</label>');
 				$('#movie_price').html('').append('<input readonly value="Select a Cinema" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
 				
 				bran_id = <?php echo $reserve_branch[0]['bran_id'] ?>;
@@ -410,6 +448,7 @@
 			$('#reserve_cinema').change(function() {
 				$('#reserve_date').html('').append('<option value="" disabled selected>Select a Date</option>');
 				$('#reserve_time').html('').append('<option value="" disabled selected>Select a Date</option>');
+				$('#remaining_seats').html('').append('<input readonly value="Select a Date" id="slots_avail" name="slots_avail" type="text" class="validate text-black"><label for="slots_avail" class="active text-black">Slots Available</label>');
 				$('#movie_price').html('').append('<input readonly value="Select a Date" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
 				
 				cine_id = $('#reserve_cinema').val();
@@ -430,6 +469,7 @@
 
 			$('#reserve_date').change(function() {
 				$('#reserve_time').html('').append('<option value="" disabled selected>Select a Time</option>');
+				$('#remaining_seats').html('').append('<input readonly value="Select a Time" id="slots_avail" name="slots_avail" type="text" class="validate text-black"><label for="slots_avail" class="active text-black">Slots Available</label>');
 				$('#movie_price').html('').append('<input readonly value="Select a Time" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
 				
 				show_date = $('#reserve_date').val();
@@ -461,6 +501,28 @@
   						// console.log(JSON.stringify(data));
   						for(var sample in data) {
   							$('#movie_price').html('').append('<input readonly value=' + data[sample]['cost'] + ' id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
+  						}
+  					},
+  				});
+
+  				$.ajax({
+  					url: '<?php echo base_url(); ?>index.php/movie_page_controller/ajax_get_reserve_slots',
+  					dataType: 'json',
+  					method: 'post',
+  					data: {mov_id: mov_id, start_time: start_time, end_time: end_time, show_date: show_date, bran_id: bran_id, cine_id: cine_id},
+  					success: function(data) {
+  						// console.log(JSON.stringify(data));
+  						for(var sample in data) {
+  							$('#remaining_seats').html('').append('<input readonly value=' + data[sample]['slots_avail'] + ' id="slots_avail" name="slots_avail" type="text" class="validate text-black"><label for="slots_avail" class="active text-black">Slots Available</label>');
+  							
+  							slots_avail = data[sample]['slots_avail'];
+  							if(slots_avail == 0) {
+  								$('.modal-footer').html('').append('<button disabled form="form_reserve" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Confirm</button>');
+  							}
+
+  							else {
+  								$('.modal-footer').html('').append('<button form="form_reserve" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Confirm</button>');
+  							}
   						}
   					},
   				});

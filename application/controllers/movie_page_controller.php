@@ -106,6 +106,19 @@ class movie_page_controller extends CI_Controller {
 		echo json_encode($query->result());
 	}
 
+	public function ajax_get_reserve_slots() {
+		$mov_id = $this->input->post('mov_id');
+		$start_time = $this->input->post('start_time');
+		$end_time = $this->input->post('end_time');
+		$show_date = $this->input->post('show_date');
+		$cine_id = $this->input->post('cine_id');
+		$bran_id = $this->input->post('bran_id');
+		
+		// echo json_encode($row);
+		$query = $this->movie_page_model->get_reserve_slots($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id);
+		echo json_encode($query->result());
+	}
+
 	public function reserve_movie($mov_id, $mov_type) {
 		$movie_id = $mov_id;
 		$movie_type = $mov_type;
@@ -114,22 +127,23 @@ class movie_page_controller extends CI_Controller {
 		$cine_id = $this->input->post('reserve_cinema');
 		$show_date = $this->input->post('reserve_date');
 		$time = $this->input->post('reserve_time');
-		$cost = $this->input->post('reserve_cost');
+		$slots_avail = $this->input->post('slots_avail');
+		$reserve_cost = $this->input->post('reserve_cost');
 
 		$start_time = substr($time, 0, 8);
 		$end_time = substr($time, 11, 8);
 
 		$sched_id = $this->movie_page_model->get_schedule($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id);
-		$slots_avail = $this->movie_page_model->get_slots_available($sched_id);
 		$card_no = $this->movie_page_model->get_card_no($username);
 		$card_points = $this->movie_page_model->get_card_points($username);
 
-		if(($slots_avail > 0) && ($card_points > $cost)) {
-			$or_no = 'testOrNo';
+		if(($slots_avail > 0) && ($card_points > $reserve_cost)) {
+			$or_no = 'OR' . str_pad($slots_avail, 3, "0", STR_PAD_LEFT) . date("dmY");
+
 			$or_date = date("Y-m-d");
 			$this->movie_page_model->add_movie_reservation($or_no, $or_date, $sched_id, $username);
 			$this->movie_page_model->add_movie_reservation_slots($sched_id, $slots_avail - 1);
-			$this->movie_page_model->add_movie_reservation_points($card_no, ($card_points - $cost));
+			$this->movie_page_model->add_movie_reservation_points($card_no, ($card_points - $reserve_cost));
 
 			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);
 		}
@@ -139,7 +153,7 @@ class movie_page_controller extends CI_Controller {
 			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);	
 		}
 
-		else if($card_points < $cost) {
+		else if($card_points < $reserve_cost) {
 			//CARD POINTS IS INSUFFICIENT
 			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);	
 		}
