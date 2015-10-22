@@ -272,7 +272,7 @@
 					
 					<div class="row">
 						<div class="input-field col s12 m12">
-							<input disabled value="<?php echo $movie_name ?>" id="movie_title" type="text" class="validate">
+							<input readonly value="<?php echo $movie_name ?>" id="movie_title" type="text" class="validate">
 							<label for="movie_title" class="active text-black">Movie Title</label>
 						</div>
 
