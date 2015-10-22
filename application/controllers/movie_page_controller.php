@@ -140,12 +140,7 @@ class movie_page_controller extends CI_Controller {
 		}
 
 		else if($card_points < $cost) {
-			// NO SLOTS LEFT AND CARD POINTS IS INSUFFICIENT
-			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);	
-		}
-
-		else if((($slots_avail <= 0) && ($card_points < $cost))) {
-			// NO SLOTS LEFT AND CARD POINTS IS INSUFFICIENT
+			//CARD POINTS IS INSUFFICIENT
 			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);	
 		}
 	}
