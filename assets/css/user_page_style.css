@@ -1,0 +1,7 @@
+#form_user_page input[type="text"]:disabled{
+	color: #FFFFFF;
+	border-bottom-color: #FFFFFF;
+}
+#form_user_page label {
+	color: #FFFFFF;
+}

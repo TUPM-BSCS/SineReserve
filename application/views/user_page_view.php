@@ -1,9 +1,13 @@
+<header>
+	<link href="<?php echo base_url();?>assets/css/user_page_style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</header>
+
 <div class="container">
 	<h4 class="white-text center-align">User Details</h4>
 </div>
-
+<body>
 <div class="container">
-	<form id="form_review" class="col s12" method="POST">
+	<form id="form_user_page" class="col s12" method="POST">
 		<div class="row">
 			<div class="input-field col s12">
 				<input disabled value="<?php echo $user_fullname ?>" id="movie_title" type="text" class="validate text-white">
