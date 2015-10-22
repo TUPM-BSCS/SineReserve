@@ -41,19 +41,26 @@ class movie_page_controller extends CI_Controller {
 			$headerdata['accounts_label'] = "Hello, " . $details['fname'] . " " . $details['lname'];
 			$headerdata['accounts_entry'] = "";
 			$headerdata['accounts_action'] = "dropdown-button";
-			$headerdata['valid_errors'] = "";
+			$headerdata['signin_errors'] = "";
+			$headerdata['signup_errors'] = "";
 			$headerdata['automodal'] = "";
 		} else {
 			$headerdata['accounts_link'] = "#modal1";
 			$headerdata['accounts_label'] = "Accounts";	
 			$headerdata['accounts_entry'] = "";
 			$headerdata['accounts_action'] = "modal-trigger";
-			$headerdata['valid_errors'] = $this->session->flashdata('validation-errors');
-			if(strlen($headerdata['valid_errors'])>0){
+			$headerdata['signin_errors'] = $this->session->flashdata('validation-errors-signin');
+			$headerdata['signup_errors'] = $this->session->flashdata('validation-errors-signup');
+			if(strlen($headerdata['signin_errors'])>0){
 				$headerdata['automodal'] = "$('#modal1').openModal()";	
 			} 
 			else{
 				$headerdata['automodal'] = "";	
+			}
+			if(strlen($headerdata['signup_errors'])>0){
+				$headerdata['automodal'] = "$('#modal-signup').openModal()";
+			} else {
+				$headerdata['automodal'] = "";
 			}
 		}
 		// </the code that needs controller>

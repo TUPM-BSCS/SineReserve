@@ -58,6 +58,16 @@ class header_model extends CI_Model {
 		return $query->row_array();
 	}
 
+	public function is_existing($field, $value){
+		$this->db->select($field);
+		$this->db->where($field, $value);
+		$this->db->from('user');
+		$query = $this->db->get();
+
+		if($query->row_array() > 0) return TRUE;
+		return FALSE;
+	}
+
 	public function add_new_user($username, $password, $email, $lastname, $firstname, $middleinitial, $sex, $birthdate, $aaddress, $card_no, $card_pin) {
 
 	}

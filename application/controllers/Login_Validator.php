@@ -19,7 +19,7 @@
 
 			if ($this->form_validation->run() == FALSE)
 			{
-				$this->session->set_flashdata('validation-errors', validation_errors());
+				$this->session->set_flashdata('validation-errors-signin', validation_errors());
 				redirect($this->session->flashdata('last-page'));
 				
 			}

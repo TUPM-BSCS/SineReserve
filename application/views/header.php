@@ -19,6 +19,7 @@
 
       <link href="<?php echo base_url();?>assets/css/lol.css" type="text/css" rel="stylesheet" media="screen,projection"/>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   </head>
   
   <body class="lighten-5" style="background-color: #18191b;" onload="<?php echo $automodal ?>">
@@ -33,7 +34,7 @@
     <div class ="navbar-fixed">
       <nav class="red darken-4 main-nav ripple" id="meet-1" role="navigation">
         <div class="nav-wrapper container"> 
-          <a id="logo-container" href= "<?php echo base_url();?>index.php/Home/home" class="brand-logo left-align white-text">SineReservez</a>
+          <a id="logo-container" href= "<?php echo base_url();?>index.php/Home/home" class="brand-logo left-align white-text">SineReserve</a>
           <!--<a id="logo-container" href="http://localhost/SineReserve/index.php/Home/home" class="brand-logo left white-text hide-on-med-and-up">SineReserve</a>-->
 <!--          <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>-->
           <ul class="right hide-on-large-only">
@@ -70,7 +71,7 @@
                 </div> -->
                 <!-- <div class="collapsible-body"> -->
                     
-                      <?php echo $valid_errors; ?>
+                      <?php echo $signin_errors; ?>
                       <?php echo form_open('login_validator'); ?>
                         <div class="row">
                           <div class="input-field col s12">
@@ -107,64 +108,68 @@
              <p class="text-white">Sign Up</p>
           </div>
           <div class="modal-content">
+            <?php echo $signup_errors; ?>
+            <?php echo form_open('signup_validator'); ?>
             <div class="row">
               <div class="input field col s12">
-                <input id="field_uname" name="username" type="text" class="validate" placeholder="JAppl" />
+                <input id="field_uname" name="up_username" type="text" class="validate" placeholder="JAppl" required/>
                 <label for="field_uname">Username</label>
               </div>
               <div class="input field col s12">
-                <input id="field_pass" name="password" type="password" class="validate" placeholder="Marcos" />
+                <input id="field_pass" name="password" type="password" class="validate" placeholder="Marcos" required/>
                 <label for="field_pass">Password</label>
               </div>
               <div class="input field col s12">
-                <input id="field_rpass" name="password" type="password" class="validate" placeholder="Marcos" />
+                <input id="field_rpass" name="password" type="password" class="validate" placeholder="Marcos" required/>
                 <label for="field_rpass">Re-enter Password</label>
               </div>
               <div class="input field col s12">
-                <input id="field_email" name="email" type="email" class="validate" placeholder="johnappleseed@sinereserve.com" />
+                <input id="field_email" name="email" type="email" class="validate" placeholder="johnappleseed@sinereserve.com" required/>
                 <label for="field_email">E-Mail</label>
               </div>
               <div class="input field col s12">
-                <input id="field_lname" type="text" class="validate" placeholder="Appleseed" />
+                <input id="field_lname" name="lname" type="text" class="validate" placeholder="Appleseed" required/>
                 <label for="field_lname">Last Name</label>
               </div>
               <div class="input field col s12">
-                <input id="field_fname" type="text" class="validate" placeholder="John" />
+                <input id="field_fname" name="fname" type="text" class="validate" placeholder="John" required/>
                 <label for="field_fname">First Name</label>
               </div>
               <div class="input field col s12">
-                <input id="field_mname" type="text" class="validate" placeholder="Marcos" />
+                <input id="field_mname" name="mname" type="text" class="validate" placeholder="Marcos" required/>
                 <label for="field_mname">Middle Name</label>
               </div>
               <div class="col s12">
                 <p>Sex</p>
                 <p>
-                  <input name="rad_sex" type="radio" id="male" />
+                  <input name="rad_sex" type="radio" id="male" value="M" />
                   <label for="male">Male</label>
                 </p>
                 <p>
-                  <input name="rad_sex" type="radio" id="female" />
+                  <input name="rad_sex" type="radio" id="female" value="F" />
                   <label for="female">Female</label>
                 </p>
               </div>
               <div class="input field col s12">
-                <input id="field_bday" name="bday" type="date" class="datepicker" placeholder="2015/10/22" />
+                <input id="field_bday" name="bday" type="date" class="datepicker" placeholder="2015/10/22" required/>
                 <label for="field_bday">Birthday</label>
               </div>
               <div class="input field col s12">
-                <textarea id="field_address" name="address" class="materialize-textarea"></textarea>
+                <textarea id="field_address" name="address" class="materialize-textarea" required></textarea>
                 <label for="field_address">Address</label>
               </div>
               <div class="input field col s12 hide">
-                <input id="field_cardnum" name="cardnum" type="text" class="validate" placeholder="Marcos" />
+                <input id="field_cardnum" name="cardnum" type="text" class="validate" placeholder="Marcos"/>
                 <label for="field_cardnum">Card Number</label>
               </div>
               <div class="col s12 valign-wrapper">
-                <button class="waves-effect btn valign" type="submit" name="btn_sign-in">Sign Up</button>
+                <button class="waves-effect btn valign" type="submit" name="btn_sign-up">Sign Up</button>
               </div>
-            </div> 
-          </div>
+            
+            </form>
+            </div>
+          </div> 
         <div class="modal-footer">
         </div>
-        </div>
+        
       </div>
