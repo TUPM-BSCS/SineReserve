@@ -363,8 +363,21 @@
 		}
 
 		public function ajax_add_shows() {
-			$cinema = $this->input->post('cinema');
-			$date = $this->input->post('date');
+			// $cinema = $this->input->post('cinema');
+			// $temp = new DateTime($this->input->post('start'));
+			// $temp->add(new DateInterval('PT120M'));
+			// $date = $temp->format('h:i A');
+			// $movie = $this->input->post('movie');
+			// $start = strtolower($this->input->post('start'));
+			// $start = new DateTime($start);
+			// $start = $start->format('h:i A');
+			// echo json_encode(array(
+			// 	'cinema'=>$cinema,
+			// 	'date'=>$date,
+			// 	'movie'=>$movie,
+			// 	'start'=>$start
+			// ));
+			// die();
 			$this->load->model('shows_model');
 			$query = $this->shows_model->get_show_by_cine_date($date, $cinema);
 			if($query->num_rows() > 0) {
@@ -374,6 +387,8 @@
 				$movie = $this->input->post('movie');
 				$start = $this->input->post('start');
 				$times = array();
+				array_push($times, $start);
+
 			}
 		}
 		

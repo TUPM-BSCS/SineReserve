@@ -95,8 +95,8 @@
 						<div class="input-field col s12">
 							<!-- Movie Input Field -->
 							<div class="row">
-								<i class="material-icons prefix">search</i>
-					         <input id="icon_prefix" name="movie" type="text" class="validate" placeholder="Search a Movie" required>
+					         <input id="modal-movie" value="1" name="movie" type="text" class="validate col s12 l6" placeholder="Search a Movie" required>
+					         <input placeholder="Starting Time" id="modal-time" type="text" class="validate lolliclock col s12 l6" name="time">
 					      </div>
 
 				         <!-- Date Input Field -->
@@ -132,7 +132,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button class="btn waves-effect waves-light signup-button" type="submit" name="action" id="add-submit">Confirm</button>
+					<button class="btn waves-effect waves-light" type="submit" name="action" id="add-submit">Confirm</button>
 				</div>
 				</form>
 			</div>
@@ -140,7 +140,9 @@
 		<!-- JS TAGS -->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/lolliclock.js"></script>
 		<script>
+			$('.lolliclock').lolliclock({autoclose:true});
 			$('.button-collapse').sideNav();
 			$('.modal-trigger').leanModal();
 			$('#addbtn_modal').click(function(){
@@ -168,7 +170,7 @@
     					var to = $('#to').val();
     					var from = $('#from').val();
     				}
-    				window.location.href='<?php echo base_url(); ?>index.php/Adminn_controller/shows/time/' + from + '_' + to;
+    				window.location.href='<?php echo base_url(); ?>index.php/Admin_controller/shows/time/' + from + '_' + to;
     			}
   			});
 
@@ -182,6 +184,26 @@
     			clear: ""
   			});
 
+  			$('#add-submit').click(function() {
+  				event.preventDefault();
+  				var cinema = $('#modal-cinema').val();
+  				var movie = $('#modal-movie').val();
+  				var date = $('#today').val();
+  				var start = $('#modal-time').val();
+  				$.ajax({
+  					url: '<?php echo base_url(); ?>index.php/Admin_controller/ajax_add_shows',
+  					dataType: 'json',
+  					method: 'post',
+  					data: {cinema: cinema, movie: movie, date: date, start: start},
+  					success: function(data) {
+  						alert(JSON.stringify(data));
+  					},
+  					error: function(err) {
+  						console.log(err);
+  					}
+  				}); 
+  			});
+
   			$('.view-details').click(function() {
   				var the_id; 
   				the_id = $(this).attr('id');
@@ -190,7 +212,7 @@
   				var show_date = $(this).attr('data-show-date');
   				var bran_name = $(this).attr('data-bran-name');
   				$.ajax({
-  					url: '<?php echo base_url(); ?>index.php/Adminn_controller/ajax_get_shows_information',
+  					url: '<?php echo base_url(); ?>index.php/Admin_controller/ajax_get_shows_information',
   					dataType: 'json',
   					method: 'post',
   					data: {id: the_id},
@@ -219,28 +241,6 @@
   							}
   						}
   						$('.cinema-list').collapsible();
-  						// 	$('.cinema-list').append('
-  						// 		<li>
-								// 	<div class="collapsible-header">Cinema 1</div>
-								// 	<div class="collapsible-body">
-								// 		<ul class="collection">
-  						// 	');
-  						// }
-
-  						// <ul class="collapsible cinema-list" data-collapsible="accordion">
-								// <li>
-								// 	<div class="collapsible-header">Cinema 1</div>
-								// 	<div class="collapsible-body">
-								// 		<ul class="collection">
-								// 			<li class="collection-item">12:30 - 2:30</li>
-								// 			<li class="collection-item">12:30 - 2:30</li>
-								// 			<li class="collection-item">12:30 - 2:30</li>
-								// 			<li class="collection-item">12:30 - 2:30</li>
-								// 			<li class="collection-item">12:30 - 2:30</li>
-								// 		</ul>
-								// 	</div>
-								// </li>
-
   					},
   					error: function(error, wawa, meme) {
   						console.log(error);
