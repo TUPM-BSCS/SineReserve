@@ -12,7 +12,6 @@
 					<ul class="list">
 						<li><a class="white-text" href="http://localhost/SineReserve/index.php/Home/home">Home</a></li>
 						<li><a class="white-text" href="http://localhost/SineReserve/index.php/movie_index_controller/movies_index">Movies</a></li>
-						<li><a class="white-text" href="http://localhost/SineReserve/index.php/Admin_controller/index">Admin</a></li>
 					</ul>
 				</div>
 			</div>

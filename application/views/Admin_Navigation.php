@@ -63,5 +63,5 @@
 			<li><a href="<?php echo base_url();?>index.php/Admin_controller/branch">Branches</a></li>
 			<li><a href="<?php echo base_url();?>index.php/Admin_controller/cinema">Cinema</a></li>
 			<li><a href="<?php echo base_url();?>index.php/Admin_controller/movie">Movies</a></li>
-			<li><a href="#!">Shows</a></li>
+			<li><a href="<?php echo base_url();?>index.php/Admin_controller/shows">Shows</a></li>
 		</ul>
