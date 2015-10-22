@@ -153,17 +153,29 @@ class movie_page_model extends CI_Model {
 		$update = array(
 			'shows.slots_avail' => $slots_avail,
 		);
-		$this->db->update('shows', $update);
 		$this->db->where('sched_id', $sched_id);
+		$this->db->update('shows', $update);
 	}
 
-	public function add_movie_reservation_points($username, $cost) {
+	public function add_movie_reservation_points($card_no, $cost) {
 		$update = array(
 			'card.card_points' => $cost,
 		);
+		$this->db->where('card_no', $card_no);
 		$this->db->update('card', $update);
-		$this->db->where('username', $username);
+	}
+
+	public function get_card_no($username) {
+		$this->db->select('card.card_no');
+		$this->db->where('user.username', $username);
+		$this->db->from('card');
 		$this->db->join('user', 'card.card_no = user.card_no');
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return $query->row()->card_no;
+		}
+		return false;
 	}
 
 	public function get_card_points($username) {

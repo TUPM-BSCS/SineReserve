@@ -121,23 +121,31 @@ class movie_page_controller extends CI_Controller {
 
 		$sched_id = $this->movie_page_model->get_schedule($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id);
 		$slots_avail = $this->movie_page_model->get_slots_available($sched_id);
+		$card_no = $this->movie_page_model->get_card_no($username);
 		$card_points = $this->movie_page_model->get_card_points($username);
-
-		echo $card_points . ' - ' . $cost . ' = ' . ($card_points - $cost);
-		die();
 
 		if(($slots_avail > 0) && ($card_points > $cost)) {
 			$or_no = 'testOrNo';
 			$or_date = date("Y-m-d");
 			$this->movie_page_model->add_movie_reservation($or_no, $or_date, $sched_id, $username);
 			$this->movie_page_model->add_movie_reservation_slots($sched_id, $slots_avail - 1);
-			$this->movie_page_model->add_movie_reservation_points($username, ($card_points - $cost));
+			$this->movie_page_model->add_movie_reservation_points($card_no, ($card_points - $cost));
 
 			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);
 		}
 
-		else {
-			// NO SLOTS LEFT OR CARD POINTS IS INSUFFICIENT
+		else if($slots_avail <= 0) {
+			// NO SLOTS LEFT
+			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);	
+		}
+
+		else if($card_points < $cost) {
+			// NO SLOTS LEFT AND CARD POINTS IS INSUFFICIENT
+			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);	
+		}
+
+		else if((($slots_avail <= 0) && ($card_points < $cost))) {
+			// NO SLOTS LEFT AND CARD POINTS IS INSUFFICIENT
 			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);	
 		}
 	}

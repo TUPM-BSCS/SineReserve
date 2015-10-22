@@ -312,7 +312,7 @@
 
 						<div class="input-field col s12">
 							<div id="movie_price">
-								<input disabled value="Select a Branch" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black">
+								<input readonly value="Select a Branch" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black">
 								<label for="reserve_cost" class="active text-black">Movie Cost</label>
 							</div>
 						</div>
@@ -389,7 +389,7 @@
 				$('#reserve_cinema').html('').append('<option value="" disabled selected>Select a Cinema</option>');
 				$('#reserve_date').html('').append('<option value="" disabled selected>Select a Cinema</option>');
 				$('#reserve_time').html('').append('<option value="" disabled selected>Select a Cinema</option>');
-				$('#movie_price').html('').append('<input disabled value="Select a Cinema" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
+				$('#movie_price').html('').append('<input readonly value="Select a Cinema" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
 				
 				bran_id = <?php echo $reserve_branch[0]['bran_id'] ?>;
 
@@ -410,7 +410,7 @@
 			$('#reserve_cinema').change(function() {
 				$('#reserve_date').html('').append('<option value="" disabled selected>Select a Date</option>');
 				$('#reserve_time').html('').append('<option value="" disabled selected>Select a Date</option>');
-				$('#movie_price').html('').append('<input disabled value="Select a Date" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
+				$('#movie_price').html('').append('<input readonly value="Select a Date" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
 				
 				cine_id = $('#reserve_cinema').val();
 
@@ -430,7 +430,7 @@
 
 			$('#reserve_date').change(function() {
 				$('#reserve_time').html('').append('<option value="" disabled selected>Select a Time</option>');
-				$('#movie_price').html('').append('<input disabled value="Select a Time" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
+				$('#movie_price').html('').append('<input readonly value="Select a Time" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
 				
 				show_date = $('#reserve_date').val();
 
@@ -460,7 +460,7 @@
   					success: function(data) {
   						// console.log(JSON.stringify(data));
   						for(var sample in data) {
-  							$('#movie_price').html('').append('<input disabled value=' + data[sample]['cost'] + ' id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
+  							$('#movie_price').html('').append('<input readonly value=' + data[sample]['cost'] + ' id="reserve_cost" name="reserve_cost" type="text" class="validate text-black"><label for="reserve_cost" class="active text-black">Movie Cost</label>');
   						}
   					},
   				});
