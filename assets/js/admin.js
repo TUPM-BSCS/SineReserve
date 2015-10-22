@@ -5,6 +5,10 @@ function filetype_checker(filename){
 	switch(type){
 		case '.jpg': pass = false; break;
 		case '.png': pass = false; break;
+		case '.PNG': pass = false; break;
+		case '.JPG': pass = false; break;
+		case '.JPEG': pass = false; break;
+		case '.jpeg': pass = false; break;
 		default: pass = true; break;
 	}
 	return pass;
@@ -33,13 +37,16 @@ $(document).ready(function(){
 		// alert($('#add_imdb_trailer').val().search('https://www.youtube.com/watch'));
 		if($('#add_imdb_trailer').val().search('https://www.youtube.com/watch') == 0){
 			$clean_youtube = $('#add_imdb_trailer').val().replace("watch?v=", "embed/");
-			$clean_youtube = $clean_youtube.substring(0,$clean_youtube.indexOf('&'));
+			if($clean_youtube.search('&') != -1)
+				$clean_youtube = $clean_youtube.substring(0,$clean_youtube.indexOf('&'));
 		}
-		else if ($('#add_imdb_trailer').val().search('https://www.youtube.com/embed') == 0){
+		else if ($('#add_imdb_trailer').val().search('https://www.youtube.com/embed/') == 0){
 			$clean_youtube = $('#add_imdb_trailer').val();
+			alert($('#add_imdb_trailer').val());
 		}
-		else	
+		else{	
 			$clean_youtube = '';
+		}
 		$('#add_imdb_trailer').val($clean_youtube);
 		
 		if(filetype_checker($('#add_imdb_poster').val()))
@@ -292,7 +299,8 @@ $(document).ready(function(){
 	$('#custom_confirm_btn').click(function(){
 		if($('#add_custom_trailer').val().search('https://www.youtube.com/watch') == 0){
 			$clean_youtube = $('#add_custom_trailer').val().replace("watch?v=", "embed/");
-			$clean_youtube = $clean_youtube.substring(0,$clean_youtube.indexOf('&'));
+			if($clean_youtube.search('&') != -1)
+				$clean_youtube = $clean_youtube.substring(0,$clean_youtube.indexOf('&'));
 		}
 		else if ($('#add_custom_trailer').val().search('https://www.youtube.com/embed') == 0){
 			$clean_youtube = $('#add_custom_trailer').val();
@@ -347,7 +355,8 @@ $(document).ready(function(){
 	$('#title_confirm_btn').click(function(){
 		if($('#add_title_trailer').val().search('https://www.youtube.com/watch') == 0){
 			$clean_youtube = $('#add_title_trailer').val().replace("watch?v=", "embed/");
-			$clean_youtube = $clean_youtube.substring(0,$clean_youtube.indexOf('&'));
+			if($clean_youtube.search('&') != -1)
+				$clean_youtube = $clean_youtube.substring(0,$clean_youtube.indexOf('&'));
 		}
 		else if ($('#add_title_trailer').val().search('https://www.youtube.com/embed') == 0){
 			$clean_youtube = $('#add_title_trailer').val();
