@@ -81,42 +81,6 @@
 						<br>
 						<div class="section">
 							<ul class="collapsible cinema-list" data-collapsible="accordion">
-								<li>
-									<div class="collapsible-header">Cinema 1</div>
-									<div class="collapsible-body">
-										<ul class="collection">
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-										</ul>
-									</div>
-								</li>
-								<li>
-									<div class="collapsible-header">Cinema 2</div>
-									<div class="collapsible-body">
-										<ul class="collection">
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-										</ul>
-									</div>
-								</li>
-								<li>
-									<div class="collapsible-header">Cinema 3</div>
-									<div class="collapsible-body">
-										<ul class="collection">
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-											<li class="collection-item">12:30 - 2:30</li>
-										</ul>
-									</div>
-								</li>
 							</ul>
 						</div>
 					</div>

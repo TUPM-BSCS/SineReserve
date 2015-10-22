@@ -361,6 +361,21 @@
 			$query = $this->shows_model->get_show_by_things($row->mov_id, $row->cine_id, $row->show_date);
 			echo json_encode($query->result());
 		}
+
+		public function ajax_add_shows() {
+			$cinema = $this->input->post('cinema');
+			$date = $this->input->post('date');
+			$this->load->model('shows_model');
+			$query = $this->shows_model->get_show_by_cine_date($date, $cinema);
+			if($query->num_rows() > 0) {
+				echo false;
+			}
+			else {
+				$movie = $this->input->post('movie');
+				$start = $this->input->post('start');
+				$times = array();
+			}
+		}
 		
 		public function upload_poster($files, $type){
 			$config['upload_path'] = './assets/images/posters';

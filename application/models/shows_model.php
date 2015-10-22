@@ -78,6 +78,15 @@ class shows_model extends CI_Model {
 		return $this->db->get();
 	}
 
+	public function get_show_by_cine_date($date, $cinema) {
+		$where = array(
+			'show_date' => $date,
+			'cine_id' => $cinema);
+		$this->db->where($where);
+		$this->db->from('shows');
+		return $this->db->get();
+	}
+
 }
 
 ?>
