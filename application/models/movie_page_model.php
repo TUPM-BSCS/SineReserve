@@ -139,18 +139,26 @@ class movie_page_model extends CI_Model {
 	}
 
 	// RESERVATION
-	public function add_movie_reservation($mov_id, $cinema, $branch, $date, $time, $username) {
-		if(($title != null) && ($review != null)) {
-			$review = array(
-				'title' => $title,
-				'review' => $review,
-				'user_rating' => $user_rating,
-				'review_date' => $review_date,
-				'username' => $username,
-				'mov_id' => $mov_id
-			);
-			$this->db->insert('review', $review);
-		}
+	public function add_movie_reservation($or_no, $or_date, $sched_id, $username) {
+		$reserved_by = array(
+			'or_no' => $or_no,
+			'or_date' => $or_date,
+			'sched_id' => $sched_id,
+			'username' => $username,
+		);
+		$this->db->insert('reserved_by', $reserved_by);
+
+		$this->db->select('shows.slots_avail');
+		$this->db->where('sched_id', $sched_id);
+		$this->db->from('shows');
+
+		$query = $this->db->get();
+		$slots_available = $query->row()->slots_avail;
+
+		$slots_avail = array(
+			'shows.slots_avail' => $slots_available,
+		);
+		$this->db->update('shows', $slots_avail);
 	}
 
 	// public function getschedule() {
@@ -247,7 +255,7 @@ class movie_page_model extends CI_Model {
 	}
 
 	public function get_schedule($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id) {
-		$this->db->select('shows.sched_id');
+		$this->db->select('sched_id');
 
 		$where = array(
 			'mov_id' => $mov_id,
@@ -257,12 +265,31 @@ class movie_page_model extends CI_Model {
 			'cinema.cine_id' => $cine_id,
 			'branch.bran_id' => $bran_id
 		);
+
+		// print_r($where);
+
 		$this->db->where($where);
 		$this->db->from('shows');
 		$this->db->join('cinema', 'cinema.cine_id = shows.cine_id');
 		$this->db->join('branch', 'branch.bran_id = cinema.bran_id');
-		
-		return $this->db->get();
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return $query->row()->sched_id;
+		}
+		return false;
+	}
+
+	public function get_slots_available($sched_id) {
+		$this->db->select('shows.slots_avail');
+		$this->db->where('sched_id', $sched_id);
+		$this->db->from('shows');
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return $query->row()->slots_avail;
+		}
+		return false;
 	}
 
 	// ADD REVIEW

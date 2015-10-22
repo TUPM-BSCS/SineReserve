@@ -278,7 +278,7 @@
 
 						<div class="col s12 m8">
 							<label>Branch</label>
-							<select id="reserve_branch" class="browser-default">
+							<select id="reserve_branch" name="reserve_branch" class="browser-default">
 								<option value="" disabled selected>Select the Branch</option>
 								<?php
 									for($i = 0; $i < sizeof($reserve_branch); $i++) {
@@ -291,31 +291,21 @@
 
 						<div class="col s12 m8">
 							<label>Cinema</label>
-							<select id="reserve_cinema" class="browser-default">
+							<select id="reserve_cinema" name="reserve_cinema" class="browser-default">
 								<option value="" disabled selected>Select the Cinema</option>
-								<?php 
-									for($i = 0; $i < sizeof($reserve_cinema); $i++) {
-										echo '<option id="reserve_cinema_option" value="'. $reserve_cinema[$i]['cine_id'] .'" href="' . base_url() .'movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['cine_name'] . '</option>';
-									}
-								?>
 							</select>
 						</div>
 
 						<div class="col s12 m8">
 							<label>Date</label>
-							<select id="reserve_date" class="browser-default">
+							<select id="reserve_date" name="reserve_date" class="browser-default">
 								<option value="" disabled selected>Select the Date</option>
-								<?php 
-									for($i = 0; $i < sizeof($reserve_cinema); $i++) {
-										echo '<option id="reserve_date_option" value="'. $reserve_cinema[$i]['bran_id'] .'" href="' . base_url() .'movie_page_controller/get_cinema/' . $reserve_cinema[$i]['bran_id'] . '">' . $reserve_cinema[$i]['bran_name'] . '</option>';
-									}
-								?>
 							</select>
 						</div>
 
 						<div class="col s12 m8">
 							<label>Time</label>
-							<select id="reserve_time" class="browser-default">
+							<select id="reserve_time" name="reserve_time" class="browser-default">
 								<option value="" disabled selected>Select the Time</option>
 								<?php 
 									for($i = 0; $i < sizeof($reserve_cinema); $i++) {
@@ -327,12 +317,11 @@
 
 						<div class="input-field col s12">
 							<div id="movie_price">
-								<input disabled value="0.00" id="movie_cost" type="text" class="validate text-black">
-								<label for="movie_cost" class="active text-black">Movie Price</label>
+								<input disabled value="0.00" id="reserve_cost" name="reserve_cost" type="text" class="validate text-black">
+								<label for="reserve_cost" class="active text-black">Movie Price</label>
 							</div>
 						</div>
 					</div>
-
 					
 				</form>
 			</div>

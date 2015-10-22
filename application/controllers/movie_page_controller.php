@@ -112,21 +112,30 @@ class movie_page_controller extends CI_Controller {
 		$username = $this->session->userdata('hurt-me-plenty');
 		$bran_id = $this->input->post('reserve_branch');
 		$cine_id = $this->input->post('reserve_cinema');
-		$date = $this->input->post('reserve_date');
+		$show_date = $this->input->post('reserve_date');
 		$time = $this->input->post('reserve_time');
+		$cost = $this->input->post('reserve_cost');
 
-		$start_time = $time.substr(0, 8);
-		$end_time = $time.substr(11, 8);
-
+		$start_time = substr($time, 0, 8);
+		$end_time = substr($time, 11, 8);
 
 		$price = $this->input->post('reserve_cost');
 
-		$or_no = 'aa';
-		$or_date = date("Y-m-d");
 		$sched_id = $this->movie_page_model->get_schedule($mov_id, $start_time, $end_time, $show_date, $cine_id, $bran_id);
-		$this->movie_page_model->add_movie_reservation($or_no, $or_date, $sched_id, $username);
+		$slots_avail = $this->movie_page_model->get_slots_available($sched_id);
 
-		redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);
+		if($slots_avail > 0) {
+			$or_no = 'testOrNo';
+			$or_date = date("Y-m-d");
+			$this->movie_page_model->add_movie_reservation($or_no, $or_date, $sched_id, $username, $slots_avail - 1);
+
+			redirect('movie_page_controller/movie/'. $movie_id .'/'. $movie_type);
+		}
+
+		else {
+			echo "NO SLUTS LEFT!";
+			die();
+		}
 	}
 
 	public function review_movie($mov_id, $mov_type) {
