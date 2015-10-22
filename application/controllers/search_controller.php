@@ -13,7 +13,7 @@ class search_controller extends CI_Controller {
 		$query = $this->search_model->get_movie_results($search_term);
 
 		if($query == null) {
-			echo json_encode();
+			echo json_encode('No Result');
 		}
 
 		else {
