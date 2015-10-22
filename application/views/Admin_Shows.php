@@ -288,11 +288,12 @@
   				$('#modal-cinema').removeAttr('disabled');
 				$('#modal-cinema').attr('enabled', true);
 				$.ajax({
-					url: '<?php echo base_url(); ?>index.php/Adminn_controller/ajax_get_cinemas_by_branch',
+					url: '<?php echo base_url(); ?>index.php/Admin_controller/ajax_get_cinemas_by_branch',
 					method: 'post',
 					dataType: 'json',
 					data: {branch: $('#modal-branch').val()},
 					success: function(data) {
+						console.log(JSON.stringify(data));
 						$('#modal-cinema').html('');
 						var row;
 						for(row in data) {
@@ -307,7 +308,7 @@
 						}
 					},
 					error: function(error) {
-						alert(error);
+						console.log(error);
 					}
 				});
   			}
