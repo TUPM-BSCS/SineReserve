@@ -30,7 +30,7 @@ $(document).ready(function(){
 	});
 
 	$('#imdb_confirm_btn').click(function(){
-		alert($('#add_imdb_trailer').val().search('https://www.youtube.com/watch'));
+		// alert($('#add_imdb_trailer').val().search('https://www.youtube.com/watch'));
 		if($('#add_imdb_trailer').val().search('https://www.youtube.com/watch') == 0){
 			$clean_youtube = $('#add_imdb_trailer').val().replace("watch?v=", "embed/");
 			$clean_youtube = $clean_youtube.substring(0,$clean_youtube.indexOf('&'));
@@ -177,7 +177,7 @@ $(document).ready(function(){
 						if(data['Released'] != 'N/A');
 							$('#add_imdb_date').val(data['Released']);
 						$('#add_imdb_rate').val(data['Rated']);
-						alert($('#add_imdb_rate').val(data['Rated']));
+						// alert($('#add_imdb_rate').val(data['Rated']));
 						// switch(data['Rated']){
 							// case 'G': $('#add_imdb_rate').val('1'); break;
 							// case 'PG': $('#add_imdb_rate').val('2'); break;
@@ -259,7 +259,7 @@ $(document).ready(function(){
 						}		
 						$('#add_title_date').val(data['Released']);
 						$('#add_title_rate').val(data['Rated']);
-						alert($('#add_title_rate').val(data['Rated']));
+						// alert($('#add_title_rate').val(data['Rated']));
 						// switch(data['Rated']){
 							// case 'G': $('#add_title_rate').val('1'); break;
 							// case 'PG': $('#add_title_rate').val('2'); break;
@@ -340,8 +340,8 @@ $(document).ready(function(){
 		}
 		$('#add_by_custom_modal_content').append('<input type="hidden" id="custom_actor_bitch" name="add_custom_actor_hidden" value="'+ actor_list_str +'">');
 		$('#add_by_custom_modal_content').append('<input type="hidden" id="custom_genre_bitch" name="add_custom_genre_hidden" value="'+ genre_list_str +'">');
-		alert($('#custom_actor_bitch').val());
-		alert($('#custom_genre_bitch').val());
+		// alert($('#custom_actor_bitch').val());
+		// alert($('#custom_genre_bitch').val());
 	});
 	
 	$('#title_confirm_btn').click(function(){
@@ -394,8 +394,8 @@ $(document).ready(function(){
 					genre_list_str += (',' +genre_list[i]);
 			}
 		}
-		alert(actor_list_str);
-		alert(genre_list_str);
+		// alert(actor_list_str);
+		// alert(genre_list_str);
 		$('#add_by_title_modal_content').append('<input type="hidden" id="title_actor_bitch" name="add_title_actor_hidden" value="'+ actor_list_str +'">');
 		$('#add_by_title_modal_content').append('<input type="hidden" id="title_genre_bitch" name="add_title_genre_hidden" value="'+ genre_list_str +'">');
 	});
