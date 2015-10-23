@@ -50,7 +50,7 @@
 									<input id="search_field" type="search" required placeholder="Search..." style="margin-bottom: 0px;">
 									<label for="search"><i class="mdi-action-search"></i></label>
 									<!-- Collections -->
-									<div  id="search_result" class="collections">
+									<div id="search_result" class="collections">
 										
 									</div>
 								</div>
@@ -200,6 +200,8 @@
 
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript">
+			var BASE_URL = "<?php echo base_url();?>";
+
 			$("#search_field").keyup(function() {
 				$('#search_result').html('');
 				var search_term = $('#search_field').val();
@@ -218,7 +220,7 @@
 
 							else {
 								// $('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
-								$('#search_result').append('<a href="#!"class="collection-item white black-text"><img class="responsive-img" src="">search results</a>');
+								$('#search_result').append('<a href="'+ BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_id'] + '" class="collection-item white black-text"><img class="responsive-img" src="' + BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_poster_img'] + '">' + data[sample]['mov_name'] + '</a>');
 							}
 						}
 					},
@@ -244,7 +246,7 @@
 
 							else {
 								// $('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
-								$('#search_result').append('<a href="#!"class="collection-item white black-text"><img class="responsive-img" src="">search results</a>');
+								$('#search_result').append('<a href="'+ BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_id'] + '" class="collection-item white black-text"><img class="responsive-img" src="' + BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_poster_img'] + '">' + data[sample]['mov_name'] + '</a>');
 							}
 						}
 					},
