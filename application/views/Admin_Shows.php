@@ -117,7 +117,7 @@
 							<select disabled id="modal-cinema" name="cinema" class="browser-default col s12 l6" required>
 								<option id="#cine-append-here" disabled selected>Select a cinema</option>
 							</select>
-							<div class="row">
+							<div class="row add-result center">
 								
 							</div>
 							<div class="row"></div>
@@ -184,19 +184,31 @@
     			clear: ""
   			});
 
-  			$('#add-submit').click(function() {
+  			$('#add-submit').click(function(event) {
   				event.preventDefault();
   				var cinema = $('#modal-cinema').val();
   				var movie = $('#modal-movie').val();
   				var date = $('#today').val();
   				var start = $('#modal-time').val();
+  				$('.add-result').html('');
   				$.ajax({
   					url: '<?php echo base_url(); ?>index.php/Admin_controller/ajax_add_shows',
   					dataType: 'json',
   					method: 'post',
   					data: {cinema: cinema, movie: movie, date: date, start: start},
   					success: function(data) {
-  						alert(JSON.stringify(data));
+  						console.log(data);
+  						if (data == false) {
+  							$('.add-result').append('The cinema selected is already occupied on the selected date');
+  						}
+  						else {
+  							$('.add-result').addClass('green-text');
+  							var i;
+  							for(i in data['start']) {
+  								$('.add-result').append(data['start'][i] + ' - ' + data['end'][i] + '<br>');
+  							}
+  						}
+
   					},
   					error: function(err) {
   						console.log(err);

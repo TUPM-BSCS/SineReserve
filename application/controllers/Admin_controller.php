@@ -363,13 +363,13 @@
 		}
 
 		public function ajax_add_shows() {
-			// $cinema = $this->input->post('cinema');
+			$cinema = $this->input->post('cinema');
+			$date = $this->input->post('date');
 			// $temp = new DateTime($this->input->post('start'));
 			// $temp->add(new DateInterval('PT120M'));
 			// $date = $temp->format('h:i A');
 			// $movie = $this->input->post('movie');
-			// $start = strtolower($this->input->post('start'));
-			// $start = new DateTime($start);
+			
 			// $start = $start->format('h:i A');
 			// echo json_encode(array(
 			// 	'cinema'=>$cinema,
@@ -381,14 +381,39 @@
 			$this->load->model('shows_model');
 			$query = $this->shows_model->get_show_by_cine_date($date, $cinema);
 			if($query->num_rows() > 0) {
-				echo false;
+				echo "false";
 			}
 			else {
+				$start_times = array();
+				$end_times = array();
 				$movie = $this->input->post('movie');
 				$start = $this->input->post('start');
-				$times = array();
-				array_push($times, $start);
+				$start = strtolower($this->input->post('start'));
+				$start = new DateTime($start);
+				array_push($start_times, $start->format('H:i:s'));
 
+				$this->load->model('movies_model');
+				$query = $this->movies_model->get_movies_by_id(array($movie), array('mov_running_time'));
+				$row = $query->row();
+				$running_time = $row->mov_running_time;
+				$start->add(new DateInterval('PT' . intval($running_time) . 'M'));
+				array_push($end_times, $start->format('H:i:s'));
+				// echo $running_time;
+				// die();
+
+				$current = $start;
+				$compare = new DateTime('22:00:00');
+				while($current < $compare) {
+					$current->add(new DateInterval('PT30M'));
+					array_push($start_times, $current->format('H:i:s'));
+					$current->add(new DateInterval('PT' . intval($running_time) . 'M'));
+					array_push($end_times, $current->format('H:i:s'));
+				}
+
+				echo json_encode(array(
+					'start' => $start_times,
+					'end' => $end_times
+				));
 			}
 		}
 		
