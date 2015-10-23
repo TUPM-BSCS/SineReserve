@@ -87,6 +87,22 @@ class shows_model extends CI_Model {
 		return $this->db->get();
 	}
 
+	public function add_shows($movie, $date, $cinema, $start_times, $end_times) {
+		$data = array();
+		for($i = 0;$i < count($start_times);$i++) {
+			$row = array(
+				'start_time' => $start_times[$i],
+				'end_time' => $end_times[$i],
+				'show_date' => $date,
+				'cine_id' => $cinema,
+				'mov_id' => $movie,
+				'date_posted' => date('Y-m-d')
+			);
+			array_push($data, $row);
+		}
+		$this->db->insert_batch('shows', $data);
+	}
+
 }
 
 ?>
