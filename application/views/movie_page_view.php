@@ -352,7 +352,7 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button form="form_reserve" class="modal-action modal-close waves-effect waves-green btn-flat red text-white" type="submit" name="action">Confirm</button>
+				<button form="form_reserve" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Confirm</button>
 			</div>
 		</div>
 
@@ -395,7 +395,7 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button form="form_review" class="modal-action modal-close waves-effect waves-green btn-flat red text-white" type="submit" name="action">Confirm</button>
+				<button form="form_review" class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Confirm</button>
 			</div>
 		</div>
 
