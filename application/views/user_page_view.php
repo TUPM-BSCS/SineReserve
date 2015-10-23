@@ -1,11 +1,19 @@
-<header>
+<head>
 	<link href="<?php echo base_url();?>assets/css/user_page_style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</header>
+	<style>
+		input[type="text"]:disabled #movie_title{
+			color: #FFFFFF;
+			border-bottom-color: #FFFFFF;
+		}
+		#form_user_page label {
+			color: #FFFFFF;
+		}
+	</style>
+</head>
 
 <div class="container">
 	<h4 class="white-text center-align">User Details</h4>
 </div>
-<body>
 <div class="container">
 	<form id="form_user_page" class="col s12" method="POST">
 		<div class="row">
