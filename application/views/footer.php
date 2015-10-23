@@ -10,8 +10,8 @@
 				<div class="col l4 offset-l2 s12">
 					<h5 class="white-text">Links</h5>
 					<ul class="list">
-						<li><a class="white-text" href="http://localhost/SineReserve/index.php/Home/home">Home</a></li>
-						<li><a class="white-text" href="http://localhost/SineReserve/index.php/movie_index_controller/movies_index">Movies</a></li>
+						<li><a class="white-text" href="<?php echo base_url();?>Home/home">Home</a></li>
+						<li><a class="white-text" href="<?php echo base_url();?>index.php/movie_index_controller/movie_index">Movies</a></li>
 					</ul>
 				</div>
 			</div>
