@@ -10,14 +10,21 @@ class search_controller extends CI_Controller {
 
 	public function ajax_search() {
 		$search_term = $this->input->post('search_term');
-		$query = $this->search_model->get_movie_results($search_term);
 
-		if($query == null) {
-			echo json_encode('No Result');
+		if($search_term == null) {
+			echo json_encode();
 		}
 
 		else {
-			echo json_encode($query->result());
+			$query = $this->search_model->get_movie_results($search_term);
+			
+			if($query == null) {
+				echo json_encode('No Result');
+			}
+
+			else {
+				echo json_encode($query->result());
+			}
 		}
 	}
 }

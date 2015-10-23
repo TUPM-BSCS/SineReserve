@@ -200,11 +200,9 @@
 
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript">
-			var search_term;
-			
-			document.getElementById("search_field").addEventListener("keyup", function() {
-				// myHilitor2.apply(this.value);
-				search_term = $('#search_field').val();
+			$("#search_field").keyup(function() {
+				$('#search_result').html('');
+				var search_term = $('#search_field').val();
 				
 				$.ajax({
 					url: '<?php echo base_url(); ?>index.php/search_controller/ajax_search',
@@ -214,10 +212,46 @@
 					success: function(data) {
 						console.log(JSON.stringify(data));
 						for(var sample in data) {
-							// $('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
-							$('#search_result').append('<a href="#!"class="collection-item white black-text"><img class="responsive-img" src="">search results</a>');
+							if(data == 'No Result') {
+								$('#search_result').html('').append('<a class="collection-item white black-text"><img class="responsive-img" src="">No Results Found.</a>');;
+							}
+
+							else {
+								// $('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
+								$('#search_result').append('<a href="#!"class="collection-item white black-text"><img class="responsive-img" src="">search results</a>');
+							}
 						}
 					},
 				});
-			}, false);
+			});
+
+			$("#search_field").focusin(function(){
+				$('#search_result').html('');
+
+				var search_term = $('#search_field').val();
+				
+				$.ajax({
+					url: '<?php echo base_url(); ?>index.php/search_controller/ajax_search',
+					dataType: 'json',
+					method: 'post',
+					data: {search_term: search_term},
+					success: function(data) {
+						console.log(JSON.stringify(data));
+						for(var sample in data) {
+							if(data == 'No Result') {
+								$('#search_result').html('').append('<a class="collection-item white black-text"><img class="responsive-img" src="">No Results Found.</a>');;
+							}
+
+							else {
+								// $('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
+								$('#search_result').append('<a href="#!"class="collection-item white black-text"><img class="responsive-img" src="">search results</a>');
+							}
+						}
+					},
+				});
+			});
+
+			$("#search_field").focusout(function(){
+				$('#search_result').html('');
+			});
 		</script>
