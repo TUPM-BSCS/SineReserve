@@ -1,14 +1,5 @@
 <head>
 	<link href="<?php echo base_url();?>assets/css/user_page_style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<style>
-		input[type="text"]:disabled #movie_title{
-			color: #FFFFFF;
-			border-bottom-color: #FFFFFF;
-		}
-		#form_user_page label {
-			color: #FFFFFF;
-		}
-	</style>
 </head>
 
 <div class="container">

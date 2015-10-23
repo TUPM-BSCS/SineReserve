@@ -1,7 +1,7 @@
-#form_user_page input[type="text"]:disabled{
+.container .row input[type="text"]:disabled{
 	color: #FFFFFF;
 	border-bottom-color: #FFFFFF;
 }
-#form_user_page label {
+.container .row .input-field label {
 	color: #FFFFFF;
 }
