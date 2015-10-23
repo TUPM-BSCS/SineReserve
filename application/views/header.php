@@ -281,7 +281,7 @@
 				});
 			});
 
-			$("#search_container").blur(function(){
+			$("#search_field").blur(function(){
 				$('#search_result').html('');
 			});
 		</script>
