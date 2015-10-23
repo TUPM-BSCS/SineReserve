@@ -47,8 +47,12 @@
 						<li>
 							<div class="input-field red darken-2">
 								<div center class="input-field">
-									<input id="search_field" type="search" required placeholder="Search...">
+									<input id="search_field" type="search" required placeholder="Search..." style="margin-bottom: 0px;">
 									<label for="search"><i class="mdi-action-search"></i></label>
+									<!-- Collections -->
+									<div  id="search_result" class="collections">
+										
+									</div>
 								</div>
 							</div>
 							<!--<div class="input-field red darken-2">
@@ -210,7 +214,8 @@
 					success: function(data) {
 						console.log(JSON.stringify(data));
 						for(var sample in data) {
-							$('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
+							// $('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
+							$('#search_result').append('<a href="#!"class="collection-item white black-text"><img class="responsive-img" src="">search results</a>');
 						}
 					},
 				});
