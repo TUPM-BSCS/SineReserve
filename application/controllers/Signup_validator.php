@@ -34,9 +34,10 @@
 												 array('alpha' => 'First name must only be letters.'));
 			$this->form_validation->set_rules('mname', 'Middle Name', 'trim|alpha|callback_insert_mname',
 												 array('alpha' => 'Middle name must only be letters.'));
-			$this->form_validation->set_rules('rad_sex', 'Sex', 'trim|callback_insert_sex');
+			$this->form_validation->set_rules('rad_sex', 'Sex', 'trim|required|callback_insert_sex');
 			$this->form_validation->set_rules('bday', 'Birthdate', 'trim|callback_insert_birth');
 			$this->form_validation->set_rules('address', 'Address', 'trim|callback_insert_address');
+			$this->form_validation->set_rules('cardnum', 'Card Number', 'trim|callback_insert_cardnum');
 
 			if ($this->form_validation->run() == FALSE)
 			{

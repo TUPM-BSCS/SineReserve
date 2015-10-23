@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
@@ -21,7 +20,7 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 
-	<body class="lighten-5" style="background-color: #18191b;" onload="<?php echo $automodal ?>">
+	<body class="lighten-5" style="background-color: #18191b;" onload="<?php echo $automodal; ?>">
 		<!-- Dropdown -->
 		<ul id="accounts_dropdown" class="dropdown-content" >
 			<!--<li class="hide-on-med-and-up"><?php echo $accounts_label; ?></li>-->
@@ -33,7 +32,7 @@
 		<div class ="navbar-fixed">
 			<nav class="red darken-4 main-nav ripple" id="meet-1" role="navigation">
 				<div class="nav-wrapper container"> 
-					<a id="logo-container" href= "<?php echo base_url();?>index.php/Home/home" class="brand-logo left-align white-text">SineReservez</a>
+					<a id="logo-container" href= "<?php echo base_url();?>index.php/Home/home" class="brand-logo left-align white-text">SineReserve</a>
 					<!--<a id="logo-container" href="http://localhost/SineReserve/index.php/Home/home" class="brand-logo left white-text hide-on-med-and-up">SineReserve</a>-->
 					<!--          <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>-->
 					<ul class="right hide-on-large-only">
