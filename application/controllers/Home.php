@@ -139,6 +139,7 @@ class Home extends CI_Controller {
 			$headerdata['signup_errors'] = "";
 			$headerdata['automodal'] = "";
 		} else {
+			$headerdata['automodal'] = "";
 			$headerdata['accounts_link'] = "#modal1";
 			$headerdata['accounts_label'] = "Accounts";	
 			$headerdata['accounts_entry'] = "";
@@ -148,13 +149,8 @@ class Home extends CI_Controller {
 			if(strlen($headerdata['signin_errors'])>0){
 				$headerdata['automodal'] = "$('#modal1').openModal()";	
 			} 
-			else{
-				$headerdata['automodal'] = "";	
-			}
-			if(strlen($headerdata['signup_errors'])>0){
+			elseif(strlen($headerdata['signup_errors'])>0){
 				$headerdata['automodal'] = "$('#modal-signup').openModal()";
-			} else {
-				$headerdata['automodal'] = "";
 			}
 		}
 		// </the code that needs controller>

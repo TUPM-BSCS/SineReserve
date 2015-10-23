@@ -113,7 +113,7 @@
 		private function check_validity(){
 			$this->load->model('header_model');
 			$this->header_model->add_new_user($this->username, $this->password, $this->email, $this->lname, $this->fname, $this->mname, $this->sex, $this->birth, $this->address, $this->cardnum);
-			redirect('home/home');	
+			redirect($this->session->flashdata('last-page'));
 		}
 	}
 ?>
