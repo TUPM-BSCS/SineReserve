@@ -122,6 +122,9 @@ class movie_index_controller extends CI_Controller {
 			$headerdata['signup_errors'] = "";
 			$headerdata['automodal'] = "";
 		} else {
+			//$headerdata['card_no'] = $this->generate_cardnum();
+
+			$headerdata['automodal'] = "";
 			$headerdata['accounts_link'] = "#modal1";
 			$headerdata['accounts_label'] = "Accounts";	
 			$headerdata['accounts_entry'] = "";
@@ -131,14 +134,12 @@ class movie_index_controller extends CI_Controller {
 			if(strlen($headerdata['signin_errors'])>0){
 				$headerdata['automodal'] = "$('#modal1').openModal()";	
 			} 
-			else{
-				$headerdata['automodal'] = "";	
-			}
-			if(strlen($headerdata['signup_errors'])>0){
+			elseif(strlen($headerdata['signup_errors'])>0){
 				$headerdata['automodal'] = "$('#modal-signup').openModal()";
-			} else {
-				$headerdata['automodal'] = "";
 			}
+
+			$headerdata['signup-success'] = $this->session->flashdata('signup-success');
+			if($headerdata['signup-success'] == 1) $headerdata['automodal'] = "$('#modal-signup-success').openModal()";  
 		}
 		// </the code that needs controller>
 

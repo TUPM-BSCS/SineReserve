@@ -12,6 +12,7 @@
 		public $birth;
 		public $address;
 		public $cardnum;
+		public $cardpin;
 
 		function index(){
 			$this->load->helper(array('form', 'url'));
@@ -37,7 +38,8 @@
 			$this->form_validation->set_rules('rad_sex', 'Sex', 'trim|required|callback_insert_sex');
 			$this->form_validation->set_rules('bday', 'Birthdate', 'trim|callback_insert_birth');
 			$this->form_validation->set_rules('address', 'Address', 'trim|callback_insert_address');
-			$this->form_validation->set_rules('cardnum', 'Card Number', 'trim|callback_insert_cardnum');
+			$this->form_validation->set_rules('cardnum', 'Card Number', 'trim|numeric|exact_length[10]|callback_insert_cardnum');
+			$this->form_validation->set_rules('cardpin', 'Card PIN', 'trim|numeric|exact_length[4]|callback_insert_cardpin');
 
 			if ($this->form_validation->run() == FALSE)
 			{
@@ -47,7 +49,7 @@
 			}
 			
 			else {
-				$this->check_validity();
+				$this->signup();
 			}
 
 			
@@ -110,10 +112,47 @@
 			$this->cardnum = $string;
 		}
 
-		private function check_validity(){
+		public function insert_cardpin($string){
+			$this->cardpin = $string;
+		}
+
+		private function signup(){
 			$this->load->model('header_model');
-			$this->header_model->add_new_user($this->username, $this->password, $this->email, $this->lname, $this->fname, $this->mname, $this->sex, $this->birth, $this->address, $this->cardnum);
+			if($this->header_model->add_new_user($this->username, $this->password, $this->email, $this->lname, $this->fname, $this->mname, $this->sex, $this->birth, $this->address, $this->cardnum)){
+				//$this->header_model->add_card($this->cardnum, $this->cardpin, 0);
+				//sendverify();
+				$this->session->set_flashdata('signup-success', 1);	
+			} else {
+				$this->form_validation->set_message('insert_cardpin', 'There is problem with signing in. Please check your connection and try again.');
+				return FALSE;
+			}
+			
 			redirect($this->session->flashdata('last-page'));
+		}
+
+		private function sendverify(){
+			$this->load->model('header_model');
+			$hash = $this->header_model->get_verifyhash($this->username);
+
+			$to = $this->email;
+			$subject = "Signup Validation";
+			$message = "
+
+			Hello from SineReserve!
+
+			Thanks for signing up.
+
+			Click the link below to activate your account and start enjoy our services:
+			" . base_url() . "activator/?val=" . $hash . "
+
+			Happy reservation!
+
+
+			";
+
+			$headers = 'From:noreply@sinereserve.com' . "\r\n";
+
+
 		}
 	}
 ?>

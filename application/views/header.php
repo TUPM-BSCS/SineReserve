@@ -53,8 +53,10 @@
 									<div id="search_result" class="collections">
 										
 									</div>
+
 								</div>
 							</div>
+
 							<!--<div class="input-field red darken-2">
 								<input id="search_bar" class="search" type="text" required></input>
 								<label for="search"><i class="mdi-action-search"></i></label>
@@ -62,6 +64,7 @@
 							</div> -->
 						</li>
 					</ul>
+
 				</div>
 			</nav>
 		</div>
@@ -157,7 +160,6 @@
 						<input id="field_mname" name="mname" type="text" class="validate" placeholder="Marcos" required/>
 						<label for="field_mname">Middle Name</label>
 					</div>
-
 					<div class="col s12">
 						<p>Sex</p>
 
@@ -182,10 +184,21 @@
 						<label for="field_address">Address</label>
 					</div>
 
-					<div class="input field col s12 hide">
-						<input id="field_cardnum" name="cardnum" type="text" class="validate" placeholder="Marcos"/>
+          <div class="col s12">
+          <p>
+              With our dedicated card, you can reserve a movie with your top-up points!
+          </p>
+          </div>
+
+					<div class="input field col s12">
+						<input id="field_cardnum" name="cardnum" type="text" class="validate" placeholder="Marcos" required/>
 						<label for="field_cardnum">Card Number</label>
 					</div>
+
+          <div class="input field col s12">
+            <input id="field_cardpin" name="cardpin" type="password" class="validate" placeholder="1234" required/>
+            <label for="field_cardpin">Card PIN</label>
+          </div>
 
 					<div class="col s12 valign-wrapper">
 						<button class="waves-effect btn valign" type="submit" name="btn_sign-up">Sign Up</button>
@@ -197,6 +210,14 @@
 			</div>
 		</div>
 		<!-- </div> -->
+    <div id="modal-signup-success" class="modal">
+      <div class="modal-content">
+        <p>Your account has been signed up. You can now sign in.</p>
+      </div>
+      <div class="modal-footer">
+        <a class="modal-close btn-floating btn-medium waves-effect waves-light green">Okay</a>
+      </div>
+    </div>
 
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript">
@@ -239,6 +260,12 @@
 					data: {search_term: search_term},
 					success: function(data) {
 						console.log(JSON.stringify(data));
+            //console.log(data[sample]['cine_id']);
+            //console.log(data[sample]['cine_name']);
+            var list = document.getElementById('search_result');
+            while (list.hasChildNodes()) {   
+               list.removeChild(list.firstChild);
+            }            
 						for(var sample in data) {
 							if(data == 'No Result') {
 								$('#search_result').html('').append('<a class="collection-item white black-text center-align"><img class="responsive-img" src="">No Results Found.</a>');;
@@ -249,6 +276,7 @@
 								$('#search_result').append('<a href="'+ BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_id'] + '/" class="collection-item white black-text valign-wrapper"><img class="responsive-img" src="' + BASE_URL + data[sample]['mov_poster_img'] + '" style="max-height: 60px; margin-right: 10px;"><span class="movie-title">' + data[sample]['mov_name'] + '</span></a>');
 							}
 						}
+
 					},
 				});
 			});

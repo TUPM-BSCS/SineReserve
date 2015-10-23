@@ -124,6 +124,7 @@ class Home extends CI_Controller {
 
 		// echo var_dump($data);
 
+
 		// <the code that needs controller> 
 		$this->session->set_flashdata('last-page', current_url());
 
@@ -139,6 +140,8 @@ class Home extends CI_Controller {
 			$headerdata['signup_errors'] = "";
 			$headerdata['automodal'] = "";
 		} else {
+			//$headerdata['card_no'] = $this->generate_cardnum();
+
 			$headerdata['automodal'] = "";
 			$headerdata['accounts_link'] = "#modal1";
 			$headerdata['accounts_label'] = "Accounts";	
@@ -152,12 +155,28 @@ class Home extends CI_Controller {
 			elseif(strlen($headerdata['signup_errors'])>0){
 				$headerdata['automodal'] = "$('#modal-signup').openModal()";
 			}
+
+			$headerdata['signup-success'] = $this->session->flashdata('signup-success');
+			if($headerdata['signup-success'] == 1) $headerdata['automodal'] = "$('#modal-signup-success').openModal()";  
 		}
+
+
 		// </the code that needs controller>
 
 		$this->load->view('header', $headerdata);
 		$this->load->view('index', $data);	
 		$this->load->view('footer');
+	}
+
+	public function generate_cardnum(){
+		$this->load->model('header_model');
+		$cardstring = "          ";
+		do{
+			for($index = 0; $index < 10; $index++){
+				$num = rand(0, 9);
+				$cardstring[$index] = $num;
+			}
+		} while ($this->header_model->is_existing('card_no', $cardstring));
 	}
 	
 }

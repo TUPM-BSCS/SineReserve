@@ -68,8 +68,49 @@ class header_model extends CI_Model {
 		return FALSE;
 	}
 
-	public function add_new_user($username, $password, $email, $lastname, $firstname, $middleinitial, $sex, $birthdate, $aaddress, $card_no, $card_pin) {
+	public function is_card_existing($value){
 
+	}
+
+	public function add_new_user($username, $password, $email, $lname, $fname, $minit, $sex, $birthdate, $address, $card_no) {
+
+		$user_values = array(
+				'username' => $username,
+				'PASSWORD' => $password,
+				'email' => $email,
+				'lname' => $lname,
+				'fname' => $fname,
+				'minit' => $minit,
+				'sex' => $sex,
+				'birthdate' => $birthdate,
+				'address' => $address,
+				'card_no' => $card_no,
+				'verify' => md5(rand(0,1000))
+		);
+
+		if($this->db->insert('user', $user_values)) return true;
+		return false;
+
+	}
+
+	public function add_card($card_no, $card_pin){
+		$card_values = array(
+			'card_no' => $card_no,
+			'card_pin' => $card_pin,
+			'card_points' => $card_points
+		);
+
+		if($this->db->insert('card', $card_values)) return true;
+		return false;
+	}
+
+	public function get_verifyhash($username){
+		$this->db->select('verify');
+		$this->db->where('username', $username);
+		$this->db->from('user');
+		$query = $this->db->get();
+
+		return $query->row_array()->verify;
 	}
 
 	public function set_user_username() {
