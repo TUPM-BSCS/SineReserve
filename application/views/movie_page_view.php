@@ -356,7 +356,7 @@
 			</div>
 		</div>
 
-		<div id="reviewmodal" class="modal modal-fixed-footer">.
+		<div id="reviewmodal" class="modal modal-fixed-footer">
 			<div class="modal-header red row">
 				<a class="modal-close btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">clear</i></a>
 				<p class="text-white">Write a Review for "<?php echo $movie_name ?>"</p>
