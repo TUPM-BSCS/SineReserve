@@ -46,7 +46,7 @@
 						<li><a class="<?php echo $accounts_action; ?>" data-beloworigin="true" data-activates="<?php echo $accounts_link; ?>" data-target="modal1" href="<?php echo $accounts_link; ?>"><i class="mdi-action-account-circle left"></i><?php echo $accounts_label; ?></a></li>
 						<li>
 							<div class="input-field red darken-2">
-								<div center class="input-field">
+								<div id="search_container" center class="input-field">
 									<input id="search_field" type="search" required placeholder="Search..." style="margin-bottom: 0px;">
 									<label for="search"><i class="mdi-action-search"></i></label>
 									<!-- Collections -->
@@ -215,12 +215,12 @@
 						console.log(JSON.stringify(data));
 						for(var sample in data) {
 							if(data == 'No Result') {
-								$('#search_result').html('').append('<a class="collection-item white black-text"><img class="responsive-img" src="">No Results Found.</a>');;
+								$('#search_result').html('').append('<a class="collection-item white black-text center-align"><img class="responsive-img" src="">No Results Found.</a>');;
 							}
 
 							else {
 								// $('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
-								$('#search_result').append('<a href="'+ BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_id'] + '" class="collection-item white black-text"><img class="responsive-img" src="' + BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_poster_img'] + '">' + data[sample]['mov_name'] + '</a>');
+								$('#search_result').append('<a href="'+ BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_id'] + '/" class="collection-item white black-text valign-wrapper"><img class="responsive-img" src="' + BASE_URL + data[sample]['mov_poster_img'] + '" style="max-height: 60px; margin-right: 10px;"><span class="movie-title">' + data[sample]['mov_name'] + '</span></a>');
 							}
 						}
 					},
@@ -241,19 +241,19 @@
 						console.log(JSON.stringify(data));
 						for(var sample in data) {
 							if(data == 'No Result') {
-								$('#search_result').html('').append('<a class="collection-item white black-text"><img class="responsive-img" src="">No Results Found.</a>');;
+								$('#search_result').html('').append('<a class="collection-item white black-text center-align"><img class="responsive-img" src="">No Results Found.</a>');;
 							}
 
 							else {
 								// $('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
-								$('#search_result').append('<a href="'+ BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_id'] + '" class="collection-item white black-text"><img class="responsive-img" src="' + BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_poster_img'] + '">' + data[sample]['mov_name'] + '</a>');
+								$('#search_result').append('<a href="'+ BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_id'] + '/" class="collection-item white black-text valign-wrapper"><img class="responsive-img" src="' + BASE_URL + data[sample]['mov_poster_img'] + '" style="max-height: 60px; margin-right: 10px;"><span class="movie-title">' + data[sample]['mov_name'] + '</span></a>');
 							}
 						}
 					},
 				});
 			});
 
-			$("#search_field").focusout(function(){
+			$("#search_container").blur(function(){
 				$('#search_result').html('');
 			});
 		</script>
