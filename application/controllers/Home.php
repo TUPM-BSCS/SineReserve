@@ -130,12 +130,14 @@ class Home extends CI_Controller {
 
 		if($this->session->userdata('hurt-me-plenty')){
 			$headerdata["accounts_link"] = "accounts_dropdown";
+			$headerdata["accounts_link_mobile"] = "#modal-accounts-mobile";
 
 			$this->load->model('header_model');
 			$details = $this->header_model->get_user_fullname($this->session->userdata('hurt-me-plenty'));
 			$headerdata['accounts_label'] = "Hello, " . $details['fname'] . " " . $details['lname'];
 			$headerdata['accounts_entry'] = "";
 			$headerdata['accounts_action'] = "dropdown-button";
+			$headerdata['accounts_action_mobile'] = "modal-trigger";
 			$headerdata['signin_errors'] = "";
 			$headerdata['signup_errors'] = "";
 			$headerdata['automodal'] = "";
@@ -144,9 +146,11 @@ class Home extends CI_Controller {
 
 			$headerdata['automodal'] = "";
 			$headerdata['accounts_link'] = "#modal1";
+			$headerdata["accounts_link_mobile"] = "#modal1";
 			$headerdata['accounts_label'] = "Accounts";	
 			$headerdata['accounts_entry'] = "";
 			$headerdata['accounts_action'] = "modal-trigger";
+			$headerdata['accounts_action_mobile'] = "modal-trigger";
 			$headerdata['signin_errors'] = $this->session->flashdata('validation-errors-signin');
 			$headerdata['signup_errors'] = $this->session->flashdata('validation-errors-signup');
 			if(strlen($headerdata['signin_errors'])>0){
