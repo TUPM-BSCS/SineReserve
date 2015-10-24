@@ -97,6 +97,8 @@
 							<div class="row">
 					         <input id="modal-movie" value="1" name="movie" type="text" class="validate col s12 l6" placeholder="Search a Movie" required>
 					         <input placeholder="Starting Time" id="modal-time" type="text" class="validate lolliclock col s12 l6" name="time">
+					         <div id="modal-movie-results" class="collections">
+					         </div>
 					      </div>
 
 				         <!-- Date Input Field -->
@@ -296,6 +298,97 @@
 			$('modal-branch').change(function() {
 				branch_changed();
 			});
+
+			// Search_Results pls edit how to retrieve data
+
+			var BASE_URL = "<?php echo base_url();?>";
+
+			$("#modal-movie").keyup(function() {
+				$('#modal-movie-results').html('');
+				var search_term = $('#modal-movie').val();
+				
+				$.ajax({
+					url: '<?php echo base_url(); ?>index.php/search_controller/ajax_search',
+					dataType: 'json',
+					method: 'post',
+					data: {search_term: search_term},
+					success: function(data) {
+						console.log(JSON.stringify(data));
+						for(var sample in data) {
+							if(data == 'No Result') {
+								$('#modal-movie-results').html('').append('<a class="collection-item white black-text center-align"><img class="responsive-img" src="">No Results Found.</a>');;
+							}
+
+							else {
+								// $('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
+								$('#modal-movie-results').append('<a href="'+ BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_id'] + '/" class="collection-item white black-text valign-wrapper"><img class="responsive-img" src="' + BASE_URL + data[sample]['mov_poster_img'] + '" style="max-height: 60px; margin-right: 10px;"><span class="movie-title">' + data[sample]['mov_name'] + '</span></a>');
+							}
+						}
+					},
+				});
+			});
+
+ 
+
+      $("#modal-movie_mob").keyup(function(){
+        $('#modal-movie-results_mob').html('');
+
+        var search_term = $('#modal-movie_mob').val();
+        
+        $.ajax({
+          url: '<?php echo base_url(); ?>index.php/search_controller/ajax_search',
+          dataType: 'json',
+          method: 'post',
+          data: {search_term: search_term},
+          success: function(data) {
+            console.log(JSON.stringify(data));        
+            for(var sample in data) {
+              if(data == 'No Result') {
+                $('#modal-movie-results_mob').html('').append('<a class="collection-item white black-text center-align"><img class="responsive-img" src="">No Results Found.</a>');;
+              }
+
+              else {
+                // $('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
+                $('#modal-movie-results_mob').append('<a href="'+ BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_id'] + '/" class="collection-item white black-text valign-wrapper"><img class="responsive-img" src="' + BASE_URL + data[sample]['mov_poster_img'] + '" style="max-height: 60px; margin-right: 10px;"><span class="movie-title">' + data[sample]['mov_name'] + '</span></a>');
+              }
+            }
+
+          },
+        });
+      });
+
+			
+			var mousedownHappened = false;
+      var mousedownHappenedMobile = false;
+
+			$("#modal-movie-results").mousedown(function() {
+				if($("#no-result").length == 0)
+        mousedownHappened = true;
+			});
+
+      $("#modal-movie-results_mob").mousedown(function() {
+        if($("#no-result").length == 0)
+        mousedownHappenedMobile = true;
+      });
+
+			$("#modal-movie").blur(function(){
+				if(mousedownHappened) {
+					setTimeout(function() {
+						$('#modal-movie').focus();
+					}, 1);
+
+					mousedownHappened = false;
+				}
+
+				else {
+					$('#modal-movie-results').html('');
+				}
+				// setTimeout(function() {
+				// 	$('#modal-movie').focus();
+				// }, 1000);
+			});
+
+
 		</script>
 	</body>
 </html>
