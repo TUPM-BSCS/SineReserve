@@ -253,7 +253,7 @@
 			//Insert Movie to DB and Upload Poster
 			$type = substr($_FILES['add_title_poster_btn']['name'],-4,4);
 			$_FILES['add_title_poster_btn']['name'] = $mov_id.$type;
-			$mov_poster_img = 'assets/images/poster/'.$_FILES['add_title_poster_btn']['name'];
+			$mov_poster_img = 'assets/images/posters/'.$_FILES['add_title_poster_btn']['name'];
 			// var_dump($mov_release_date);
 			$this->admin_model->insert_movie($mov_name, $mov_plot, $mov_rating, $mov_running_time, $mov_release_date, $mov_poster_img, $mov_trailer);
 			
