@@ -29,6 +29,7 @@ class user_page_controller extends CI_Controller {
 		// <the code that needs controller> 
 	$this->session->set_flashdata('last-page', current_url());
 
+
 		if($this->session->userdata('hurt-me-plenty')){
 			$headerdata["accounts_link"] = "accounts_dropdown";
 			$headerdata["accounts_link_mobile"] = "#modal-accounts-mobile";
@@ -65,6 +66,8 @@ class user_page_controller extends CI_Controller {
 			$headerdata['signup-success'] = $this->session->flashdata('signup-success');
 			if($headerdata['signup-success'] == 1) $headerdata['automodal'] = "$('#modal-signup-success').openModal()";  
 		}
+
+		$headerdata['page_name'] = $details['fname'] . " " . $details['lname'] . "'s Profile";
 		// </the code that needs controller>
 
 		$this->load->view('header', $headerdata);

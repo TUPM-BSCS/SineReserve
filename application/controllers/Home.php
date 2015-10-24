@@ -128,6 +128,7 @@ class Home extends CI_Controller {
 		// <the code that needs controller> 
 		$this->session->set_flashdata('last-page', current_url());
 
+
 		if($this->session->userdata('hurt-me-plenty')){
 			$headerdata["accounts_link"] = "accounts_dropdown";
 			$headerdata["accounts_link_mobile"] = "#modal-accounts-mobile";
@@ -165,7 +166,7 @@ class Home extends CI_Controller {
 			if($headerdata['signup-success'] == 1) $headerdata['automodal'] = "$('#modal-signup-success').openModal()";  
 		}
 
-
+		$headerdata['page_name'] = "SineReserve | Home";
 		// </the code that needs controller>
 
 		$this->load->view('header', $headerdata);

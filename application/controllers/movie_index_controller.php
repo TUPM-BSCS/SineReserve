@@ -111,6 +111,7 @@ class movie_index_controller extends CI_Controller {
 		// <the code that needs controller> 
 		$this->session->set_flashdata('last-page', current_url());
 
+		$headerdata['page_name'] = "SineReserve | Movies";
 		if($this->session->userdata('hurt-me-plenty')){
 			$headerdata["accounts_link"] = "accounts_dropdown";
 			$headerdata["accounts_link_mobile"] = "#modal-accounts-mobile";

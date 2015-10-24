@@ -66,6 +66,8 @@ class movie_page_controller extends CI_Controller {
 				$headerdata['automodal'] = "$('#modal-signup').openModal()";
 			}
 
+			$headerdata['page_name'] = "SineReserve | Movie Details";
+
 			$headerdata['signup-success'] = $this->session->flashdata('signup-success');
 			if($headerdata['signup-success'] == 1) $headerdata['automodal'] = "$('#modal-signup-success').openModal()";  
 		}
