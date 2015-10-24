@@ -48,7 +48,7 @@ class user_page_controller extends CI_Controller {
 			$headerdata['automodal'] = "";
 			$headerdata['accounts_link'] = "#modal1";
 			$headerdata["accounts_link_mobile"] = "#modal1";
-			$headerdata['accounts_label'] = "Accounts";	
+			$headerdata['accounts_label'] = "Sign In";	
 			$headerdata['accounts_entry'] = "";
 			$headerdata['accounts_action'] = "modal-trigger";
 			$headerdata['accounts_action_mobile'] = "modal-trigger";
