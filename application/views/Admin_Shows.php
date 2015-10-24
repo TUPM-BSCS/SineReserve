@@ -96,7 +96,8 @@
 							<!-- Movie Input Field -->
 							<div class="row">
 							<div class="input-field col s12 l6" style="margin-top: 0px">
-								 <input id="modal-movie" value="1" name="movie" type="text" class="validate" placeholder="Search a Movie" required>
+								 <input id="modal-movie" name="movie" type="text" class="validate" placeholder="Search a Movie" required>
+								 <input id="modal-movie-hidden" value="-1" type="hidden" name="movie-hidden">
 								 <div id="modal-movie-results" class="collections">
 						         	
 						         </div>
@@ -194,7 +195,7 @@
   			$('#add-submit').click(function(event) {
   				event.preventDefault();
   				var cinema = $('#modal-cinema').val();
-  				var movie = $('#modal-movie').val();
+  				var movie = $('#modal-movie-hidden').val();
   				var date = $('#today').val();
   				var start = $('#modal-time').val();
   				$('.add-result').html('');
@@ -325,8 +326,15 @@
 							}
 
 							else {
+								// '+ BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_id'] + '/
 								// $('#reserve_cinema').append('<option id="reserve_cinema_option" value="' + data[sample]['cine_id'] + '">' + data[sample]['cine_name'] + '</option>');
-								$('#modal-movie-results').append('<a href="'+ BASE_URL + 'index.php/movie_page_controller/movie/' + data[sample]['mov_id'] + '/" class="collection-item white black-text valign-wrapper"><img class="responsive-img" src="' + BASE_URL + data[sample]['mov_poster_img'] + '" style="max-height: 60px; margin-right: 10px;"><span class="movie-title">' + data[sample]['mov_name'] + '</span></a>');
+								$('#modal-movie-results').append('<a href="#" data-mov-id="'+ data[sample]['mov_id'] +'" data-mov-name="'+ data[sample]['mov_name'] +'" class="collection-item white black-text valign-wrapper clickity"><img class="responsive-img" src="' + BASE_URL + data[sample]['mov_poster_img'] + '" style="max-height: 60px; margin-right: 10px;"><span class="movie-title">' + data[sample]['mov_name'] + '</span></a>');
+								$('.clickity').click(function(event) {
+									event.preventDefault();
+									var thiss = this;
+									$('#modal-movie').val($(thiss).attr('data-mov-name'));
+									$('#modal-movie-hidden').val($(thiss).attr('data-mov-id'));
+								});
 							}
 						}
 					},
