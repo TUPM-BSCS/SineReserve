@@ -280,8 +280,27 @@
 					},
 				});
 			});
+			
+			var mousedownHappened = false;
+
+			$("#search_result").mousedown(function() {
+				mousedownHappened = true;
+			});
 
 			$("#search_field").blur(function(){
-				$('#search_result').html('');
+				if(mousedownHappened) {
+					setTimeout(function() {
+						$('#search_field').focus();
+					}, 1000);
+
+					mousedownHappened = false;
+				}
+
+				else {
+					$('#search_result').html('');
+				}
+				// setTimeout(function() {
+				// 	$('#search_field').focus();
+				// }, 1000);
 			});
 		</script>
