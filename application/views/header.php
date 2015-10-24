@@ -37,7 +37,7 @@
          
 					<!--          <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>-->
 					<ul class="right hide-on-large-only" >
-						<li><a id="movie-btn-mob" href="<?php echo base_url();?>/index.php/movie_index_controller/movie_index"><i class="mdi-av-movie"></i></a></li>
+						<li><a id="movie-btn-mob" href="<?php echo base_url();?>index.php/movie_index_controller/movie_index"><i class="mdi-av-movie"></i></a></li>
 						<li><a id="accounts-btn-mob" class="<?php echo $accounts_action_mobile; ?>"   data-activates="<?php echo $accounts_link_mobile; ?>" data-target="modal1" href="<?php echo $accounts_link_mobile; ?>"><i class="mdi-action-account-circle"></i></a></li>
             <li><a id="search-btn-mob" class="" href="#"><i class="mdi-action-search"></i>  </a></li>
             <li>
@@ -63,7 +63,7 @@
 
 					<ul class="right hide-on-med-and-down">
 						<!--<li><a href="http://localhost/SineReserve/index.php/movie_page_controller/movie">Movies</a></li>-->
-						<li><a href="<?php echo base_url();?>/index.php/movie_index_controller/movie_index"><i class="mdi-av-movie left"></i>Movies</a></li>
+						<li><a href="<?php echo base_url();?>index.php/movie_index_controller/movie_index"><i class="mdi-av-movie left"></i>Movies</a></li>
 						<li><a id="accounts-btn-web" class="<?php echo $accounts_action; ?>" data-beloworigin="true" data-activates="<?php echo $accounts_link; ?>" data-target="modal1" href="<?php echo $accounts_link; ?>"><i class="mdi-action-account-circle left"></i><?php echo $accounts_label; ?></a></li>
 						<li>
 							<div class="input-field red darken-2">

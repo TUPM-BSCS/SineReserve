@@ -8,7 +8,7 @@ class movie_index_controller extends CI_Controller {
     }   
 
 	public function movie_index(){
-		$today = date_create_from_format("Y-M-d",date("Y").'-'.date("M").'-'.date("d"));
+		$today = '2015-02-14';
 		$today = $today->format('Y-M-d');
 		//create root array for movie list
 		$data['movie_list'] = array();
