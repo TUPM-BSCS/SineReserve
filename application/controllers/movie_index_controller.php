@@ -8,7 +8,8 @@ class movie_index_controller extends CI_Controller {
     }   
 
 	public function movie_index(){
-		$today = '2015-02-14';
+		$today = date_create_from_format("Y-M-d",date("Y").'-'.date("M").'-'.date("d"));
+		$today = $today->format('Y-M-d');
 		//create root array for movie list
 		$data['movie_list'] = array();
 
@@ -124,7 +125,8 @@ class movie_index_controller extends CI_Controller {
 			$headerdata['signup_errors'] = "";
 			$headerdata['automodal'] = "";
 		} else {
-			//$headerdata['card_no'] = $this->generate_cardnum();
+			$headerdata['card_no'] = $this->generate_cardnum();
+			$this->session->set_userdata('card_no', $headerdata['card_no']);
 
 			$headerdata['automodal'] = "";
 			$headerdata['accounts_link'] = "#modal1";
@@ -151,6 +153,20 @@ class movie_index_controller extends CI_Controller {
 		$this->load->view('movie_index_view', $data);
 		$this->load->view('footer');
 	}
+
+	public function generate_cardnum(){
+		$this->load->model('header_model');
+		$cardstring = "          ";
+		do{
+			for($index = 0; $index < 10; $index++){
+				$num = rand(0, 9);
+				$cardstring[$index] = $num;
+			}
+		} while ($this->header_model->is_existing('card_no', $cardstring));
+
+		return $cardstring;
+	}
+
 	
 }
 ?>

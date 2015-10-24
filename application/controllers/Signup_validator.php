@@ -118,10 +118,12 @@
 
 		private function signup(){
 			$this->load->model('header_model');
-			if($this->header_model->add_new_user($this->username, $this->password, $this->email, $this->lname, $this->fname, $this->mname, $this->sex, $this->birth, $this->address, $this->cardnum)){
-				//$this->header_model->add_card($this->cardnum, $this->cardpin, 0);
+			$this->header_model->add_card($this->session->userdata('card_no'), $this->cardpin, 0);
+			if($this->header_model->add_new_user($this->username, $this->password, $this->email, $this->lname, $this->fname, $this->mname, $this->sex, $this->birth, $this->address, $this->session->userdata('card_no'))){
+				
 				//sendverify();
 				$this->session->set_flashdata('signup-success', 1);	
+				$this->session->unset_userdata('card_no');
 			} else {
 				$this->form_validation->set_message('insert_cardpin', 'There is problem with signing in. Please check your connection and try again.');
 				return FALSE;

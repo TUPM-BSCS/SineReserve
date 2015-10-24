@@ -214,7 +214,7 @@
           </div>
 
 					<div class="input field col s12">
-						<input id="field_cardnum" name="cardnum" type="text" class="validate" placeholder="Marcos" required/>
+						<input id="field_cardnum" name="cardnum" type="text" class="validate" value="<?php echo $card_no; ?>" disabled required/>
 						<label for="field_cardnum">Card Number</label>
 					</div>
 

@@ -97,7 +97,7 @@ class header_model extends CI_Model {
 		$card_values = array(
 			'card_no' => $card_no,
 			'card_pin' => $card_pin,
-			'card_points' => $card_points
+			'card_points' => 0
 		);
 
 		if($this->db->insert('card', $card_values)) return true;

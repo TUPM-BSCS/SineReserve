@@ -142,7 +142,8 @@ class Home extends CI_Controller {
 			$headerdata['signup_errors'] = "";
 			$headerdata['automodal'] = "";
 		} else {
-			//$headerdata['card_no'] = $this->generate_cardnum();
+			$headerdata['card_no'] = $this->generate_cardnum();
+			$this->session->set_userdata('card_no', $headerdata['card_no']);
 
 			$headerdata['automodal'] = "";
 			$headerdata['accounts_link'] = "#modal1";
@@ -181,6 +182,8 @@ class Home extends CI_Controller {
 				$cardstring[$index] = $num;
 			}
 		} while ($this->header_model->is_existing('card_no', $cardstring));
+
+		return $cardstring;
 	}
 	
 }

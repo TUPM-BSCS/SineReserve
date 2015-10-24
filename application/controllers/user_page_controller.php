@@ -27,8 +27,6 @@ class user_page_controller extends CI_Controller {
 		// die();
 
 		// <the code that needs controller> 
-		$this->session->set_flashdata('last-page', current_url());
-
 	$this->session->set_flashdata('last-page', current_url());
 
 		if($this->session->userdata('hurt-me-plenty')){
@@ -45,7 +43,8 @@ class user_page_controller extends CI_Controller {
 			$headerdata['signup_errors'] = "";
 			$headerdata['automodal'] = "";
 		} else {
-			//$headerdata['card_no'] = $this->generate_cardnum();
+			$headerdata['card_no'] = $this->generate_cardnum();
+			$this->session->set_userdata('card_no', $headerdata['card_no']);
 
 			$headerdata['automodal'] = "";
 			$headerdata['accounts_link'] = "#modal1";
@@ -72,5 +71,19 @@ class user_page_controller extends CI_Controller {
 		$this->load->view('user_page_view', $data);
 		$this->load->view('footer');
 	}
+
+	public function generate_cardnum(){
+		$this->load->model('header_model');
+		$cardstring = "          ";
+		do{
+			for($index = 0; $index < 10; $index++){
+				$num = rand(0, 9);
+				$cardstring[$index] = $num;
+			}
+		} while ($this->header_model->is_existing('card_no', $cardstring));
+
+		return $cardstring;
+	}
+
 }
 ?>
