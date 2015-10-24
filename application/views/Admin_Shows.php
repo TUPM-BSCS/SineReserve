@@ -95,10 +95,15 @@
 						<div class="input-field col s12">
 							<!-- Movie Input Field -->
 							<div class="row">
-					         <input id="modal-movie" value="1" name="movie" type="text" class="validate col s12 l6" placeholder="Search a Movie" required>
+							<div class="input-field col s12 l6" style="margin-top: 0px">
+								 <input id="modal-movie" value="1" name="movie" type="text" class="validate" placeholder="Search a Movie" required>
+								 <div id="modal-movie-results" class="collections">
+						         	
+						         </div>
+							</div>
+					        
 					         <input placeholder="Starting Time" id="modal-time" type="text" class="validate lolliclock col s12 l6" name="time">
-					         <div id="modal-movie-results" class="collections">
-					         </div>
+					         
 					      </div>
 
 				         <!-- Date Input Field -->
