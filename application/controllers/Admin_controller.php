@@ -31,6 +31,8 @@
 			$data['title_page'] = 'Branch';
 			$branch_name = $branch_address = $result = array();
 			$result = $this->admin_model->get_branch();
+			if ($result == null)
+				$result = array();
 			$data['branch'] = $result; 
 			$this->load->view('Admin_Navigation', $data);
 			$this->load->view('Admin_Branch', $data);
@@ -54,6 +56,8 @@
 			$data['residing_branch'] = $this->session->userdata('branch');
 			$result = array();
 			$result = $this->admin_model->get_branch();
+			if ($result == null)
+				$result = array();
 			$data['branch'] = $result;
 			$result = $this->admin_model->get_cinema_in_branch($this->session->userdata('branch'));
 			if($result == null){
@@ -90,6 +94,8 @@
 			$data['branch'] = $result; 
 			$data['poster_error'] = $this->session->flashdata('poster_error');
 			$movie = $this->admin_model->get_movie();
+			if ($movie == null)
+				$movie = array();
 			foreach($movie as $row){
 				$date = explode('-',$row->mov_release_date);
 				$row->mov_year = $date[0];
