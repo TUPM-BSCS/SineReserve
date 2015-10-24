@@ -20,6 +20,8 @@ class user_page_controller extends CI_Controller {
 		$data['user_birthdate'] = $this->user_page_model->get_user_birthdate($username);
 		$data['user_sex'] = $this->user_page_model->get_user_sex($username);
 		$data['user_address'] = $this->user_page_model->get_user_address($username);
+		$data['card_no'] = $this->user_page_model->get_card_no($username);
+		$data['card_points'] = $this->user_page_model->get_card_points($username);
 		
 		// print_r($data);
 		// die();

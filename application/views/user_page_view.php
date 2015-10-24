@@ -38,6 +38,16 @@
 				<label for="movie_title" class="active text-white">Address</label>
 			</div>
 
+			<div class="input-field col s12">
+				<input disabled value="<?php echo $card_no ?>" id="movie_title" type="text" class="validate text-white">
+				<label for="card_no" class="active text-white">Card Points</label>
+			</div>
+
+			<div class="input-field col s12">
+				<input disabled value="<?php echo $card_points ?>" id="movie_title" type="text" class="validate text-white">
+				<label for="card_points" class="active text-white">Card Points</label>
+			</div>
+
 			<!-- <div class="input-field col s12">
 				<input id="review_title" type="text" class="text" length="50" name="review_title">
 				<label for="review_title" class="text-black">Review Title</label>

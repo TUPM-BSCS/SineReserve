@@ -67,6 +67,32 @@ class user_page_model extends CI_Model {
 		return false;
 	}
 
+	public function get_card_no($username) {
+		$this->db->select('card.card_no');
+		$this->db->where('user.username', $username);
+		$this->db->from('card');
+		$this->db->join('user', 'card.card_no = user.card_no');
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return $query->row()->card_no;
+		}
+		return false;
+	}
+
+	public function get_card_points($username) {
+		$this->db->select('card_points');
+		$this->db->where('user.username', $username);
+		$this->db->from('card');
+		$this->db->join('user', 'card.card_no = user.card_no');
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0) {
+			return $query->row()->card_points;
+		}
+		return false;
+	}
+
 }
 
 ?>
