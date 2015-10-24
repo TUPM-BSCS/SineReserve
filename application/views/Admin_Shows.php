@@ -334,6 +334,7 @@
 									var thiss = this;
 									$('#modal-movie').val($(thiss).attr('data-mov-name'));
 									$('#modal-movie-hidden').val($(thiss).attr('data-mov-id'));
+									$('$modal-movie-results').html('');
 								});
 							}
 						}
