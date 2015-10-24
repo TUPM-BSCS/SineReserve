@@ -44,7 +44,7 @@ class Home extends CI_Controller {
 	// 	} 
 
 	public function home(){
-		$today = date('Y-m-d');
+		$today = date('2015-02-14');
 		//create root array for movie list
 		$data['movie_list'] = array();
 
