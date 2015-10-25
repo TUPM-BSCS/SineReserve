@@ -21,6 +21,13 @@
 				$this->db->insert('branch', $branch);
 			}
 		}
+
+		public function get_cine_slots($cinema) {
+			$this->db->where('cine_id', $cinema);
+			$this->db->from('cinema');
+			$this->db->select('cine_slots');
+			return $this->db->get();
+		}
 		
 		public function get_cinema_in_branch($branch = null){
 			$where = array('cinema.bran_id' => $branch);

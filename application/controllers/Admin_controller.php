@@ -381,6 +381,7 @@
 				$end_times = array();
 				$movie = $this->input->post('movie');
 				$start = $this->input->post('start');
+				$cost = $this->input->post('cost');
 				$start = strtolower($this->input->post('start'));
 				$start = new DateTime($start);
 				array_push($start_times, $start->format('H:i:s'));
@@ -408,7 +409,11 @@
 					'end' => $end_times
 				));
 				// return;
-				$this->shows_model->add_shows($movie, $date, $cinema, $start_times, $end_times);
+				$this->load->model('admin_model');
+				$query = $this->admin_model->get_cine_slots($cinema);
+				$row = $query->row();
+				$cine_slots = $row->cine_slots;
+				$this->shows_model->add_shows($movie, $date, $cinema, $start_times, $end_times, $cine_slots, $cost);
 			}
 		}
 		

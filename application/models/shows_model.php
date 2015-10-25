@@ -87,7 +87,7 @@ class shows_model extends CI_Model {
 		return $this->db->get();
 	}
 
-	public function add_shows($movie, $date, $cinema, $start_times, $end_times) {
+	public function add_shows($movie, $date, $cinema, $start_times, $end_times, $cine_slots, $cost) {
 		$data = array();
 		for($i = 0;$i < count($start_times);$i++) {
 			$row = array(
@@ -96,7 +96,9 @@ class shows_model extends CI_Model {
 				'show_date' => $date,
 				'cine_id' => $cinema,
 				'mov_id' => $movie,
-				'date_posted' => date('Y-m-d')
+				'date_posted' => date('Y-m-d'),
+				'slots_avail' => $cine_slots,
+				'cost' => $cost
 			);
 			array_push($data, $row);
 		}

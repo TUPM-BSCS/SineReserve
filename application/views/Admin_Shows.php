@@ -95,22 +95,20 @@
 						<div class="input-field col s12">
 							<!-- Movie Input Field -->
 							<div class="row">
-							<div class="input-field col s12 l6" style="margin-top: 0px">
-								 <input id="modal-movie" name="movie" type="text" class="validate" placeholder="Search a Movie" required>
-								 <input id="modal-movie-hidden" value="-1" type="hidden" name="movie-hidden">
-								 <div id="modal-movie-results" class="collections">
-						         	
-						         </div>
-							</div>
-					        
-					         <input placeholder="Starting Time" id="modal-time" type="text" class="validate lolliclock col s12 l6" name="time">
-					         
+								<div class="input-field col s12 l6" style="margin-top: 0px">
+									 <input id="modal-movie" name="movie" type="text" class="validate" placeholder="Search a Movie" required>
+									 <input id="modal-movie-hidden" value="-1" type="hidden" name="movie-hidden">
+									 <div id="modal-movie-results" class="collections">
+							         	
+							         </div>
+								</div>
+					         <input placeholder="Input Show Cost" id="modal-cost" type="number" class="validate col s12 l6" name="cost" required>
 					      </div>
 
 				         <!-- Date Input Field -->
 				         <div class="row">
-							<i class="material-icons prefix">today</i>
-							<input <?php echo 'data-value="' . $today . '"'; ?> id="today" type="date" class="modal-datepicker" placeholder="Pick a Date" required>
+								<input <?php echo 'data-value="' . $today . '"'; ?> id="today" type="date" class="modal-datepicker col s12 l6" placeholder="Pick a Date" required>
+						      <input placeholder="Input a Starting Time" id="modal-time" type="text" class="validate lolliclock col s12 l6" name="time">
 							</div>
 
 				         <!-- Branch Input Field -->
@@ -198,12 +196,13 @@
   				var movie = $('#modal-movie-hidden').val();
   				var date = $('#today').val();
   				var start = $('#modal-time').val();
+  				var cost = $('#modal-cost').val();
   				$('.add-result').html('');
   				$.ajax({
   					url: '<?php echo base_url(); ?>index.php/Admin_controller/ajax_add_shows',
   					dataType: 'json',
   					method: 'post',
-  					data: {cinema: cinema, movie: movie, date: date, start: start},
+  					data: {cinema: cinema, movie: movie, date: date, start: start, cost: cost},
   					success: function(data) {
   						console.log(data);
   						if (data == false) {
